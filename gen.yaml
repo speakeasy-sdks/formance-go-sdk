@@ -1,7 +1,7 @@
 configVersion: 1.0.0
 generation:
     telemetryEnabled: false
-    sdkClassName: SDK
+    sdkClassName: formance
 go:
     version: 0.0.1
     packageName: github.com/speakeasy-sdks/formance-go-sdk
