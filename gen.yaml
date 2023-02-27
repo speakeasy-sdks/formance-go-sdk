@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 5622178c8e6fa92d46ea2ccc25a3be12
+  docChecksum: e2d62c3257abdb44d60905723bd6484e
   docVersion: v1.0.0-rc.5
   speakeasyVersion: 1.5.4
 generation:
@@ -8,5 +8,5 @@ generation:
   sdkClassName: formance
   sdkFlattening: false
 go:
-  version: 0.1.1
+  version: 0.1.2
   packageName: github.com/speakeasy-sdks/formance-go-sdk
