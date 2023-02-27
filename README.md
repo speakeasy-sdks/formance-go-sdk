@@ -6,7 +6,7 @@
    <h1>Go SDK</h1>
    <p><strong>Open Source Ledger for money-moving platforms</strong></p>
    <p>Build and track custom fit money flows on a scalable financial infrastructure.</p>
-   <a href="https://docs.formance.com/api/stack/v1.0#section/Introduction"><img src="https://img.shields.io/static/v1?label=Docs&message=API Ref&color=0000&style=for-the-badge" /></a>
+   <a href="https://docs.formance.com/api/stack/v1.0#section/Introduction"><img src="https://img.shields.io/static/v1?label=Docs&message=Docs&color=000&style=for-the-badge" /></a>
    <a href="https://github.com/speakeasy-sdks/formance-go-sdk/actions"><img src="https://img.shields.io/github/actions/workflow/status/speakeasy-sdks/formance-go-sdk/speakeasy_sdk_generation.yml?style=for-the-badge" /></a>
   <a href="https://join.slack.com/t/formance-community/shared_invite/zt-1of48xmgy-Jc6RH8gzcWf5D0qD2HBPQA"><img src="https://img.shields.io/static/v1?label=Slack&message=Join&color=7289da&style=for-the-badge" /></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" /></a>
