@@ -34,17 +34,13 @@ import (
 )
 
 func main() {
-    opts := []formance.SDKOption{
-        formance.WithSecurity(
-            shared.Security{
-                Authorization: shared.SchemeAuthorization{
-                    Authorization: "Bearer YOUR_ACCESS_TOKEN_HERE",
-                },
+    s := formance.New(formance.WithSecurity(
+        shared.Security{
+            Authorization: shared.SchemeAuthorization{
+                Authorization: "Bearer YOUR_ACCESS_TOKEN_HERE",
             },
-        ),
-    }
-
-    s := formance.New(opts...)
+        },
+    ))
 
     ctx := context.Background()
     res, err := s.GetServerInfo(ctx)
