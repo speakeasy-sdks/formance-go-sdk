@@ -60,7 +60,7 @@ func (s *ledger) GetLedgerInfo(ctx context.Context, request operations.GetLedger
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out *interface{}
+			var out interface{}
 			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
 				return nil, err
 			}

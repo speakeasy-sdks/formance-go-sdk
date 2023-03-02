@@ -2,7 +2,7 @@ package shared
 
 type ExpandedDebitHold struct {
 	Description    string                 `json:"description"`
-	Destination    *interface{}           `json:"destination,omitempty"`
+	Destination    interface{}            `json:"destination,omitempty"`
 	ID             string                 `json:"id"`
 	Metadata       map[string]interface{} `json:"metadata"`
 	OriginalAmount int64                  `json:"originalAmount"`

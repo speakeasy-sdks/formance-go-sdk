@@ -15,6 +15,6 @@ type GetLedgerInfoRequest struct {
 type GetLedgerInfoResponse struct {
 	ContentType        string
 	ErrorResponse      *shared.ErrorResponse
-	LedgerInfoResponse *interface{}
+	LedgerInfoResponse interface{}
 	StatusCode         int
 }

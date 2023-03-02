@@ -15,6 +15,6 @@ type ListRunsRequest struct {
 type ListRunsResponse struct {
 	ContentType      string
 	Error            *shared.Error
-	ListRunsResponse *interface{}
+	ListRunsResponse interface{}
 	StatusCode       int
 }
