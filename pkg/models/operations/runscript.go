@@ -2,6 +2,7 @@ package operations
 
 import (
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 type RunScriptPathParams struct {
@@ -22,4 +23,5 @@ type RunScriptResponse struct {
 	ContentType    string
 	ScriptResponse *shared.ScriptResponse
 	StatusCode     int
+	RawResponse    *http.Response
 }

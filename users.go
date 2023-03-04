@@ -57,6 +57,7 @@ func (s *users) ListUsers(ctx context.Context) (*operations.ListUsersResponse, e
 	res := &operations.ListUsersResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -101,6 +102,7 @@ func (s *users) ReadUser(ctx context.Context, request operations.ReadUserRequest
 	res := &operations.ReadUserResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:

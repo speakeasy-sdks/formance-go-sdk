@@ -2,6 +2,7 @@ package operations
 
 import (
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 type GetFlowPathParams struct {
@@ -17,4 +18,5 @@ type GetFlowResponse struct {
 	Error               *shared.Error
 	GetWorkflowResponse *shared.GetWorkflowResponse
 	StatusCode          int
+	RawResponse         *http.Response
 }

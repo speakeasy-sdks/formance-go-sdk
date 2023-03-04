@@ -2,6 +2,7 @@ package operations
 
 import (
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 type UpdateScopePathParams struct {
@@ -16,5 +17,6 @@ type UpdateScopeRequest struct {
 type UpdateScopeResponse struct {
 	ContentType         string
 	StatusCode          int
+	RawResponse         *http.Response
 	UpdateScopeResponse *shared.UpdateScopeResponse
 }

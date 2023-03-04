@@ -2,6 +2,7 @@ package operations
 
 import (
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 type GetInfoResponse struct {
@@ -9,4 +10,5 @@ type GetInfoResponse struct {
 	ContentType        string
 	ErrorResponse      *shared.ErrorResponse
 	StatusCode         int
+	RawResponse        *http.Response
 }

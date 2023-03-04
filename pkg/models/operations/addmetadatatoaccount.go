@@ -2,6 +2,7 @@ package operations
 
 import (
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 type AddMetadataToAccountPathParams struct {
@@ -18,4 +19,5 @@ type AddMetadataToAccountResponse struct {
 	ContentType   string
 	ErrorResponse *shared.ErrorResponse
 	StatusCode    int
+	RawResponse   *http.Response
 }

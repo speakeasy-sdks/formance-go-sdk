@@ -2,6 +2,7 @@ package operations
 
 import (
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 type GetAccountPathParams struct {
@@ -18,4 +19,5 @@ type GetAccountResponse struct {
 	ContentType     string
 	ErrorResponse   *shared.ErrorResponse
 	StatusCode      int
+	RawResponse     *http.Response
 }

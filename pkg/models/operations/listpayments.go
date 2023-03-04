@@ -2,6 +2,7 @@ package operations
 
 import (
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 type ListPaymentsQueryParams struct {
@@ -18,4 +19,5 @@ type ListPaymentsResponse struct {
 	ContentType    string
 	PaymentsCursor *shared.PaymentsCursor
 	StatusCode     int
+	RawResponse    *http.Response
 }

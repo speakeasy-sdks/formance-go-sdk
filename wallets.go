@@ -63,6 +63,7 @@ func (s *wallets) ConfirmHold(ctx context.Context, request operations.ConfirmHol
 	res := &operations.ConfirmHoldResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 204:
@@ -114,6 +115,7 @@ func (s *wallets) CreateBalance(ctx context.Context, request operations.CreateBa
 	res := &operations.CreateBalanceResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 201:
@@ -174,6 +176,7 @@ func (s *wallets) CreateWallet(ctx context.Context, request operations.CreateWal
 	res := &operations.CreateWalletResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 201:
@@ -234,6 +237,7 @@ func (s *wallets) CreditWallet(ctx context.Context, request operations.CreditWal
 	res := &operations.CreditWalletResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 204:
@@ -285,6 +289,7 @@ func (s *wallets) DebitWallet(ctx context.Context, request operations.DebitWalle
 	res := &operations.DebitWalletResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -339,6 +344,7 @@ func (s *wallets) GetBalance(ctx context.Context, request operations.GetBalanceR
 	res := &operations.GetBalanceResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -392,6 +398,7 @@ func (s *wallets) GetHold(ctx context.Context, request operations.GetHoldRequest
 	res := &operations.GetHoldResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -449,6 +456,7 @@ func (s *wallets) GetHolds(ctx context.Context, request operations.GetHoldsReque
 	res := &operations.GetHoldsResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -505,6 +513,7 @@ func (s *wallets) GetTransactions(ctx context.Context, request operations.GetTra
 	res := &operations.GetTransactionsResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -558,6 +567,7 @@ func (s *wallets) GetWallet(ctx context.Context, request operations.GetWalletReq
 	res := &operations.GetWalletResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -612,6 +622,7 @@ func (s *wallets) ListBalances(ctx context.Context, request operations.ListBalan
 	res := &operations.ListBalancesResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -659,6 +670,7 @@ func (s *wallets) ListWallets(ctx context.Context, request operations.ListWallet
 	res := &operations.ListWalletsResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -709,6 +721,7 @@ func (s *wallets) UpdateWallet(ctx context.Context, request operations.UpdateWal
 	res := &operations.UpdateWalletResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 204:
@@ -753,6 +766,7 @@ func (s *wallets) VoidHold(ctx context.Context, request operations.VoidHoldReque
 	res := &operations.VoidHoldResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 204:
@@ -797,6 +811,7 @@ func (s *wallets) WalletsgetServerInfo(ctx context.Context) (*operations.Wallets
 	res := &operations.WalletsgetServerInfoResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:

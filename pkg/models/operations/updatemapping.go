@@ -2,6 +2,7 @@ package operations
 
 import (
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 type UpdateMappingPathParams struct {
@@ -18,4 +19,5 @@ type UpdateMappingResponse struct {
 	ErrorResponse   *shared.ErrorResponse
 	MappingResponse *shared.MappingResponse
 	StatusCode      int
+	RawResponse     *http.Response
 }

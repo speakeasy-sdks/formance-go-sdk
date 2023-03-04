@@ -2,6 +2,7 @@ package operations
 
 import (
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 type DebitWalletPathParams struct {
@@ -17,5 +18,6 @@ type DebitWalletResponse struct {
 	ContentType          string
 	DebitWalletResponse  *shared.DebitWalletResponse
 	StatusCode           int
+	RawResponse          *http.Response
 	WalletsErrorResponse *shared.WalletsErrorResponse
 }

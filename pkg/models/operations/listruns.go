@@ -2,6 +2,7 @@ package operations
 
 import (
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 type ListRunsPathParams struct {
@@ -17,4 +18,5 @@ type ListRunsResponse struct {
 	Error            *shared.Error
 	ListRunsResponse interface{}
 	StatusCode       int
+	RawResponse      *http.Response
 }

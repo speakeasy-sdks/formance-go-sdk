@@ -56,6 +56,7 @@ func (s *clients) AddScopeToClient(ctx context.Context, request operations.AddSc
 	res := &operations.AddScopeToClientResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 204:
@@ -97,6 +98,7 @@ func (s *clients) CreateClient(ctx context.Context, request operations.CreateCli
 	res := &operations.CreateClientResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 201:
@@ -147,6 +149,7 @@ func (s *clients) CreateSecret(ctx context.Context, request operations.CreateSec
 	res := &operations.CreateSecretResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -190,6 +193,7 @@ func (s *clients) DeleteClient(ctx context.Context, request operations.DeleteCli
 	res := &operations.DeleteClientResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 204:
@@ -224,6 +228,7 @@ func (s *clients) DeleteScopeFromClient(ctx context.Context, request operations.
 	res := &operations.DeleteScopeFromClientResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 204:
@@ -258,6 +263,7 @@ func (s *clients) DeleteSecret(ctx context.Context, request operations.DeleteSec
 	res := &operations.DeleteSecretResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 204:
@@ -292,6 +298,7 @@ func (s *clients) ListClients(ctx context.Context) (*operations.ListClientsRespo
 	res := &operations.ListClientsResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -335,6 +342,7 @@ func (s *clients) ReadClient(ctx context.Context, request operations.ReadClientR
 	res := &operations.ReadClientResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -385,6 +393,7 @@ func (s *clients) UpdateClient(ctx context.Context, request operations.UpdateCli
 	res := &operations.UpdateClientResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:

@@ -2,6 +2,7 @@ package operations
 
 import (
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 type RevertTransactionPathParams struct {
@@ -17,5 +18,6 @@ type RevertTransactionResponse struct {
 	ContentType         string
 	ErrorResponse       *shared.ErrorResponse
 	StatusCode          int
+	RawResponse         *http.Response
 	TransactionResponse *shared.TransactionResponse
 }

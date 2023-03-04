@@ -2,6 +2,7 @@ package operations
 
 import (
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 type GetLedgerInfoPathParams struct {
@@ -17,4 +18,5 @@ type GetLedgerInfoResponse struct {
 	ErrorResponse      *shared.ErrorResponse
 	LedgerInfoResponse interface{}
 	StatusCode         int
+	RawResponse        *http.Response
 }

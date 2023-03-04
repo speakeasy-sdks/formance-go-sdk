@@ -2,6 +2,7 @@ package operations
 
 import (
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 type ListConnectorTasksPathParams struct {
@@ -21,5 +22,6 @@ type ListConnectorTasksRequest struct {
 type ListConnectorTasksResponse struct {
 	ContentType string
 	StatusCode  int
+	RawResponse *http.Response
 	TasksCursor *shared.TasksCursor
 }

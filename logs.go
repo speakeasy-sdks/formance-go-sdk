@@ -60,6 +60,7 @@ func (s *logs) ListLogs(ctx context.Context, request operations.ListLogsRequest)
 	res := &operations.ListLogsResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:

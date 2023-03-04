@@ -56,6 +56,7 @@ func (s *stats) ReadStats(ctx context.Context, request operations.ReadStatsReque
 	res := &operations.ReadStatsResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:

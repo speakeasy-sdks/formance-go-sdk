@@ -57,6 +57,7 @@ func (s *scopes) AddTransientScope(ctx context.Context, request operations.AddTr
 	res := &operations.AddTransientScopeResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 204:
@@ -99,6 +100,7 @@ func (s *scopes) CreateScope(ctx context.Context, request operations.CreateScope
 	res := &operations.CreateScopeResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 201:
@@ -143,6 +145,7 @@ func (s *scopes) DeleteScope(ctx context.Context, request operations.DeleteScope
 	res := &operations.DeleteScopeResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 204:
@@ -178,6 +181,7 @@ func (s *scopes) DeleteTransientScope(ctx context.Context, request operations.De
 	res := &operations.DeleteTransientScopeResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 204:
@@ -213,6 +217,7 @@ func (s *scopes) ListScopes(ctx context.Context) (*operations.ListScopesResponse
 	res := &operations.ListScopesResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -257,6 +262,7 @@ func (s *scopes) ReadScope(ctx context.Context, request operations.ReadScopeRequ
 	res := &operations.ReadScopeResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -308,6 +314,7 @@ func (s *scopes) UpdateScope(ctx context.Context, request operations.UpdateScope
 	res := &operations.UpdateScopeResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:

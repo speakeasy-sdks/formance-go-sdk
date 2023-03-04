@@ -20,6 +20,21 @@ type HTTPClient interface {
 	Do(req *http.Request) (*http.Response, error)
 }
 
+// String provides a helper function to return a pointer to a string
+func String(s string) *string { return &s }
+
+// SDK Documentation: Open, modular foundation for unique payments flows
+//
+// # Introduction
+// This API is documented in **OpenAPI format**.
+//
+// # Authentication
+// Formance Stack offers one forms of authentication:
+//   - OAuth2
+//
+// OAuth2 - an open protocol to allow secure authorization in a simple
+// and standard method from web, mobile and desktop applications.
+// <SecurityDefinitions />
 type Formance struct {
 	Accounts      *accounts
 	Balances      *balances
@@ -51,7 +66,13 @@ type Formance struct {
 
 type SDKOption func(*Formance)
 
-func WithServerURL(serverURL string, params map[string]string) SDKOption {
+func WithServerURL(serverURL string) SDKOption {
+	return func(sdk *Formance) {
+		sdk._serverURL = serverURL
+	}
+}
+
+func WithTemplatedServerURL(serverURL string, params map[string]string) SDKOption {
 	return func(sdk *Formance) {
 		if params != nil {
 			serverURL = utils.ReplaceParameters(serverURL, params)
@@ -76,8 +97,8 @@ func WithSecurity(security shared.Security) SDKOption {
 func New(opts ...SDKOption) *Formance {
 	sdk := &Formance{
 		_language:   "go",
-		_sdkVersion: "0.3.0",
-		_genVersion: "1.7.1",
+		_sdkVersion: "0.4.0",
+		_genVersion: "1.8.2",
 	}
 	for _, opt := range opts {
 		opt(sdk)
@@ -283,6 +304,7 @@ func (s *Formance) GetServerInfo(ctx context.Context) (*operations.GetServerInfo
 	res := &operations.GetServerInfoResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -326,6 +348,7 @@ func (s *Formance) PaymentsgetServerInfo(ctx context.Context) (*operations.Payme
 	res := &operations.PaymentsgetServerInfoResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -369,6 +392,7 @@ func (s *Formance) SearchgetServerInfo(ctx context.Context) (*operations.Searchg
 	res := &operations.SearchgetServerInfoResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:

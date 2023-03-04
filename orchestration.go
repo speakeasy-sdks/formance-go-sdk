@@ -64,6 +64,7 @@ func (s *orchestration) CreateWorkflow(ctx context.Context, request operations.C
 	res := &operations.CreateWorkflowResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 201:
@@ -118,6 +119,7 @@ func (s *orchestration) GetFlow(ctx context.Context, request operations.GetFlowR
 	res := &operations.GetFlowResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -172,6 +174,7 @@ func (s *orchestration) GetWorkflowOccurrence(ctx context.Context, request opera
 	res := &operations.GetWorkflowOccurrenceResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -226,6 +229,7 @@ func (s *orchestration) ListFlows(ctx context.Context) (*operations.ListFlowsRes
 	res := &operations.ListFlowsResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -280,6 +284,7 @@ func (s *orchestration) ListRuns(ctx context.Context, request operations.ListRun
 	res := &operations.ListRunsResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -333,6 +338,7 @@ func (s *orchestration) OrchestrationgetServerInfo(ctx context.Context) (*operat
 	res := &operations.OrchestrationgetServerInfoResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -398,6 +404,7 @@ func (s *orchestration) RunWorkflow(ctx context.Context, request operations.RunW
 	res := &operations.RunWorkflowResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 201:

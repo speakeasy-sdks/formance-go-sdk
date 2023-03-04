@@ -65,6 +65,7 @@ func (s *accounts) AddMetadataToAccount(ctx context.Context, request operations.
 	res := &operations.AddMetadataToAccountResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 204:
@@ -113,6 +114,7 @@ func (s *accounts) CountAccounts(ctx context.Context, request operations.CountAc
 	res := &operations.CountAccountsResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -159,6 +161,7 @@ func (s *accounts) GetAccount(ctx context.Context, request operations.GetAccount
 	res := &operations.GetAccountResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -217,6 +220,7 @@ func (s *accounts) ListAccounts(ctx context.Context, request operations.ListAcco
 	res := &operations.ListAccountsResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:

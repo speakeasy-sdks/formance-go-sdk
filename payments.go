@@ -67,6 +67,7 @@ func (s *payments) ConnectorsStripeTransfer(ctx context.Context, request operati
 	res := &operations.ConnectorsStripeTransferResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -111,6 +112,7 @@ func (s *payments) GetConnectorTask(ctx context.Context, request operations.GetC
 	res := &operations.GetConnectorTaskResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -154,6 +156,7 @@ func (s *payments) GetPayment(ctx context.Context, request operations.GetPayment
 	res := &operations.GetPaymentResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -208,6 +211,7 @@ func (s *payments) InstallConnector(ctx context.Context, request operations.Inst
 	res := &operations.InstallConnectorResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 204:
@@ -243,6 +247,7 @@ func (s *payments) ListAllConnectors(ctx context.Context) (*operations.ListAllCo
 	res := &operations.ListAllConnectorsResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -287,6 +292,7 @@ func (s *payments) ListConfigsAvailableConnectors(ctx context.Context) (*operati
 	res := &operations.ListConfigsAvailableConnectorsResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -335,6 +341,7 @@ func (s *payments) ListConnectorTasks(ctx context.Context, request operations.Li
 	res := &operations.ListConnectorTasksResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -382,6 +389,7 @@ func (s *payments) ListPayments(ctx context.Context, request operations.ListPaym
 	res := &operations.ListPaymentsResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -429,6 +437,7 @@ func (s *payments) PaymentslistAccounts(ctx context.Context, request operations.
 	res := &operations.PaymentslistAccountsResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -473,6 +482,7 @@ func (s *payments) ReadConnectorConfig(ctx context.Context, request operations.R
 	res := &operations.ReadConnectorConfigResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -518,6 +528,7 @@ func (s *payments) ResetConnector(ctx context.Context, request operations.ResetC
 	res := &operations.ResetConnectorResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 204:
@@ -553,6 +564,7 @@ func (s *payments) UninstallConnector(ctx context.Context, request operations.Un
 	res := &operations.UninstallConnectorResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 204:

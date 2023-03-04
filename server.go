@@ -56,6 +56,7 @@ func (s *server) GetInfo(ctx context.Context) (*operations.GetInfoResponse, erro
 	res := &operations.GetInfoResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:

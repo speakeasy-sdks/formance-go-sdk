@@ -2,6 +2,7 @@ package operations
 
 import (
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 type CreateSecretPathParams struct {
@@ -17,4 +18,5 @@ type CreateSecretResponse struct {
 	ContentType          string
 	CreateSecretResponse *shared.CreateSecretResponse
 	StatusCode           int
+	RawResponse          *http.Response
 }

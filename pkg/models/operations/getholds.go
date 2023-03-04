@@ -2,6 +2,7 @@ package operations
 
 import (
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 type GetHoldsQueryParams struct {
@@ -19,5 +20,6 @@ type GetHoldsResponse struct {
 	ContentType          string
 	GetHoldsResponse     *shared.GetHoldsResponse
 	StatusCode           int
+	RawResponse          *http.Response
 	WalletsErrorResponse *shared.WalletsErrorResponse
 }

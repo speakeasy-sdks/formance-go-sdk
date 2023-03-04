@@ -67,6 +67,7 @@ func (s *search) Search(ctx context.Context, request operations.SearchRequest) (
 	res := &operations.SearchResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:

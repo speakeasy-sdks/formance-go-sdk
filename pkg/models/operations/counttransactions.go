@@ -2,6 +2,7 @@ package operations
 
 import (
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 	"time"
 )
 
@@ -31,4 +32,5 @@ type CountTransactionsResponse struct {
 	ErrorResponse *shared.ErrorResponse
 	Headers       map[string][]string
 	StatusCode    int
+	RawResponse   *http.Response
 }

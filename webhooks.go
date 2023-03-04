@@ -58,6 +58,7 @@ func (s *webhooks) ActivateConfig(ctx context.Context, request operations.Activa
 	res := &operations.ActivateConfigResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -113,6 +114,7 @@ func (s *webhooks) ChangeConfigSecret(ctx context.Context, request operations.Ch
 	res := &operations.ChangeConfigSecretResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -157,6 +159,7 @@ func (s *webhooks) DeactivateConfig(ctx context.Context, request operations.Deac
 	res := &operations.DeactivateConfigResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -202,6 +205,7 @@ func (s *webhooks) DeleteConfig(ctx context.Context, request operations.DeleteCo
 	res := &operations.DeleteConfigResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -241,6 +245,7 @@ func (s *webhooks) GetManyConfigs(ctx context.Context, request operations.GetMan
 	res := &operations.GetManyConfigsResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -303,6 +308,7 @@ func (s *webhooks) InsertConfig(ctx context.Context, request operations.InsertCo
 	res := &operations.InsertConfigResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -358,6 +364,7 @@ func (s *webhooks) TestConfig(ctx context.Context, request operations.TestConfig
 	res := &operations.TestConfigResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:

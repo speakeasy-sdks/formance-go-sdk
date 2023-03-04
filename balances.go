@@ -59,6 +59,7 @@ func (s *balances) GetBalances(ctx context.Context, request operations.GetBalanc
 	res := &operations.GetBalancesResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -116,6 +117,7 @@ func (s *balances) GetBalancesAggregated(ctx context.Context, request operations
 	res := &operations.GetBalancesAggregatedResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:

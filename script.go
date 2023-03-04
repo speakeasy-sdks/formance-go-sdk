@@ -70,6 +70,7 @@ func (s *script) RunScript(ctx context.Context, request operations.RunScriptRequ
 	res := &operations.RunScriptResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:

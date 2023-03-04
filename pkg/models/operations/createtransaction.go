@@ -2,6 +2,7 @@ package operations
 
 import (
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 type CreateTransactionPathParams struct {
@@ -22,5 +23,6 @@ type CreateTransactionResponse struct {
 	ContentType          string
 	ErrorResponse        *shared.ErrorResponse
 	StatusCode           int
+	RawResponse          *http.Response
 	TransactionsResponse *shared.TransactionsResponse
 }

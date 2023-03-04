@@ -2,6 +2,7 @@ package operations
 
 import (
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 type ListWalletsQueryParams struct {
@@ -19,4 +20,5 @@ type ListWalletsResponse struct {
 	ContentType         string
 	ListWalletsResponse *shared.ListWalletsResponse
 	StatusCode          int
+	RawResponse         *http.Response
 }

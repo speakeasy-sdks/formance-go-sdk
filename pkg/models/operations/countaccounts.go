@@ -2,6 +2,7 @@ package operations
 
 import (
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 type CountAccountsPathParams struct {
@@ -23,4 +24,5 @@ type CountAccountsResponse struct {
 	ErrorResponse *shared.ErrorResponse
 	Headers       map[string][]string
 	StatusCode    int
+	RawResponse   *http.Response
 }

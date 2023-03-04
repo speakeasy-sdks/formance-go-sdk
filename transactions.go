@@ -65,6 +65,7 @@ func (s *transactions) CreateTransactions(ctx context.Context, request operation
 	res := &operations.CreateTransactionsResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -125,6 +126,7 @@ func (s *transactions) AddMetadataOnTransaction(ctx context.Context, request ope
 	res := &operations.AddMetadataOnTransactionResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 204:
@@ -173,6 +175,7 @@ func (s *transactions) CountTransactions(ctx context.Context, request operations
 	res := &operations.CountTransactionsResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -233,6 +236,7 @@ func (s *transactions) CreateTransaction(ctx context.Context, request operations
 	res := &operations.CreateTransactionResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -286,6 +290,7 @@ func (s *transactions) GetTransaction(ctx context.Context, request operations.Ge
 	res := &operations.GetTransactionResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -344,6 +349,7 @@ func (s *transactions) ListTransactions(ctx context.Context, request operations.
 	res := &operations.ListTransactionsResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:
@@ -397,6 +403,7 @@ func (s *transactions) RevertTransaction(ctx context.Context, request operations
 	res := &operations.RevertTransactionResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:

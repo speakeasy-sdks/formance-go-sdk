@@ -2,6 +2,7 @@ package operations
 
 import (
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 	"time"
 )
 
@@ -31,4 +32,5 @@ type ListLogsResponse struct {
 	ErrorResponse      *shared.ErrorResponse
 	LogsCursorResponse *shared.LogsCursorResponse
 	StatusCode         int
+	RawResponse        *http.Response
 }

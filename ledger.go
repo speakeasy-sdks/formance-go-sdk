@@ -55,6 +55,7 @@ func (s *ledger) GetLedgerInfo(ctx context.Context, request operations.GetLedger
 	res := &operations.GetLedgerInfoResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 	switch {
 	case httpRes.StatusCode == 200:

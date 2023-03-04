@@ -2,6 +2,7 @@ package operations
 
 import (
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 type GetWorkflowOccurrencePathParams struct {
@@ -18,4 +19,5 @@ type GetWorkflowOccurrenceResponse struct {
 	Error                         *shared.Error
 	GetWorkflowOccurrenceResponse *shared.GetWorkflowOccurrenceResponse
 	StatusCode                    int
+	RawResponse                   *http.Response
 }
