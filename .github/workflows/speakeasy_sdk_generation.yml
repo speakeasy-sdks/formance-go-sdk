@@ -17,11 +17,8 @@ jobs:
       force: ${{ github.event.inputs.force }}
       speakeasy_version: latest
       openapi_doc_location: ./stack.yaml
-      openapi_doc_auth_header: x-api-key
       languages: |-
         - go
-      mode: pr
     secrets:
       speakeasy_api_key: ${{ secrets.SPEAKEASY_PROD_API_KEY }}
       github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      openapi_doc_auth_token: ${{ secrets.SPEAKEASY_API_KEY }}
