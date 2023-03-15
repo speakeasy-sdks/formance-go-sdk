@@ -36,7 +36,7 @@ func (s *payments) ConnectorsStripeTransfer(ctx context.Context, request operati
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/payments/connectors/stripe/transfer"
 
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "Request", "json")
 	if err != nil {
 		return nil, fmt.Errorf("error serializing request body: %w", err)
 	}
@@ -89,7 +89,7 @@ func (s *payments) ConnectorsStripeTransfer(ctx context.Context, request operati
 // Get a specific task associated to the connector.
 func (s *payments) GetConnectorTask(ctx context.Context, request operations.GetConnectorTaskRequest) (*operations.GetConnectorTaskResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/payments/connectors/{connector}/tasks/{taskId}", request.PathParams)
+	url := utils.GenerateURL(ctx, baseURL, "/api/payments/connectors/{connector}/tasks/{taskId}", request.PathParams, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -133,7 +133,7 @@ func (s *payments) GetConnectorTask(ctx context.Context, request operations.GetC
 // GetPayment - Get a payment
 func (s *payments) GetPayment(ctx context.Context, request operations.GetPaymentRequest) (*operations.GetPaymentResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/payments/payments/{paymentId}", request.PathParams)
+	url := utils.GenerateURL(ctx, baseURL, "/api/payments/payments/{paymentId}", request.PathParams, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -178,9 +178,9 @@ func (s *payments) GetPayment(ctx context.Context, request operations.GetPayment
 // Install a connector by its name and config.
 func (s *payments) InstallConnector(ctx context.Context, request operations.InstallConnectorRequest) (*operations.InstallConnectorResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/payments/connectors/{connector}", request.PathParams)
+	url := utils.GenerateURL(ctx, baseURL, "/api/payments/connectors/{connector}", request.PathParams, nil)
 
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "Request", "json")
 	if err != nil {
 		return nil, fmt.Errorf("error serializing request body: %w", err)
 	}
@@ -314,14 +314,14 @@ func (s *payments) ListConfigsAvailableConnectors(ctx context.Context) (*operati
 // List all tasks associated with this connector.
 func (s *payments) ListConnectorTasks(ctx context.Context, request operations.ListConnectorTasksRequest) (*operations.ListConnectorTasksResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/payments/connectors/{connector}/tasks", request.PathParams)
+	url := utils.GenerateURL(ctx, baseURL, "/api/payments/connectors/{connector}/tasks", request.PathParams, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 
-	if err := utils.PopulateQueryParams(ctx, req, request.QueryParams); err != nil {
+	if err := utils.PopulateQueryParams(ctx, req, request.QueryParams, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
@@ -369,7 +369,7 @@ func (s *payments) ListPayments(ctx context.Context, request operations.ListPaym
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 
-	if err := utils.PopulateQueryParams(ctx, req, request.QueryParams); err != nil {
+	if err := utils.PopulateQueryParams(ctx, req, request.QueryParams, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
@@ -417,7 +417,7 @@ func (s *payments) PaymentslistAccounts(ctx context.Context, request operations.
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 
-	if err := utils.PopulateQueryParams(ctx, req, request.QueryParams); err != nil {
+	if err := utils.PopulateQueryParams(ctx, req, request.QueryParams, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
@@ -459,7 +459,7 @@ func (s *payments) PaymentslistAccounts(ctx context.Context, request operations.
 // Read connector config
 func (s *payments) ReadConnectorConfig(ctx context.Context, request operations.ReadConnectorConfigRequest) (*operations.ReadConnectorConfigResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/payments/connectors/{connector}/config", request.PathParams)
+	url := utils.GenerateURL(ctx, baseURL, "/api/payments/connectors/{connector}/config", request.PathParams, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -505,7 +505,7 @@ func (s *payments) ReadConnectorConfig(ctx context.Context, request operations.R
 // It will remove the connector and ALL PAYMENTS generated with it.
 func (s *payments) ResetConnector(ctx context.Context, request operations.ResetConnectorRequest) (*operations.ResetConnectorResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/payments/connectors/{connector}/reset", request.PathParams)
+	url := utils.GenerateURL(ctx, baseURL, "/api/payments/connectors/{connector}/reset", request.PathParams, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "POST", url, nil)
 	if err != nil {
@@ -541,7 +541,7 @@ func (s *payments) ResetConnector(ctx context.Context, request operations.ResetC
 // Uninstall a connector by its name.
 func (s *payments) UninstallConnector(ctx context.Context, request operations.UninstallConnectorRequest) (*operations.UninstallConnectorResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/payments/connectors/{connector}", request.PathParams)
+	url := utils.GenerateURL(ctx, baseURL, "/api/payments/connectors/{connector}", request.PathParams, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "DELETE", url, nil)
 	if err != nil {

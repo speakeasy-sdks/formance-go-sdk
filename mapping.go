@@ -32,7 +32,7 @@ func newMapping(defaultClient, securityClient HTTPClient, serverURL, language, s
 // GetMapping - Get the mapping of a ledger
 func (s *mapping) GetMapping(ctx context.Context, request operations.GetMappingRequest) (*operations.GetMappingResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/mapping", request.PathParams)
+	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/mapping", request.PathParams, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -86,9 +86,9 @@ func (s *mapping) GetMapping(ctx context.Context, request operations.GetMappingR
 // UpdateMapping - Update the mapping of a ledger
 func (s *mapping) UpdateMapping(ctx context.Context, request operations.UpdateMappingRequest) (*operations.UpdateMappingResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/mapping", request.PathParams)
+	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/mapping", request.PathParams, nil)
 
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "Request", "json")
 	if err != nil {
 		return nil, fmt.Errorf("error serializing request body: %w", err)
 	}

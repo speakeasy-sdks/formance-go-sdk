@@ -34,13 +34,13 @@ import (
 )
 
 func main() {
-    s := formance.New(formance.WithSecurity(
-        shared.Security{
+    s := formance.New(
+        WithSecurity(        shared.Security{
             Authorization: shared.SchemeAuthorization{
                 Authorization: "Bearer YOUR_ACCESS_TOKEN_HERE",
             },
-        },
-    ))
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.GetServerInfo(ctx)

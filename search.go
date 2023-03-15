@@ -36,7 +36,7 @@ func (s *search) Search(ctx context.Context, request operations.SearchRequest) (
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/search/"
 
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "Request", "json")
 	if err != nil {
 		return nil, fmt.Errorf("error serializing request body: %w", err)
 	}
