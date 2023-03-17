@@ -5,12 +5,8 @@ import (
 	"net/http"
 )
 
-type GetWalletPathParams struct {
-	ID string `pathParam:"style=simple,explode=false,name=id"`
-}
-
 type GetWalletRequest struct {
-	PathParams GetWalletPathParams
+	ID string `pathParam:"style=simple,explode=false,name=id"`
 }
 
 type GetWalletResponse struct {

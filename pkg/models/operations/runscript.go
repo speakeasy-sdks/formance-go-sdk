@@ -5,18 +5,10 @@ import (
 	"net/http"
 )
 
-type RunScriptPathParams struct {
-	Ledger string `pathParam:"style=simple,explode=false,name=ledger"`
-}
-
-type RunScriptQueryParams struct {
-	Preview *bool `queryParam:"style=form,explode=true,name=preview"`
-}
-
 type RunScriptRequest struct {
-	PathParams  RunScriptPathParams
-	QueryParams RunScriptQueryParams
-	Request     shared.Script `request:"mediaType=application/json"`
+	Script  shared.Script `request:"mediaType=application/json"`
+	Ledger  string        `pathParam:"style=simple,explode=false,name=ledger"`
+	Preview *bool         `queryParam:"style=form,explode=true,name=preview"`
 }
 
 type RunScriptResponse struct {

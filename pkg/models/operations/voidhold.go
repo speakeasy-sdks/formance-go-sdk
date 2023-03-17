@@ -5,12 +5,8 @@ import (
 	"net/http"
 )
 
-type VoidHoldPathParams struct {
-	HoldID string `pathParam:"style=simple,explode=false,name=hold_id"`
-}
-
 type VoidHoldRequest struct {
-	PathParams VoidHoldPathParams
+	HoldID string `pathParam:"style=simple,explode=false,name=hold_id"`
 }
 
 type VoidHoldResponse struct {

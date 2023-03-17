@@ -5,14 +5,10 @@ import (
 	"net/http"
 )
 
-type AddMetadataOnTransactionPathParams struct {
-	Ledger string `pathParam:"style=simple,explode=false,name=ledger"`
-	Txid   int64  `pathParam:"style=simple,explode=false,name=txid"`
-}
-
 type AddMetadataOnTransactionRequest struct {
-	PathParams AddMetadataOnTransactionPathParams
-	Request    map[string]interface{} `request:"mediaType=application/json"`
+	RequestBody map[string]interface{} `request:"mediaType=application/json"`
+	Ledger      string                 `pathParam:"style=simple,explode=false,name=ledger"`
+	Txid        int64                  `pathParam:"style=simple,explode=false,name=txid"`
 }
 
 type AddMetadataOnTransactionResponse struct {

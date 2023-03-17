@@ -4,12 +4,8 @@ import (
 	"net/http"
 )
 
-type DeleteConfigPathParams struct {
-	ID string `pathParam:"style=simple,explode=false,name=id"`
-}
-
 type DeleteConfigRequest struct {
-	PathParams DeleteConfigPathParams
+	ID string `pathParam:"style=simple,explode=false,name=id"`
 }
 
 type DeleteConfigResponse struct {

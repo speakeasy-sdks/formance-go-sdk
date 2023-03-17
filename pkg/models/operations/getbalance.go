@@ -5,13 +5,9 @@ import (
 	"net/http"
 )
 
-type GetBalancePathParams struct {
+type GetBalanceRequest struct {
 	BalanceName string `pathParam:"style=simple,explode=false,name=balanceName"`
 	ID          string `pathParam:"style=simple,explode=false,name=id"`
-}
-
-type GetBalanceRequest struct {
-	PathParams GetBalancePathParams
 }
 
 type GetBalanceResponse struct {

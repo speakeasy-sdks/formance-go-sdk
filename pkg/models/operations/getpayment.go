@@ -5,12 +5,8 @@ import (
 	"net/http"
 )
 
-type GetPaymentPathParams struct {
-	PaymentID string `pathParam:"style=simple,explode=false,name=paymentId"`
-}
-
 type GetPaymentRequest struct {
-	PathParams GetPaymentPathParams
+	PaymentID string `pathParam:"style=simple,explode=false,name=paymentId"`
 }
 
 type GetPaymentResponse struct {

@@ -6,17 +6,14 @@ import (
 	"time"
 )
 
-type ListTransactionsPathParams struct {
-	Ledger string `pathParam:"style=simple,explode=false,name=ledger"`
-}
-
-type ListTransactionsQueryParams struct {
+type ListTransactionsRequest struct {
 	Account             *string                `queryParam:"style=form,explode=true,name=account"`
 	After               *string                `queryParam:"style=form,explode=true,name=after"`
 	Cursor              *string                `queryParam:"style=form,explode=true,name=cursor"`
 	Destination         *string                `queryParam:"style=form,explode=true,name=destination"`
 	EndTime             *time.Time             `queryParam:"style=form,explode=true,name=endTime"`
 	EndTimeDeprecated   *time.Time             `queryParam:"style=form,explode=true,name=end_time"`
+	Ledger              string                 `pathParam:"style=simple,explode=false,name=ledger"`
 	Metadata            map[string]interface{} `queryParam:"style=deepObject,explode=true,name=metadata"`
 	PageSize            *int64                 `queryParam:"style=form,explode=true,name=pageSize"`
 	PageSizeDeprecated  *int64                 `queryParam:"style=form,explode=true,name=page_size"`
@@ -25,11 +22,6 @@ type ListTransactionsQueryParams struct {
 	Source              *string                `queryParam:"style=form,explode=true,name=source"`
 	StartTime           *time.Time             `queryParam:"style=form,explode=true,name=startTime"`
 	StartTimeDeprecated *time.Time             `queryParam:"style=form,explode=true,name=start_time"`
-}
-
-type ListTransactionsRequest struct {
-	PathParams  ListTransactionsPathParams
-	QueryParams ListTransactionsQueryParams
 }
 
 type ListTransactionsResponse struct {

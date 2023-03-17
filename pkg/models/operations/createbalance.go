@@ -5,13 +5,9 @@ import (
 	"net/http"
 )
 
-type CreateBalancePathParams struct {
-	ID string `pathParam:"style=simple,explode=false,name=id"`
-}
-
 type CreateBalanceRequest struct {
-	PathParams CreateBalancePathParams
-	Request    *shared.CreateBalanceRequest `request:"mediaType=application/json"`
+	CreateBalanceRequest *shared.CreateBalanceRequest `request:"mediaType=application/json"`
+	ID                   string                       `pathParam:"style=simple,explode=false,name=id"`
 }
 
 type CreateBalanceResponse struct {

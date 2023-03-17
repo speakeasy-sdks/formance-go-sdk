@@ -5,17 +5,9 @@ import (
 	"net/http"
 )
 
-type GetBalancesAggregatedPathParams struct {
-	Ledger string `pathParam:"style=simple,explode=false,name=ledger"`
-}
-
-type GetBalancesAggregatedQueryParams struct {
-	Address *string `queryParam:"style=form,explode=true,name=address"`
-}
-
 type GetBalancesAggregatedRequest struct {
-	PathParams  GetBalancesAggregatedPathParams
-	QueryParams GetBalancesAggregatedQueryParams
+	Address *string `queryParam:"style=form,explode=true,name=address"`
+	Ledger  string  `pathParam:"style=simple,explode=false,name=ledger"`
 }
 
 type GetBalancesAggregatedResponse struct {

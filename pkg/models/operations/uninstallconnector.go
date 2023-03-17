@@ -5,12 +5,8 @@ import (
 	"net/http"
 )
 
-type UninstallConnectorPathParams struct {
-	Connector shared.ConnectorEnum `pathParam:"style=simple,explode=false,name=connector"`
-}
-
 type UninstallConnectorRequest struct {
-	PathParams UninstallConnectorPathParams
+	Connector shared.ConnectorEnum `pathParam:"style=simple,explode=false,name=connector"`
 }
 
 type UninstallConnectorResponse struct {

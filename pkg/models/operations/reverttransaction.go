@@ -5,13 +5,9 @@ import (
 	"net/http"
 )
 
-type RevertTransactionPathParams struct {
+type RevertTransactionRequest struct {
 	Ledger string `pathParam:"style=simple,explode=false,name=ledger"`
 	Txid   int64  `pathParam:"style=simple,explode=false,name=txid"`
-}
-
-type RevertTransactionRequest struct {
-	PathParams RevertTransactionPathParams
 }
 
 type RevertTransactionResponse struct {

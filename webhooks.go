@@ -35,7 +35,7 @@ func newWebhooks(defaultClient, securityClient HTTPClient, serverURL, language, 
 // Activate a webhooks config by ID, to start receiving webhooks to its endpoint.
 func (s *webhooks) ActivateConfig(ctx context.Context, request operations.ActivateConfigRequest) (*operations.ActivateConfigResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/webhooks/configs/{id}/activate", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/webhooks/configs/{id}/activate", request, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "PUT", url, nil)
 	if err != nil {
@@ -84,9 +84,9 @@ func (s *webhooks) ActivateConfig(ctx context.Context, request operations.Activa
 // The format is a random string of bytes of size 24, base64 encoded. (larger size after encoding)
 func (s *webhooks) ChangeConfigSecret(ctx context.Context, request operations.ChangeConfigSecretRequest) (*operations.ChangeConfigSecretResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/webhooks/configs/{id}/secret/change", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/webhooks/configs/{id}/secret/change", request, nil)
 
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "Request", "json")
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "ConfigChangeSecret", "json")
 	if err != nil {
 		return nil, fmt.Errorf("error serializing request body: %w", err)
 	}
@@ -136,7 +136,7 @@ func (s *webhooks) ChangeConfigSecret(ctx context.Context, request operations.Ch
 // Deactivate a webhooks config by ID, to stop receiving webhooks to its endpoint.
 func (s *webhooks) DeactivateConfig(ctx context.Context, request operations.DeactivateConfigRequest) (*operations.DeactivateConfigResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/webhooks/configs/{id}/deactivate", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/webhooks/configs/{id}/deactivate", request, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "PUT", url, nil)
 	if err != nil {
@@ -182,7 +182,7 @@ func (s *webhooks) DeactivateConfig(ctx context.Context, request operations.Deac
 // Delete a webhooks config by ID.
 func (s *webhooks) DeleteConfig(ctx context.Context, request operations.DeleteConfigRequest) (*operations.DeleteConfigResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/webhooks/configs/{id}", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/webhooks/configs/{id}", request, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "DELETE", url, nil)
 	if err != nil {
@@ -225,7 +225,7 @@ func (s *webhooks) GetManyConfigs(ctx context.Context, request operations.GetMan
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 
-	if err := utils.PopulateQueryParams(ctx, req, request.QueryParams, nil); err != nil {
+	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
@@ -273,7 +273,7 @@ func (s *webhooks) GetManyConfigs(ctx context.Context, request operations.GetMan
 // The format is a random string of bytes of size 24, base64 encoded. (larger size after encoding)
 //
 // All eventTypes are converted to lower-case when inserted.
-func (s *webhooks) InsertConfig(ctx context.Context, request operations.InsertConfigRequest) (*operations.InsertConfigResponse, error) {
+func (s *webhooks) InsertConfig(ctx context.Context, request shared.ConfigUser) (*operations.InsertConfigResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/webhooks/configs"
 
@@ -341,7 +341,7 @@ func (s *webhooks) InsertConfig(ctx context.Context, request operations.InsertCo
 // Test a config by sending a webhook to its endpoint.
 func (s *webhooks) TestConfig(ctx context.Context, request operations.TestConfigRequest) (*operations.TestConfigResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/webhooks/configs/{id}/test", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/webhooks/configs/{id}/test", request, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {

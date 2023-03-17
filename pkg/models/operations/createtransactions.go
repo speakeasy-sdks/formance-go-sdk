@@ -5,13 +5,9 @@ import (
 	"net/http"
 )
 
-type CreateTransactionsPathParams struct {
-	Ledger string `pathParam:"style=simple,explode=false,name=ledger"`
-}
-
 type CreateTransactionsRequest struct {
-	PathParams CreateTransactionsPathParams
-	Request    shared.Transactions `request:"mediaType=application/json"`
+	Transactions shared.Transactions `request:"mediaType=application/json"`
+	Ledger       string              `pathParam:"style=simple,explode=false,name=ledger"`
 }
 
 type CreateTransactionsResponse struct {

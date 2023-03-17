@@ -5,12 +5,8 @@ import (
 	"net/http"
 )
 
-type ListBalancesPathParams struct {
-	ID string `pathParam:"style=simple,explode=false,name=id"`
-}
-
 type ListBalancesRequest struct {
-	PathParams ListBalancesPathParams
+	ID string `pathParam:"style=simple,explode=false,name=id"`
 }
 
 type ListBalancesResponse struct {

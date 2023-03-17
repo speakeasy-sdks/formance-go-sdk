@@ -5,13 +5,9 @@ import (
 	"net/http"
 )
 
-type UpdateClientPathParams struct {
-	ClientID string `pathParam:"style=simple,explode=false,name=clientId"`
-}
-
 type UpdateClientRequest struct {
-	PathParams UpdateClientPathParams
-	Request    *shared.UpdateClientRequest `request:"mediaType=application/json"`
+	UpdateClientRequest *shared.UpdateClientRequest `request:"mediaType=application/json"`
+	ClientID            string                      `pathParam:"style=simple,explode=false,name=clientId"`
 }
 
 type UpdateClientResponse struct {

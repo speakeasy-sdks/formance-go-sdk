@@ -5,10 +5,6 @@ import (
 	"net/http"
 )
 
-type CreateWorkflowRequest struct {
-	Request *shared.CreateWorkflowRequest `request:"mediaType=application/json"`
-}
-
 type CreateWorkflowResponse struct {
 	ContentType            string
 	CreateWorkflowResponse *shared.CreateWorkflowResponse

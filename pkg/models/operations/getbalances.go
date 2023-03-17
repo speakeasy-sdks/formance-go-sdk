@@ -5,20 +5,12 @@ import (
 	"net/http"
 )
 
-type GetBalancesPathParams struct {
-	Ledger string `pathParam:"style=simple,explode=false,name=ledger"`
-}
-
-type GetBalancesQueryParams struct {
+type GetBalancesRequest struct {
 	Address         *string `queryParam:"style=form,explode=true,name=address"`
 	After           *string `queryParam:"style=form,explode=true,name=after"`
 	Cursor          *string `queryParam:"style=form,explode=true,name=cursor"`
+	Ledger          string  `pathParam:"style=simple,explode=false,name=ledger"`
 	PaginationToken *string `queryParam:"style=form,explode=true,name=pagination_token"`
-}
-
-type GetBalancesRequest struct {
-	PathParams  GetBalancesPathParams
-	QueryParams GetBalancesQueryParams
 }
 
 type GetBalancesResponse struct {

@@ -5,12 +5,8 @@ import (
 	"net/http"
 )
 
-type ReadScopePathParams struct {
-	ScopeID string `pathParam:"style=simple,explode=false,name=scopeId"`
-}
-
 type ReadScopeRequest struct {
-	PathParams ReadScopePathParams
+	ScopeID string `pathParam:"style=simple,explode=false,name=scopeId"`
 }
 
 type ReadScopeResponse struct {

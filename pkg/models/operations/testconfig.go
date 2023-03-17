@@ -5,12 +5,8 @@ import (
 	"net/http"
 )
 
-type TestConfigPathParams struct {
-	ID string `pathParam:"style=simple,explode=false,name=id"`
-}
-
 type TestConfigRequest struct {
-	PathParams TestConfigPathParams
+	ID string `pathParam:"style=simple,explode=false,name=id"`
 }
 
 type TestConfigResponse struct {

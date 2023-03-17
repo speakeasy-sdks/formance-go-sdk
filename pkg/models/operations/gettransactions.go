@@ -5,14 +5,10 @@ import (
 	"net/http"
 )
 
-type GetTransactionsQueryParams struct {
+type GetTransactionsRequest struct {
 	Cursor   *string `queryParam:"style=form,explode=true,name=cursor"`
 	PageSize *int64  `queryParam:"style=form,explode=true,name=pageSize"`
 	WalletID *string `queryParam:"style=form,explode=true,name=wallet_id"`
-}
-
-type GetTransactionsRequest struct {
-	QueryParams GetTransactionsQueryParams
 }
 
 type GetTransactionsResponse struct {
