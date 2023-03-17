@@ -5,12 +5,8 @@ import (
 	"net/http"
 )
 
-type GetMappingPathParams struct {
-	Ledger string `pathParam:"style=simple,explode=false,name=ledger"`
-}
-
 type GetMappingRequest struct {
-	PathParams GetMappingPathParams
+	Ledger string `pathParam:"style=simple,explode=false,name=ledger"`
 }
 
 type GetMappingResponse struct {

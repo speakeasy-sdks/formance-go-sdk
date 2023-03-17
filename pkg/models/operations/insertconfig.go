@@ -5,10 +5,6 @@ import (
 	"net/http"
 )
 
-type InsertConfigRequest struct {
-	Request shared.ConfigUser `request:"mediaType=application/json"`
-}
-
 type InsertConfigResponse struct {
 	ConfigResponse                 *shared.ConfigResponse
 	ContentType                    string

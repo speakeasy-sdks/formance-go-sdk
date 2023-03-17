@@ -5,13 +5,9 @@ import (
 	"net/http"
 )
 
-type CreateSecretPathParams struct {
-	ClientID string `pathParam:"style=simple,explode=false,name=clientId"`
-}
-
 type CreateSecretRequest struct {
-	PathParams CreateSecretPathParams
-	Request    *shared.CreateSecretRequest `request:"mediaType=application/json"`
+	CreateSecretRequest *shared.CreateSecretRequest `request:"mediaType=application/json"`
+	ClientID            string                      `pathParam:"style=simple,explode=false,name=clientId"`
 }
 
 type CreateSecretResponse struct {

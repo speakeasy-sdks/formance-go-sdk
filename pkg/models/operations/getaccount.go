@@ -5,13 +5,9 @@ import (
 	"net/http"
 )
 
-type GetAccountPathParams struct {
+type GetAccountRequest struct {
 	Address string `pathParam:"style=simple,explode=false,name=address"`
 	Ledger  string `pathParam:"style=simple,explode=false,name=ledger"`
-}
-
-type GetAccountRequest struct {
-	PathParams GetAccountPathParams
 }
 
 type GetAccountResponse struct {

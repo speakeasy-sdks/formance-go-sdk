@@ -5,13 +5,9 @@ import (
 	"net/http"
 )
 
-type GetWorkflowOccurrencePathParams struct {
+type GetWorkflowOccurrenceRequest struct {
 	FlowID string `pathParam:"style=simple,explode=false,name=flowId"`
 	RunID  string `pathParam:"style=simple,explode=false,name=runId"`
-}
-
-type GetWorkflowOccurrenceRequest struct {
-	PathParams GetWorkflowOccurrencePathParams
 }
 
 type GetWorkflowOccurrenceResponse struct {

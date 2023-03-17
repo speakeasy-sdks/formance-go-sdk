@@ -5,12 +5,8 @@ import (
 	"net/http"
 )
 
-type GetFlowPathParams struct {
-	FlowID string `pathParam:"style=simple,explode=false,name=flowId"`
-}
-
 type GetFlowRequest struct {
-	PathParams GetFlowPathParams
+	FlowID string `pathParam:"style=simple,explode=false,name=flowId"`
 }
 
 type GetFlowResponse struct {

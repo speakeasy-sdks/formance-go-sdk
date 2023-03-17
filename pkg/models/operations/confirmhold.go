@@ -5,13 +5,9 @@ import (
 	"net/http"
 )
 
-type ConfirmHoldPathParams struct {
-	HoldID string `pathParam:"style=simple,explode=false,name=hold_id"`
-}
-
 type ConfirmHoldRequest struct {
-	PathParams ConfirmHoldPathParams
-	Request    *shared.ConfirmHoldRequest `request:"mediaType=application/json"`
+	ConfirmHoldRequest *shared.ConfirmHoldRequest `request:"mediaType=application/json"`
+	HoldID             string                     `pathParam:"style=simple,explode=false,name=hold_id"`
 }
 
 type ConfirmHoldResponse struct {

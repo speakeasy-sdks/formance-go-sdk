@@ -5,12 +5,8 @@ import (
 	"net/http"
 )
 
-type ReadUserPathParams struct {
-	UserID string `pathParam:"style=simple,explode=false,name=userId"`
-}
-
 type ReadUserRequest struct {
-	PathParams ReadUserPathParams
+	UserID string `pathParam:"style=simple,explode=false,name=userId"`
 }
 
 type ReadUserResponse struct {

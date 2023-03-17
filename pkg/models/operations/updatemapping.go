@@ -5,13 +5,9 @@ import (
 	"net/http"
 )
 
-type UpdateMappingPathParams struct {
-	Ledger string `pathParam:"style=simple,explode=false,name=ledger"`
-}
-
 type UpdateMappingRequest struct {
-	PathParams UpdateMappingPathParams
-	Request    shared.Mapping `request:"mediaType=application/json"`
+	Mapping shared.Mapping `request:"mediaType=application/json"`
+	Ledger  string         `pathParam:"style=simple,explode=false,name=ledger"`
 }
 
 type UpdateMappingResponse struct {

@@ -5,10 +5,6 @@ import (
 	"net/http"
 )
 
-type CreateScopeRequest struct {
-	Request *shared.CreateScopeRequest `request:"mediaType=application/json"`
-}
-
 type CreateScopeResponse struct {
 	ContentType         string
 	CreateScopeResponse *shared.CreateScopeResponse

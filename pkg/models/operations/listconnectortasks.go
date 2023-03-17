@@ -5,18 +5,10 @@ import (
 	"net/http"
 )
 
-type ListConnectorTasksPathParams struct {
-	Connector shared.ConnectorEnum `pathParam:"style=simple,explode=false,name=connector"`
-}
-
-type ListConnectorTasksQueryParams struct {
-	Cursor   *string `queryParam:"style=form,explode=true,name=cursor"`
-	PageSize *int64  `queryParam:"style=form,explode=true,name=pageSize"`
-}
-
 type ListConnectorTasksRequest struct {
-	PathParams  ListConnectorTasksPathParams
-	QueryParams ListConnectorTasksQueryParams
+	Connector shared.ConnectorEnum `pathParam:"style=simple,explode=false,name=connector"`
+	Cursor    *string              `queryParam:"style=form,explode=true,name=cursor"`
+	PageSize  *int64               `queryParam:"style=form,explode=true,name=pageSize"`
 }
 
 type ListConnectorTasksResponse struct {

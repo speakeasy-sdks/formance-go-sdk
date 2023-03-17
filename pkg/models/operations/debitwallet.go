@@ -5,13 +5,9 @@ import (
 	"net/http"
 )
 
-type DebitWalletPathParams struct {
-	ID string `pathParam:"style=simple,explode=false,name=id"`
-}
-
 type DebitWalletRequest struct {
-	PathParams DebitWalletPathParams
-	Request    *shared.DebitWalletRequest `request:"mediaType=application/json"`
+	DebitWalletRequest *shared.DebitWalletRequest `request:"mediaType=application/json"`
+	ID                 string                     `pathParam:"style=simple,explode=false,name=id"`
 }
 
 type DebitWalletResponse struct {

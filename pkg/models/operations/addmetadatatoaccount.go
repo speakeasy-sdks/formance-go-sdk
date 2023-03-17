@@ -5,14 +5,10 @@ import (
 	"net/http"
 )
 
-type AddMetadataToAccountPathParams struct {
-	Address string `pathParam:"style=simple,explode=false,name=address"`
-	Ledger  string `pathParam:"style=simple,explode=false,name=ledger"`
-}
-
 type AddMetadataToAccountRequest struct {
-	PathParams AddMetadataToAccountPathParams
-	Request    map[string]interface{} `request:"mediaType=application/json"`
+	RequestBody map[string]interface{} `request:"mediaType=application/json"`
+	Address     string                 `pathParam:"style=simple,explode=false,name=address"`
+	Ledger      string                 `pathParam:"style=simple,explode=false,name=ledger"`
 }
 
 type AddMetadataToAccountResponse struct {

@@ -5,12 +5,8 @@ import (
 	"net/http"
 )
 
-type ReadConnectorConfigPathParams struct {
-	Connector shared.ConnectorEnum `pathParam:"style=simple,explode=false,name=connector"`
-}
-
 type ReadConnectorConfigRequest struct {
-	PathParams ReadConnectorConfigPathParams
+	Connector shared.ConnectorEnum `pathParam:"style=simple,explode=false,name=connector"`
 }
 
 type ReadConnectorConfigResponse struct {

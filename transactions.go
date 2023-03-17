@@ -32,9 +32,9 @@ func newTransactions(defaultClient, securityClient HTTPClient, serverURL, langua
 // CreateTransactions - Create a new batch of transactions to a ledger
 func (s *transactions) CreateTransactions(ctx context.Context, request operations.CreateTransactionsRequest) (*operations.CreateTransactionsResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/transactions/batch", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/transactions/batch", request, nil)
 
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "Request", "json")
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "Transactions", "json")
 	if err != nil {
 		return nil, fmt.Errorf("error serializing request body: %w", err)
 	}
@@ -96,9 +96,9 @@ func (s *transactions) CreateTransactions(ctx context.Context, request operation
 // AddMetadataOnTransaction - Set the metadata of a transaction by its ID
 func (s *transactions) AddMetadataOnTransaction(ctx context.Context, request operations.AddMetadataOnTransactionRequest) (*operations.AddMetadataOnTransactionResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/transactions/{txid}/metadata", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/transactions/{txid}/metadata", request, nil)
 
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "Request", "json")
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "RequestBody", "json")
 	if err != nil {
 		return nil, fmt.Errorf("error serializing request body: %w", err)
 	}
@@ -148,14 +148,14 @@ func (s *transactions) AddMetadataOnTransaction(ctx context.Context, request ope
 // CountTransactions - Count the transactions from a ledger
 func (s *transactions) CountTransactions(ctx context.Context, request operations.CountTransactionsRequest) (*operations.CountTransactionsResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/transactions", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/transactions", request, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "HEAD", url, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 
-	if err := utils.PopulateQueryParams(ctx, req, request.QueryParams, nil); err != nil {
+	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
@@ -199,9 +199,9 @@ func (s *transactions) CountTransactions(ctx context.Context, request operations
 // CreateTransaction - Create a new transaction to a ledger
 func (s *transactions) CreateTransaction(ctx context.Context, request operations.CreateTransactionRequest) (*operations.CreateTransactionResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/transactions", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/transactions", request, nil)
 
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "Request", "json")
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "PostTransaction", "json")
 	if err != nil {
 		return nil, fmt.Errorf("error serializing request body: %w", err)
 	}
@@ -216,7 +216,7 @@ func (s *transactions) CreateTransaction(ctx context.Context, request operations
 
 	req.Header.Set("Content-Type", reqContentType)
 
-	if err := utils.PopulateQueryParams(ctx, req, request.QueryParams, nil); err != nil {
+	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
@@ -267,7 +267,7 @@ func (s *transactions) CreateTransaction(ctx context.Context, request operations
 // GetTransaction - Get transaction from a ledger by its ID
 func (s *transactions) GetTransaction(ctx context.Context, request operations.GetTransactionRequest) (*operations.GetTransactionResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/transactions/{txid}", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/transactions/{txid}", request, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -322,14 +322,14 @@ func (s *transactions) GetTransaction(ctx context.Context, request operations.Ge
 // List transactions from a ledger, sorted by txid in descending order.
 func (s *transactions) ListTransactions(ctx context.Context, request operations.ListTransactionsRequest) (*operations.ListTransactionsResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/transactions", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/transactions", request, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 
-	if err := utils.PopulateQueryParams(ctx, req, request.QueryParams, nil); err != nil {
+	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
@@ -380,7 +380,7 @@ func (s *transactions) ListTransactions(ctx context.Context, request operations.
 // RevertTransaction - Revert a ledger transaction by its ID
 func (s *transactions) RevertTransaction(ctx context.Context, request operations.RevertTransactionRequest) (*operations.RevertTransactionResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/transactions/{txid}/revert", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/transactions/{txid}/revert", request, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "POST", url, nil)
 	if err != nil {

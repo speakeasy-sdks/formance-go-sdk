@@ -5,17 +5,13 @@ import (
 	"net/http"
 )
 
-type UpdateWalletPathParams struct {
-	ID string `pathParam:"style=simple,explode=false,name=id"`
-}
-
 type UpdateWalletRequestBody struct {
 	Metadata map[string]interface{} `json:"metadata,omitempty"`
 }
 
 type UpdateWalletRequest struct {
-	PathParams UpdateWalletPathParams
-	Request    *UpdateWalletRequestBody `request:"mediaType=application/json"`
+	RequestBody *UpdateWalletRequestBody `request:"mediaType=application/json"`
+	ID          string                   `pathParam:"style=simple,explode=false,name=id"`
 }
 
 type UpdateWalletResponse struct {

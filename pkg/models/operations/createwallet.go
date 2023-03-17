@@ -5,10 +5,6 @@ import (
 	"net/http"
 )
 
-type CreateWalletRequest struct {
-	Request *shared.CreateWalletRequest `request:"mediaType=application/json"`
-}
-
 type CreateWalletResponse struct {
 	ContentType          string
 	CreateWalletResponse *shared.CreateWalletResponse

@@ -5,12 +5,8 @@ import (
 	"net/http"
 )
 
-type ReadStatsPathParams struct {
-	Ledger string `pathParam:"style=simple,explode=false,name=ledger"`
-}
-
 type ReadStatsRequest struct {
-	PathParams ReadStatsPathParams
+	Ledger string `pathParam:"style=simple,explode=false,name=ledger"`
 }
 
 type ReadStatsResponse struct {

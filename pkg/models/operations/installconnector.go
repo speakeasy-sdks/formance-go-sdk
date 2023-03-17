@@ -5,13 +5,9 @@ import (
 	"net/http"
 )
 
-type InstallConnectorPathParams struct {
-	Connector shared.ConnectorEnum `pathParam:"style=simple,explode=false,name=connector"`
-}
-
 type InstallConnectorRequest struct {
-	PathParams InstallConnectorPathParams
-	Request    interface{} `request:"mediaType=application/json"`
+	RequestBody interface{}          `request:"mediaType=application/json"`
+	Connector   shared.ConnectorEnum `pathParam:"style=simple,explode=false,name=connector"`
 }
 
 type InstallConnectorResponse struct {

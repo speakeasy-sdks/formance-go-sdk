@@ -8,5 +8,5 @@ generation:
   sdkClassName: formance
   sdkFlattening: true
 go:
-  version: 0.3.0
+  version: 0.3.1
   packageName: github.com/speakeasy-sdks/formance-go-sdk

@@ -5,12 +5,8 @@ import (
 	"net/http"
 )
 
-type DeactivateConfigPathParams struct {
-	ID string `pathParam:"style=simple,explode=false,name=id"`
-}
-
 type DeactivateConfigRequest struct {
-	PathParams DeactivateConfigPathParams
+	ID string `pathParam:"style=simple,explode=false,name=id"`
 }
 
 type DeactivateConfigResponse struct {

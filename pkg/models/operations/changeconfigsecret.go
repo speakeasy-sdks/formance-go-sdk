@@ -5,13 +5,9 @@ import (
 	"net/http"
 )
 
-type ChangeConfigSecretPathParams struct {
-	ID string `pathParam:"style=simple,explode=false,name=id"`
-}
-
 type ChangeConfigSecretRequest struct {
-	PathParams ChangeConfigSecretPathParams
-	Request    *shared.ConfigChangeSecret `request:"mediaType=application/json"`
+	ConfigChangeSecret *shared.ConfigChangeSecret `request:"mediaType=application/json"`
+	ID                 string                     `pathParam:"style=simple,explode=false,name=id"`
 }
 
 type ChangeConfigSecretResponse struct {

@@ -5,12 +5,8 @@ import (
 	"net/http"
 )
 
-type ResetConnectorPathParams struct {
-	Connector shared.ConnectorEnum `pathParam:"style=simple,explode=false,name=connector"`
-}
-
 type ResetConnectorRequest struct {
-	PathParams ResetConnectorPathParams
+	Connector shared.ConnectorEnum `pathParam:"style=simple,explode=false,name=connector"`
 }
 
 type ResetConnectorResponse struct {

@@ -32,14 +32,14 @@ func newBalances(defaultClient, securityClient HTTPClient, serverURL, language, 
 // GetBalances - Get the balances from a ledger's account
 func (s *balances) GetBalances(ctx context.Context, request operations.GetBalancesRequest) (*operations.GetBalancesResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/balances", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/balances", request, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 
-	if err := utils.PopulateQueryParams(ctx, req, request.QueryParams, nil); err != nil {
+	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
@@ -90,14 +90,14 @@ func (s *balances) GetBalances(ctx context.Context, request operations.GetBalanc
 // GetBalancesAggregated - Get the aggregated balances from selected accounts
 func (s *balances) GetBalancesAggregated(ctx context.Context, request operations.GetBalancesAggregatedRequest) (*operations.GetBalancesAggregatedResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/aggregate/balances", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/aggregate/balances", request, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 
-	if err := utils.PopulateQueryParams(ctx, req, request.QueryParams, nil); err != nil {
+	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 

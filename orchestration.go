@@ -32,7 +32,7 @@ func newOrchestration(defaultClient, securityClient HTTPClient, serverURL, langu
 
 // CreateWorkflow - Create workflow
 // Create a workflow
-func (s *orchestration) CreateWorkflow(ctx context.Context, request operations.CreateWorkflowRequest) (*operations.CreateWorkflowResponse, error) {
+func (s *orchestration) CreateWorkflow(ctx context.Context, request shared.CreateWorkflowRequest) (*operations.CreateWorkflowResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/orchestration/flows"
 
@@ -96,7 +96,7 @@ func (s *orchestration) CreateWorkflow(ctx context.Context, request operations.C
 // Get a flow by id
 func (s *orchestration) GetFlow(ctx context.Context, request operations.GetFlowRequest) (*operations.GetFlowResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/orchestration/flows/{flowId}", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/orchestration/flows/{flowId}", request, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -151,7 +151,7 @@ func (s *orchestration) GetFlow(ctx context.Context, request operations.GetFlowR
 // Get a workflow occurrence by id
 func (s *orchestration) GetWorkflowOccurrence(ctx context.Context, request operations.GetWorkflowOccurrenceRequest) (*operations.GetWorkflowOccurrenceResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/orchestration/flows/{flowId}/runs/{runId}", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/orchestration/flows/{flowId}/runs/{runId}", request, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -261,7 +261,7 @@ func (s *orchestration) ListFlows(ctx context.Context) (*operations.ListFlowsRes
 // List occurrences of a workflow
 func (s *orchestration) ListRuns(ctx context.Context, request operations.ListRunsRequest) (*operations.ListRunsResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/orchestration/flows/{flowId}/runs", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/orchestration/flows/{flowId}/runs", request, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -370,9 +370,9 @@ func (s *orchestration) OrchestrationgetServerInfo(ctx context.Context) (*operat
 // Run workflow
 func (s *orchestration) RunWorkflow(ctx context.Context, request operations.RunWorkflowRequest) (*operations.RunWorkflowResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/orchestration/flows/{flowId}/runs", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/orchestration/flows/{flowId}/runs", request, nil)
 
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "Request", "json")
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "RequestBody", "json")
 	if err != nil {
 		return nil, fmt.Errorf("error serializing request body: %w", err)
 	}
@@ -384,7 +384,7 @@ func (s *orchestration) RunWorkflow(ctx context.Context, request operations.RunW
 
 	req.Header.Set("Content-Type", reqContentType)
 
-	if err := utils.PopulateQueryParams(ctx, req, request.QueryParams, nil); err != nil {
+	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 

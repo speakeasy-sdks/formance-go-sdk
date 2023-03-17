@@ -5,13 +5,9 @@ import (
 	"net/http"
 )
 
-type CreditWalletPathParams struct {
-	ID string `pathParam:"style=simple,explode=false,name=id"`
-}
-
 type CreditWalletRequest struct {
-	PathParams CreditWalletPathParams
-	Request    *shared.CreditWalletRequest `request:"mediaType=application/json"`
+	CreditWalletRequest *shared.CreditWalletRequest `request:"mediaType=application/json"`
+	ID                  string                      `pathParam:"style=simple,explode=false,name=id"`
 }
 
 type CreditWalletResponse struct {

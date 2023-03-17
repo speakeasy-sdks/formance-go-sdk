@@ -5,12 +5,8 @@ import (
 	"net/http"
 )
 
-type GetHoldPathParams struct {
-	HoldID string `pathParam:"style=simple,explode=false,name=holdID"`
-}
-
 type GetHoldRequest struct {
-	PathParams GetHoldPathParams
+	HoldID string `pathParam:"style=simple,explode=false,name=holdID"`
 }
 
 type GetHoldResponse struct {

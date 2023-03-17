@@ -5,12 +5,8 @@ import (
 	"net/http"
 )
 
-type ActivateConfigPathParams struct {
-	ID string `pathParam:"style=simple,explode=false,name=id"`
-}
-
 type ActivateConfigRequest struct {
-	PathParams ActivateConfigPathParams
+	ID string `pathParam:"style=simple,explode=false,name=id"`
 }
 
 type ActivateConfigResponse struct {

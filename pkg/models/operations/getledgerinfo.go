@@ -5,12 +5,8 @@ import (
 	"net/http"
 )
 
-type GetLedgerInfoPathParams struct {
-	Ledger string `pathParam:"style=simple,explode=false,name=ledger"`
-}
-
 type GetLedgerInfoRequest struct {
-	PathParams GetLedgerInfoPathParams
+	Ledger string `pathParam:"style=simple,explode=false,name=ledger"`
 }
 
 type GetLedgerInfoResponse struct {

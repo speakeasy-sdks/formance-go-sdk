@@ -34,7 +34,7 @@ func newScopes(defaultClient, securityClient HTTPClient, serverURL, language, sd
 // Add a transient scope to a scope
 func (s *scopes) AddTransientScope(ctx context.Context, request operations.AddTransientScopeRequest) (*operations.AddTransientScopeResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/auth/scopes/{scopeId}/transient/{transientScopeId}", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/auth/scopes/{scopeId}/transient/{transientScopeId}", request, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "PUT", url, nil)
 	if err != nil {
@@ -68,7 +68,7 @@ func (s *scopes) AddTransientScope(ctx context.Context, request operations.AddTr
 
 // CreateScope - Create scope
 // Create scope
-func (s *scopes) CreateScope(ctx context.Context, request operations.CreateScopeRequest) (*operations.CreateScopeResponse, error) {
+func (s *scopes) CreateScope(ctx context.Context, request shared.CreateScopeRequest) (*operations.CreateScopeResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/auth/scopes"
 
@@ -122,7 +122,7 @@ func (s *scopes) CreateScope(ctx context.Context, request operations.CreateScope
 // Delete scope
 func (s *scopes) DeleteScope(ctx context.Context, request operations.DeleteScopeRequest) (*operations.DeleteScopeResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/auth/scopes/{scopeId}", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/auth/scopes/{scopeId}", request, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "DELETE", url, nil)
 	if err != nil {
@@ -158,7 +158,7 @@ func (s *scopes) DeleteScope(ctx context.Context, request operations.DeleteScope
 // Delete a transient scope from a scope
 func (s *scopes) DeleteTransientScope(ctx context.Context, request operations.DeleteTransientScopeRequest) (*operations.DeleteTransientScopeResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/auth/scopes/{scopeId}/transient/{transientScopeId}", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/auth/scopes/{scopeId}/transient/{transientScopeId}", request, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "DELETE", url, nil)
 	if err != nil {
@@ -239,7 +239,7 @@ func (s *scopes) ListScopes(ctx context.Context) (*operations.ListScopesResponse
 // Read scope
 func (s *scopes) ReadScope(ctx context.Context, request operations.ReadScopeRequest) (*operations.ReadScopeResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/auth/scopes/{scopeId}", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/auth/scopes/{scopeId}", request, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -284,9 +284,9 @@ func (s *scopes) ReadScope(ctx context.Context, request operations.ReadScopeRequ
 // Update scope
 func (s *scopes) UpdateScope(ctx context.Context, request operations.UpdateScopeRequest) (*operations.UpdateScopeResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/auth/scopes/{scopeId}", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/auth/scopes/{scopeId}", request, nil)
 
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "Request", "json")
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "UpdateScopeRequest", "json")
 	if err != nil {
 		return nil, fmt.Errorf("error serializing request body: %w", err)
 	}

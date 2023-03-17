@@ -33,9 +33,9 @@ func newWallets(defaultClient, securityClient HTTPClient, serverURL, language, s
 // ConfirmHold - Confirm a hold
 func (s *wallets) ConfirmHold(ctx context.Context, request operations.ConfirmHoldRequest) (*operations.ConfirmHoldResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/wallets/holds/{hold_id}/confirm", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/wallets/holds/{hold_id}/confirm", request, nil)
 
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "Request", "json")
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "ConfirmHoldRequest", "json")
 	if err != nil {
 		return nil, fmt.Errorf("error serializing request body: %w", err)
 	}
@@ -85,9 +85,9 @@ func (s *wallets) ConfirmHold(ctx context.Context, request operations.ConfirmHol
 // CreateBalance - Create a balance
 func (s *wallets) CreateBalance(ctx context.Context, request operations.CreateBalanceRequest) (*operations.CreateBalanceResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/wallets/wallets/{id}/balances", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/wallets/wallets/{id}/balances", request, nil)
 
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "Request", "json")
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "CreateBalanceRequest", "json")
 	if err != nil {
 		return nil, fmt.Errorf("error serializing request body: %w", err)
 	}
@@ -144,7 +144,7 @@ func (s *wallets) CreateBalance(ctx context.Context, request operations.CreateBa
 }
 
 // CreateWallet - Create a new wallet
-func (s *wallets) CreateWallet(ctx context.Context, request operations.CreateWalletRequest) (*operations.CreateWalletResponse, error) {
+func (s *wallets) CreateWallet(ctx context.Context, request shared.CreateWalletRequest) (*operations.CreateWalletResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/wallets/wallets"
 
@@ -207,9 +207,9 @@ func (s *wallets) CreateWallet(ctx context.Context, request operations.CreateWal
 // CreditWallet - Credit a wallet
 func (s *wallets) CreditWallet(ctx context.Context, request operations.CreditWalletRequest) (*operations.CreditWalletResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/wallets/wallets/{id}/credit", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/wallets/wallets/{id}/credit", request, nil)
 
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "Request", "json")
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "CreditWalletRequest", "json")
 	if err != nil {
 		return nil, fmt.Errorf("error serializing request body: %w", err)
 	}
@@ -259,9 +259,9 @@ func (s *wallets) CreditWallet(ctx context.Context, request operations.CreditWal
 // DebitWallet - Debit a wallet
 func (s *wallets) DebitWallet(ctx context.Context, request operations.DebitWalletRequest) (*operations.DebitWalletResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/wallets/wallets/{id}/debit", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/wallets/wallets/{id}/debit", request, nil)
 
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "Request", "json")
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "DebitWalletRequest", "json")
 	if err != nil {
 		return nil, fmt.Errorf("error serializing request body: %w", err)
 	}
@@ -321,7 +321,7 @@ func (s *wallets) DebitWallet(ctx context.Context, request operations.DebitWalle
 // GetBalance - Get detailed balance
 func (s *wallets) GetBalance(ctx context.Context, request operations.GetBalanceRequest) (*operations.GetBalanceResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/wallets/wallets/{id}/balances/{balanceName}", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/wallets/wallets/{id}/balances/{balanceName}", request, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -375,7 +375,7 @@ func (s *wallets) GetBalance(ctx context.Context, request operations.GetBalanceR
 // GetHold - Get a hold
 func (s *wallets) GetHold(ctx context.Context, request operations.GetHoldRequest) (*operations.GetHoldResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/wallets/holds/{holdID}", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/wallets/holds/{holdID}", request, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -436,7 +436,7 @@ func (s *wallets) GetHolds(ctx context.Context, request operations.GetHoldsReque
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 
-	if err := utils.PopulateQueryParams(ctx, req, request.QueryParams, nil); err != nil {
+	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
@@ -493,7 +493,7 @@ func (s *wallets) GetTransactions(ctx context.Context, request operations.GetTra
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 
-	if err := utils.PopulateQueryParams(ctx, req, request.QueryParams, nil); err != nil {
+	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
@@ -544,7 +544,7 @@ func (s *wallets) GetTransactions(ctx context.Context, request operations.GetTra
 // GetWallet - Get a wallet
 func (s *wallets) GetWallet(ctx context.Context, request operations.GetWalletRequest) (*operations.GetWalletResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/wallets/wallets/{id}", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/wallets/wallets/{id}", request, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -599,7 +599,7 @@ func (s *wallets) GetWallet(ctx context.Context, request operations.GetWalletReq
 // ListBalances - List balances of a wallet
 func (s *wallets) ListBalances(ctx context.Context, request operations.ListBalancesRequest) (*operations.ListBalancesResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/wallets/wallets/{id}/balances", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/wallets/wallets/{id}/balances", request, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -650,7 +650,7 @@ func (s *wallets) ListWallets(ctx context.Context, request operations.ListWallet
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 
-	if err := utils.PopulateQueryParams(ctx, req, request.QueryParams, nil); err != nil {
+	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
@@ -691,9 +691,9 @@ func (s *wallets) ListWallets(ctx context.Context, request operations.ListWallet
 // UpdateWallet - Update a wallet
 func (s *wallets) UpdateWallet(ctx context.Context, request operations.UpdateWalletRequest) (*operations.UpdateWalletResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/wallets/wallets/{id}", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/wallets/wallets/{id}", request, nil)
 
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "Request", "json")
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "RequestBody", "json")
 	if err != nil {
 		return nil, fmt.Errorf("error serializing request body: %w", err)
 	}
@@ -743,7 +743,7 @@ func (s *wallets) UpdateWallet(ctx context.Context, request operations.UpdateWal
 // VoidHold - Cancel a hold
 func (s *wallets) VoidHold(ctx context.Context, request operations.VoidHoldRequest) (*operations.VoidHoldResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/wallets/holds/{hold_id}/void", request.PathParams, nil)
+	url := utils.GenerateURL(ctx, baseURL, "/api/wallets/holds/{hold_id}/void", request, nil)
 
 	req, err := http.NewRequestWithContext(ctx, "POST", url, nil)
 	if err != nil {
