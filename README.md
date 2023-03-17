@@ -34,8 +34,7 @@ import (
 )
 
 func main() {
-    s := formance.New(
-        WithSecurity(        shared.Security{
+    s := formance.New(shared.Security{
             Authorization: "Bearer YOUR_ACCESS_TOKEN_HERE",
         }),
     )
