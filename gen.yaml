@@ -6,7 +6,7 @@ management:
 generation:
   telemetryEnabled: false
   sdkClassName: formance
-  sdkFlattening: false
+  sdkFlattening: true
 go:
   version: 0.3.0
   packageName: github.com/speakeasy-sdks/formance-go-sdk
