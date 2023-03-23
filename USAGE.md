@@ -11,11 +11,7 @@ import (
 )
 
 func main() {
-    s := formance.New(
-        WithSecurity(        shared.Security{
-            Authorization: "Bearer YOUR_ACCESS_TOKEN_HERE",
-        }),
-    )
+    s := formance.New()
 
     ctx := context.Background()
     res, err := s.GetServerInfo(ctx)
