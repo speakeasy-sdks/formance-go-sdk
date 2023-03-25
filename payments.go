@@ -183,7 +183,7 @@ func (s *payments) InstallConnector(ctx context.Context, request operations.Inst
 	baseURL := s.serverURL
 	url := utils.GenerateURL(ctx, baseURL, "/api/payments/connectors/{connector}", request, nil)
 
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "RequestBody", "json")
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "ConnectorConfig", "json")
 	if err != nil {
 		return nil, fmt.Errorf("error serializing request body: %w", err)
 	}

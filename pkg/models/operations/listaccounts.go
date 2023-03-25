@@ -3,6 +3,8 @@
 package operations
 
 import (
+	"encoding/json"
+	"fmt"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"net/http"
 )
@@ -18,6 +20,30 @@ const (
 	ListAccountsBalanceOperatorEnumE   ListAccountsBalanceOperatorEnum = "e"
 	ListAccountsBalanceOperatorEnumNe  ListAccountsBalanceOperatorEnum = "ne"
 )
+
+func (e *ListAccountsBalanceOperatorEnum) UnmarshalJSON(data []byte) error {
+	var s string
+	if err := json.Unmarshal(data, &s); err != nil {
+		return err
+	}
+	switch s {
+	case "gte":
+		fallthrough
+	case "lte":
+		fallthrough
+	case "gt":
+		fallthrough
+	case "lt":
+		fallthrough
+	case "e":
+		fallthrough
+	case "ne":
+		*e = ListAccountsBalanceOperatorEnum(s)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for ListAccountsBalanceOperatorEnum: %s", s)
+	}
+}
 
 type ListAccountsRequest struct {
 	// Filter accounts by address pattern (regular expression placed between ^ and $).

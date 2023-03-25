@@ -8,7 +8,7 @@ import (
 )
 
 type InstallConnectorRequest struct {
-	RequestBody interface{} `request:"mediaType=application/json"`
+	ConnectorConfig shared.ConnectorConfig `request:"mediaType=application/json"`
 	// The name of the connector.
 	Connector shared.ConnectorEnum `pathParam:"style=simple,explode=false,name=connector"`
 }

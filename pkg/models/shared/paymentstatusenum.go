@@ -2,6 +2,11 @@
 
 package shared
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 type PaymentStatusEnum string
 
 const (
@@ -10,3 +15,23 @@ const (
 	PaymentStatusEnumTerminated PaymentStatusEnum = "TERMINATED"
 	PaymentStatusEnumFailed     PaymentStatusEnum = "FAILED"
 )
+
+func (e *PaymentStatusEnum) UnmarshalJSON(data []byte) error {
+	var s string
+	if err := json.Unmarshal(data, &s); err != nil {
+		return err
+	}
+	switch s {
+	case "PENDING":
+		fallthrough
+	case "ACTIVE":
+		fallthrough
+	case "TERMINATED":
+		fallthrough
+	case "FAILED":
+		*e = PaymentStatusEnum(s)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for PaymentStatusEnum: %s", s)
+	}
+}

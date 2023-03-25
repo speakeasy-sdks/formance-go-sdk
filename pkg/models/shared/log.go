@@ -3,6 +3,8 @@
 package shared
 
 import (
+	"encoding/json"
+	"fmt"
 	"time"
 )
 
@@ -12,6 +14,22 @@ const (
 	LogTypeEnumNewTransaction LogTypeEnum = "NEW_TRANSACTION"
 	LogTypeEnumSetMetadata    LogTypeEnum = "SET_METADATA"
 )
+
+func (e *LogTypeEnum) UnmarshalJSON(data []byte) error {
+	var s string
+	if err := json.Unmarshal(data, &s); err != nil {
+		return err
+	}
+	switch s {
+	case "NEW_TRANSACTION":
+		fallthrough
+	case "SET_METADATA":
+		*e = LogTypeEnum(s)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for LogTypeEnum: %s", s)
+	}
+}
 
 type Log struct {
 	Data map[string]interface{} `json:"data"`

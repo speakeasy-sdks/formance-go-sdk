@@ -162,6 +162,7 @@ pkg/models/shared/payment.go
 pkg/models/shared/paymentmetadata.go
 pkg/models/shared/paymentmetadatachangelog.go
 pkg/models/shared/paymentadjustment.go
+pkg/models/shared/connectorconfig.go
 pkg/models/shared/stripeconfig.go
 pkg/models/shared/dummypayconfig.go
 pkg/models/shared/wiseconfig.go

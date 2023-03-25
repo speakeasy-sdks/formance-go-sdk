@@ -2,6 +2,11 @@
 
 package shared
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 // ConnectorEnum - The name of the connector.
 type ConnectorEnum string
 
@@ -13,3 +18,27 @@ const (
 	ConnectorEnumCurrencyCloud ConnectorEnum = "CURRENCY-CLOUD"
 	ConnectorEnumBankingCircle ConnectorEnum = "BANKING-CIRCLE"
 )
+
+func (e *ConnectorEnum) UnmarshalJSON(data []byte) error {
+	var s string
+	if err := json.Unmarshal(data, &s); err != nil {
+		return err
+	}
+	switch s {
+	case "STRIPE":
+		fallthrough
+	case "DUMMY-PAY":
+		fallthrough
+	case "WISE":
+		fallthrough
+	case "MODULR":
+		fallthrough
+	case "CURRENCY-CLOUD":
+		fallthrough
+	case "BANKING-CIRCLE":
+		*e = ConnectorEnum(s)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for ConnectorEnum: %s", s)
+	}
+}

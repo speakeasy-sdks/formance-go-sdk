@@ -2,11 +2,30 @@
 
 package shared
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 type WalletsErrorResponseErrorCodeEnum string
 
 const (
 	WalletsErrorResponseErrorCodeEnumValidation WalletsErrorResponseErrorCodeEnum = "VALIDATION"
 )
+
+func (e *WalletsErrorResponseErrorCodeEnum) UnmarshalJSON(data []byte) error {
+	var s string
+	if err := json.Unmarshal(data, &s); err != nil {
+		return err
+	}
+	switch s {
+	case "VALIDATION":
+		*e = WalletsErrorResponseErrorCodeEnum(s)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for WalletsErrorResponseErrorCodeEnum: %s", s)
+	}
+}
 
 // WalletsErrorResponse - Error
 type WalletsErrorResponse struct {

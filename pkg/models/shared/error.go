@@ -2,11 +2,30 @@
 
 package shared
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 type ErrorErrorCodeEnum string
 
 const (
 	ErrorErrorCodeEnumValidation ErrorErrorCodeEnum = "VALIDATION"
 )
+
+func (e *ErrorErrorCodeEnum) UnmarshalJSON(data []byte) error {
+	var s string
+	if err := json.Unmarshal(data, &s); err != nil {
+		return err
+	}
+	switch s {
+	case "VALIDATION":
+		*e = ErrorErrorCodeEnum(s)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for ErrorErrorCodeEnum: %s", s)
+	}
+}
 
 // Error - General error
 type Error struct {

@@ -125,8 +125,8 @@ func WithSecurity(security shared.Security) SDKOption {
 func New(opts ...SDKOption) *Formance {
 	sdk := &Formance{
 		_language:   "go",
-		_sdkVersion: "0.4.0",
-		_genVersion: "2.15.0",
+		_sdkVersion: "0.5.0",
+		_genVersion: "2.16.1",
 	}
 	for _, opt := range opts {
 		opt(sdk)
