@@ -130,6 +130,9 @@ pkg/models/shared/listclientsresponse.go
 pkg/models/shared/readclientresponse.go
 pkg/models/shared/updateclientresponse.go
 pkg/models/shared/updateclientrequest.go
+pkg/models/shared/ledgerinforesponse.go
+pkg/models/shared/ledgerinfo.go
+pkg/models/shared/migrationinfo.go
 pkg/models/shared/logscursorresponse.go
 pkg/models/shared/log.go
 pkg/models/shared/mappingresponse.go
@@ -145,6 +148,7 @@ pkg/models/shared/getworkflowoccurrenceresponse.go
 pkg/models/shared/workflowoccurrence.go
 pkg/models/shared/stagestatus.go
 pkg/models/shared/listworkflowsresponse.go
+pkg/models/shared/listrunsresponse.go
 pkg/models/shared/serverinfo.go
 pkg/models/shared/runworkflowresponse.go
 pkg/models/shared/stripetransferrequest.go
@@ -162,6 +166,7 @@ pkg/models/shared/payment.go
 pkg/models/shared/paymentmetadata.go
 pkg/models/shared/paymentmetadatachangelog.go
 pkg/models/shared/paymentadjustment.go
+pkg/models/shared/connectorconfig.go
 pkg/models/shared/stripeconfig.go
 pkg/models/shared/dummypayconfig.go
 pkg/models/shared/wiseconfig.go
@@ -213,6 +218,8 @@ pkg/models/shared/createwalletresponse.go
 pkg/models/shared/wallet.go
 pkg/models/shared/createwalletrequest.go
 pkg/models/shared/creditwalletrequest.go
+pkg/models/shared/ledgeraccountsubject.go
+pkg/models/shared/walletsubject.go
 pkg/models/shared/monetary.go
 pkg/models/shared/debitwalletresponse.go
 pkg/models/shared/hold.go
@@ -231,9 +238,11 @@ pkg/models/shared/assetholder.go
 pkg/models/shared/listbalancesresponse.go
 pkg/models/shared/listwalletsresponse.go
 pkg/models/shared/configresponse.go
+pkg/models/shared/webhooksconfig.go
 pkg/models/shared/configchangesecret.go
 pkg/models/shared/configsresponse.go
 pkg/models/shared/configuser.go
 pkg/models/shared/attemptresponse.go
+pkg/models/shared/attempt.go
 pkg/models/shared/security.go
 USAGE.md
