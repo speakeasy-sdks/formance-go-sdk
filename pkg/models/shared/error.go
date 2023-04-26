@@ -13,6 +13,10 @@ const (
 	ErrorErrorCodeEnumValidation ErrorErrorCodeEnum = "VALIDATION"
 )
 
+func (e ErrorErrorCodeEnum) ToPointer() *ErrorErrorCodeEnum {
+	return &e
+}
+
 func (e *ErrorErrorCodeEnum) UnmarshalJSON(data []byte) error {
 	var s string
 	if err := json.Unmarshal(data, &s); err != nil {

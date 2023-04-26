@@ -36,7 +36,10 @@ func newStats(defaultClient, securityClient HTTPClient, serverURL, language, sdk
 // Get statistics from a ledger. (aggregate metrics on accounts and transactions)
 func (s *stats) ReadStats(ctx context.Context, request operations.ReadStatsRequest) (*operations.ReadStatsResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/stats", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/stats", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {

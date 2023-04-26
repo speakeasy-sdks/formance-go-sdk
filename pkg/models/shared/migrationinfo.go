@@ -15,6 +15,10 @@ const (
 	MigrationInfoStateEnumDone MigrationInfoStateEnum = "done"
 )
 
+func (e MigrationInfoStateEnum) ToPointer() *MigrationInfoStateEnum {
+	return &e
+}
+
 func (e *MigrationInfoStateEnum) UnmarshalJSON(data []byte) error {
 	var s string
 	if err := json.Unmarshal(data, &s); err != nil {

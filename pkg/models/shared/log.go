@@ -15,6 +15,10 @@ const (
 	LogTypeEnumSetMetadata    LogTypeEnum = "SET_METADATA"
 )
 
+func (e LogTypeEnum) ToPointer() *LogTypeEnum {
+	return &e
+}
+
 func (e *LogTypeEnum) UnmarshalJSON(data []byte) error {
 	var s string
 	if err := json.Unmarshal(data, &s); err != nil {

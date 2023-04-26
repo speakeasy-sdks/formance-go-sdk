@@ -35,7 +35,10 @@ func newMapping(defaultClient, securityClient HTTPClient, serverURL, language, s
 // GetMapping - Get the mapping of a ledger
 func (s *mapping) GetMapping(ctx context.Context, request operations.GetMappingRequest) (*operations.GetMappingResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/mapping", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/mapping", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -89,7 +92,10 @@ func (s *mapping) GetMapping(ctx context.Context, request operations.GetMappingR
 // UpdateMapping - Update the mapping of a ledger
 func (s *mapping) UpdateMapping(ctx context.Context, request operations.UpdateMappingRequest) (*operations.UpdateMappingResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/mapping", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/mapping", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "Mapping", "json")
 	if err != nil {

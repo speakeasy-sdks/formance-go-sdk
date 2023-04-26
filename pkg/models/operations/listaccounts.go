@@ -21,6 +21,10 @@ const (
 	ListAccountsBalanceOperatorEnumNe  ListAccountsBalanceOperatorEnum = "ne"
 )
 
+func (e ListAccountsBalanceOperatorEnum) ToPointer() *ListAccountsBalanceOperatorEnum {
+	return &e
+}
+
 func (e *ListAccountsBalanceOperatorEnum) UnmarshalJSON(data []byte) error {
 	var s string
 	if err := json.Unmarshal(data, &s); err != nil {

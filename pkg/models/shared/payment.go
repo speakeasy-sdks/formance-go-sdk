@@ -31,6 +31,10 @@ const (
 	PaymentSchemeEnumOther      PaymentSchemeEnum = "other"
 )
 
+func (e PaymentSchemeEnum) ToPointer() *PaymentSchemeEnum {
+	return &e
+}
+
 func (e *PaymentSchemeEnum) UnmarshalJSON(data []byte) error {
 	var s string
 	if err := json.Unmarshal(data, &s); err != nil {
@@ -87,6 +91,10 @@ const (
 	PaymentTypeEnumTransfer PaymentTypeEnum = "TRANSFER"
 	PaymentTypeEnumOther    PaymentTypeEnum = "OTHER"
 )
+
+func (e PaymentTypeEnum) ToPointer() *PaymentTypeEnum {
+	return &e
+}
 
 func (e *PaymentTypeEnum) UnmarshalJSON(data []byte) error {
 	var s string

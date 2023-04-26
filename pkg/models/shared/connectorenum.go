@@ -19,6 +19,10 @@ const (
 	ConnectorEnumBankingCircle ConnectorEnum = "BANKING-CIRCLE"
 )
 
+func (e ConnectorEnum) ToPointer() *ConnectorEnum {
+	return &e
+}
+
 func (e *ConnectorEnum) UnmarshalJSON(data []byte) error {
 	var s string
 	if err := json.Unmarshal(data, &s); err != nil {

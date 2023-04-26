@@ -82,7 +82,10 @@ func (s *users) ListUsers(ctx context.Context) (*operations.ListUsersResponse, e
 // Read user
 func (s *users) ReadUser(ctx context.Context, request operations.ReadUserRequest) (*operations.ReadUserResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/auth/users/{userId}", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/api/auth/users/{userId}", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {

@@ -19,6 +19,10 @@ const (
 	ErrorsEnumEnumMetadataOverride  ErrorsEnumEnum = "METADATA_OVERRIDE"
 )
 
+func (e ErrorsEnumEnum) ToPointer() *ErrorsEnumEnum {
+	return &e
+}
+
 func (e *ErrorsEnumEnum) UnmarshalJSON(data []byte) error {
 	var s string
 	if err := json.Unmarshal(data, &s); err != nil {
