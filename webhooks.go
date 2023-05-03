@@ -36,6 +36,7 @@ func newWebhooks(defaultClient, securityClient HTTPClient, serverURL, language, 
 
 // ActivateConfig - Activate one config
 // Activate a webhooks config by ID, to start receiving webhooks to its endpoint.
+
 func (s *webhooks) ActivateConfig(ctx context.Context, request operations.ActivateConfigRequest) (*operations.ActivateConfigResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/webhooks/configs/{id}/activate", request, nil)
@@ -88,6 +89,8 @@ func (s *webhooks) ActivateConfig(ctx context.Context, request operations.Activa
 //
 // If not passed or empty, a secret is automatically generated.
 // The format is a random string of bytes of size 24, base64 encoded. (larger size after encoding)
+//
+
 func (s *webhooks) ChangeConfigSecret(ctx context.Context, request operations.ChangeConfigSecretRequest) (*operations.ChangeConfigSecretResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/webhooks/configs/{id}/secret/change", request, nil)
@@ -143,6 +146,7 @@ func (s *webhooks) ChangeConfigSecret(ctx context.Context, request operations.Ch
 
 // DeactivateConfig - Deactivate one config
 // Deactivate a webhooks config by ID, to stop receiving webhooks to its endpoint.
+
 func (s *webhooks) DeactivateConfig(ctx context.Context, request operations.DeactivateConfigRequest) (*operations.DeactivateConfigResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/webhooks/configs/{id}/deactivate", request, nil)
@@ -192,6 +196,7 @@ func (s *webhooks) DeactivateConfig(ctx context.Context, request operations.Deac
 
 // DeleteConfig - Delete one config
 // Delete a webhooks config by ID.
+
 func (s *webhooks) DeleteConfig(ctx context.Context, request operations.DeleteConfigRequest) (*operations.DeleteConfigResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/webhooks/configs/{id}", request, nil)
@@ -231,6 +236,7 @@ func (s *webhooks) DeleteConfig(ctx context.Context, request operations.DeleteCo
 
 // GetManyConfigs - Get many configs
 // Sorted by updated date descending
+
 func (s *webhooks) GetManyConfigs(ctx context.Context, request operations.GetManyConfigsRequest) (*operations.GetManyConfigsResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/webhooks/configs"
@@ -288,6 +294,8 @@ func (s *webhooks) GetManyConfigs(ctx context.Context, request operations.GetMan
 // The format is a random string of bytes of size 24, base64 encoded. (larger size after encoding)
 //
 // All eventTypes are converted to lower-case when inserted.
+//
+
 func (s *webhooks) InsertConfig(ctx context.Context, request shared.ConfigUser) (*operations.InsertConfigResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/webhooks/configs"
@@ -354,6 +362,7 @@ func (s *webhooks) InsertConfig(ctx context.Context, request shared.ConfigUser) 
 
 // TestConfig - Test one config
 // Test a config by sending a webhook to its endpoint.
+
 func (s *webhooks) TestConfig(ctx context.Context, request operations.TestConfigRequest) (*operations.TestConfigResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/webhooks/configs/{id}/test", request, nil)

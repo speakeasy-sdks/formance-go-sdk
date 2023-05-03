@@ -31,12 +31,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetLedgerInfoRequest{
+    ctx := context.Background()
+    res, err := s.Ledger.GetLedgerInfo(ctx, operations.GetLedgerInfoRequest{
         Ledger: "ledger001",
-    }
-
-    res, err := s.Ledger.GetLedgerInfo(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

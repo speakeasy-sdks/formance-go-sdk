@@ -140,8 +140,8 @@ func WithSecurity(security shared.Security) SDKOption {
 func New(opts ...SDKOption) *Formance {
 	sdk := &Formance{
 		_language:   "go",
-		_sdkVersion: "0.5.0",
-		_genVersion: "2.21.1",
+		_sdkVersion: "0.6.0",
+		_genVersion: "2.24.0",
 	}
 	for _, opt := range opts {
 		opt(sdk)
@@ -320,6 +320,7 @@ func New(opts ...SDKOption) *Formance {
 }
 
 // GetServerInfo - Get server info
+
 func (s *Formance) GetServerInfo(ctx context.Context) (*operations.GetServerInfoResponse, error) {
 	baseURL := s._serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/auth/_info"
@@ -364,6 +365,7 @@ func (s *Formance) GetServerInfo(ctx context.Context) (*operations.GetServerInfo
 }
 
 // PaymentsgetServerInfo - Get server info
+
 func (s *Formance) PaymentsgetServerInfo(ctx context.Context) (*operations.PaymentsgetServerInfoResponse, error) {
 	baseURL := s._serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/payments/_info"
@@ -408,6 +410,7 @@ func (s *Formance) PaymentsgetServerInfo(ctx context.Context) (*operations.Payme
 }
 
 // SearchgetServerInfo - Get server info
+
 func (s *Formance) SearchgetServerInfo(ctx context.Context) (*operations.SearchgetServerInfoResponse, error) {
 	baseURL := s._serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/search/_info"

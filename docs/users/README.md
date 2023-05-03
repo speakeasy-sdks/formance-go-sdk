@@ -66,12 +66,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ReadUserRequest{
+    ctx := context.Background()
+    res, err := s.Users.ReadUser(ctx, operations.ReadUserRequest{
         UserID: "excepturi",
-    }
-
-    res, err := s.Users.ReadUser(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

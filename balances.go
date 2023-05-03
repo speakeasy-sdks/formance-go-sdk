@@ -33,6 +33,7 @@ func newBalances(defaultClient, securityClient HTTPClient, serverURL, language, 
 }
 
 // GetBalances - Get the balances from a ledger's account
+
 func (s *balances) GetBalances(ctx context.Context, request operations.GetBalancesRequest) (*operations.GetBalancesResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/balances", request, nil)
@@ -94,6 +95,7 @@ func (s *balances) GetBalances(ctx context.Context, request operations.GetBalanc
 }
 
 // GetBalancesAggregated - Get the aggregated balances from selected accounts
+
 func (s *balances) GetBalancesAggregated(ctx context.Context, request operations.GetBalancesAggregatedRequest) (*operations.GetBalancesAggregatedResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/aggregate/balances", request, nil)

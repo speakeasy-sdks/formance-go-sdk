@@ -31,8 +31,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := shared.Query{
+    ctx := context.Background()
+    res, err := s.Search.Search(ctx, shared.Query{
         After: []string{
             "users:002",
             "users:002",
@@ -54,9 +54,7 @@ func main() {
             "destination=central_bank1",
             "destination=central_bank1",
         },
-    }
-
-    res, err := s.Search.Search(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

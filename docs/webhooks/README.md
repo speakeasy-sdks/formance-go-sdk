@@ -37,12 +37,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ActivateConfigRequest{
+    ctx := context.Background()
+    res, err := s.Webhooks.ActivateConfig(ctx, operations.ActivateConfigRequest{
         ID: "4997257d-dfb6-445b-929c-cbe2ab182818",
-    }
-
-    res, err := s.Webhooks.ActivateConfig(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -81,15 +79,13 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ChangeConfigSecretRequest{
+    ctx := context.Background()
+    res, err := s.Webhooks.ChangeConfigSecret(ctx, operations.ChangeConfigSecretRequest{
         ConfigChangeSecret: &shared.ConfigChangeSecret{
             Secret: formance.String("V0bivxRWveaoz08afqjU6Ko/jwO0Cb+3"),
         },
         ID: "4997257d-dfb6-445b-929c-cbe2ab182818",
-    }
-
-    res, err := s.Webhooks.ChangeConfigSecret(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -123,12 +119,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.DeactivateConfigRequest{
+    ctx := context.Background()
+    res, err := s.Webhooks.DeactivateConfig(ctx, operations.DeactivateConfigRequest{
         ID: "4997257d-dfb6-445b-929c-cbe2ab182818",
-    }
-
-    res, err := s.Webhooks.DeactivateConfig(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -162,12 +156,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.DeleteConfigRequest{
+    ctx := context.Background()
+    res, err := s.Webhooks.DeleteConfig(ctx, operations.DeleteConfigRequest{
         ID: "4997257d-dfb6-445b-929c-cbe2ab182818",
-    }
-
-    res, err := s.Webhooks.DeleteConfig(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -201,13 +193,11 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetManyConfigsRequest{
+    ctx := context.Background()
+    res, err := s.Webhooks.GetManyConfigs(ctx, operations.GetManyConfigsRequest{
         Endpoint: formance.String("https://example.com"),
         ID: formance.String("4997257d-dfb6-445b-929c-cbe2ab182818"),
-    }
-
-    res, err := s.Webhooks.GetManyConfigs(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -250,8 +240,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := shared.ConfigUser{
+    ctx := context.Background()
+    res, err := s.Webhooks.InsertConfig(ctx, shared.ConfigUser{
         Endpoint: "https://example.com",
         EventTypes: []string{
             "TYPE1",
@@ -260,9 +250,7 @@ func main() {
             "TYPE1",
         },
         Secret: formance.String("V0bivxRWveaoz08afqjU6Ko/jwO0Cb+3"),
-    }
-
-    res, err := s.Webhooks.InsertConfig(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -296,12 +284,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.TestConfigRequest{
+    ctx := context.Background()
+    res, err := s.Webhooks.TestConfig(ctx, operations.TestConfigRequest{
         ID: "4997257d-dfb6-445b-929c-cbe2ab182818",
-    }
-
-    res, err := s.Webhooks.TestConfig(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

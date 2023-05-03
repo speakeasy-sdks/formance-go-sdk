@@ -24,11 +24,11 @@ func (e ConnectorEnum) ToPointer() *ConnectorEnum {
 }
 
 func (e *ConnectorEnum) UnmarshalJSON(data []byte) error {
-	var s string
-	if err := json.Unmarshal(data, &s); err != nil {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
-	switch s {
+	switch v {
 	case "STRIPE":
 		fallthrough
 	case "DUMMY-PAY":
@@ -40,9 +40,9 @@ func (e *ConnectorEnum) UnmarshalJSON(data []byte) error {
 	case "CURRENCY-CLOUD":
 		fallthrough
 	case "BANKING-CIRCLE":
-		*e = ConnectorEnum(s)
+		*e = ConnectorEnum(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ConnectorEnum: %s", s)
+		return fmt.Errorf("invalid value for ConnectorEnum: %v", v)
 	}
 }

@@ -32,12 +32,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetMappingRequest{
+    ctx := context.Background()
+    res, err := s.Mapping.GetMapping(ctx, operations.GetMappingRequest{
         Ledger: "ledger001",
-    }
-
-    res, err := s.Mapping.GetMapping(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -72,8 +70,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.UpdateMappingRequest{
+    ctx := context.Background()
+    res, err := s.Mapping.UpdateMapping(ctx, operations.UpdateMappingRequest{
         Mapping: shared.Mapping{
             Contracts: []shared.Contract{
                 shared.Contract{
@@ -93,9 +91,7 @@ func main() {
             },
         },
         Ledger: "ledger001",
-    }
-
-    res, err := s.Mapping.UpdateMapping(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

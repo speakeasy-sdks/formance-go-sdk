@@ -35,6 +35,7 @@ func newUsers(defaultClient, securityClient HTTPClient, serverURL, language, sdk
 
 // ListUsers - List users
 // List users
+
 func (s *users) ListUsers(ctx context.Context) (*operations.ListUsersResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/auth/users"
@@ -80,6 +81,7 @@ func (s *users) ListUsers(ctx context.Context) (*operations.ListUsersResponse, e
 
 // ReadUser - Read user
 // Read user
+
 func (s *users) ReadUser(ctx context.Context, request operations.ReadUserRequest) (*operations.ReadUserResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/auth/users/{userId}", request, nil)

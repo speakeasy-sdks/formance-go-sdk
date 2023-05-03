@@ -32,12 +32,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ReadStatsRequest{
+    ctx := context.Background()
+    res, err := s.Stats.ReadStats(ctx, operations.ReadStatsRequest{
         Ledger: "ledger001",
-    }
-
-    res, err := s.Stats.ReadStats(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

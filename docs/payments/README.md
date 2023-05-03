@@ -42,8 +42,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := shared.StripeTransferRequest{
+    ctx := context.Background()
+    res, err := s.Payments.ConnectorsStripeTransfer(ctx, shared.StripeTransferRequest{
         Amount: formance.Int64(100),
         Asset: formance.String("USD"),
         Destination: formance.String("acct_1Gqj58KZcSIg2N2q"),
@@ -52,9 +52,7 @@ func main() {
             "voluptatibus": "vero",
             "nihil": "praesentium",
         },
-    }
-
-    res, err := s.Payments.ConnectorsStripeTransfer(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -89,13 +87,11 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetConnectorTaskRequest{
+    ctx := context.Background()
+    res, err := s.Payments.GetConnectorTask(ctx, operations.GetConnectorTaskRequest{
         Connector: shared.ConnectorEnumBankingCircle,
         TaskID: "ipsa",
-    }
-
-    res, err := s.Payments.GetConnectorTask(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -129,12 +125,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetPaymentRequest{
+    ctx := context.Background()
+    res, err := s.Payments.GetPayment(ctx, operations.GetPaymentRequest{
         PaymentID: "omnis",
-    }
-
-    res, err := s.Payments.GetPayment(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -169,13 +163,11 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.InstallConnectorRequest{
+    ctx := context.Background()
+    res, err := s.Payments.InstallConnector(ctx, operations.InstallConnectorRequest{
         ConnectorConfig: shared.ConnectorConfig{},
         Connector: shared.ConnectorEnumWise,
-    }
-
-    res, err := s.Payments.InstallConnector(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -278,14 +270,12 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ListConnectorTasksRequest{
+    ctx := context.Background()
+    res, err := s.Payments.ListConnectorTasks(ctx, operations.ListConnectorTasksRequest{
         Connector: shared.ConnectorEnumCurrencyCloud,
         Cursor: formance.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         PageSize: formance.Int64(19987),
-    }
-
-    res, err := s.Payments.ListConnectorTasks(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -319,17 +309,15 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ListPaymentsRequest{
+    ctx := context.Background()
+    res, err := s.Payments.ListPayments(ctx, operations.ListPaymentsRequest{
         Cursor: formance.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         PageSize: formance.Int64(39187),
         Sort: []string{
             "ut",
             "maiores",
         },
-    }
-
-    res, err := s.Payments.ListPayments(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -363,17 +351,15 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.PaymentslistAccountsRequest{
+    ctx := context.Background()
+    res, err := s.Payments.PaymentslistAccounts(ctx, operations.PaymentslistAccountsRequest{
         Cursor: formance.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         PageSize: formance.Int64(120196),
         Sort: []string{
             "dolore",
             "iusto",
         },
-    }
-
-    res, err := s.Payments.PaymentslistAccounts(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -408,12 +394,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ReadConnectorConfigRequest{
+    ctx := context.Background()
+    res, err := s.Payments.ReadConnectorConfig(ctx, operations.ReadConnectorConfigRequest{
         Connector: shared.ConnectorEnumStripe,
-    }
-
-    res, err := s.Payments.ReadConnectorConfig(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -450,12 +434,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ResetConnectorRequest{
+    ctx := context.Background()
+    res, err := s.Payments.ResetConnector(ctx, operations.ResetConnectorRequest{
         Connector: shared.ConnectorEnumCurrencyCloud,
-    }
-
-    res, err := s.Payments.ResetConnector(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -490,12 +472,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.UninstallConnectorRequest{
+    ctx := context.Background()
+    res, err := s.Payments.UninstallConnector(ctx, operations.UninstallConnectorRequest{
         Connector: shared.ConnectorEnumDummyPay,
-    }
-
-    res, err := s.Payments.UninstallConnector(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

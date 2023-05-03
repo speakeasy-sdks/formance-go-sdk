@@ -37,13 +37,11 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.AddTransientScopeRequest{
+    ctx := context.Background()
+    res, err := s.Scopes.AddTransientScope(ctx, operations.AddTransientScopeRequest{
         ScopeID: "accusamus",
         TransientScopeID: "commodi",
-    }
-
-    res, err := s.Scopes.AddTransientScope(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -77,15 +75,13 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := shared.CreateScopeRequest{
+    ctx := context.Background()
+    res, err := s.Scopes.CreateScope(ctx, shared.CreateScopeRequest{
         Label: "repudiandae",
         Metadata: map[string]interface{}{
             "ipsum": "quidem",
         },
-    }
-
-    res, err := s.Scopes.CreateScope(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -119,12 +115,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.DeleteScopeRequest{
+    ctx := context.Background()
+    res, err := s.Scopes.DeleteScope(ctx, operations.DeleteScopeRequest{
         ScopeID: "molestias",
-    }
-
-    res, err := s.Scopes.DeleteScope(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -158,13 +152,11 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.DeleteTransientScopeRequest{
+    ctx := context.Background()
+    res, err := s.Scopes.DeleteTransientScope(ctx, operations.DeleteTransientScopeRequest{
         ScopeID: "excepturi",
         TransientScopeID: "pariatur",
-    }
-
-    res, err := s.Scopes.DeleteTransientScope(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -232,12 +224,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ReadScopeRequest{
+    ctx := context.Background()
+    res, err := s.Scopes.ReadScope(ctx, operations.ReadScopeRequest{
         ScopeID: "modi",
-    }
-
-    res, err := s.Scopes.ReadScope(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -272,8 +262,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.UpdateScopeRequest{
+    ctx := context.Background()
+    res, err := s.Scopes.UpdateScope(ctx, operations.UpdateScopeRequest{
         UpdateScopeRequest: &shared.UpdateScopeRequest{
             Label: "praesentium",
             Metadata: map[string]interface{}{
@@ -283,9 +273,7 @@ func main() {
             },
         },
         ScopeID: "incidunt",
-    }
-
-    res, err := s.Scopes.UpdateScope(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

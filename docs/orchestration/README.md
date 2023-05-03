@@ -37,8 +37,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := shared.CreateWorkflowRequest{
+    ctx := context.Background()
+    res, err := s.Orchestration.CreateWorkflow(ctx, shared.CreateWorkflowRequest{
         Stages: []map[string]interface{}{
             map[string]interface{}{
                 "architecto": "mollitia",
@@ -59,9 +59,7 @@ func main() {
                 "quo": "sequi",
             },
         },
-    }
-
-    res, err := s.Orchestration.CreateWorkflow(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -95,12 +93,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetFlowRequest{
+    ctx := context.Background()
+    res, err := s.Orchestration.GetFlow(ctx, operations.GetFlowRequest{
         FlowID: "tenetur",
-    }
-
-    res, err := s.Orchestration.GetFlow(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -134,13 +130,11 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetWorkflowOccurrenceRequest{
+    ctx := context.Background()
+    res, err := s.Orchestration.GetWorkflowOccurrence(ctx, operations.GetWorkflowOccurrenceRequest{
         FlowID: "ipsam",
         RunID: "id",
-    }
-
-    res, err := s.Orchestration.GetWorkflowOccurrence(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -208,12 +202,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ListRunsRequest{
+    ctx := context.Background()
+    res, err := s.Orchestration.ListRuns(ctx, operations.ListRunsRequest{
         FlowID: "possimus",
-    }
-
-    res, err := s.Orchestration.ListRuns(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -281,16 +273,14 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.RunWorkflowRequest{
+    ctx := context.Background()
+    res, err := s.Orchestration.RunWorkflow(ctx, operations.RunWorkflowRequest{
         RequestBody: map[string]string{
             "quasi": "error",
         },
         FlowID: "temporibus",
         Wait: formance.Bool(false),
-    }
-
-    res, err := s.Orchestration.RunWorkflow(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

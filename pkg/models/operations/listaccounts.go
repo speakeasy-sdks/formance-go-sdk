@@ -26,11 +26,11 @@ func (e ListAccountsBalanceOperatorEnum) ToPointer() *ListAccountsBalanceOperato
 }
 
 func (e *ListAccountsBalanceOperatorEnum) UnmarshalJSON(data []byte) error {
-	var s string
-	if err := json.Unmarshal(data, &s); err != nil {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
-	switch s {
+	switch v {
 	case "gte":
 		fallthrough
 	case "lte":
@@ -42,10 +42,10 @@ func (e *ListAccountsBalanceOperatorEnum) UnmarshalJSON(data []byte) error {
 	case "e":
 		fallthrough
 	case "ne":
-		*e = ListAccountsBalanceOperatorEnum(s)
+		*e = ListAccountsBalanceOperatorEnum(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountsBalanceOperatorEnum: %s", s)
+		return fmt.Errorf("invalid value for ListAccountsBalanceOperatorEnum: %v", v)
 	}
 }
 

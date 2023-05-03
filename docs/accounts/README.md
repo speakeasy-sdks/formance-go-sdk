@@ -34,8 +34,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.AddMetadataToAccountRequest{
+    ctx := context.Background()
+    res, err := s.Accounts.AddMetadataToAccount(ctx, operations.AddMetadataToAccountRequest{
         RequestBody: map[string]interface{}{
             "provident": "distinctio",
             "quibusdam": "unde",
@@ -43,9 +43,7 @@ func main() {
         },
         Address: "users:001",
         Ledger: "ledger001",
-    }
-
-    res, err := s.Accounts.AddMetadataToAccount(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -79,8 +77,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.CountAccountsRequest{
+    ctx := context.Background()
+    res, err := s.Accounts.CountAccounts(ctx, operations.CountAccountsRequest{
         Address: formance.String("users:.+"),
         Ledger: "ledger001",
         Metadata: map[string]interface{}{
@@ -89,9 +87,7 @@ func main() {
             "iure": "magnam",
             "debitis": "ipsa",
         },
-    }
-
-    res, err := s.Accounts.CountAccounts(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -125,13 +121,11 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetAccountRequest{
+    ctx := context.Background()
+    res, err := s.Accounts.GetAccount(ctx, operations.GetAccountRequest{
         Address: "users:001",
         Ledger: "ledger001",
-    }
-
-    res, err := s.Accounts.GetAccount(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -165,8 +159,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ListAccountsRequest{
+    ctx := context.Background()
+    res, err := s.Accounts.ListAccounts(ctx, operations.ListAccountsRequest{
         Address: formance.String("users:.+"),
         After: formance.String("users:003"),
         Balance: formance.Int64(2400),
@@ -183,9 +177,7 @@ func main() {
         PageSize: formance.Int64(392785),
         PageSizeDeprecated: formance.Int64(925597),
         PaginationToken: formance.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
-    }
-
-    res, err := s.Accounts.ListAccounts(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

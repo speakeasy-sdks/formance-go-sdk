@@ -32,16 +32,14 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetBalancesRequest{
+    ctx := context.Background()
+    res, err := s.Balances.GetBalances(ctx, operations.GetBalancesRequest{
         Address: formance.String("users:001"),
         After: formance.String("users:003"),
         Cursor: formance.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         Ledger: "ledger001",
         PaginationToken: formance.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
-    }
-
-    res, err := s.Balances.GetBalances(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -75,13 +73,11 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetBalancesAggregatedRequest{
+    ctx := context.Background()
+    res, err := s.Balances.GetBalancesAggregated(ctx, operations.GetBalancesAggregatedRequest{
         Address: formance.String("users:001"),
         Ledger: "ledger001",
-    }
-
-    res, err := s.Balances.GetBalancesAggregated(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

@@ -33,6 +33,7 @@ func newMapping(defaultClient, securityClient HTTPClient, serverURL, language, s
 }
 
 // GetMapping - Get the mapping of a ledger
+
 func (s *mapping) GetMapping(ctx context.Context, request operations.GetMappingRequest) (*operations.GetMappingResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/mapping", request, nil)
@@ -90,6 +91,7 @@ func (s *mapping) GetMapping(ctx context.Context, request operations.GetMappingR
 }
 
 // UpdateMapping - Update the mapping of a ledger
+
 func (s *mapping) UpdateMapping(ctx context.Context, request operations.UpdateMappingRequest) (*operations.UpdateMappingResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/mapping", request, nil)

@@ -32,8 +32,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ListLogsRequest{
+    ctx := context.Background()
+    res, err := s.Logs.ListLogs(ctx, operations.ListLogsRequest{
         After: formance.String("1234"),
         Cursor: formance.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         EndTime: types.MustTimeFromString("2020-11-28T02:15:07.561Z"),
@@ -44,9 +44,7 @@ func main() {
         PaginationToken: formance.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         StartTime: types.MustTimeFromString("2021-08-29T10:25:27.700Z"),
         StartTimeDeprecated: types.MustTimeFromString("2022-10-16T05:02:54.746Z"),
-    }
-
-    res, err := s.Logs.ListLogs(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

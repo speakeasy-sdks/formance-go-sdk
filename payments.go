@@ -35,6 +35,7 @@ func newPayments(defaultClient, securityClient HTTPClient, serverURL, language, 
 
 // ConnectorsStripeTransfer - Transfer funds between Stripe accounts
 // Execute a transfer between two Stripe accounts.
+
 func (s *payments) ConnectorsStripeTransfer(ctx context.Context, request shared.StripeTransferRequest) (*operations.ConnectorsStripeTransferResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/payments/connectors/stripe/transfer"
@@ -90,6 +91,7 @@ func (s *payments) ConnectorsStripeTransfer(ctx context.Context, request shared.
 
 // GetConnectorTask - Read a specific task of the connector
 // Get a specific task associated to the connector.
+
 func (s *payments) GetConnectorTask(ctx context.Context, request operations.GetConnectorTaskRequest) (*operations.GetConnectorTaskResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/payments/connectors/{connector}/tasks/{taskId}", request, nil)
@@ -137,6 +139,7 @@ func (s *payments) GetConnectorTask(ctx context.Context, request operations.GetC
 }
 
 // GetPayment - Get a payment
+
 func (s *payments) GetPayment(ctx context.Context, request operations.GetPaymentRequest) (*operations.GetPaymentResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/payments/payments/{paymentId}", request, nil)
@@ -185,6 +188,7 @@ func (s *payments) GetPayment(ctx context.Context, request operations.GetPayment
 
 // InstallConnector - Install a connector
 // Install a connector by its name and config.
+
 func (s *payments) InstallConnector(ctx context.Context, request operations.InstallConnectorRequest) (*operations.InstallConnectorResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/payments/connectors/{connector}", request, nil)
@@ -234,6 +238,7 @@ func (s *payments) InstallConnector(ctx context.Context, request operations.Inst
 
 // ListAllConnectors - List all installed connectors
 // List all installed connectors.
+
 func (s *payments) ListAllConnectors(ctx context.Context) (*operations.ListAllConnectorsResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/payments/connectors"
@@ -279,6 +284,7 @@ func (s *payments) ListAllConnectors(ctx context.Context) (*operations.ListAllCo
 
 // ListConfigsAvailableConnectors - List the configs of each available connector
 // List the configs of each available connector.
+
 func (s *payments) ListConfigsAvailableConnectors(ctx context.Context) (*operations.ListConfigsAvailableConnectorsResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/payments/connectors/configs"
@@ -324,6 +330,7 @@ func (s *payments) ListConfigsAvailableConnectors(ctx context.Context) (*operati
 
 // ListConnectorTasks - List tasks from a connector
 // List all tasks associated with this connector.
+
 func (s *payments) ListConnectorTasks(ctx context.Context, request operations.ListConnectorTasksRequest) (*operations.ListConnectorTasksResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/payments/connectors/{connector}/tasks", request, nil)
@@ -375,6 +382,7 @@ func (s *payments) ListConnectorTasks(ctx context.Context, request operations.Li
 }
 
 // ListPayments - List payments
+
 func (s *payments) ListPayments(ctx context.Context, request operations.ListPaymentsRequest) (*operations.ListPaymentsResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/payments/payments"
@@ -423,6 +431,7 @@ func (s *payments) ListPayments(ctx context.Context, request operations.ListPaym
 }
 
 // PaymentslistAccounts - List accounts
+
 func (s *payments) PaymentslistAccounts(ctx context.Context, request operations.PaymentslistAccountsRequest) (*operations.PaymentslistAccountsResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/payments/accounts"
@@ -472,6 +481,7 @@ func (s *payments) PaymentslistAccounts(ctx context.Context, request operations.
 
 // ReadConnectorConfig - Read the config of a connector
 // Read connector config
+
 func (s *payments) ReadConnectorConfig(ctx context.Context, request operations.ReadConnectorConfigRequest) (*operations.ReadConnectorConfigResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/payments/connectors/{connector}/config", request, nil)
@@ -521,6 +531,8 @@ func (s *payments) ReadConnectorConfig(ctx context.Context, request operations.R
 // ResetConnector - Reset a connector
 // Reset a connector by its name.
 // It will remove the connector and ALL PAYMENTS generated with it.
+//
+
 func (s *payments) ResetConnector(ctx context.Context, request operations.ResetConnectorRequest) (*operations.ResetConnectorResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/payments/connectors/{connector}/reset", request, nil)
@@ -560,6 +572,7 @@ func (s *payments) ResetConnector(ctx context.Context, request operations.ResetC
 
 // UninstallConnector - Uninstall a connector
 // Uninstall a connector by its name.
+
 func (s *payments) UninstallConnector(ctx context.Context, request operations.UninstallConnectorRequest) (*operations.UninstallConnectorResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/payments/connectors/{connector}", request, nil)

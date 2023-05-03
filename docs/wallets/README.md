@@ -46,16 +46,14 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ConfirmHoldRequest{
+    ctx := context.Background()
+    res, err := s.Wallets.ConfirmHold(ctx, operations.ConfirmHoldRequest{
         ConfirmHoldRequest: &shared.ConfirmHoldRequest{
             Amount: formance.Int64(100),
             Final: formance.Bool(true),
         },
         HoldID: "ullam",
-    }
-
-    res, err := s.Wallets.ConfirmHold(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -90,15 +88,13 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.CreateBalanceRequest{
+    ctx := context.Background()
+    res, err := s.Wallets.CreateBalance(ctx, operations.CreateBalanceRequest{
         CreateBalanceRequest: &shared.CreateBalanceRequest{
             Name: "Miss Julian Marvin",
         },
         ID: "a563e251-6fe4-4c8b-b11e-5b7fd2ed0289",
-    }
-
-    res, err := s.Wallets.CreateBalance(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -132,15 +128,13 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := shared.CreateWalletRequest{
+    ctx := context.Background()
+    res, err := s.Wallets.CreateWallet(ctx, shared.CreateWalletRequest{
         Metadata: map[string]interface{}{
             "sunt": "quo",
         },
         Name: "Ervin Schoen",
-    }
-
-    res, err := s.Wallets.CreateWallet(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -175,8 +169,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.CreditWalletRequest{
+    ctx := context.Background()
+    res, err := s.Wallets.CreditWallet(ctx, operations.CreditWalletRequest{
         CreditWalletRequest: &shared.CreditWalletRequest{
             Amount: shared.Monetary{
                 Amount: 139972,
@@ -200,9 +194,7 @@ func main() {
             },
         },
         ID: "d30c5fbb-2587-4053-a02c-73d5fe9b90c2",
-    }
-
-    res, err := s.Wallets.CreditWallet(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -237,8 +229,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.DebitWalletRequest{
+    ctx := context.Background()
+    res, err := s.Wallets.DebitWallet(ctx, operations.DebitWalletRequest{
         DebitWalletRequest: &shared.DebitWalletRequest{
             Amount: shared.Monetary{
                 Amount: 500026,
@@ -259,9 +251,7 @@ func main() {
             Pending: formance.Bool(false),
         },
         ID: "9cbf4863-3323-4f9b-b7f3-a4100674ebf6",
-    }
-
-    res, err := s.Wallets.DebitWallet(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -295,13 +285,11 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetBalanceRequest{
+    ctx := context.Background()
+    res, err := s.Wallets.GetBalance(ctx, operations.GetBalanceRequest{
         BalanceName: "natus",
         ID: "280d1ba7-7a89-4ebf-b37a-e4203ce5e6a9",
-    }
-
-    res, err := s.Wallets.GetBalance(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -335,12 +323,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetHoldRequest{
+    ctx := context.Background()
+    res, err := s.Wallets.GetHold(ctx, operations.GetHoldRequest{
         HoldID: "minima",
-    }
-
-    res, err := s.Wallets.GetHold(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -374,8 +360,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetHoldsRequest{
+    ctx := context.Background()
+    res, err := s.Wallets.GetHolds(ctx, operations.GetHoldsRequest{
         Cursor: formance.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         Metadata: map[string]interface{}{
             "totam": "similique",
@@ -385,9 +371,7 @@ func main() {
         },
         PageSize: formance.Int64(885338),
         WalletID: formance.String("qui"),
-    }
-
-    res, err := s.Wallets.GetHolds(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -419,14 +403,12 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetTransactionsRequest{
+    ctx := context.Background()
+    res, err := s.Wallets.GetTransactions(ctx, operations.GetTransactionsRequest{
         Cursor: formance.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         PageSize: formance.Int64(679880),
         WalletID: formance.String("a"),
-    }
-
-    res, err := s.Wallets.GetTransactions(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -460,12 +442,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetWalletRequest{
+    ctx := context.Background()
+    res, err := s.Wallets.GetWallet(ctx, operations.GetWalletRequest{
         ID: "7a73cf3b-e453-4f87-8b32-6b5a73429cdb",
-    }
-
-    res, err := s.Wallets.GetWallet(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -499,12 +479,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ListBalancesRequest{
+    ctx := context.Background()
+    res, err := s.Wallets.ListBalances(ctx, operations.ListBalancesRequest{
         ID: "1a8422bb-679d-4232-a715-bf0cbb1e31b8",
-    }
-
-    res, err := s.Wallets.ListBalances(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -538,8 +516,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ListWalletsRequest{
+    ctx := context.Background()
+    res, err := s.Wallets.ListWallets(ctx, operations.ListWalletsRequest{
         Cursor: formance.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         Metadata: map[string]interface{}{
             "cupiditate": "aperiam",
@@ -548,9 +526,7 @@ func main() {
         },
         Name: formance.String("Mr. Sonya Bradtke"),
         PageSize: formance.Int64(929530),
-    }
-
-    res, err := s.Wallets.ListWallets(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -584,17 +560,15 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.UpdateWalletRequest{
+    ctx := context.Background()
+    res, err := s.Wallets.UpdateWallet(ctx, operations.UpdateWalletRequest{
         RequestBody: &operations.UpdateWalletRequestBody{
             Metadata: map[string]interface{}{
                 "est": "repellendus",
             },
         },
         ID: "cf4b9218-79fc-4e95-bf73-ef7fbc7abd74",
-    }
-
-    res, err := s.Wallets.UpdateWallet(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -628,12 +602,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.VoidHoldRequest{
+    ctx := context.Background()
+    res, err := s.Wallets.VoidHold(ctx, operations.VoidHoldRequest{
         HoldID: "quibusdam",
-    }
-
-    res, err := s.Wallets.VoidHold(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

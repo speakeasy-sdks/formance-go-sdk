@@ -24,11 +24,11 @@ func (e ErrorsEnumEnum) ToPointer() *ErrorsEnumEnum {
 }
 
 func (e *ErrorsEnumEnum) UnmarshalJSON(data []byte) error {
-	var s string
-	if err := json.Unmarshal(data, &s); err != nil {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
-	switch s {
+	switch v {
 	case "INTERNAL":
 		fallthrough
 	case "INSUFFICIENT_FUND":
@@ -42,9 +42,9 @@ func (e *ErrorsEnumEnum) UnmarshalJSON(data []byte) error {
 	case "COMPILATION_FAILED":
 		fallthrough
 	case "METADATA_OVERRIDE":
-		*e = ErrorsEnumEnum(s)
+		*e = ErrorsEnumEnum(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ErrorsEnumEnum: %s", s)
+		return fmt.Errorf("invalid value for ErrorsEnumEnum: %v", v)
 	}
 }

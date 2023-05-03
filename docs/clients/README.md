@@ -39,13 +39,11 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.AddScopeToClientRequest{
+    ctx := context.Background()
+    res, err := s.Clients.AddScopeToClient(ctx, operations.AddScopeToClientRequest{
         ClientID: "temporibus",
         ScopeID: "ab",
-    }
-
-    res, err := s.Clients.AddScopeToClient(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -79,8 +77,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := shared.CreateClientRequest{
+    ctx := context.Background()
+    res, err := s.Clients.CreateClient(ctx, shared.CreateClientRequest{
         Description: formance.String("quis"),
         Metadata: map[string]interface{}{
             "deserunt": "perferendis",
@@ -100,9 +98,7 @@ func main() {
             "dolorum",
         },
         Trusted: formance.Bool(false),
-    }
-
-    res, err := s.Clients.CreateClient(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -137,8 +133,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.CreateSecretRequest{
+    ctx := context.Background()
+    res, err := s.Clients.CreateSecret(ctx, operations.CreateSecretRequest{
         CreateSecretRequest: &shared.CreateSecretRequest{
             Metadata: map[string]interface{}{
                 "nam": "officia",
@@ -146,9 +142,7 @@ func main() {
             Name: "Wayne Lind",
         },
         ClientID: "totam",
-    }
-
-    res, err := s.Clients.CreateSecret(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -182,12 +176,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.DeleteClientRequest{
+    ctx := context.Background()
+    res, err := s.Clients.DeleteClient(ctx, operations.DeleteClientRequest{
         ClientID: "beatae",
-    }
-
-    res, err := s.Clients.DeleteClient(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -221,13 +213,11 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.DeleteScopeFromClientRequest{
+    ctx := context.Background()
+    res, err := s.Clients.DeleteScopeFromClient(ctx, operations.DeleteScopeFromClientRequest{
         ClientID: "commodi",
         ScopeID: "molestiae",
-    }
-
-    res, err := s.Clients.DeleteScopeFromClient(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -261,13 +251,11 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.DeleteSecretRequest{
+    ctx := context.Background()
+    res, err := s.Clients.DeleteSecret(ctx, operations.DeleteSecretRequest{
         ClientID: "modi",
         SecretID: "qui",
-    }
-
-    res, err := s.Clients.DeleteSecret(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -335,12 +323,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ReadClientRequest{
+    ctx := context.Background()
+    res, err := s.Clients.ReadClient(ctx, operations.ReadClientRequest{
         ClientID: "impedit",
-    }
-
-    res, err := s.Clients.ReadClient(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -375,8 +361,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.UpdateClientRequest{
+    ctx := context.Background()
+    res, err := s.Clients.UpdateClient(ctx, operations.UpdateClientRequest{
         UpdateClientRequest: &shared.UpdateClientRequest{
             Description: formance.String("cum"),
             Metadata: map[string]interface{}{
@@ -398,9 +384,7 @@ func main() {
             Trusted: formance.Bool(false),
         },
         ClientID: "iure",
-    }
-
-    res, err := s.Clients.UpdateClient(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

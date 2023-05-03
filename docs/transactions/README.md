@@ -39,8 +39,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.CreateTransactionsRequest{
+    ctx := context.Background()
+    res, err := s.Transactions.CreateTransactions(ctx, operations.CreateTransactionsRequest{
         Transactions: shared.Transactions{
             Transactions: []shared.TransactionData{
                 shared.TransactionData{
@@ -96,9 +96,7 @@ func main() {
             },
         },
         Ledger: "ledger001",
-    }
-
-    res, err := s.Transactions.CreateTransactions(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -132,8 +130,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.AddMetadataOnTransactionRequest{
+    ctx := context.Background()
+    res, err := s.Transactions.AddMetadataOnTransaction(ctx, operations.AddMetadataOnTransactionRequest{
         RequestBody: map[string]interface{}{
             "officia": "dolor",
             "debitis": "a",
@@ -141,9 +139,7 @@ func main() {
         },
         Ledger: "ledger001",
         Txid: 1234,
-    }
-
-    res, err := s.Transactions.AddMetadataOnTransaction(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -178,8 +174,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.CountTransactionsRequest{
+    ctx := context.Background()
+    res, err := s.Transactions.CountTransactions(ctx, operations.CountTransactionsRequest{
         Account: formance.String("users:001"),
         Destination: formance.String("users:001"),
         EndTime: types.MustTimeFromString("2022-02-26T01:27:36.152Z"),
@@ -192,9 +188,7 @@ func main() {
         Source: formance.String("users:001"),
         StartTime: types.MustTimeFromString("2021-10-07T01:21:59.434Z"),
         StartTimeDeprecated: types.MustTimeFromString("2022-04-29T11:09:12.937Z"),
-    }
-
-    res, err := s.Transactions.CountTransactions(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -230,8 +224,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.CreateTransactionRequest{
+    ctx := context.Background()
+    res, err := s.Transactions.CreateTransaction(ctx, operations.CreateTransactionRequest{
         PostTransaction: shared.PostTransaction{
             Metadata: map[string]interface{}{
                 "non": "occaecati",
@@ -279,9 +273,7 @@ func main() {
         },
         Ledger: "ledger001",
         Preview: formance.Bool(true),
-    }
-
-    res, err := s.Transactions.CreateTransaction(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -315,13 +307,11 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetTransactionRequest{
+    ctx := context.Background()
+    res, err := s.Transactions.GetTransaction(ctx, operations.GetTransactionRequest{
         Ledger: "ledger001",
         Txid: 1234,
-    }
-
-    res, err := s.Transactions.GetTransaction(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -356,8 +346,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ListTransactionsRequest{
+    ctx := context.Background()
+    res, err := s.Transactions.ListTransactions(ctx, operations.ListTransactionsRequest{
         Account: formance.String("users:001"),
         After: formance.String("1234"),
         Cursor: formance.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
@@ -377,9 +367,7 @@ func main() {
         Source: formance.String("users:001"),
         StartTime: types.MustTimeFromString("2022-11-24T10:55:00.183Z"),
         StartTimeDeprecated: types.MustTimeFromString("2022-11-28T06:48:16.205Z"),
-    }
-
-    res, err := s.Transactions.ListTransactions(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -413,13 +401,11 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.RevertTransactionRequest{
+    ctx := context.Background()
+    res, err := s.Transactions.RevertTransaction(ctx, operations.RevertTransactionRequest{
         Ledger: "ledger001",
         Txid: 1234,
-    }
-
-    res, err := s.Transactions.RevertTransaction(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

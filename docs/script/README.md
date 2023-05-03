@@ -33,8 +33,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.RunScriptRequest{
+    ctx := context.Background()
+    res, err := s.Script.RunScript(ctx, operations.RunScriptRequest{
         Script: shared.Script{
             Metadata: map[string]interface{}{
                 "consequatur": "est",
@@ -57,9 +57,7 @@ func main() {
         },
         Ledger: "ledger001",
         Preview: formance.Bool(true),
-    }
-
-    res, err := s.Script.RunScript(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

@@ -20,18 +20,18 @@ func (e MigrationInfoStateEnum) ToPointer() *MigrationInfoStateEnum {
 }
 
 func (e *MigrationInfoStateEnum) UnmarshalJSON(data []byte) error {
-	var s string
-	if err := json.Unmarshal(data, &s); err != nil {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
-	switch s {
+	switch v {
 	case "to do":
 		fallthrough
 	case "done":
-		*e = MigrationInfoStateEnum(s)
+		*e = MigrationInfoStateEnum(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for MigrationInfoStateEnum: %s", s)
+		return fmt.Errorf("invalid value for MigrationInfoStateEnum: %v", v)
 	}
 }
 
