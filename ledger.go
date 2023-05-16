@@ -33,7 +33,6 @@ func newLedger(defaultClient, securityClient HTTPClient, serverURL, language, sd
 }
 
 // GetLedgerInfo - Get information about a ledger
-
 func (s *ledger) GetLedgerInfo(ctx context.Context, request operations.GetLedgerInfoRequest) (*operations.GetLedgerInfoResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/_info", request, nil)

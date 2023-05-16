@@ -33,7 +33,6 @@ func newAccounts(defaultClient, securityClient HTTPClient, serverURL, language, 
 }
 
 // AddMetadataToAccount - Add metadata to an account
-
 func (s *accounts) AddMetadataToAccount(ctx context.Context, request operations.AddMetadataToAccountRequest) (*operations.AddMetadataToAccountResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/accounts/{address}/metadata", request, nil)
@@ -92,7 +91,6 @@ func (s *accounts) AddMetadataToAccount(ctx context.Context, request operations.
 }
 
 // CountAccounts - Count the accounts from a ledger
-
 func (s *accounts) CountAccounts(ctx context.Context, request operations.CountAccountsRequest) (*operations.CountAccountsResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/accounts", request, nil)
@@ -147,7 +145,6 @@ func (s *accounts) CountAccounts(ctx context.Context, request operations.CountAc
 }
 
 // GetAccount - Get account by its address
-
 func (s *accounts) GetAccount(ctx context.Context, request operations.GetAccountRequest) (*operations.GetAccountResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/accounts/{address}", request, nil)
@@ -206,7 +203,6 @@ func (s *accounts) GetAccount(ctx context.Context, request operations.GetAccount
 
 // ListAccounts - List accounts from a ledger
 // List accounts from a ledger, sorted by address in descending order.
-
 func (s *accounts) ListAccounts(ctx context.Context, request operations.ListAccountsRequest) (*operations.ListAccountsResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/accounts", request, nil)

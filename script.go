@@ -35,7 +35,7 @@ func newScript(defaultClient, securityClient HTTPClient, serverURL, language, sd
 // RunScript - Execute a Numscript
 // This route is deprecated, and has been merged into `POST /{ledger}/transactions`.
 //
-
+// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
 func (s *script) RunScript(ctx context.Context, request operations.RunScriptRequest) (*operations.RunScriptResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/script", request, nil)

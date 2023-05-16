@@ -35,7 +35,6 @@ func newSearch(defaultClient, securityClient HTTPClient, serverURL, language, sd
 
 // Search - Search
 // ElasticSearch query engine
-
 func (s *search) Search(ctx context.Context, request shared.Query) (*operations.SearchResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/search/"

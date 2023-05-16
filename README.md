@@ -134,7 +134,7 @@ func main() {
 
 ### [Script](docs/script/README.md)
 
-* [RunScript](docs/script/README.md#runscript) - Execute a Numscript
+* [~~RunScript~~](docs/script/README.md#runscript) - Execute a Numscript :warning: **Deprecated**
 
 ### [Search](docs/search/README.md)
 

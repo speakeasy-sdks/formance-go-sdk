@@ -34,7 +34,6 @@ func newWallets(defaultClient, securityClient HTTPClient, serverURL, language, s
 }
 
 // ConfirmHold - Confirm a hold
-
 func (s *wallets) ConfirmHold(ctx context.Context, request operations.ConfirmHoldRequest) (*operations.ConfirmHoldResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/wallets/holds/{hold_id}/confirm", request, nil)
@@ -90,7 +89,6 @@ func (s *wallets) ConfirmHold(ctx context.Context, request operations.ConfirmHol
 }
 
 // CreateBalance - Create a balance
-
 func (s *wallets) CreateBalance(ctx context.Context, request operations.CreateBalanceRequest) (*operations.CreateBalanceResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/wallets/wallets/{id}/balances", request, nil)
@@ -155,7 +153,6 @@ func (s *wallets) CreateBalance(ctx context.Context, request operations.CreateBa
 }
 
 // CreateWallet - Create a new wallet
-
 func (s *wallets) CreateWallet(ctx context.Context, request shared.CreateWalletRequest) (*operations.CreateWalletResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/wallets/wallets"
@@ -217,7 +214,6 @@ func (s *wallets) CreateWallet(ctx context.Context, request shared.CreateWalletR
 }
 
 // CreditWallet - Credit a wallet
-
 func (s *wallets) CreditWallet(ctx context.Context, request operations.CreditWalletRequest) (*operations.CreditWalletResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/wallets/wallets/{id}/credit", request, nil)
@@ -273,7 +269,6 @@ func (s *wallets) CreditWallet(ctx context.Context, request operations.CreditWal
 }
 
 // DebitWallet - Debit a wallet
-
 func (s *wallets) DebitWallet(ctx context.Context, request operations.DebitWalletRequest) (*operations.DebitWalletResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/wallets/wallets/{id}/debit", request, nil)
@@ -339,7 +334,6 @@ func (s *wallets) DebitWallet(ctx context.Context, request operations.DebitWalle
 }
 
 // GetBalance - Get detailed balance
-
 func (s *wallets) GetBalance(ctx context.Context, request operations.GetBalanceRequest) (*operations.GetBalanceResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/wallets/wallets/{id}/balances/{balanceName}", request, nil)
@@ -397,7 +391,6 @@ func (s *wallets) GetBalance(ctx context.Context, request operations.GetBalanceR
 }
 
 // GetHold - Get a hold
-
 func (s *wallets) GetHold(ctx context.Context, request operations.GetHoldRequest) (*operations.GetHoldResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/wallets/holds/{holdID}", request, nil)
@@ -455,7 +448,6 @@ func (s *wallets) GetHold(ctx context.Context, request operations.GetHoldRequest
 }
 
 // GetHolds - Get all holds for a wallet
-
 func (s *wallets) GetHolds(ctx context.Context, request operations.GetHoldsRequest) (*operations.GetHoldsResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/wallets/holds"
@@ -571,7 +563,6 @@ func (s *wallets) GetTransactions(ctx context.Context, request operations.GetTra
 }
 
 // GetWallet - Get a wallet
-
 func (s *wallets) GetWallet(ctx context.Context, request operations.GetWalletRequest) (*operations.GetWalletResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/wallets/wallets/{id}", request, nil)
@@ -630,7 +621,6 @@ func (s *wallets) GetWallet(ctx context.Context, request operations.GetWalletReq
 }
 
 // ListBalances - List balances of a wallet
-
 func (s *wallets) ListBalances(ctx context.Context, request operations.ListBalancesRequest) (*operations.ListBalancesResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/wallets/wallets/{id}/balances", request, nil)
@@ -678,7 +668,6 @@ func (s *wallets) ListBalances(ctx context.Context, request operations.ListBalan
 }
 
 // ListWallets - List all wallets
-
 func (s *wallets) ListWallets(ctx context.Context, request operations.ListWalletsRequest) (*operations.ListWalletsResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/wallets/wallets"
@@ -727,7 +716,6 @@ func (s *wallets) ListWallets(ctx context.Context, request operations.ListWallet
 }
 
 // UpdateWallet - Update a wallet
-
 func (s *wallets) UpdateWallet(ctx context.Context, request operations.UpdateWalletRequest) (*operations.UpdateWalletResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/wallets/wallets/{id}", request, nil)
@@ -783,7 +771,6 @@ func (s *wallets) UpdateWallet(ctx context.Context, request operations.UpdateWal
 }
 
 // VoidHold - Cancel a hold
-
 func (s *wallets) VoidHold(ctx context.Context, request operations.VoidHoldRequest) (*operations.VoidHoldResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/wallets/holds/{hold_id}/void", request, nil)
@@ -832,7 +819,6 @@ func (s *wallets) VoidHold(ctx context.Context, request operations.VoidHoldReque
 }
 
 // WalletsgetServerInfo - Get server info
-
 func (s *wallets) WalletsgetServerInfo(ctx context.Context) (*operations.WalletsgetServerInfoResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/wallets/_info"

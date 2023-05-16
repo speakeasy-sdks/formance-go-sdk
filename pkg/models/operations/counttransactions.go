@@ -21,6 +21,8 @@ type CountTransactionsRequest struct {
 	// The format is RFC3339 and is exclusive (for example, "2023-01-02T15:04:01Z" excludes the first second of 4th minute).
 	// Deprecated, please use `endTime` instead.
 	//
+	//
+	// Deprecated: this field will be removed in a future release, please migrate away from it as soon as possible.
 	EndTimeDeprecated *time.Time `queryParam:"style=form,explode=true,name=end_time"`
 	// Name of the ledger.
 	Ledger string `pathParam:"style=simple,explode=false,name=ledger"`
@@ -38,6 +40,8 @@ type CountTransactionsRequest struct {
 	// The format is RFC3339 and is inclusive (for example, "2023-01-02T15:04:01Z" includes the first second of 4th minute).
 	// Deprecated, please use `startTime` instead.
 	//
+	//
+	// Deprecated: this field will be removed in a future release, please migrate away from it as soon as possible.
 	StartTimeDeprecated *time.Time `queryParam:"style=form,explode=true,name=start_time"`
 }
 

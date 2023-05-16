@@ -34,7 +34,6 @@ func newServer(defaultClient, securityClient HTTPClient, serverURL, language, sd
 }
 
 // GetInfo - Show server information
-
 func (s *server) GetInfo(ctx context.Context) (*operations.GetInfoResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/ledger/_info"

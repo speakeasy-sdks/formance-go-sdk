@@ -33,7 +33,6 @@ func newTransactions(defaultClient, securityClient HTTPClient, serverURL, langua
 }
 
 // CreateTransactions - Create a new batch of transactions to a ledger
-
 func (s *transactions) CreateTransactions(ctx context.Context, request operations.CreateTransactionsRequest) (*operations.CreateTransactionsResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/transactions/batch", request, nil)
@@ -101,7 +100,6 @@ func (s *transactions) CreateTransactions(ctx context.Context, request operation
 }
 
 // AddMetadataOnTransaction - Set the metadata of a transaction by its ID
-
 func (s *transactions) AddMetadataOnTransaction(ctx context.Context, request operations.AddMetadataOnTransactionRequest) (*operations.AddMetadataOnTransactionResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/transactions/{txid}/metadata", request, nil)
@@ -157,7 +155,6 @@ func (s *transactions) AddMetadataOnTransaction(ctx context.Context, request ope
 }
 
 // CountTransactions - Count the transactions from a ledger
-
 func (s *transactions) CountTransactions(ctx context.Context, request operations.CountTransactionsRequest) (*operations.CountTransactionsResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/transactions", request, nil)
@@ -212,7 +209,6 @@ func (s *transactions) CountTransactions(ctx context.Context, request operations
 }
 
 // CreateTransaction - Create a new transaction to a ledger
-
 func (s *transactions) CreateTransaction(ctx context.Context, request operations.CreateTransactionRequest) (*operations.CreateTransactionResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/transactions", request, nil)
@@ -284,7 +280,6 @@ func (s *transactions) CreateTransaction(ctx context.Context, request operations
 }
 
 // GetTransaction - Get transaction from a ledger by its ID
-
 func (s *transactions) GetTransaction(ctx context.Context, request operations.GetTransactionRequest) (*operations.GetTransactionResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/transactions/{txid}", request, nil)
@@ -343,7 +338,6 @@ func (s *transactions) GetTransaction(ctx context.Context, request operations.Ge
 
 // ListTransactions - List transactions from a ledger
 // List transactions from a ledger, sorted by txid in descending order.
-
 func (s *transactions) ListTransactions(ctx context.Context, request operations.ListTransactionsRequest) (*operations.ListTransactionsResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/transactions", request, nil)
@@ -405,7 +399,6 @@ func (s *transactions) ListTransactions(ctx context.Context, request operations.
 }
 
 // RevertTransaction - Revert a ledger transaction by its ID
-
 func (s *transactions) RevertTransaction(ctx context.Context, request operations.RevertTransactionRequest) (*operations.RevertTransactionResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/transactions/{txid}/revert", request, nil)

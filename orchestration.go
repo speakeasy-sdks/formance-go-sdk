@@ -35,7 +35,6 @@ func newOrchestration(defaultClient, securityClient HTTPClient, serverURL, langu
 
 // CreateWorkflow - Create workflow
 // Create a workflow
-
 func (s *orchestration) CreateWorkflow(ctx context.Context, request shared.CreateWorkflowRequest) (*operations.CreateWorkflowResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/orchestration/flows"
@@ -98,7 +97,6 @@ func (s *orchestration) CreateWorkflow(ctx context.Context, request shared.Creat
 
 // GetFlow - Get a flow by id
 // Get a flow by id
-
 func (s *orchestration) GetFlow(ctx context.Context, request operations.GetFlowRequest) (*operations.GetFlowResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/orchestration/flows/{flowId}", request, nil)
@@ -157,7 +155,6 @@ func (s *orchestration) GetFlow(ctx context.Context, request operations.GetFlowR
 
 // GetWorkflowOccurrence - Get a workflow occurrence by id
 // Get a workflow occurrence by id
-
 func (s *orchestration) GetWorkflowOccurrence(ctx context.Context, request operations.GetWorkflowOccurrenceRequest) (*operations.GetWorkflowOccurrenceResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/orchestration/flows/{flowId}/runs/{runId}", request, nil)
@@ -216,7 +213,6 @@ func (s *orchestration) GetWorkflowOccurrence(ctx context.Context, request opera
 
 // ListFlows - List registered flows
 // List registered flows
-
 func (s *orchestration) ListFlows(ctx context.Context) (*operations.ListFlowsResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/orchestration/flows"
@@ -272,7 +268,6 @@ func (s *orchestration) ListFlows(ctx context.Context) (*operations.ListFlowsRes
 
 // ListRuns - List occurrences of a workflow
 // List occurrences of a workflow
-
 func (s *orchestration) ListRuns(ctx context.Context, request operations.ListRunsRequest) (*operations.ListRunsResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/orchestration/flows/{flowId}/runs", request, nil)
@@ -330,7 +325,6 @@ func (s *orchestration) ListRuns(ctx context.Context, request operations.ListRun
 }
 
 // OrchestrationgetServerInfo - Get server info
-
 func (s *orchestration) OrchestrationgetServerInfo(ctx context.Context) (*operations.OrchestrationgetServerInfoResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/api/orchestration/_info"
@@ -386,7 +380,6 @@ func (s *orchestration) OrchestrationgetServerInfo(ctx context.Context) (*operat
 
 // RunWorkflow - Run workflow
 // Run workflow
-
 func (s *orchestration) RunWorkflow(ctx context.Context, request operations.RunWorkflowRequest) (*operations.RunWorkflowResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/orchestration/flows/{flowId}/runs", request, nil)

@@ -34,7 +34,6 @@ func newLogs(defaultClient, securityClient HTTPClient, serverURL, language, sdkV
 
 // ListLogs - List the logs from a ledger
 // List the logs from a ledger, sorted by ID in descending order.
-
 func (s *logs) ListLogs(ctx context.Context, request operations.ListLogsRequest) (*operations.ListLogsResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/log", request, nil)
