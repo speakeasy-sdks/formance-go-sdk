@@ -11,5 +11,5 @@ type PaymentAdjustment struct {
 	Amount   int64                  `json:"amount"`
 	Date     time.Time              `json:"date"`
 	Raw      map[string]interface{} `json:"raw"`
-	Status   PaymentStatusEnum      `json:"status"`
+	Status   PaymentStatus          `json:"status"`
 }

@@ -164,8 +164,8 @@ func main() {
         Address: formance.String("users:.+"),
         After: formance.String("users:003"),
         Balance: formance.Int64(2400),
-        BalanceOperator: operations.ListAccountsBalanceOperatorEnumGte.ToPointer(),
-        BalanceOperatorDeprecated: operations.ListAccountsBalanceOperatorEnumGte.ToPointer(),
+        BalanceOperator: operations.ListAccountsBalanceOperatorGte.ToPointer(),
+        BalanceOperatorDeprecated: operations.ListAccountsBalanceOperatorGte.ToPointer(),
         Cursor: formance.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         Ledger: "ledger001",
         Metadata: map[string]interface{}{

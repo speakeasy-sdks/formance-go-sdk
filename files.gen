@@ -114,7 +114,7 @@ pkg/models/operations/getserverinfo.go
 pkg/models/operations/paymentsgetserverinfo.go
 pkg/models/operations/searchgetserverinfo.go
 pkg/models/shared/errorresponse.go
-pkg/models/shared/errorsenumenum.go
+pkg/models/shared/errorsenum.go
 pkg/models/shared/accountresponse.go
 pkg/models/shared/accountwithvolumesandbalances.go
 pkg/models/shared/accountscursorresponse.go
@@ -156,13 +156,13 @@ pkg/models/shared/runworkflowresponse.go
 pkg/models/shared/stripetransferrequest.go
 pkg/models/shared/taskresponse.go
 pkg/models/shared/taskstripe.go
-pkg/models/shared/paymentstatusenum.go
+pkg/models/shared/paymentstatus.go
 pkg/models/shared/taskwise.go
 pkg/models/shared/taskcurrencycloud.go
 pkg/models/shared/taskdummypay.go
 pkg/models/shared/taskmodulr.go
 pkg/models/shared/taskbankingcircle.go
-pkg/models/shared/connectorenum.go
+pkg/models/shared/connector.go
 pkg/models/shared/paymentresponse.go
 pkg/models/shared/payment.go
 pkg/models/shared/paymentmetadata.go

@@ -3,8 +3,8 @@
 package shared
 
 type ConnectorsResponseData struct {
-	Enabled  *bool          `json:"enabled,omitempty"`
-	Provider *ConnectorEnum `json:"provider,omitempty"`
+	Enabled  *bool      `json:"enabled,omitempty"`
+	Provider *Connector `json:"provider,omitempty"`
 }
 
 // ConnectorsResponse - OK

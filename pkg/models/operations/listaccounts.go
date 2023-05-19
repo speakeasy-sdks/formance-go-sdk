@@ -9,23 +9,23 @@ import (
 	"net/http"
 )
 
-// ListAccountsBalanceOperatorEnum - Operator used for the filtering of balances can be greater than/equal, less than/equal, greater than, less than, equal or not.
-type ListAccountsBalanceOperatorEnum string
+// ListAccountsBalanceOperator - Operator used for the filtering of balances can be greater than/equal, less than/equal, greater than, less than, equal or not.
+type ListAccountsBalanceOperator string
 
 const (
-	ListAccountsBalanceOperatorEnumGte ListAccountsBalanceOperatorEnum = "gte"
-	ListAccountsBalanceOperatorEnumLte ListAccountsBalanceOperatorEnum = "lte"
-	ListAccountsBalanceOperatorEnumGt  ListAccountsBalanceOperatorEnum = "gt"
-	ListAccountsBalanceOperatorEnumLt  ListAccountsBalanceOperatorEnum = "lt"
-	ListAccountsBalanceOperatorEnumE   ListAccountsBalanceOperatorEnum = "e"
-	ListAccountsBalanceOperatorEnumNe  ListAccountsBalanceOperatorEnum = "ne"
+	ListAccountsBalanceOperatorGte ListAccountsBalanceOperator = "gte"
+	ListAccountsBalanceOperatorLte ListAccountsBalanceOperator = "lte"
+	ListAccountsBalanceOperatorGt  ListAccountsBalanceOperator = "gt"
+	ListAccountsBalanceOperatorLt  ListAccountsBalanceOperator = "lt"
+	ListAccountsBalanceOperatorE   ListAccountsBalanceOperator = "e"
+	ListAccountsBalanceOperatorNe  ListAccountsBalanceOperator = "ne"
 )
 
-func (e ListAccountsBalanceOperatorEnum) ToPointer() *ListAccountsBalanceOperatorEnum {
+func (e ListAccountsBalanceOperator) ToPointer() *ListAccountsBalanceOperator {
 	return &e
 }
 
-func (e *ListAccountsBalanceOperatorEnum) UnmarshalJSON(data []byte) error {
+func (e *ListAccountsBalanceOperator) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -42,10 +42,10 @@ func (e *ListAccountsBalanceOperatorEnum) UnmarshalJSON(data []byte) error {
 	case "e":
 		fallthrough
 	case "ne":
-		*e = ListAccountsBalanceOperatorEnum(v)
+		*e = ListAccountsBalanceOperator(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountsBalanceOperatorEnum: %v", v)
+		return fmt.Errorf("invalid value for ListAccountsBalanceOperator: %v", v)
 	}
 }
 
@@ -58,13 +58,13 @@ type ListAccountsRequest struct {
 	Balance *int64 `queryParam:"style=form,explode=true,name=balance"`
 	// Operator used for the filtering of balances can be greater than/equal, less than/equal, greater than, less than, equal or not.
 	//
-	BalanceOperator *ListAccountsBalanceOperatorEnum `queryParam:"style=form,explode=true,name=balanceOperator"`
+	BalanceOperator *ListAccountsBalanceOperator `queryParam:"style=form,explode=true,name=balanceOperator"`
 	// Operator used for the filtering of balances can be greater than/equal, less than/equal, greater than, less than, equal or not.
 	// Deprecated, please use `balanceOperator` instead.
 	//
 	//
 	// Deprecated: this field will be removed in a future release, please migrate away from it as soon as possible.
-	BalanceOperatorDeprecated *ListAccountsBalanceOperatorEnum `queryParam:"style=form,explode=true,name=balance_operator"`
+	BalanceOperatorDeprecated *ListAccountsBalanceOperator `queryParam:"style=form,explode=true,name=balance_operator"`
 	// Parameter used in pagination requests. Maximum page size is set to 15.
 	// Set to the value of next for the next page of results.
 	// Set to the value of previous for the previous page of results.

@@ -4,7 +4,7 @@ package shared
 
 // ErrorResponse - Error
 type ErrorResponse struct {
-	Details      *string         `json:"details,omitempty"`
-	ErrorCode    *ErrorsEnumEnum `json:"errorCode,omitempty"`
-	ErrorMessage *string         `json:"errorMessage,omitempty"`
+	Details      *string     `json:"details,omitempty"`
+	ErrorCode    *ErrorsEnum `json:"errorCode,omitempty"`
+	ErrorMessage *string     `json:"errorMessage,omitempty"`
 }

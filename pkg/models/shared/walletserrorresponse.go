@@ -7,32 +7,32 @@ import (
 	"fmt"
 )
 
-type WalletsErrorResponseErrorCodeEnum string
+type WalletsErrorResponseErrorCode string
 
 const (
-	WalletsErrorResponseErrorCodeEnumValidation WalletsErrorResponseErrorCodeEnum = "VALIDATION"
+	WalletsErrorResponseErrorCodeValidation WalletsErrorResponseErrorCode = "VALIDATION"
 )
 
-func (e WalletsErrorResponseErrorCodeEnum) ToPointer() *WalletsErrorResponseErrorCodeEnum {
+func (e WalletsErrorResponseErrorCode) ToPointer() *WalletsErrorResponseErrorCode {
 	return &e
 }
 
-func (e *WalletsErrorResponseErrorCodeEnum) UnmarshalJSON(data []byte) error {
+func (e *WalletsErrorResponseErrorCode) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "VALIDATION":
-		*e = WalletsErrorResponseErrorCodeEnum(v)
+		*e = WalletsErrorResponseErrorCode(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for WalletsErrorResponseErrorCodeEnum: %v", v)
+		return fmt.Errorf("invalid value for WalletsErrorResponseErrorCode: %v", v)
 	}
 }
 
 // WalletsErrorResponse - Error
 type WalletsErrorResponse struct {
-	ErrorCode    WalletsErrorResponseErrorCodeEnum `json:"errorCode"`
-	ErrorMessage string                            `json:"errorMessage"`
+	ErrorCode    WalletsErrorResponseErrorCode `json:"errorCode"`
+	ErrorMessage string                        `json:"errorMessage"`
 }

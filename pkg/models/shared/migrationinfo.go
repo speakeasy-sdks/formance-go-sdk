@@ -8,18 +8,18 @@ import (
 	"time"
 )
 
-type MigrationInfoStateEnum string
+type MigrationInfoState string
 
 const (
-	MigrationInfoStateEnumToDo MigrationInfoStateEnum = "to do"
-	MigrationInfoStateEnumDone MigrationInfoStateEnum = "done"
+	MigrationInfoStateToDo MigrationInfoState = "to do"
+	MigrationInfoStateDone MigrationInfoState = "done"
 )
 
-func (e MigrationInfoStateEnum) ToPointer() *MigrationInfoStateEnum {
+func (e MigrationInfoState) ToPointer() *MigrationInfoState {
 	return &e
 }
 
-func (e *MigrationInfoStateEnum) UnmarshalJSON(data []byte) error {
+func (e *MigrationInfoState) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -28,16 +28,16 @@ func (e *MigrationInfoStateEnum) UnmarshalJSON(data []byte) error {
 	case "to do":
 		fallthrough
 	case "done":
-		*e = MigrationInfoStateEnum(v)
+		*e = MigrationInfoState(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for MigrationInfoStateEnum: %v", v)
+		return fmt.Errorf("invalid value for MigrationInfoState: %v", v)
 	}
 }
 
 type MigrationInfo struct {
-	Date    *time.Time              `json:"date,omitempty"`
-	Name    *string                 `json:"name,omitempty"`
-	State   *MigrationInfoStateEnum `json:"state,omitempty"`
-	Version *int64                  `json:"version,omitempty"`
+	Date    *time.Time          `json:"date,omitempty"`
+	Name    *string             `json:"name,omitempty"`
+	State   *MigrationInfoState `json:"state,omitempty"`
+	Version *int64              `json:"version,omitempty"`
 }

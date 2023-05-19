@@ -9,8 +9,8 @@ package shared
 //   - `errorCode` and `error_code` (deprecated): contains the string code of the error
 //   - `errorMessage` and `error_message` (deprecated): contains a human-readable indication of what went wrong, for example that an account had insufficient funds, or that there was an error in the provided Numscript.
 type ScriptResponse struct {
-	Details      *string         `json:"details,omitempty"`
-	ErrorCode    *ErrorsEnumEnum `json:"errorCode,omitempty"`
-	ErrorMessage *string         `json:"errorMessage,omitempty"`
-	Transaction  *Transaction    `json:"transaction,omitempty"`
+	Details      *string      `json:"details,omitempty"`
+	ErrorCode    *ErrorsEnum  `json:"errorCode,omitempty"`
+	ErrorMessage *string      `json:"errorMessage,omitempty"`
+	Transaction  *Transaction `json:"transaction,omitempty"`
 }

@@ -8,18 +8,18 @@ import (
 	"time"
 )
 
-type LogTypeEnum string
+type LogType string
 
 const (
-	LogTypeEnumNewTransaction LogTypeEnum = "NEW_TRANSACTION"
-	LogTypeEnumSetMetadata    LogTypeEnum = "SET_METADATA"
+	LogTypeNewTransaction LogType = "NEW_TRANSACTION"
+	LogTypeSetMetadata    LogType = "SET_METADATA"
 )
 
-func (e LogTypeEnum) ToPointer() *LogTypeEnum {
+func (e LogType) ToPointer() *LogType {
 	return &e
 }
 
-func (e *LogTypeEnum) UnmarshalJSON(data []byte) error {
+func (e *LogType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -28,10 +28,10 @@ func (e *LogTypeEnum) UnmarshalJSON(data []byte) error {
 	case "NEW_TRANSACTION":
 		fallthrough
 	case "SET_METADATA":
-		*e = LogTypeEnum(v)
+		*e = LogType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for LogTypeEnum: %v", v)
+		return fmt.Errorf("invalid value for LogType: %v", v)
 	}
 }
 
@@ -40,5 +40,5 @@ type Log struct {
 	Date time.Time              `json:"date"`
 	Hash string                 `json:"hash"`
 	ID   int64                  `json:"id"`
-	Type LogTypeEnum            `json:"type"`
+	Type LogType                `json:"type"`
 }

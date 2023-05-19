@@ -19,6 +19,6 @@ type TaskDummyPay struct {
 	Error       *string                `json:"error,omitempty"`
 	ID          string                 `json:"id"`
 	State       map[string]interface{} `json:"state"`
-	Status      PaymentStatusEnum      `json:"status"`
+	Status      PaymentStatus          `json:"status"`
 	UpdatedAt   time.Time              `json:"updatedAt"`
 }

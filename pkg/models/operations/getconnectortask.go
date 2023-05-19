@@ -9,7 +9,7 @@ import (
 
 type GetConnectorTaskRequest struct {
 	// The name of the connector.
-	Connector shared.ConnectorEnum `pathParam:"style=simple,explode=false,name=connector"`
+	Connector shared.Connector `pathParam:"style=simple,explode=false,name=connector"`
 	// The task ID.
 	TaskID string `pathParam:"style=simple,explode=false,name=taskId"`
 }

@@ -8,18 +8,18 @@ import (
 	"time"
 )
 
-type PaymentsAccountTypeEnum string
+type PaymentsAccountType string
 
 const (
-	PaymentsAccountTypeEnumTarget PaymentsAccountTypeEnum = "TARGET"
-	PaymentsAccountTypeEnumSource PaymentsAccountTypeEnum = "SOURCE"
+	PaymentsAccountTypeTarget PaymentsAccountType = "TARGET"
+	PaymentsAccountTypeSource PaymentsAccountType = "SOURCE"
 )
 
-func (e PaymentsAccountTypeEnum) ToPointer() *PaymentsAccountTypeEnum {
+func (e PaymentsAccountType) ToPointer() *PaymentsAccountType {
 	return &e
 }
 
-func (e *PaymentsAccountTypeEnum) UnmarshalJSON(data []byte) error {
+func (e *PaymentsAccountType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -28,17 +28,17 @@ func (e *PaymentsAccountTypeEnum) UnmarshalJSON(data []byte) error {
 	case "TARGET":
 		fallthrough
 	case "SOURCE":
-		*e = PaymentsAccountTypeEnum(v)
+		*e = PaymentsAccountType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PaymentsAccountTypeEnum: %v", v)
+		return fmt.Errorf("invalid value for PaymentsAccountType: %v", v)
 	}
 }
 
 type PaymentsAccount struct {
-	CreatedAt time.Time               `json:"createdAt"`
-	ID        string                  `json:"id"`
-	Provider  ConnectorEnum           `json:"provider"`
-	Reference string                  `json:"reference"`
-	Type      PaymentsAccountTypeEnum `json:"type"`
+	CreatedAt time.Time           `json:"createdAt"`
+	ID        string              `json:"id"`
+	Provider  Connector           `json:"provider"`
+	Reference string              `json:"reference"`
+	Type      PaymentsAccountType `json:"type"`
 }

@@ -9,7 +9,7 @@ import (
 
 type ListConnectorTasksRequest struct {
 	// The name of the connector.
-	Connector shared.ConnectorEnum `pathParam:"style=simple,explode=false,name=connector"`
+	Connector shared.Connector `pathParam:"style=simple,explode=false,name=connector"`
 	// Parameter used in pagination requests. Maximum page size is set to 15.
 	// Set to the value of next for the next page of results.
 	// Set to the value of previous for the previous page of results.

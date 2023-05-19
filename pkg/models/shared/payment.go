@@ -8,34 +8,34 @@ import (
 	"time"
 )
 
-type PaymentSchemeEnum string
+type PaymentScheme string
 
 const (
-	PaymentSchemeEnumVisa       PaymentSchemeEnum = "visa"
-	PaymentSchemeEnumMastercard PaymentSchemeEnum = "mastercard"
-	PaymentSchemeEnumAmex       PaymentSchemeEnum = "amex"
-	PaymentSchemeEnumDiners     PaymentSchemeEnum = "diners"
-	PaymentSchemeEnumDiscover   PaymentSchemeEnum = "discover"
-	PaymentSchemeEnumJcb        PaymentSchemeEnum = "jcb"
-	PaymentSchemeEnumUnionpay   PaymentSchemeEnum = "unionpay"
-	PaymentSchemeEnumSepaDebit  PaymentSchemeEnum = "sepa debit"
-	PaymentSchemeEnumSepaCredit PaymentSchemeEnum = "sepa credit"
-	PaymentSchemeEnumSepa       PaymentSchemeEnum = "sepa"
-	PaymentSchemeEnumApplePay   PaymentSchemeEnum = "apple pay"
-	PaymentSchemeEnumGooglePay  PaymentSchemeEnum = "google pay"
-	PaymentSchemeEnumA2a        PaymentSchemeEnum = "a2a"
-	PaymentSchemeEnumAchDebit   PaymentSchemeEnum = "ach debit"
-	PaymentSchemeEnumAch        PaymentSchemeEnum = "ach"
-	PaymentSchemeEnumRtp        PaymentSchemeEnum = "rtp"
-	PaymentSchemeEnumUnknown    PaymentSchemeEnum = "unknown"
-	PaymentSchemeEnumOther      PaymentSchemeEnum = "other"
+	PaymentSchemeVisa       PaymentScheme = "visa"
+	PaymentSchemeMastercard PaymentScheme = "mastercard"
+	PaymentSchemeAmex       PaymentScheme = "amex"
+	PaymentSchemeDiners     PaymentScheme = "diners"
+	PaymentSchemeDiscover   PaymentScheme = "discover"
+	PaymentSchemeJcb        PaymentScheme = "jcb"
+	PaymentSchemeUnionpay   PaymentScheme = "unionpay"
+	PaymentSchemeSepaDebit  PaymentScheme = "sepa debit"
+	PaymentSchemeSepaCredit PaymentScheme = "sepa credit"
+	PaymentSchemeSepa       PaymentScheme = "sepa"
+	PaymentSchemeApplePay   PaymentScheme = "apple pay"
+	PaymentSchemeGooglePay  PaymentScheme = "google pay"
+	PaymentSchemeA2a        PaymentScheme = "a2a"
+	PaymentSchemeAchDebit   PaymentScheme = "ach debit"
+	PaymentSchemeAch        PaymentScheme = "ach"
+	PaymentSchemeRtp        PaymentScheme = "rtp"
+	PaymentSchemeUnknown    PaymentScheme = "unknown"
+	PaymentSchemeOther      PaymentScheme = "other"
 )
 
-func (e PaymentSchemeEnum) ToPointer() *PaymentSchemeEnum {
+func (e PaymentScheme) ToPointer() *PaymentScheme {
 	return &e
 }
 
-func (e *PaymentSchemeEnum) UnmarshalJSON(data []byte) error {
+func (e *PaymentScheme) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -76,27 +76,27 @@ func (e *PaymentSchemeEnum) UnmarshalJSON(data []byte) error {
 	case "unknown":
 		fallthrough
 	case "other":
-		*e = PaymentSchemeEnum(v)
+		*e = PaymentScheme(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PaymentSchemeEnum: %v", v)
+		return fmt.Errorf("invalid value for PaymentScheme: %v", v)
 	}
 }
 
-type PaymentTypeEnum string
+type PaymentType string
 
 const (
-	PaymentTypeEnumPayIn    PaymentTypeEnum = "PAY-IN"
-	PaymentTypeEnumPayout   PaymentTypeEnum = "PAYOUT"
-	PaymentTypeEnumTransfer PaymentTypeEnum = "TRANSFER"
-	PaymentTypeEnumOther    PaymentTypeEnum = "OTHER"
+	PaymentTypePayIn    PaymentType = "PAY-IN"
+	PaymentTypePayout   PaymentType = "PAYOUT"
+	PaymentTypeTransfer PaymentType = "TRANSFER"
+	PaymentTypeOther    PaymentType = "OTHER"
 )
 
-func (e PaymentTypeEnum) ToPointer() *PaymentTypeEnum {
+func (e PaymentType) ToPointer() *PaymentType {
 	return &e
 }
 
-func (e *PaymentTypeEnum) UnmarshalJSON(data []byte) error {
+func (e *PaymentType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -109,10 +109,10 @@ func (e *PaymentTypeEnum) UnmarshalJSON(data []byte) error {
 	case "TRANSFER":
 		fallthrough
 	case "OTHER":
-		*e = PaymentTypeEnum(v)
+		*e = PaymentType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PaymentTypeEnum: %v", v)
+		return fmt.Errorf("invalid value for PaymentType: %v", v)
 	}
 }
 
@@ -124,10 +124,10 @@ type Payment struct {
 	ID            string                 `json:"id"`
 	InitialAmount int64                  `json:"initialAmount"`
 	Metadata      []PaymentMetadata      `json:"metadata"`
-	Provider      ConnectorEnum          `json:"provider"`
+	Provider      Connector              `json:"provider"`
 	Raw           map[string]interface{} `json:"raw"`
 	Reference     string                 `json:"reference"`
-	Scheme        PaymentSchemeEnum      `json:"scheme"`
-	Status        PaymentStatusEnum      `json:"status"`
-	Type          PaymentTypeEnum        `json:"type"`
+	Scheme        PaymentScheme          `json:"scheme"`
+	Status        PaymentStatus          `json:"status"`
+	Type          PaymentType            `json:"type"`
 }
