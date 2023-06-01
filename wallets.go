@@ -3,11 +3,13 @@
 package formance
 
 import (
+	"bytes"
 	"context"
 	"fmt"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/utils"
+	"io"
 	"net/http"
 	"strings"
 )
@@ -64,7 +66,13 @@ func (s *wallets) ConfirmHold(ctx context.Context, request operations.ConfirmHol
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -79,7 +87,7 @@ func (s *wallets) ConfirmHold(ctx context.Context, request operations.ConfirmHol
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.WalletsErrorResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -121,7 +129,13 @@ func (s *wallets) CreateBalance(ctx context.Context, request operations.CreateBa
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -135,7 +149,7 @@ func (s *wallets) CreateBalance(ctx context.Context, request operations.CreateBa
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.CreateBalanceResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -145,7 +159,7 @@ func (s *wallets) CreateBalance(ctx context.Context, request operations.CreateBa
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.WalletsErrorResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -184,7 +198,13 @@ func (s *wallets) CreateWallet(ctx context.Context, request shared.CreateWalletR
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -198,7 +218,7 @@ func (s *wallets) CreateWallet(ctx context.Context, request shared.CreateWalletR
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.CreateWalletResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -208,7 +228,7 @@ func (s *wallets) CreateWallet(ctx context.Context, request shared.CreateWalletR
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.WalletsErrorResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -250,7 +270,13 @@ func (s *wallets) CreditWallet(ctx context.Context, request operations.CreditWal
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -265,7 +291,7 @@ func (s *wallets) CreditWallet(ctx context.Context, request operations.CreditWal
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.WalletsErrorResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -307,7 +333,13 @@ func (s *wallets) DebitWallet(ctx context.Context, request operations.DebitWalle
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -321,7 +353,7 @@ func (s *wallets) DebitWallet(ctx context.Context, request operations.DebitWalle
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.DebitWalletResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -332,7 +364,7 @@ func (s *wallets) DebitWallet(ctx context.Context, request operations.DebitWalle
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.WalletsErrorResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -367,7 +399,13 @@ func (s *wallets) GetBalance(ctx context.Context, request operations.GetBalanceR
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -381,7 +419,7 @@ func (s *wallets) GetBalance(ctx context.Context, request operations.GetBalanceR
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.GetBalanceResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -391,7 +429,7 @@ func (s *wallets) GetBalance(ctx context.Context, request operations.GetBalanceR
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.WalletsErrorResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -426,7 +464,13 @@ func (s *wallets) GetHold(ctx context.Context, request operations.GetHoldRequest
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -440,7 +484,7 @@ func (s *wallets) GetHold(ctx context.Context, request operations.GetHoldRequest
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.GetHoldResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -450,7 +494,7 @@ func (s *wallets) GetHold(ctx context.Context, request operations.GetHoldRequest
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.WalletsErrorResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -486,7 +530,13 @@ func (s *wallets) GetHolds(ctx context.Context, request operations.GetHoldsReque
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -500,7 +550,7 @@ func (s *wallets) GetHolds(ctx context.Context, request operations.GetHoldsReque
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.GetHoldsResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -510,7 +560,7 @@ func (s *wallets) GetHolds(ctx context.Context, request operations.GetHoldsReque
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.WalletsErrorResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -545,7 +595,13 @@ func (s *wallets) GetTransactions(ctx context.Context, request operations.GetTra
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -559,7 +615,7 @@ func (s *wallets) GetTransactions(ctx context.Context, request operations.GetTra
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.GetTransactionsResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -569,7 +625,7 @@ func (s *wallets) GetTransactions(ctx context.Context, request operations.GetTra
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.WalletsErrorResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -604,7 +660,13 @@ func (s *wallets) GetWallet(ctx context.Context, request operations.GetWalletReq
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -618,7 +680,7 @@ func (s *wallets) GetWallet(ctx context.Context, request operations.GetWalletReq
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.GetWalletResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -629,7 +691,7 @@ func (s *wallets) GetWallet(ctx context.Context, request operations.GetWalletReq
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.WalletsErrorResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -664,7 +726,13 @@ func (s *wallets) ListBalances(ctx context.Context, request operations.ListBalan
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -678,7 +746,7 @@ func (s *wallets) ListBalances(ctx context.Context, request operations.ListBalan
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.ListBalancesResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -714,7 +782,13 @@ func (s *wallets) ListWallets(ctx context.Context, request operations.ListWallet
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -728,7 +802,7 @@ func (s *wallets) ListWallets(ctx context.Context, request operations.ListWallet
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.ListWalletsResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -770,7 +844,13 @@ func (s *wallets) UpdateWallet(ctx context.Context, request operations.UpdateWal
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -785,7 +865,7 @@ func (s *wallets) UpdateWallet(ctx context.Context, request operations.UpdateWal
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.WalletsErrorResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -820,7 +900,13 @@ func (s *wallets) VoidHold(ctx context.Context, request operations.VoidHoldReque
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -835,7 +921,7 @@ func (s *wallets) VoidHold(ctx context.Context, request operations.VoidHoldReque
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.WalletsErrorResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -867,7 +953,13 @@ func (s *wallets) WalletsgetServerInfo(ctx context.Context) (*operations.Wallets
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -881,7 +973,7 @@ func (s *wallets) WalletsgetServerInfo(ctx context.Context) (*operations.Wallets
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.ServerInfo
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -891,7 +983,7 @@ func (s *wallets) WalletsgetServerInfo(ctx context.Context) (*operations.Wallets
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.WalletsErrorResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 

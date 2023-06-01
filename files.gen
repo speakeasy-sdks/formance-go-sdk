@@ -16,6 +16,7 @@ users.go
 wallets.go
 webhooks.go
 formance.go
+.gitignore
 go.mod
 go.sum
 pkg/types/bigint.go
