@@ -2,7 +2,7 @@
 
 ## Overview
 
-Open, modular foundation for unique payments flows
+Formance Stack API: Open, modular foundation for unique payments flows
 
 # Introduction
 This API is documented in **OpenAPI format**.
@@ -39,7 +39,7 @@ import(
 func main() {
     s := formance.New(
         formance.WithSecurity(shared.Security{
-            Authorization: "Bearer YOUR_ACCESS_TOKEN_HERE",
+            Authorization: "",
         }),
     )
 
@@ -73,7 +73,7 @@ import(
 func main() {
     s := formance.New(
         formance.WithSecurity(shared.Security{
-            Authorization: "Bearer YOUR_ACCESS_TOKEN_HERE",
+            Authorization: "",
         }),
     )
 
@@ -107,7 +107,7 @@ import(
 func main() {
     s := formance.New(
         formance.WithSecurity(shared.Security{
-            Authorization: "Bearer YOUR_ACCESS_TOKEN_HERE",
+            Authorization: "",
         }),
     )
 
