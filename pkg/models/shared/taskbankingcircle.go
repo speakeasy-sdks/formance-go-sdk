@@ -11,13 +11,16 @@ type TaskBankingCircleDescriptor struct {
 	Name *string `json:"name,omitempty"`
 }
 
+type TaskBankingCircleState struct {
+}
+
 type TaskBankingCircle struct {
 	ConnectorID string                      `json:"connectorId"`
 	CreatedAt   time.Time                   `json:"createdAt"`
 	Descriptor  TaskBankingCircleDescriptor `json:"descriptor"`
 	Error       *string                     `json:"error,omitempty"`
 	ID          string                      `json:"id"`
-	State       map[string]interface{}      `json:"state"`
+	State       TaskBankingCircleState      `json:"state"`
 	Status      PaymentStatus               `json:"status"`
 	UpdatedAt   time.Time                   `json:"updatedAt"`
 }

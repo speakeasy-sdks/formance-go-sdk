@@ -3,6 +3,7 @@
 package operations
 
 import (
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"net/http"
 )
 
@@ -11,5 +12,5 @@ type ConnectorsStripeTransferResponse struct {
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
-	StripeTransferResponse map[string]interface{}
+	StripeTransferResponse *shared.StripeTransferResponse
 }

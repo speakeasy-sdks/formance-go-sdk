@@ -7,6 +7,10 @@ import (
 	"net/http"
 )
 
+// ListWalletsMetadata - Filter wallets by metadata key value pairs. Nested objects can be used as seen in the example below.
+type ListWalletsMetadata struct {
+}
+
 type ListWalletsRequest struct {
 	// Parameter used in pagination requests.
 	// Set to the value of next for the next page of results.
@@ -15,7 +19,7 @@ type ListWalletsRequest struct {
 	//
 	Cursor *string `queryParam:"style=form,explode=true,name=cursor"`
 	// Filter wallets by metadata key value pairs. Nested objects can be used as seen in the example below.
-	Metadata map[string]interface{} `queryParam:"style=deepObject,explode=true,name=metadata"`
+	Metadata *ListWalletsMetadata `queryParam:"style=deepObject,explode=true,name=metadata"`
 	// Filter on wallet name
 	Name *string `queryParam:"style=form,explode=true,name=name"`
 	// The maximum number of results to return per page

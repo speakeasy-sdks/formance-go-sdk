@@ -7,6 +7,10 @@ import (
 	"net/http"
 )
 
+// GetHoldsMetadata - Filter holds by metadata key value pairs. Nested objects can be used as seen in the example below.
+type GetHoldsMetadata struct {
+}
+
 type GetHoldsRequest struct {
 	// Parameter used in pagination requests.
 	// Set to the value of next for the next page of results.
@@ -15,7 +19,7 @@ type GetHoldsRequest struct {
 	//
 	Cursor *string `queryParam:"style=form,explode=true,name=cursor"`
 	// Filter holds by metadata key value pairs. Nested objects can be used as seen in the example below.
-	Metadata map[string]interface{} `queryParam:"style=deepObject,explode=true,name=metadata"`
+	Metadata *GetHoldsMetadata `queryParam:"style=deepObject,explode=true,name=metadata"`
 	// The maximum number of results to return per page
 	PageSize *int64 `queryParam:"style=form,explode=true,name=pageSize"`
 	// The wallet to filter on

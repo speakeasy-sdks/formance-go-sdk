@@ -2,7 +2,10 @@
 
 package shared
 
+type ContractExpr struct {
+}
+
 type Contract struct {
-	Account *string                `json:"account,omitempty"`
-	Expr    map[string]interface{} `json:"expr"`
+	Account *string      `json:"account,omitempty"`
+	Expr    ContractExpr `json:"expr"`
 }

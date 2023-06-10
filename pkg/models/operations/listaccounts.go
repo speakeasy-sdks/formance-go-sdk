@@ -49,6 +49,10 @@ func (e *ListAccountsBalanceOperator) UnmarshalJSON(data []byte) error {
 	}
 }
 
+// ListAccountsMetadata - Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below.
+type ListAccountsMetadata struct {
+}
+
 type ListAccountsRequest struct {
 	// Filter accounts by address pattern (regular expression placed between ^ and $).
 	Address *string `queryParam:"style=form,explode=true,name=address"`
@@ -74,7 +78,7 @@ type ListAccountsRequest struct {
 	// Name of the ledger.
 	Ledger string `pathParam:"style=simple,explode=false,name=ledger"`
 	// Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below.
-	Metadata map[string]interface{} `queryParam:"style=deepObject,explode=true,name=metadata"`
+	Metadata *ListAccountsMetadata `queryParam:"style=deepObject,explode=true,name=metadata"`
 	// The maximum number of results to return per page.
 	//
 	PageSize *int64 `queryParam:"style=form,explode=true,name=pageSize"`
