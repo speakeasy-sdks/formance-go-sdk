@@ -14,6 +14,20 @@ type GetWorkflowOccurrenceRequest struct {
 	RunID string `pathParam:"style=simple,explode=false,name=runId"`
 }
 
+func (o *GetWorkflowOccurrenceRequest) GetFlowID() string {
+	if o == nil {
+		return ""
+	}
+	return o.FlowID
+}
+
+func (o *GetWorkflowOccurrenceRequest) GetRunID() string {
+	if o == nil {
+		return ""
+	}
+	return o.RunID
+}
+
 type GetWorkflowOccurrenceResponse struct {
 	ContentType string
 	// General error
@@ -22,4 +36,39 @@ type GetWorkflowOccurrenceResponse struct {
 	GetWorkflowOccurrenceResponse *shared.GetWorkflowOccurrenceResponse
 	StatusCode                    int
 	RawResponse                   *http.Response
+}
+
+func (o *GetWorkflowOccurrenceResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetWorkflowOccurrenceResponse) GetError() *shared.Error {
+	if o == nil {
+		return nil
+	}
+	return o.Error
+}
+
+func (o *GetWorkflowOccurrenceResponse) GetGetWorkflowOccurrenceResponse() *shared.GetWorkflowOccurrenceResponse {
+	if o == nil {
+		return nil
+	}
+	return o.GetWorkflowOccurrenceResponse
+}
+
+func (o *GetWorkflowOccurrenceResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetWorkflowOccurrenceResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
 }

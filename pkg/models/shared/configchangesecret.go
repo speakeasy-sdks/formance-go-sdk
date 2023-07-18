@@ -5,3 +5,10 @@ package shared
 type ConfigChangeSecret struct {
 	Secret *string `json:"secret,omitempty"`
 }
+
+func (o *ConfigChangeSecret) GetSecret() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Secret
+}

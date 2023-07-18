@@ -42,3 +42,38 @@ type PaymentsAccount struct {
 	Reference string              `json:"reference"`
 	Type      PaymentsAccountType `json:"type"`
 }
+
+func (o *PaymentsAccount) GetCreatedAt() time.Time {
+	if o == nil {
+		return time.Time{}
+	}
+	return o.CreatedAt
+}
+
+func (o *PaymentsAccount) GetID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ID
+}
+
+func (o *PaymentsAccount) GetProvider() Connector {
+	if o == nil {
+		return Connector("")
+	}
+	return o.Provider
+}
+
+func (o *PaymentsAccount) GetReference() string {
+	if o == nil {
+		return ""
+	}
+	return o.Reference
+}
+
+func (o *PaymentsAccount) GetType() PaymentsAccountType {
+	if o == nil {
+		return PaymentsAccountType("")
+	}
+	return o.Type
+}

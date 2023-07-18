@@ -14,3 +14,31 @@ type ConnectorsStripeTransferResponse struct {
 	// OK
 	StripeTransferResponse *shared.StripeTransferResponse
 }
+
+func (o *ConnectorsStripeTransferResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ConnectorsStripeTransferResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ConnectorsStripeTransferResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ConnectorsStripeTransferResponse) GetStripeTransferResponse() *shared.StripeTransferResponse {
+	if o == nil {
+		return nil
+	}
+	return o.StripeTransferResponse
+}

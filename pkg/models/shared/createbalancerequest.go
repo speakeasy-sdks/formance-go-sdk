@@ -5,3 +5,10 @@ package shared
 type CreateBalanceRequest struct {
 	Name string `json:"name"`
 }
+
+func (o *CreateBalanceRequest) GetName() string {
+	if o == nil {
+		return ""
+	}
+	return o.Name
+}

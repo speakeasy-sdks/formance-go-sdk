@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/sdkerrors"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/utils"
 	"io"
@@ -72,6 +73,8 @@ func (s *users) ListUsers(ctx context.Context) (*operations.ListUsersResponse, e
 			}
 
 			res.ListUsersResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -128,6 +131,8 @@ func (s *users) ReadUser(ctx context.Context, request operations.ReadUserRequest
 			}
 
 			res.ReadUserResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

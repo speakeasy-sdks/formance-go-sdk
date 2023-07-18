@@ -10,7 +10,49 @@ type ConfigsResponseCursor struct {
 	Previous *string          `json:"previous,omitempty"`
 }
 
+func (o *ConfigsResponseCursor) GetData() []WebhooksConfig {
+	if o == nil {
+		return []WebhooksConfig{}
+	}
+	return o.Data
+}
+
+func (o *ConfigsResponseCursor) GetHasMore() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.HasMore
+}
+
+func (o *ConfigsResponseCursor) GetNext() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Next
+}
+
+func (o *ConfigsResponseCursor) GetPageSize() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.PageSize
+}
+
+func (o *ConfigsResponseCursor) GetPrevious() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Previous
+}
+
 // ConfigsResponse - OK
 type ConfigsResponse struct {
 	Cursor ConfigsResponseCursor `json:"cursor"`
+}
+
+func (o *ConfigsResponse) GetCursor() ConfigsResponseCursor {
+	if o == nil {
+		return ConfigsResponseCursor{}
+	}
+	return o.Cursor
 }

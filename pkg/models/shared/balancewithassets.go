@@ -6,3 +6,17 @@ type BalanceWithAssets struct {
 	Assets map[string]float64 `json:"assets"`
 	Name   string             `json:"name"`
 }
+
+func (o *BalanceWithAssets) GetAssets() map[string]float64 {
+	if o == nil {
+		return map[string]float64{}
+	}
+	return o.Assets
+}
+
+func (o *BalanceWithAssets) GetName() string {
+	if o == nil {
+		return ""
+	}
+	return o.Name
+}

@@ -12,10 +12,45 @@ type DeactivateConfigRequest struct {
 	ID string `pathParam:"style=simple,explode=false,name=id"`
 }
 
+func (o *DeactivateConfigRequest) GetID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ID
+}
+
 type DeactivateConfigResponse struct {
 	// Config successfully deactivated.
 	ConfigResponse *shared.ConfigResponse
 	ContentType    string
 	StatusCode     int
 	RawResponse    *http.Response
+}
+
+func (o *DeactivateConfigResponse) GetConfigResponse() *shared.ConfigResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ConfigResponse
+}
+
+func (o *DeactivateConfigResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeactivateConfigResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeactivateConfigResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
 }

@@ -12,3 +12,59 @@ type Query struct {
 	Target   *string  `json:"target,omitempty"`
 	Terms    []string `json:"terms,omitempty"`
 }
+
+func (o *Query) GetAfter() []string {
+	if o == nil {
+		return nil
+	}
+	return o.After
+}
+
+func (o *Query) GetCursor() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Cursor
+}
+
+func (o *Query) GetLedgers() []string {
+	if o == nil {
+		return nil
+	}
+	return o.Ledgers
+}
+
+func (o *Query) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
+func (o *Query) GetPolicy() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Policy
+}
+
+func (o *Query) GetSort() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Sort
+}
+
+func (o *Query) GetTarget() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Target
+}
+
+func (o *Query) GetTerms() []string {
+	if o == nil {
+		return nil
+	}
+	return o.Terms
+}

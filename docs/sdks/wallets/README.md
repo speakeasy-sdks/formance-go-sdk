@@ -35,8 +35,8 @@ import(
 	"context"
 	"log"
 	"github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 )
 
 func main() {
@@ -90,8 +90,8 @@ import(
 	"context"
 	"log"
 	"github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 )
 
 func main() {
@@ -198,8 +198,8 @@ import(
 	"context"
 	"log"
 	"github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 )
 
 func main() {
@@ -270,8 +270,8 @@ import(
 	"context"
 	"log"
 	"github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 )
 
 func main() {
@@ -342,6 +342,7 @@ import(
 	"context"
 	"log"
 	"github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 )
 
@@ -393,6 +394,7 @@ import(
 	"context"
 	"log"
 	"github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 )
 
@@ -443,6 +445,7 @@ import(
 	"context"
 	"log"
 	"github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 )
 
@@ -494,6 +497,7 @@ import(
 	"context"
 	"log"
 	"github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 )
 
@@ -546,6 +550,7 @@ import(
 	"context"
 	"log"
 	"github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 )
 
@@ -596,6 +601,7 @@ import(
 	"context"
 	"log"
 	"github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 )
 
@@ -646,6 +652,7 @@ import(
 	"context"
 	"log"
 	"github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 )
 
@@ -699,6 +706,7 @@ import(
 	"context"
 	"log"
 	"github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 )
 
@@ -756,6 +764,7 @@ import(
 	"context"
 	"log"
 	"github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 )
 
@@ -806,6 +815,7 @@ import(
 	"context"
 	"log"
 	"github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {

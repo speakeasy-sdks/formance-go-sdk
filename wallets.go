@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/sdkerrors"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/utils"
 	"io"
@@ -82,6 +83,8 @@ func (s *wallets) ConfirmHold(ctx context.Context, request operations.ConfirmHol
 			}
 
 			res.WalletsErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -144,6 +147,8 @@ func (s *wallets) CreateBalance(ctx context.Context, request operations.CreateBa
 			}
 
 			res.CreateBalanceResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	default:
 		switch {
@@ -154,6 +159,8 @@ func (s *wallets) CreateBalance(ctx context.Context, request operations.CreateBa
 			}
 
 			res.WalletsErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -213,6 +220,8 @@ func (s *wallets) CreateWallet(ctx context.Context, request shared.CreateWalletR
 			}
 
 			res.CreateWalletResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	default:
 		switch {
@@ -223,6 +232,8 @@ func (s *wallets) CreateWallet(ctx context.Context, request shared.CreateWalletR
 			}
 
 			res.WalletsErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -286,6 +297,8 @@ func (s *wallets) CreditWallet(ctx context.Context, request operations.CreditWal
 			}
 
 			res.WalletsErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -348,6 +361,8 @@ func (s *wallets) DebitWallet(ctx context.Context, request operations.DebitWalle
 			}
 
 			res.DebitWalletResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 204:
 	default:
@@ -359,6 +374,8 @@ func (s *wallets) DebitWallet(ctx context.Context, request operations.DebitWalle
 			}
 
 			res.WalletsErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -414,6 +431,8 @@ func (s *wallets) GetBalance(ctx context.Context, request operations.GetBalanceR
 			}
 
 			res.GetBalanceResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	default:
 		switch {
@@ -424,6 +443,8 @@ func (s *wallets) GetBalance(ctx context.Context, request operations.GetBalanceR
 			}
 
 			res.WalletsErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -479,6 +500,8 @@ func (s *wallets) GetHold(ctx context.Context, request operations.GetHoldRequest
 			}
 
 			res.GetHoldResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	default:
 		switch {
@@ -489,6 +512,8 @@ func (s *wallets) GetHold(ctx context.Context, request operations.GetHoldRequest
 			}
 
 			res.WalletsErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -545,6 +570,8 @@ func (s *wallets) GetHolds(ctx context.Context, request operations.GetHoldsReque
 			}
 
 			res.GetHoldsResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	default:
 		switch {
@@ -555,6 +582,8 @@ func (s *wallets) GetHolds(ctx context.Context, request operations.GetHoldsReque
 			}
 
 			res.WalletsErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -610,6 +639,8 @@ func (s *wallets) GetTransactions(ctx context.Context, request operations.GetTra
 			}
 
 			res.GetTransactionsResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	default:
 		switch {
@@ -620,6 +651,8 @@ func (s *wallets) GetTransactions(ctx context.Context, request operations.GetTra
 			}
 
 			res.WalletsErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -675,6 +708,8 @@ func (s *wallets) GetWallet(ctx context.Context, request operations.GetWalletReq
 			}
 
 			res.GetWalletResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 404:
 	default:
@@ -686,6 +721,8 @@ func (s *wallets) GetWallet(ctx context.Context, request operations.GetWalletReq
 			}
 
 			res.WalletsErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -741,6 +778,8 @@ func (s *wallets) ListBalances(ctx context.Context, request operations.ListBalan
 			}
 
 			res.ListBalancesResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -797,6 +836,8 @@ func (s *wallets) ListWallets(ctx context.Context, request operations.ListWallet
 			}
 
 			res.ListWalletsResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -860,6 +901,8 @@ func (s *wallets) UpdateWallet(ctx context.Context, request operations.UpdateWal
 			}
 
 			res.WalletsErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -916,6 +959,8 @@ func (s *wallets) VoidHold(ctx context.Context, request operations.VoidHoldReque
 			}
 
 			res.WalletsErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -968,6 +1013,8 @@ func (s *wallets) WalletsgetServerInfo(ctx context.Context) (*operations.Wallets
 			}
 
 			res.ServerInfo = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	default:
 		switch {
@@ -978,6 +1025,8 @@ func (s *wallets) WalletsgetServerInfo(ctx context.Context) (*operations.Wallets
 			}
 
 			res.WalletsErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

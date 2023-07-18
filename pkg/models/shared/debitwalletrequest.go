@@ -12,3 +12,45 @@ type DebitWalletRequest struct {
 	// Set to true to create a pending hold. If false, the wallet will be debited immediately.
 	Pending *bool `json:"pending,omitempty"`
 }
+
+func (o *DebitWalletRequest) GetAmount() Monetary {
+	if o == nil {
+		return Monetary{}
+	}
+	return o.Amount
+}
+
+func (o *DebitWalletRequest) GetBalances() []string {
+	if o == nil {
+		return nil
+	}
+	return o.Balances
+}
+
+func (o *DebitWalletRequest) GetDescription() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Description
+}
+
+func (o *DebitWalletRequest) GetDestination() interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Destination
+}
+
+func (o *DebitWalletRequest) GetMetadata() map[string]interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Metadata
+}
+
+func (o *DebitWalletRequest) GetPending() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Pending
+}

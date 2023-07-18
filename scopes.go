@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/sdkerrors"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/utils"
 	"io"
@@ -126,6 +127,8 @@ func (s *scopes) CreateScope(ctx context.Context, request shared.CreateScopeRequ
 			}
 
 			res.CreateScopeResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -273,6 +276,8 @@ func (s *scopes) ListScopes(ctx context.Context) (*operations.ListScopesResponse
 			}
 
 			res.ListScopesResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -329,6 +334,8 @@ func (s *scopes) ReadScope(ctx context.Context, request operations.ReadScopeRequ
 			}
 
 			res.ReadScopeResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -392,6 +399,8 @@ func (s *scopes) UpdateScope(ctx context.Context, request operations.UpdateScope
 			}
 
 			res.UpdateScopeResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

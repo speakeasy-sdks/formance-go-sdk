@@ -7,3 +7,24 @@ type PaymentMetadata struct {
 	Key       string                    `json:"key"`
 	Value     string                    `json:"value"`
 }
+
+func (o *PaymentMetadata) GetChangelog() *PaymentMetadataChangelog {
+	if o == nil {
+		return nil
+	}
+	return o.Changelog
+}
+
+func (o *PaymentMetadata) GetKey() string {
+	if o == nil {
+		return ""
+	}
+	return o.Key
+}
+
+func (o *PaymentMetadata) GetValue() string {
+	if o == nil {
+		return ""
+	}
+	return o.Value
+}

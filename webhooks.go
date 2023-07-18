@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/sdkerrors"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/utils"
 	"io"
@@ -75,6 +76,8 @@ func (s *webhooks) ActivateConfig(ctx context.Context, request operations.Activa
 			}
 
 			res.ConfigResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 304:
 	}
@@ -142,6 +145,8 @@ func (s *webhooks) ChangeConfigSecret(ctx context.Context, request operations.Ch
 			}
 
 			res.ConfigResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -198,6 +203,8 @@ func (s *webhooks) DeactivateConfig(ctx context.Context, request operations.Deac
 			}
 
 			res.ConfigResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 304:
 	}
@@ -303,6 +310,8 @@ func (s *webhooks) GetManyConfigs(ctx context.Context, request operations.GetMan
 			}
 
 			res.ConfigsResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -374,12 +383,16 @@ func (s *webhooks) InsertConfig(ctx context.Context, request shared.ConfigUser) 
 			}
 
 			res.ConfigResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 400:
 		switch {
 		case utils.MatchContentType(contentType, `text/plain`):
 			out := string(rawBody)
 			res.InsertConfig400TextPlainString = &out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -436,6 +449,8 @@ func (s *webhooks) TestConfig(ctx context.Context, request operations.TestConfig
 			}
 
 			res.AttemptResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

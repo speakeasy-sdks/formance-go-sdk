@@ -29,6 +29,41 @@ type GetBalancesRequest struct {
 	PaginationToken *string `queryParam:"style=form,explode=true,name=pagination_token"`
 }
 
+func (o *GetBalancesRequest) GetAddress() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Address
+}
+
+func (o *GetBalancesRequest) GetAfter() *string {
+	if o == nil {
+		return nil
+	}
+	return o.After
+}
+
+func (o *GetBalancesRequest) GetCursor() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Cursor
+}
+
+func (o *GetBalancesRequest) GetLedger() string {
+	if o == nil {
+		return ""
+	}
+	return o.Ledger
+}
+
+func (o *GetBalancesRequest) GetPaginationToken() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PaginationToken
+}
+
 type GetBalancesResponse struct {
 	// OK
 	BalancesCursorResponse *shared.BalancesCursorResponse
@@ -37,4 +72,39 @@ type GetBalancesResponse struct {
 	ErrorResponse *shared.ErrorResponse
 	StatusCode    int
 	RawResponse   *http.Response
+}
+
+func (o *GetBalancesResponse) GetBalancesCursorResponse() *shared.BalancesCursorResponse {
+	if o == nil {
+		return nil
+	}
+	return o.BalancesCursorResponse
+}
+
+func (o *GetBalancesResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetBalancesResponse) GetErrorResponse() *shared.ErrorResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ErrorResponse
+}
+
+func (o *GetBalancesResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetBalancesResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
 }

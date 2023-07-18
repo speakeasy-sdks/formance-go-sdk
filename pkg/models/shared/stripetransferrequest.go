@@ -16,3 +16,31 @@ type StripeTransferRequest struct {
 	//
 	Metadata *StripeTransferRequestMetadata `json:"metadata,omitempty"`
 }
+
+func (o *StripeTransferRequest) GetAmount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Amount
+}
+
+func (o *StripeTransferRequest) GetAsset() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Asset
+}
+
+func (o *StripeTransferRequest) GetDestination() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Destination
+}
+
+func (o *StripeTransferRequest) GetMetadata() *StripeTransferRequestMetadata {
+	if o == nil {
+		return nil
+	}
+	return o.Metadata
+}

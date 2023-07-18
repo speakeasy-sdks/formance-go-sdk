@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/sdkerrors"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/utils"
 	"io"
@@ -78,6 +79,8 @@ func (s *logs) ListLogs(ctx context.Context, request operations.ListLogsRequest)
 			}
 
 			res.LogsCursorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	default:
 		switch {
@@ -88,6 +91,8 @@ func (s *logs) ListLogs(ctx context.Context, request operations.ListLogsRequest)
 			}
 
 			res.ErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

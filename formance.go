@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/sdkerrors"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/utils"
 	"io"
@@ -182,8 +183,8 @@ func New(opts ...SDKOption) *Formance {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "v1.0.0-rc.5",
-			SDKVersion:        "0.4.0",
-			GenVersion:        "2.40.1",
+			SDKVersion:        "0.5.0",
+			GenVersion:        "2.70.0",
 			ServerDefaults: []map[string]string{
 				{},
 				{
@@ -291,6 +292,8 @@ func (s *Formance) GetServerInfo(ctx context.Context) (*operations.GetServerInfo
 			}
 
 			res.ServerInfo = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -343,6 +346,8 @@ func (s *Formance) PaymentsgetServerInfo(ctx context.Context) (*operations.Payme
 			}
 
 			res.ServerInfo = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -395,6 +400,8 @@ func (s *Formance) SearchgetServerInfo(ctx context.Context) (*operations.Searchg
 			}
 
 			res.ServerInfo = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

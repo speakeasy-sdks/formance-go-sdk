@@ -15,3 +15,52 @@ type WebhooksConfig struct {
 	Secret     *string    `json:"secret,omitempty"`
 	UpdatedAt  *time.Time `json:"updatedAt,omitempty"`
 }
+
+func (o *WebhooksConfig) GetActive() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Active
+}
+
+func (o *WebhooksConfig) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *WebhooksConfig) GetEndpoint() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Endpoint
+}
+
+func (o *WebhooksConfig) GetEventTypes() []string {
+	if o == nil {
+		return nil
+	}
+	return o.EventTypes
+}
+
+func (o *WebhooksConfig) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *WebhooksConfig) GetSecret() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Secret
+}
+
+func (o *WebhooksConfig) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}

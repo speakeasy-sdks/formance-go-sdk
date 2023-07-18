@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/sdkerrors"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/utils"
 	"io"
@@ -79,6 +80,8 @@ func (s *orchestration) CreateWorkflow(ctx context.Context, request shared.Creat
 			}
 
 			res.CreateWorkflowResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	default:
 		switch {
@@ -89,6 +92,8 @@ func (s *orchestration) CreateWorkflow(ctx context.Context, request shared.Creat
 			}
 
 			res.Error = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -145,6 +150,8 @@ func (s *orchestration) GetFlow(ctx context.Context, request operations.GetFlowR
 			}
 
 			res.GetWorkflowResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	default:
 		switch {
@@ -155,6 +162,8 @@ func (s *orchestration) GetFlow(ctx context.Context, request operations.GetFlowR
 			}
 
 			res.Error = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -211,6 +220,8 @@ func (s *orchestration) GetWorkflowOccurrence(ctx context.Context, request opera
 			}
 
 			res.GetWorkflowOccurrenceResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	default:
 		switch {
@@ -221,6 +232,8 @@ func (s *orchestration) GetWorkflowOccurrence(ctx context.Context, request opera
 			}
 
 			res.Error = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -274,6 +287,8 @@ func (s *orchestration) ListFlows(ctx context.Context) (*operations.ListFlowsRes
 			}
 
 			res.ListWorkflowsResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	default:
 		switch {
@@ -284,6 +299,8 @@ func (s *orchestration) ListFlows(ctx context.Context) (*operations.ListFlowsRes
 			}
 
 			res.Error = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -340,6 +357,8 @@ func (s *orchestration) ListRuns(ctx context.Context, request operations.ListRun
 			}
 
 			res.ListRunsResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	default:
 		switch {
@@ -350,6 +369,8 @@ func (s *orchestration) ListRuns(ctx context.Context, request operations.ListRun
 			}
 
 			res.Error = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -402,6 +423,8 @@ func (s *orchestration) OrchestrationgetServerInfo(ctx context.Context) (*operat
 			}
 
 			res.ServerInfo = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	default:
 		switch {
@@ -412,6 +435,8 @@ func (s *orchestration) OrchestrationgetServerInfo(ctx context.Context) (*operat
 			}
 
 			res.Error = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -479,6 +504,8 @@ func (s *orchestration) RunWorkflow(ctx context.Context, request operations.RunW
 			}
 
 			res.RunWorkflowResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	default:
 		switch {
@@ -489,6 +516,8 @@ func (s *orchestration) RunWorkflow(ctx context.Context, request operations.RunW
 			}
 
 			res.Error = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

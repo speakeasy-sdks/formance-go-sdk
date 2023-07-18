@@ -49,6 +49,76 @@ type CountTransactionsRequest struct {
 	StartTimeDeprecated *time.Time `queryParam:"style=form,explode=true,name=start_time"`
 }
 
+func (o *CountTransactionsRequest) GetAccount() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Account
+}
+
+func (o *CountTransactionsRequest) GetDestination() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Destination
+}
+
+func (o *CountTransactionsRequest) GetEndTime() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.EndTime
+}
+
+func (o *CountTransactionsRequest) GetEndTimeDeprecated() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.EndTimeDeprecated
+}
+
+func (o *CountTransactionsRequest) GetLedger() string {
+	if o == nil {
+		return ""
+	}
+	return o.Ledger
+}
+
+func (o *CountTransactionsRequest) GetMetadata() *CountTransactionsMetadata {
+	if o == nil {
+		return nil
+	}
+	return o.Metadata
+}
+
+func (o *CountTransactionsRequest) GetReference() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Reference
+}
+
+func (o *CountTransactionsRequest) GetSource() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Source
+}
+
+func (o *CountTransactionsRequest) GetStartTime() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.StartTime
+}
+
+func (o *CountTransactionsRequest) GetStartTimeDeprecated() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.StartTimeDeprecated
+}
+
 type CountTransactionsResponse struct {
 	ContentType string
 	// Error
@@ -56,4 +126,39 @@ type CountTransactionsResponse struct {
 	Headers       map[string][]string
 	StatusCode    int
 	RawResponse   *http.Response
+}
+
+func (o *CountTransactionsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CountTransactionsResponse) GetErrorResponse() *shared.ErrorResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ErrorResponse
+}
+
+func (o *CountTransactionsResponse) GetHeaders() map[string][]string {
+	if o == nil {
+		return nil
+	}
+	return o.Headers
+}
+
+func (o *CountTransactionsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CountTransactionsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
 }

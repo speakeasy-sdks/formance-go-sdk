@@ -6,3 +6,10 @@ package shared
 type RunWorkflowResponse struct {
 	Data WorkflowOccurrence `json:"data"`
 }
+
+func (o *RunWorkflowResponse) GetData() WorkflowOccurrence {
+	if o == nil {
+		return WorkflowOccurrence{}
+	}
+	return o.Data
+}

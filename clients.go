@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/sdkerrors"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/utils"
 	"io"
@@ -124,6 +125,8 @@ func (s *clients) CreateClient(ctx context.Context, request shared.CreateClientR
 			}
 
 			res.CreateClientResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -186,6 +189,8 @@ func (s *clients) CreateSecret(ctx context.Context, request operations.CreateSec
 			}
 
 			res.CreateSecretResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -376,6 +381,8 @@ func (s *clients) ListClients(ctx context.Context) (*operations.ListClientsRespo
 			}
 
 			res.ListClientsResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -431,6 +438,8 @@ func (s *clients) ReadClient(ctx context.Context, request operations.ReadClientR
 			}
 
 			res.ReadClientResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -493,6 +502,8 @@ func (s *clients) UpdateClient(ctx context.Context, request operations.UpdateCli
 			}
 
 			res.UpdateClientResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

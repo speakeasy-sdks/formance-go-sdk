@@ -8,3 +8,31 @@ type BankingCircleConfig struct {
 	Password              string `json:"password"`
 	Username              string `json:"username"`
 }
+
+func (o *BankingCircleConfig) GetAuthorizationEndpoint() string {
+	if o == nil {
+		return ""
+	}
+	return o.AuthorizationEndpoint
+}
+
+func (o *BankingCircleConfig) GetEndpoint() string {
+	if o == nil {
+		return ""
+	}
+	return o.Endpoint
+}
+
+func (o *BankingCircleConfig) GetPassword() string {
+	if o == nil {
+		return ""
+	}
+	return o.Password
+}
+
+func (o *BankingCircleConfig) GetUsername() string {
+	if o == nil {
+		return ""
+	}
+	return o.Username
+}

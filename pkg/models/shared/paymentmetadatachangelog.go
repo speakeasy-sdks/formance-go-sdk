@@ -10,3 +10,17 @@ type PaymentMetadataChangelog struct {
 	Timestamp time.Time `json:"timestamp"`
 	Value     string    `json:"value"`
 }
+
+func (o *PaymentMetadataChangelog) GetTimestamp() time.Time {
+	if o == nil {
+		return time.Time{}
+	}
+	return o.Timestamp
+}
+
+func (o *PaymentMetadataChangelog) GetValue() string {
+	if o == nil {
+		return ""
+	}
+	return o.Value
+}

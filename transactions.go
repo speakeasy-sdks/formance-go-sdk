@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/sdkerrors"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/utils"
 	"io"
@@ -83,6 +84,8 @@ func (s *transactions) CreateTransactions(ctx context.Context, request operation
 			}
 
 			res.TransactionsResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	default:
 		switch {
@@ -93,6 +96,8 @@ func (s *transactions) CreateTransactions(ctx context.Context, request operation
 			}
 
 			res.ErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -156,6 +161,8 @@ func (s *transactions) AddMetadataOnTransaction(ctx context.Context, request ope
 			}
 
 			res.ErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -218,6 +225,8 @@ func (s *transactions) CountTransactions(ctx context.Context, request operations
 			}
 
 			res.ErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -287,6 +296,8 @@ func (s *transactions) CreateTransaction(ctx context.Context, request operations
 			}
 
 			res.TransactionsResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	default:
 		switch {
@@ -297,6 +308,8 @@ func (s *transactions) CreateTransaction(ctx context.Context, request operations
 			}
 
 			res.ErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -352,6 +365,8 @@ func (s *transactions) GetTransaction(ctx context.Context, request operations.Ge
 			}
 
 			res.TransactionResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	default:
 		switch {
@@ -362,6 +377,8 @@ func (s *transactions) GetTransaction(ctx context.Context, request operations.Ge
 			}
 
 			res.ErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -422,6 +439,8 @@ func (s *transactions) ListTransactions(ctx context.Context, request operations.
 			}
 
 			res.TransactionsCursorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	default:
 		switch {
@@ -432,6 +451,8 @@ func (s *transactions) ListTransactions(ctx context.Context, request operations.
 			}
 
 			res.ErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -487,6 +508,8 @@ func (s *transactions) RevertTransaction(ctx context.Context, request operations
 			}
 
 			res.TransactionResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	default:
 		switch {
@@ -497,6 +520,8 @@ func (s *transactions) RevertTransaction(ctx context.Context, request operations
 			}
 
 			res.ErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

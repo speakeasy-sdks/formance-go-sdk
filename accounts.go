@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/sdkerrors"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/utils"
 	"io"
@@ -84,6 +85,8 @@ func (s *accounts) AddMetadataToAccount(ctx context.Context, request operations.
 			}
 
 			res.ErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -146,6 +149,8 @@ func (s *accounts) CountAccounts(ctx context.Context, request operations.CountAc
 			}
 
 			res.ErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -201,6 +206,8 @@ func (s *accounts) GetAccount(ctx context.Context, request operations.GetAccount
 			}
 
 			res.AccountResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	default:
 		switch {
@@ -211,6 +218,8 @@ func (s *accounts) GetAccount(ctx context.Context, request operations.GetAccount
 			}
 
 			res.ErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -271,6 +280,8 @@ func (s *accounts) ListAccounts(ctx context.Context, request operations.ListAcco
 			}
 
 			res.AccountsCursorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	default:
 		switch {
@@ -281,6 +292,8 @@ func (s *accounts) ListAccounts(ctx context.Context, request operations.ListAcco
 			}
 
 			res.ErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

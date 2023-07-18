@@ -14,6 +14,20 @@ type PostTransactionScript struct {
 	Vars  *PostTransactionScriptVars `json:"vars,omitempty"`
 }
 
+func (o *PostTransactionScript) GetPlain() string {
+	if o == nil {
+		return ""
+	}
+	return o.Plain
+}
+
+func (o *PostTransactionScript) GetVars() *PostTransactionScriptVars {
+	if o == nil {
+		return nil
+	}
+	return o.Vars
+}
+
 // PostTransaction - The request body must contain at least one of the following objects:
 //   - `postings`: suitable for simple transactions
 //   - `script`: enabling more complex transactions with Numscript
@@ -23,4 +37,39 @@ type PostTransaction struct {
 	Reference *string                `json:"reference,omitempty"`
 	Script    *PostTransactionScript `json:"script,omitempty"`
 	Timestamp *time.Time             `json:"timestamp,omitempty"`
+}
+
+func (o *PostTransaction) GetMetadata() map[string]interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Metadata
+}
+
+func (o *PostTransaction) GetPostings() []Posting {
+	if o == nil {
+		return nil
+	}
+	return o.Postings
+}
+
+func (o *PostTransaction) GetReference() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Reference
+}
+
+func (o *PostTransaction) GetScript() *PostTransactionScript {
+	if o == nil {
+		return nil
+	}
+	return o.Script
+}
+
+func (o *PostTransaction) GetTimestamp() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.Timestamp
 }

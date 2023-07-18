@@ -7,3 +7,24 @@ type Volume struct {
 	Input   int64  `json:"input"`
 	Output  int64  `json:"output"`
 }
+
+func (o *Volume) GetBalance() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Balance
+}
+
+func (o *Volume) GetInput() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.Input
+}
+
+func (o *Volume) GetOutput() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.Output
+}

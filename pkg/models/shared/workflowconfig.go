@@ -5,3 +5,10 @@ package shared
 type WorkflowConfig struct {
 	Stages []map[string]interface{} `json:"stages"`
 }
+
+func (o *WorkflowConfig) GetStages() []map[string]interface{} {
+	if o == nil {
+		return []map[string]interface{}{}
+	}
+	return o.Stages
+}

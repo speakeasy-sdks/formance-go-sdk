@@ -5,3 +5,10 @@ package shared
 type AssetHolder struct {
 	Assets map[string]float64 `json:"assets"`
 }
+
+func (o *AssetHolder) GetAssets() map[string]float64 {
+	if o == nil {
+		return map[string]float64{}
+	}
+	return o.Assets
+}

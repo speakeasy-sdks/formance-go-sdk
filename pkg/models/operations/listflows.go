@@ -16,3 +16,38 @@ type ListFlowsResponse struct {
 	StatusCode            int
 	RawResponse           *http.Response
 }
+
+func (o *ListFlowsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListFlowsResponse) GetError() *shared.Error {
+	if o == nil {
+		return nil
+	}
+	return o.Error
+}
+
+func (o *ListFlowsResponse) GetListWorkflowsResponse() *shared.ListWorkflowsResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ListWorkflowsResponse
+}
+
+func (o *ListFlowsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListFlowsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}

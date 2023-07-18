@@ -12,6 +12,13 @@ type GetFlowRequest struct {
 	FlowID string `pathParam:"style=simple,explode=false,name=flowId"`
 }
 
+func (o *GetFlowRequest) GetFlowID() string {
+	if o == nil {
+		return ""
+	}
+	return o.FlowID
+}
+
 type GetFlowResponse struct {
 	ContentType string
 	// General error
@@ -20,4 +27,39 @@ type GetFlowResponse struct {
 	GetWorkflowResponse *shared.GetWorkflowResponse
 	StatusCode          int
 	RawResponse         *http.Response
+}
+
+func (o *GetFlowResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetFlowResponse) GetError() *shared.Error {
+	if o == nil {
+		return nil
+	}
+	return o.Error
+}
+
+func (o *GetFlowResponse) GetGetWorkflowResponse() *shared.GetWorkflowResponse {
+	if o == nil {
+		return nil
+	}
+	return o.GetWorkflowResponse
+}
+
+func (o *GetFlowResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetFlowResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
 }

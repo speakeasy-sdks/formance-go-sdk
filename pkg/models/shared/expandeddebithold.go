@@ -16,3 +16,52 @@ type ExpandedDebitHold struct {
 	// The ID of the wallet the hold is associated with.
 	WalletID string `json:"walletID"`
 }
+
+func (o *ExpandedDebitHold) GetDescription() string {
+	if o == nil {
+		return ""
+	}
+	return o.Description
+}
+
+func (o *ExpandedDebitHold) GetDestination() interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Destination
+}
+
+func (o *ExpandedDebitHold) GetID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ID
+}
+
+func (o *ExpandedDebitHold) GetMetadata() map[string]interface{} {
+	if o == nil {
+		return map[string]interface{}{}
+	}
+	return o.Metadata
+}
+
+func (o *ExpandedDebitHold) GetOriginalAmount() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.OriginalAmount
+}
+
+func (o *ExpandedDebitHold) GetRemaining() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.Remaining
+}
+
+func (o *ExpandedDebitHold) GetWalletID() string {
+	if o == nil {
+		return ""
+	}
+	return o.WalletID
+}

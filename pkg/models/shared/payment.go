@@ -134,3 +134,94 @@ type Payment struct {
 	Status        PaymentStatus       `json:"status"`
 	Type          PaymentType         `json:"type"`
 }
+
+func (o *Payment) GetAccountID() string {
+	if o == nil {
+		return ""
+	}
+	return o.AccountID
+}
+
+func (o *Payment) GetAdjustments() []PaymentAdjustment {
+	if o == nil {
+		return []PaymentAdjustment{}
+	}
+	return o.Adjustments
+}
+
+func (o *Payment) GetAsset() string {
+	if o == nil {
+		return ""
+	}
+	return o.Asset
+}
+
+func (o *Payment) GetCreatedAt() time.Time {
+	if o == nil {
+		return time.Time{}
+	}
+	return o.CreatedAt
+}
+
+func (o *Payment) GetID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ID
+}
+
+func (o *Payment) GetInitialAmount() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.InitialAmount
+}
+
+func (o *Payment) GetMetadata() []PaymentMetadata {
+	if o == nil {
+		return []PaymentMetadata{}
+	}
+	return o.Metadata
+}
+
+func (o *Payment) GetProvider() Connector {
+	if o == nil {
+		return Connector("")
+	}
+	return o.Provider
+}
+
+func (o *Payment) GetRaw() PaymentRaw {
+	if o == nil {
+		return PaymentRaw{}
+	}
+	return o.Raw
+}
+
+func (o *Payment) GetReference() string {
+	if o == nil {
+		return ""
+	}
+	return o.Reference
+}
+
+func (o *Payment) GetScheme() PaymentScheme {
+	if o == nil {
+		return PaymentScheme("")
+	}
+	return o.Scheme
+}
+
+func (o *Payment) GetStatus() PaymentStatus {
+	if o == nil {
+		return PaymentStatus("")
+	}
+	return o.Status
+}
+
+func (o *Payment) GetType() PaymentType {
+	if o == nil {
+		return PaymentType("")
+	}
+	return o.Type
+}

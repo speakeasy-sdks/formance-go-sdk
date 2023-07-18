@@ -99,6 +99,83 @@ type ListAccountsRequest struct {
 	PaginationToken *string `queryParam:"style=form,explode=true,name=pagination_token"`
 }
 
+func (o *ListAccountsRequest) GetAddress() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Address
+}
+
+func (o *ListAccountsRequest) GetAfter() *string {
+	if o == nil {
+		return nil
+	}
+	return o.After
+}
+
+func (o *ListAccountsRequest) GetBalance() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Balance
+}
+
+func (o *ListAccountsRequest) GetBalanceOperator() *ListAccountsBalanceOperator {
+	if o == nil {
+		return nil
+	}
+	return o.BalanceOperator
+}
+
+func (o *ListAccountsRequest) GetBalanceOperatorDeprecated() *ListAccountsBalanceOperator {
+	if o == nil {
+		return nil
+	}
+	return o.BalanceOperatorDeprecated
+}
+
+func (o *ListAccountsRequest) GetCursor() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Cursor
+}
+
+func (o *ListAccountsRequest) GetLedger() string {
+	if o == nil {
+		return ""
+	}
+	return o.Ledger
+}
+
+func (o *ListAccountsRequest) GetMetadata() *ListAccountsMetadata {
+	if o == nil {
+		return nil
+	}
+	return o.Metadata
+}
+
+func (o *ListAccountsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
+func (o *ListAccountsRequest) GetPageSizeDeprecated() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSizeDeprecated
+}
+
+func (o *ListAccountsRequest) GetPaginationToken() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PaginationToken
+}
+
 type ListAccountsResponse struct {
 	// OK
 	AccountsCursorResponse *shared.AccountsCursorResponse
@@ -107,4 +184,39 @@ type ListAccountsResponse struct {
 	ErrorResponse *shared.ErrorResponse
 	StatusCode    int
 	RawResponse   *http.Response
+}
+
+func (o *ListAccountsResponse) GetAccountsCursorResponse() *shared.AccountsCursorResponse {
+	if o == nil {
+		return nil
+	}
+	return o.AccountsCursorResponse
+}
+
+func (o *ListAccountsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListAccountsResponse) GetErrorResponse() *shared.ErrorResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ErrorResponse
+}
+
+func (o *ListAccountsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListAccountsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
 }

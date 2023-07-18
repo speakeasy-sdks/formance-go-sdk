@@ -7,3 +7,24 @@ type ModulrConfig struct {
 	APISecret string  `json:"apiSecret"`
 	Endpoint  *string `json:"endpoint,omitempty"`
 }
+
+func (o *ModulrConfig) GetAPIKey() string {
+	if o == nil {
+		return ""
+	}
+	return o.APIKey
+}
+
+func (o *ModulrConfig) GetAPISecret() string {
+	if o == nil {
+		return ""
+	}
+	return o.APISecret
+}
+
+func (o *ModulrConfig) GetEndpoint() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Endpoint
+}

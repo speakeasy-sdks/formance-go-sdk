@@ -12,6 +12,27 @@ type TaskStripeDescriptor struct {
 	Name    string `json:"name"`
 }
 
+func (o *TaskStripeDescriptor) GetAccount() string {
+	if o == nil {
+		return ""
+	}
+	return o.Account
+}
+
+func (o *TaskStripeDescriptor) GetMain() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Main
+}
+
+func (o *TaskStripeDescriptor) GetName() string {
+	if o == nil {
+		return ""
+	}
+	return o.Name
+}
+
 type TaskStripeState struct {
 }
 
@@ -24,4 +45,60 @@ type TaskStripe struct {
 	State       TaskStripeState      `json:"state"`
 	Status      PaymentStatus        `json:"status"`
 	UpdatedAt   time.Time            `json:"updatedAt"`
+}
+
+func (o *TaskStripe) GetConnectorID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ConnectorID
+}
+
+func (o *TaskStripe) GetCreatedAt() time.Time {
+	if o == nil {
+		return time.Time{}
+	}
+	return o.CreatedAt
+}
+
+func (o *TaskStripe) GetDescriptor() TaskStripeDescriptor {
+	if o == nil {
+		return TaskStripeDescriptor{}
+	}
+	return o.Descriptor
+}
+
+func (o *TaskStripe) GetError() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Error
+}
+
+func (o *TaskStripe) GetID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ID
+}
+
+func (o *TaskStripe) GetState() TaskStripeState {
+	if o == nil {
+		return TaskStripeState{}
+	}
+	return o.State
+}
+
+func (o *TaskStripe) GetStatus() PaymentStatus {
+	if o == nil {
+		return PaymentStatus("")
+	}
+	return o.Status
+}
+
+func (o *TaskStripe) GetUpdatedAt() time.Time {
+	if o == nil {
+		return time.Time{}
+	}
+	return o.UpdatedAt
 }

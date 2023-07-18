@@ -13,3 +13,38 @@ type WorkflowOccurrence struct {
 	UpdatedAt  time.Time     `json:"updatedAt"`
 	WorkflowID string        `json:"workflowID"`
 }
+
+func (o *WorkflowOccurrence) GetCreatedAt() time.Time {
+	if o == nil {
+		return time.Time{}
+	}
+	return o.CreatedAt
+}
+
+func (o *WorkflowOccurrence) GetID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ID
+}
+
+func (o *WorkflowOccurrence) GetStatuses() []StageStatus {
+	if o == nil {
+		return []StageStatus{}
+	}
+	return o.Statuses
+}
+
+func (o *WorkflowOccurrence) GetUpdatedAt() time.Time {
+	if o == nil {
+		return time.Time{}
+	}
+	return o.UpdatedAt
+}
+
+func (o *WorkflowOccurrence) GetWorkflowID() string {
+	if o == nil {
+		return ""
+	}
+	return o.WorkflowID
+}

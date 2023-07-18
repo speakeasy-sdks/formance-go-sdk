@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/sdkerrors"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/utils"
 	"io"
@@ -82,6 +83,8 @@ func (s *payments) ConnectorsStripeTransfer(ctx context.Context, request shared.
 			}
 
 			res.StripeTransferResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -138,6 +141,8 @@ func (s *payments) GetConnectorTask(ctx context.Context, request operations.GetC
 			}
 
 			res.TaskResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -193,6 +198,8 @@ func (s *payments) GetPayment(ctx context.Context, request operations.GetPayment
 			}
 
 			res.PaymentResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -303,6 +310,8 @@ func (s *payments) ListAllConnectors(ctx context.Context) (*operations.ListAllCo
 			}
 
 			res.ConnectorsResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -356,6 +365,8 @@ func (s *payments) ListConfigsAvailableConnectors(ctx context.Context) (*operati
 			}
 
 			res.ConnectorsConfigsResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -416,6 +427,8 @@ func (s *payments) ListConnectorTasks(ctx context.Context, request operations.Li
 			}
 
 			res.TasksCursor = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -472,6 +485,8 @@ func (s *payments) ListPayments(ctx context.Context, request operations.ListPaym
 			}
 
 			res.PaymentsCursor = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -528,6 +543,8 @@ func (s *payments) PaymentslistAccounts(ctx context.Context, request operations.
 			}
 
 			res.AccountsCursor = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -584,6 +601,8 @@ func (s *payments) ReadConnectorConfig(ctx context.Context, request operations.R
 			}
 
 			res.ConnectorConfigResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

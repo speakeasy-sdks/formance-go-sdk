@@ -7,3 +7,24 @@ type WalletsVolume struct {
 	Input   int64 `json:"input"`
 	Output  int64 `json:"output"`
 }
+
+func (o *WalletsVolume) GetBalance() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.Balance
+}
+
+func (o *WalletsVolume) GetInput() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.Input
+}
+
+func (o *WalletsVolume) GetOutput() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.Output
+}

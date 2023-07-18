@@ -16,3 +16,38 @@ type PaymentAdjustment struct {
 	Raw      PaymentAdjustmentRaw `json:"raw"`
 	Status   PaymentStatus        `json:"status"`
 }
+
+func (o *PaymentAdjustment) GetAbsolute() bool {
+	if o == nil {
+		return false
+	}
+	return o.Absolute
+}
+
+func (o *PaymentAdjustment) GetAmount() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.Amount
+}
+
+func (o *PaymentAdjustment) GetDate() time.Time {
+	if o == nil {
+		return time.Time{}
+	}
+	return o.Date
+}
+
+func (o *PaymentAdjustment) GetRaw() PaymentAdjustmentRaw {
+	if o == nil {
+		return PaymentAdjustmentRaw{}
+	}
+	return o.Raw
+}
+
+func (o *PaymentAdjustment) GetStatus() PaymentStatus {
+	if o == nil {
+		return PaymentStatus("")
+	}
+	return o.Status
+}

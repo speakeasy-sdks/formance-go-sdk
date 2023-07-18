@@ -5,3 +5,10 @@ package shared
 type Balance struct {
 	Name string `json:"name"`
 }
+
+func (o *Balance) GetName() string {
+	if o == nil {
+		return ""
+	}
+	return o.Name
+}

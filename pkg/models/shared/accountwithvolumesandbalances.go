@@ -12,3 +12,38 @@ type AccountWithVolumesAndBalances struct {
 	Type     *string                                `json:"type,omitempty"`
 	Volumes  map[string]map[string]int64            `json:"volumes,omitempty"`
 }
+
+func (o *AccountWithVolumesAndBalances) GetAddress() string {
+	if o == nil {
+		return ""
+	}
+	return o.Address
+}
+
+func (o *AccountWithVolumesAndBalances) GetBalances() map[string]int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Balances
+}
+
+func (o *AccountWithVolumesAndBalances) GetMetadata() *AccountWithVolumesAndBalancesMetadata {
+	if o == nil {
+		return nil
+	}
+	return o.Metadata
+}
+
+func (o *AccountWithVolumesAndBalances) GetType() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
+func (o *AccountWithVolumesAndBalances) GetVolumes() map[string]map[string]int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Volumes
+}

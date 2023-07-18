@@ -12,3 +12,38 @@ type Hold struct {
 	// The ID of the wallet the hold is associated with.
 	WalletID string `json:"walletID"`
 }
+
+func (o *Hold) GetDescription() string {
+	if o == nil {
+		return ""
+	}
+	return o.Description
+}
+
+func (o *Hold) GetDestination() interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Destination
+}
+
+func (o *Hold) GetID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ID
+}
+
+func (o *Hold) GetMetadata() map[string]interface{} {
+	if o == nil {
+		return map[string]interface{}{}
+	}
+	return o.Metadata
+}
+
+func (o *Hold) GetWalletID() string {
+	if o == nil {
+		return ""
+	}
+	return o.WalletID
+}
