@@ -22,7 +22,7 @@ func (o *InstallConnectorRequest) GetConnectorConfig() shared.ConnectorConfig {
 
 func (o *InstallConnectorRequest) GetConnector() shared.Connector {
 	if o == nil {
-		return Connector("")
+		return shared.Connector("")
 	}
 	return o.Connector
 }

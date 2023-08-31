@@ -16,7 +16,7 @@ type GetConnectorTaskRequest struct {
 
 func (o *GetConnectorTaskRequest) GetConnector() shared.Connector {
 	if o == nil {
-		return Connector("")
+		return shared.Connector("")
 	}
 	return o.Connector
 }

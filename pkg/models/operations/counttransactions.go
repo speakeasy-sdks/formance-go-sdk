@@ -26,7 +26,7 @@ type CountTransactionsRequest struct {
 	// Deprecated, please use `endTime` instead.
 	//
 	//
-	// Deprecated: this field will be removed in a future release, please migrate away from it as soon as possible.
+	// Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
 	EndTimeDeprecated *time.Time `queryParam:"style=form,explode=true,name=end_time"`
 	// Name of the ledger.
 	Ledger string `pathParam:"style=simple,explode=false,name=ledger"`
@@ -45,7 +45,7 @@ type CountTransactionsRequest struct {
 	// Deprecated, please use `startTime` instead.
 	//
 	//
-	// Deprecated: this field will be removed in a future release, please migrate away from it as soon as possible.
+	// Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
 	StartTimeDeprecated *time.Time `queryParam:"style=form,explode=true,name=start_time"`
 }
 

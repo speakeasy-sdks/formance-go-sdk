@@ -26,7 +26,7 @@ type ListLogsRequest struct {
 	// Deprecated, please use `endTime` instead.
 	//
 	//
-	// Deprecated: this field will be removed in a future release, please migrate away from it as soon as possible.
+	// Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
 	EndTimeDeprecated *time.Time `queryParam:"style=form,explode=true,name=end_time"`
 	// Name of the ledger.
 	Ledger string `pathParam:"style=simple,explode=false,name=ledger"`
@@ -37,7 +37,7 @@ type ListLogsRequest struct {
 	// Deprecated, please use `pageSize` instead.
 	//
 	//
-	// Deprecated: this field will be removed in a future release, please migrate away from it as soon as possible.
+	// Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
 	PageSizeDeprecated *int64 `queryParam:"style=form,explode=true,name=page_size"`
 	// Parameter used in pagination requests. Maximum page size is set to 15.
 	// Set to the value of next for the next page of results.
@@ -46,7 +46,7 @@ type ListLogsRequest struct {
 	// Deprecated, please use `cursor` instead.
 	//
 	//
-	// Deprecated: this field will be removed in a future release, please migrate away from it as soon as possible.
+	// Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
 	PaginationToken *string `queryParam:"style=form,explode=true,name=pagination_token"`
 	// Filter transactions that occurred after this timestamp.
 	// The format is RFC3339 and is inclusive (for example, "2023-01-02T15:04:01Z" includes the first second of 4th minute).
@@ -57,7 +57,7 @@ type ListLogsRequest struct {
 	// Deprecated, please use `startTime` instead.
 	//
 	//
-	// Deprecated: this field will be removed in a future release, please migrate away from it as soon as possible.
+	// Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
 	StartTimeDeprecated *time.Time `queryParam:"style=form,explode=true,name=start_time"`
 }
 

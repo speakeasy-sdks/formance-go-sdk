@@ -28,7 +28,7 @@ func newScript(sdkConfig sdkConfiguration) *script {
 // RunScript - Execute a Numscript
 // This route is deprecated, and has been merged into `POST /{ledger}/transactions`.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *script) RunScript(ctx context.Context, request operations.RunScriptRequest) (*operations.RunScriptResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/script", request, nil)

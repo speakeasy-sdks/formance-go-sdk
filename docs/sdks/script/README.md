@@ -13,7 +13,7 @@ Everything related to Script
 This route is deprecated, and has been merged into `POST /{ledger}/transactions`.
 
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

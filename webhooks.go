@@ -328,7 +328,7 @@ func (s *webhooks) GetManyConfigs(ctx context.Context, request operations.GetMan
 // The format is a random string of bytes of size 24, base64 encoded. (larger size after encoding)
 //
 // All eventTypes are converted to lower-case when inserted.
-func (s *webhooks) InsertConfig(ctx context.Context, request shared.ConfigUser) (*operations.InsertConfigResponse, error) {
+func (s *webhooks) InsertConfig(ctx context.Context, request shared.ConfigUser, opts ...operations.Option) (*operations.InsertConfigResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/api/webhooks/configs"
 
@@ -344,7 +344,12 @@ func (s *webhooks) InsertConfig(ctx context.Context, request shared.ConfigUser) 
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
-	req.Header.Set("Accept", "application/json;q=1, text/plain;q=0")
+	if o.AcceptHeaderOverride != nil {
+		req.Header.Set("Accept", string(*o.AcceptHeaderOverride))
+	} else {
+		req.Header.Set("Accept", "application/json;q=1, text/plain;q=0")
+	}
+
 	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s %s", s.sdkConfiguration.Language, s.sdkConfiguration.SDKVersion, s.sdkConfiguration.GenVersion, s.sdkConfiguration.OpenAPIDocVersion))
 
 	req.Header.Set("Content-Type", reqContentType)

@@ -14,7 +14,7 @@ type ReadConnectorConfigRequest struct {
 
 func (o *ReadConnectorConfigRequest) GetConnector() shared.Connector {
 	if o == nil {
-		return Connector("")
+		return shared.Connector("")
 	}
 	return o.Connector
 }
