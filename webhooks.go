@@ -329,6 +329,16 @@ func (s *webhooks) GetManyConfigs(ctx context.Context, request operations.GetMan
 //
 // All eventTypes are converted to lower-case when inserted.
 func (s *webhooks) InsertConfig(ctx context.Context, request shared.ConfigUser, opts ...operations.Option) (*operations.InsertConfigResponse, error) {
+	o := operations.Options{}
+	supportedOptions := []string{
+		operations.SupportedOptionAcceptHeaderOverride,
+	}
+
+	for _, opt := range opts {
+		if err := opt(&o, supportedOptions...); err != nil {
+			return nil, fmt.Errorf("error applying option: %w", err)
+		}
+	}
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/api/webhooks/configs"
 

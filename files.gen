@@ -612,4 +612,5 @@ docs/models/shared/configuser.md
 docs/models/shared/attemptresponse.md
 docs/models/shared/attempt.md
 docs/models/shared/security.md
+pkg/models/operations/options.go
 .gitattributes
