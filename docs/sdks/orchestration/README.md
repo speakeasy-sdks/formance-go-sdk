@@ -41,18 +41,7 @@ func main() {
     res, err := s.Orchestration.CreateWorkflow(ctx, shared.CreateWorkflowRequest{
         Stages: []map[string]interface{}{
             map[string]interface{}{
-                "saepe": "quidem",
-                "architecto": "ipsa",
-            },
-            map[string]interface{}{
-                "est": "mollitia",
-                "laborum": "dolores",
-                "dolorem": "corporis",
-                "explicabo": "nobis",
-            },
-            map[string]interface{}{
-                "omnis": "nemo",
-                "minima": "excepturi",
+                "occaecati": "fugit",
             },
         },
     })
@@ -105,7 +94,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Orchestration.GetFlow(ctx, operations.GetFlowRequest{
-        FlowID: "accusantium",
+        FlowID: "deleniti",
     })
     if err != nil {
         log.Fatal(err)
@@ -156,8 +145,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Orchestration.GetWorkflowOccurrence(ctx, operations.GetWorkflowOccurrenceRequest{
-        FlowID: "iure",
-        RunID: "culpa",
+        FlowID: "hic",
+        RunID: "optio",
     })
     if err != nil {
         log.Fatal(err)
@@ -255,7 +244,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Orchestration.ListRuns(ctx, operations.ListRunsRequest{
-        FlowID: "doloribus",
+        FlowID: "totam",
     })
     if err != nil {
         log.Fatal(err)
@@ -354,12 +343,9 @@ func main() {
     ctx := context.Background()
     res, err := s.Orchestration.RunWorkflow(ctx, operations.RunWorkflowRequest{
         RequestBody: map[string]string{
-            "architecto": "mollitia",
-            "dolorem": "culpa",
-            "consequuntur": "repellat",
-            "mollitia": "occaecati",
+            "beatae": "commodi",
         },
-        FlowID: "numquam",
+        FlowID: "molestiae",
         Wait: formance.Bool(false),
     })
     if err != nil {

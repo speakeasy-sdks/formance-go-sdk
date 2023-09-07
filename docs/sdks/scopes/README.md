@@ -40,8 +40,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Scopes.AddTransientScope(ctx, operations.AddTransientScopeRequest{
-        ScopeID: "id",
-        TransientScopeID: "possimus",
+        ScopeID: "dolor",
+        TransientScopeID: "natus",
     })
     if err != nil {
         log.Fatal(err)
@@ -91,9 +91,9 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Scopes.CreateScope(ctx, shared.CreateScopeRequest{
-        Label: "aut",
+        Label: "laboriosam",
         Metadata: map[string]interface{}{
-            "error": "temporibus",
+            "hic": "saepe",
         },
     })
     if err != nil {
@@ -145,7 +145,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Scopes.DeleteScope(ctx, operations.DeleteScopeRequest{
-        ScopeID: "laborum",
+        ScopeID: "fuga",
     })
     if err != nil {
         log.Fatal(err)
@@ -196,8 +196,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Scopes.DeleteTransientScope(ctx, operations.DeleteTransientScopeRequest{
-        ScopeID: "quasi",
-        TransientScopeID: "reiciendis",
+        ScopeID: "in",
+        TransientScopeID: "corporis",
     })
     if err != nil {
         log.Fatal(err)
@@ -295,7 +295,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Scopes.ReadScope(ctx, operations.ReadScopeRequest{
-        ScopeID: "voluptatibus",
+        ScopeID: "iste",
     })
     if err != nil {
         log.Fatal(err)
@@ -347,13 +347,12 @@ func main() {
     ctx := context.Background()
     res, err := s.Scopes.UpdateScope(ctx, operations.UpdateScopeRequest{
         UpdateScopeRequest: &shared.UpdateScopeRequest{
-            Label: "vero",
+            Label: "iure",
             Metadata: map[string]interface{}{
-                "praesentium": "voluptatibus",
-                "ipsa": "omnis",
+                "saepe": "quidem",
             },
         },
-        ScopeID: "voluptate",
+        ScopeID: "architecto",
     })
     if err != nil {
         log.Fatal(err)

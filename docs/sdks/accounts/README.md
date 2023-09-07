@@ -38,9 +38,7 @@ func main() {
     ctx := context.Background()
     res, err := s.Accounts.AddMetadataToAccount(ctx, operations.AddMetadataToAccountRequest{
         RequestBody: map[string]interface{}{
-            "provident": "distinctio",
-            "quibusdam": "unde",
-            "nulla": "corrupti",
+            "corrupti": "provident",
         },
         Address: "users:001",
         Ledger: "ledger001",
@@ -207,8 +205,8 @@ func main() {
         Cursor: formance.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         Ledger: "ledger001",
         Metadata: &operations.ListAccountsMetadata{},
-        PageSize: formance.Int64(847252),
-        PageSizeDeprecated: formance.Int64(423655),
+        PageSize: formance.Int64(715190),
+        PageSizeDeprecated: formance.Int64(844266),
         PaginationToken: formance.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
     })
     if err != nil {

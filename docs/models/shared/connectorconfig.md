@@ -3,6 +3,12 @@
 
 ## Supported Types
 
+### WiseConfig
+
+```go
+connectorConfig := shared.CreateConnectorConfigWiseConfig(shared.WiseConfig{/* values here */})
+```
+
 ### StripeConfig
 
 ```go
@@ -13,12 +19,6 @@ connectorConfig := shared.CreateConnectorConfigStripeConfig(shared.StripeConfig{
 
 ```go
 connectorConfig := shared.CreateConnectorConfigDummyPayConfig(shared.DummyPayConfig{/* values here */})
-```
-
-### WiseConfig
-
-```go
-connectorConfig := shared.CreateConnectorConfigWiseConfig(shared.WiseConfig{/* values here */})
 ```
 
 ### ModulrConfig

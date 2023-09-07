@@ -87,6 +87,15 @@ func CreateConnectorConfigBankingCircleConfig(bankingCircleConfig BankingCircleC
 func (u *ConnectorConfig) UnmarshalJSON(data []byte) error {
 	var d *json.Decoder
 
+	wiseConfig := new(WiseConfig)
+	d = json.NewDecoder(bytes.NewReader(data))
+	d.DisallowUnknownFields()
+	if err := d.Decode(&wiseConfig); err == nil {
+		u.WiseConfig = wiseConfig
+		u.Type = ConnectorConfigTypeWiseConfig
+		return nil
+	}
+
 	stripeConfig := new(StripeConfig)
 	d = json.NewDecoder(bytes.NewReader(data))
 	d.DisallowUnknownFields()
@@ -102,15 +111,6 @@ func (u *ConnectorConfig) UnmarshalJSON(data []byte) error {
 	if err := d.Decode(&dummyPayConfig); err == nil {
 		u.DummyPayConfig = dummyPayConfig
 		u.Type = ConnectorConfigTypeDummyPayConfig
-		return nil
-	}
-
-	wiseConfig := new(WiseConfig)
-	d = json.NewDecoder(bytes.NewReader(data))
-	d.DisallowUnknownFields()
-	if err := d.Decode(&wiseConfig); err == nil {
-		u.WiseConfig = wiseConfig
-		u.Type = ConnectorConfigTypeWiseConfig
 		return nil
 	}
 
@@ -145,16 +145,16 @@ func (u *ConnectorConfig) UnmarshalJSON(data []byte) error {
 }
 
 func (u ConnectorConfig) MarshalJSON() ([]byte, error) {
+	if u.WiseConfig != nil {
+		return json.Marshal(u.WiseConfig)
+	}
+
 	if u.StripeConfig != nil {
 		return json.Marshal(u.StripeConfig)
 	}
 
 	if u.DummyPayConfig != nil {
 		return json.Marshal(u.DummyPayConfig)
-	}
-
-	if u.WiseConfig != nil {
-		return json.Marshal(u.WiseConfig)
 	}
 
 	if u.ModulrConfig != nil {

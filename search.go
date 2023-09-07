@@ -26,7 +26,7 @@ func newSearch(sdkConfig sdkConfiguration) *search {
 	}
 }
 
-// Search - Search
+// Search
 // ElasticSearch query engine
 func (s *search) Search(ctx context.Context, request shared.Query) (*operations.SearchResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())

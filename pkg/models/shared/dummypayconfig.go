@@ -2,31 +2,33 @@
 
 package shared
 
-type DummyPayConfig struct {
-	Directory string `json:"directory"`
-	// The frequency at which the connector will create new payment objects in the directory
-	FileGenerationPeriod *string `json:"fileGenerationPeriod,omitempty"`
-	// The frequency at which the connector will try to fetch new payment objects from the directory
-	FilePollingPeriod *string `json:"filePollingPeriod,omitempty"`
+type StripeConfig struct {
+	APIKey string `json:"apiKey"`
+	// Number of BalanceTransaction to fetch at each polling interval.
+	//
+	PageSize *int64 `json:"pageSize,omitempty"`
+	// The frequency at which the connector will try to fetch new BalanceTransaction objects from Stripe API.
+	//
+	PollingPeriod *string `json:"pollingPeriod,omitempty"`
 }
 
-func (o *DummyPayConfig) GetDirectory() string {
+func (o *StripeConfig) GetAPIKey() string {
 	if o == nil {
 		return ""
 	}
-	return o.Directory
+	return o.APIKey
 }
 
-func (o *DummyPayConfig) GetFileGenerationPeriod() *string {
+func (o *StripeConfig) GetPageSize() *int64 {
 	if o == nil {
 		return nil
 	}
-	return o.FileGenerationPeriod
+	return o.PageSize
 }
 
-func (o *DummyPayConfig) GetFilePollingPeriod() *string {
+func (o *StripeConfig) GetPollingPeriod() *string {
 	if o == nil {
 		return nil
 	}
-	return o.FilePollingPeriod
+	return o.PollingPeriod
 }

@@ -39,9 +39,7 @@ func main() {
     res, err := s.Script.RunScript(ctx, operations.RunScriptRequest{
         Script: shared.Script{
             Metadata: map[string]interface{}{
-                "perferendis": "doloremque",
-                "reprehenderit": "ut",
-                "maiores": "dicta",
+                "ipsa": "reiciendis",
             },
             Plain: "vars {
         account $user

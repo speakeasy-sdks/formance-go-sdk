@@ -92,10 +92,6 @@ func main() {
                     Account: formance.String("users:001"),
                     Expr: shared.ContractExpr{},
                 },
-                shared.Contract{
-                    Account: formance.String("users:001"),
-                    Expr: shared.ContractExpr{},
-                },
             },
         },
         Ledger: "ledger001",

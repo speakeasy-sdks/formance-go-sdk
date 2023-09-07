@@ -68,7 +68,7 @@ func (c *sdkConfiguration) GetServerDetails() (string, map[string]string) {
 	return ServerList[c.ServerIndex], c.ServerDefaults[c.ServerIndex]
 }
 
-// Formance - Formance Stack API: Open, modular foundation for unique payments flows
+// Formance Stack API: Open, modular foundation for unique payments flows
 //
 // # Introduction
 // This API is documented in **OpenAPI format**.
@@ -81,39 +81,39 @@ func (c *sdkConfiguration) GetServerDetails() (string, map[string]string) {
 // and standard method from web, mobile and desktop applications.
 // <SecurityDefinitions />
 type Formance struct {
-	// Accounts - Everything related to Accounts
+	// Everything related to Accounts
 	Accounts *accounts
-	// Balances - Everything related to Balances
+	// Everything related to Balances
 	Balances *balances
-	// Clients - Everything related to Clients
+	// Everything related to Clients
 	Clients *clients
-	// Ledger - Everything related to Ledger
+	// Everything related to Ledger
 	Ledger *ledger
-	// Logs - Everything related to Logs
+	// Everything related to Logs
 	Logs *logs
-	// Mapping - Everything related to Mapping
+	// Everything related to Mapping
 	Mapping *mapping
-	// Orchestration - Everything related to Orchestration
+	// Everything related to Orchestration
 	Orchestration *orchestration
-	// Payments - Everything related to Payments
+	// Everything related to Payments
 	Payments *payments
-	// Scopes - Everything related to Scopes
+	// Everything related to Scopes
 	Scopes *scopes
-	// Script - Everything related to Script
+	// Everything related to Script
 	Script *script
-	// Search - Everything related to Search
+	// Everything related to Search
 	Search *search
-	// Server - Everything related to Server
+	// Everything related to Server
 	Server *server
-	// Stats - Everything related to Stats
+	// Everything related to Stats
 	Stats *stats
-	// Transactions - Everything related to Transactions
+	// Everything related to Transactions
 	Transactions *transactions
-	// Users - Everything related to Users
+	// Everything related to Users
 	Users *users
-	// Wallets - Everything related to Wallets
+	// Everything related to Wallets
 	Wallets *wallets
-	// Webhooks - Everything related to Webhooks
+	// Everything related to Webhooks
 	Webhooks *webhooks
 
 	sdkConfiguration sdkConfiguration
@@ -150,7 +150,7 @@ func WithServerIndex(serverIndex int) SDKOption {
 	}
 }
 
-// WithOrganization allows setting the $name variable for url substitution
+// WithOrganization allows setting the organization variable for url substitution
 func WithOrganization(organization string) SDKOption {
 	return func(sdk *Formance) {
 		for idx := range sdk.sdkConfiguration.ServerDefaults {
@@ -183,8 +183,8 @@ func New(opts ...SDKOption) *Formance {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "v1.0.0-rc.5",
-			SDKVersion:        "0.7.0",
-			GenVersion:        "2.91.2",
+			SDKVersion:        "0.8.0",
+			GenVersion:        "2.101.0",
 			ServerDefaults: []map[string]string{
 				{},
 				{

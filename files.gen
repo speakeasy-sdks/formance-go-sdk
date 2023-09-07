@@ -510,9 +510,9 @@ docs/models/shared/paymentmetadatachangelog.md
 docs/models/shared/paymentadjustmentraw.md
 docs/models/shared/paymentadjustment.md
 docs/models/shared/connectorconfig.md
+docs/models/shared/wiseconfig.md
 docs/models/shared/stripeconfig.md
 docs/models/shared/dummypayconfig.md
-docs/models/shared/wiseconfig.md
 docs/models/shared/modulrconfig.md
 docs/models/shared/currencycloudconfig.md
 docs/models/shared/bankingcircleconfig.md

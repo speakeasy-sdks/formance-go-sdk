@@ -37,14 +37,14 @@ func main() {
     res, err := s.Logs.ListLogs(ctx, operations.ListLogsRequest{
         After: formance.String("1234"),
         Cursor: formance.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
-        EndTime: types.MustTimeFromString("2022-09-13T17:41:46.141Z"),
-        EndTimeDeprecated: types.MustTimeFromString("2022-07-22T16:55:44.795Z"),
+        EndTime: types.MustTimeFromString("2022-03-15T07:22:15.330Z"),
+        EndTimeDeprecated: types.MustTimeFromString("2021-08-13T16:19:19.906Z"),
         Ledger: "ledger001",
-        PageSize: formance.Int64(616934),
-        PageSizeDeprecated: formance.Int64(386489),
+        PageSize: formance.Int64(520478),
+        PageSizeDeprecated: formance.Int64(780529),
         PaginationToken: formance.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
-        StartTime: types.MustTimeFromString("2020-04-17T15:42:43.722Z"),
-        StartTimeDeprecated: types.MustTimeFromString("2022-02-06T12:52:33.708Z"),
+        StartTime: types.MustTimeFromString("2022-10-06T15:49:54.663Z"),
+        StartTimeDeprecated: types.MustTimeFromString("2021-09-20T20:35:01.256Z"),
     })
     if err != nil {
         log.Fatal(err)

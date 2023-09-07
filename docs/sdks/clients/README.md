@@ -42,8 +42,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Clients.AddScopeToClient(ctx, operations.AddScopeToClientRequest{
-        ClientID: "error",
-        ScopeID: "deserunt",
+        ClientID: "unde",
+        ScopeID: "nulla",
     })
     if err != nil {
         log.Fatal(err)
@@ -93,23 +93,17 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Clients.CreateClient(ctx, shared.CreateClientRequest{
-        Description: formance.String("suscipit"),
+        Description: formance.String("corrupti"),
         Metadata: map[string]interface{}{
-            "magnam": "debitis",
-            "ipsa": "delectus",
+            "illum": "vel",
         },
-        Name: "Laurie Kreiger",
+        Name: "Doug Hoppe",
         PostLogoutRedirectUris: []string{
-            "iusto",
-            "excepturi",
-            "nisi",
+            "debitis",
         },
         Public: formance.Bool(false),
         RedirectUris: []string{
-            "temporibus",
-            "ab",
-            "quis",
-            "veritatis",
+            "ipsa",
         },
         Trusted: formance.Bool(false),
     })
@@ -164,13 +158,11 @@ func main() {
     res, err := s.Clients.CreateSecret(ctx, operations.CreateSecretRequest{
         CreateSecretRequest: &shared.CreateSecretRequest{
             Metadata: map[string]interface{}{
-                "perferendis": "ipsam",
-                "repellendus": "sapiente",
-                "quo": "odit",
+                "delectus": "tempora",
             },
-            Name: "Wilfred Wolff",
+            Name: "Minnie Schiller",
         },
-        ClientID: "quod",
+        ClientID: "iusto",
     })
     if err != nil {
         log.Fatal(err)
@@ -221,7 +213,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Clients.DeleteClient(ctx, operations.DeleteClientRequest{
-        ClientID: "esse",
+        ClientID: "excepturi",
     })
     if err != nil {
         log.Fatal(err)
@@ -272,8 +264,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Clients.DeleteScopeFromClient(ctx, operations.DeleteScopeFromClientRequest{
-        ClientID: "totam",
-        ScopeID: "porro",
+        ClientID: "nisi",
+        ScopeID: "recusandae",
     })
     if err != nil {
         log.Fatal(err)
@@ -324,8 +316,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Clients.DeleteSecret(ctx, operations.DeleteSecretRequest{
-        ClientID: "dolorum",
-        SecretID: "dicta",
+        ClientID: "temporibus",
+        SecretID: "ab",
     })
     if err != nil {
         log.Fatal(err)
@@ -423,7 +415,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Clients.ReadClient(ctx, operations.ReadClientRequest{
-        ClientID: "nam",
+        ClientID: "quis",
     })
     if err != nil {
         log.Fatal(err)
@@ -475,25 +467,21 @@ func main() {
     ctx := context.Background()
     res, err := s.Clients.UpdateClient(ctx, operations.UpdateClientRequest{
         UpdateClientRequest: &shared.UpdateClientRequest{
-            Description: formance.String("officia"),
+            Description: formance.String("veritatis"),
             Metadata: map[string]interface{}{
-                "fugit": "deleniti",
-                "hic": "optio",
-                "totam": "beatae",
+                "deserunt": "perferendis",
             },
-            Name: "Tanya Gleason",
+            Name: "Estelle Will",
             PostLogoutRedirectUris: []string{
-                "esse",
-                "ipsum",
-                "excepturi",
+                "at",
             },
             Public: formance.Bool(false),
             RedirectUris: []string{
-                "perferendis",
+                "at",
             },
             Trusted: formance.Bool(false),
         },
-        ClientID: "ad",
+        ClientID: "maiores",
     })
     if err != nil {
         log.Fatal(err)
