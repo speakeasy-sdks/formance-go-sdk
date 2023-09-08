@@ -2,7 +2,6 @@
 
 package shared
 
-// ServerInfo - Server information
 type ServerInfo struct {
 	Version string `json:"version"`
 }

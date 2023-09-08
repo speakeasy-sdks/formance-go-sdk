@@ -1,7 +1,5 @@
 # TransactionsCursorResponse
 
-OK
-
 
 ## Fields
 

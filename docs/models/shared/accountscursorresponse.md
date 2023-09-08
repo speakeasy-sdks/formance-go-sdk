@@ -1,7 +1,5 @@
 # AccountsCursorResponse
 
-OK
-
 
 ## Fields
 

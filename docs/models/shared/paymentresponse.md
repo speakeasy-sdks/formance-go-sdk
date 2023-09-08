@@ -1,7 +1,5 @@
 # PaymentResponse
 
-OK
-
 
 ## Fields
 

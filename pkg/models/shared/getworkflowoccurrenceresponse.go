@@ -2,7 +2,6 @@
 
 package shared
 
-// GetWorkflowOccurrenceResponse - The workflow occurrence
 type GetWorkflowOccurrenceResponse struct {
 	Data WorkflowOccurrence `json:"data"`
 }

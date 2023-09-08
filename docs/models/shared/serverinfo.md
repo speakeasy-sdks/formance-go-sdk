@@ -1,7 +1,5 @@
 # ServerInfo
 
-Server information
-
 
 ## Fields
 

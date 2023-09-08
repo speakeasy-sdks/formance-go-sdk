@@ -2,7 +2,6 @@
 
 package shared
 
-// StatsResponse - OK
 type StatsResponse struct {
 	Data Stats `json:"data"`
 }

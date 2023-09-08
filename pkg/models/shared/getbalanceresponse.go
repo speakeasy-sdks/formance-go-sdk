@@ -2,7 +2,6 @@
 
 package shared
 
-// GetBalanceResponse - Balance summary
 type GetBalanceResponse struct {
 	Data BalanceWithAssets `json:"data"`
 }

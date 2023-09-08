@@ -2,7 +2,6 @@
 
 package shared
 
-// ReadClientResponse - Retrieved client
 type ReadClientResponse struct {
 	Data *Client `json:"data,omitempty"`
 }

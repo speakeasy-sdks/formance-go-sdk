@@ -1,7 +1,5 @@
 # ConfigInfoResponse
 
-OK
-
 
 ## Fields
 

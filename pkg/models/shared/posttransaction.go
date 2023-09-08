@@ -28,9 +28,6 @@ func (o *PostTransactionScript) GetVars() *PostTransactionScriptVars {
 	return o.Vars
 }
 
-// PostTransaction - The request body must contain at least one of the following objects:
-//   - `postings`: suitable for simple transactions
-//   - `script`: enabling more complex transactions with Numscript
 type PostTransaction struct {
 	Metadata  map[string]interface{} `json:"metadata,omitempty"`
 	Postings  []Posting              `json:"postings,omitempty"`

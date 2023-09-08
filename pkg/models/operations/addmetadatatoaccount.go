@@ -22,7 +22,7 @@ type AddMetadataToAccountRequest struct {
 
 func (o *AddMetadataToAccountRequest) GetRequestBody() map[string]interface{} {
 	if o == nil {
-		return map[string]interface{}{}
+		return nil
 	}
 	return o.RequestBody
 }

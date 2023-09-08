@@ -2,7 +2,6 @@
 
 package shared
 
-// CreateClientResponse - Client created
 type CreateClientResponse struct {
 	Data *Client `json:"data,omitempty"`
 }

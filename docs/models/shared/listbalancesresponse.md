@@ -1,7 +1,5 @@
 # ListBalancesResponse
 
-Balances list
-
 
 ## Fields
 

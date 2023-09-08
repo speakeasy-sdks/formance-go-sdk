@@ -1,7 +1,5 @@
 # LogsCursorResponse
 
-OK
-
 
 ## Fields
 

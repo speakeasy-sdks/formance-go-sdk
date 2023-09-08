@@ -1,7 +1,5 @@
 # ListClientsResponse
 
-List of clients
-
 
 ## Fields
 

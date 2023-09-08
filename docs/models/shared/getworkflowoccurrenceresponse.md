@@ -1,7 +1,5 @@
 # GetWorkflowOccurrenceResponse
 
-The workflow occurrence
-
 
 ## Fields
 

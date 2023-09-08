@@ -1,7 +1,5 @@
 # ReadClientResponse
 
-Retrieved client
-
 
 ## Fields
 

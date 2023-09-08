@@ -1,7 +1,5 @@
 # TasksCursor
 
-OK
-
 
 ## Fields
 

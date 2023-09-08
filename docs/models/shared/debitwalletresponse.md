@@ -1,7 +1,5 @@
 # DebitWalletResponse
 
-Wallet successfully debited as a pending hold
-
 
 ## Fields
 

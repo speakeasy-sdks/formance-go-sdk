@@ -8,14 +8,14 @@ import (
 )
 
 type UpdateMappingRequest struct {
-	Mapping shared.Mapping `request:"mediaType=application/json"`
+	Mapping *shared.Mapping `request:"mediaType=application/json"`
 	// Name of the ledger.
 	Ledger string `pathParam:"style=simple,explode=false,name=ledger"`
 }
 
-func (o *UpdateMappingRequest) GetMapping() shared.Mapping {
+func (o *UpdateMappingRequest) GetMapping() *shared.Mapping {
 	if o == nil {
-		return shared.Mapping{}
+		return nil
 	}
 	return o.Mapping
 }

@@ -1,7 +1,5 @@
 # ListWorkflowsResponse
 
-List of workflows
-
 
 ## Fields
 

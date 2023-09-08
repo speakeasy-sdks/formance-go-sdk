@@ -2,6 +2,5 @@
 
 package shared
 
-// StripeTransferResponse - OK
 type StripeTransferResponse struct {
 }

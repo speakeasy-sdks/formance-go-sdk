@@ -1,7 +1,5 @@
 # Error
 
-General error
-
 
 ## Fields
 

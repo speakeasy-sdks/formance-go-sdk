@@ -2,7 +2,6 @@
 
 package shared
 
-// UpdateClientResponse - Updated client
 type UpdateClientResponse struct {
 	Data *Client `json:"data,omitempty"`
 }

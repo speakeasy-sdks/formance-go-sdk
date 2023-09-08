@@ -2,7 +2,6 @@
 
 package shared
 
-// GetWalletResponse - Wallet
 type GetWalletResponse struct {
 	Data WalletWithBalances `json:"data"`
 }

@@ -1,7 +1,5 @@
 # CreateWorkflowResponse
 
-Created workflow
-
 
 ## Fields
 

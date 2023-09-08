@@ -1,7 +1,5 @@
 # StripeTransferResponse
 
-OK
-
 
 ## Fields
 

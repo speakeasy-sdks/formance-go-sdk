@@ -1,7 +1,5 @@
 # StatsResponse
 
-OK
-
 
 ## Fields
 

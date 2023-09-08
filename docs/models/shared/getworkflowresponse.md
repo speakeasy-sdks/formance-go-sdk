@@ -1,7 +1,5 @@
 # GetWorkflowResponse
 
-The workflow
-
 
 ## Fields
 

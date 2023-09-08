@@ -31,7 +31,6 @@ func (e *WalletsErrorResponseErrorCode) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// WalletsErrorResponse - Error
 type WalletsErrorResponse struct {
 	ErrorCode    WalletsErrorResponseErrorCode `json:"errorCode"`
 	ErrorMessage string                        `json:"errorMessage"`

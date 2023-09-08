@@ -1,7 +1,5 @@
 # UpdateClientResponse
 
-Updated client
-
 
 ## Fields
 

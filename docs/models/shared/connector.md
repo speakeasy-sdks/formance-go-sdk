@@ -1,7 +1,5 @@
 # Connector
 
-The name of the connector.
-
 
 ## Values
 

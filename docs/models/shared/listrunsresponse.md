@@ -1,7 +1,5 @@
 # ListRunsResponse
 
-List of workflow occurrences
-
 
 ## Fields
 

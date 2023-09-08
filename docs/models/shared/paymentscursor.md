@@ -1,7 +1,5 @@
 # PaymentsCursor
 
-OK
-
 
 ## Fields
 

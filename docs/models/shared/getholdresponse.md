@@ -1,7 +1,5 @@
 # GetHoldResponse
 
-Holds
-
 
 ## Fields
 

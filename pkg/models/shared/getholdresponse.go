@@ -2,7 +2,6 @@
 
 package shared
 
-// GetHoldResponse - Holds
 type GetHoldResponse struct {
 	Data ExpandedDebitHold `json:"data"`
 }

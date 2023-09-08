@@ -2,7 +2,6 @@
 
 package shared
 
-// UpdateScopeResponse - Updated scope
 type UpdateScopeResponse struct {
 	Data *Scope `json:"data,omitempty"`
 }

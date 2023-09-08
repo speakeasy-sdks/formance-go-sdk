@@ -1,7 +1,5 @@
 # CreateScopeResponse
 
-Created scope
-
 
 ## Fields
 

@@ -2,7 +2,6 @@
 
 package shared
 
-// LedgerInfoResponse - OK
 type LedgerInfoResponse struct {
 	Data *LedgerInfo `json:"data,omitempty"`
 }

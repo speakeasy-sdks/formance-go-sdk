@@ -2,7 +2,6 @@
 
 package shared
 
-// CreateWalletResponse - Wallet created
 type CreateWalletResponse struct {
 	Data Wallet `json:"data"`
 }

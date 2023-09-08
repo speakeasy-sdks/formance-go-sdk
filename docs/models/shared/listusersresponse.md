@@ -1,7 +1,5 @@
 # ListUsersResponse
 
-List of users
-
 
 ## Fields
 

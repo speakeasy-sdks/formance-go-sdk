@@ -2,7 +2,6 @@
 
 package shared
 
-// AttemptResponse - OK
 type AttemptResponse struct {
 	Data Attempt `json:"data"`
 }

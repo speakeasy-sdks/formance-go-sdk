@@ -2,7 +2,6 @@
 
 package shared
 
-// ListClientsResponse - List of clients
 type ListClientsResponse struct {
 	Data []Client `json:"data,omitempty"`
 }

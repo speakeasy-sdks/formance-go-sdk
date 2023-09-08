@@ -1,7 +1,5 @@
 # AggregateBalancesResponse
 
-OK
-
 
 ## Fields
 

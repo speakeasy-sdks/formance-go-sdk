@@ -2,7 +2,6 @@
 
 package shared
 
-// CreateBalanceResponse - Created balance
 type CreateBalanceResponse struct {
 	Data Balance `json:"data"`
 }

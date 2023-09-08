@@ -1,7 +1,5 @@
 # ReadUserResponse
 
-Retrieved user
-
 
 ## Fields
 

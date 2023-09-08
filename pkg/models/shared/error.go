@@ -31,7 +31,6 @@ func (e *ErrorErrorCode) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// Error - General error
 type Error struct {
 	ErrorCode    ErrorErrorCode `json:"errorCode"`
 	ErrorMessage string         `json:"errorMessage"`

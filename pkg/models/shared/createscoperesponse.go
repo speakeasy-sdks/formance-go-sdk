@@ -2,7 +2,6 @@
 
 package shared
 
-// CreateScopeResponse - Created scope
 type CreateScopeResponse struct {
 	Data *Scope `json:"data,omitempty"`
 }

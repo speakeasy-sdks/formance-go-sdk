@@ -1,7 +1,5 @@
 # MappingResponse
 
-OK
-
 
 ## Fields
 

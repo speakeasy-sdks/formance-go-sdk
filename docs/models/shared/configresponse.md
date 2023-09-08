@@ -1,7 +1,5 @@
 # ConfigResponse
 
-Config created successfully.
-
 
 ## Fields
 

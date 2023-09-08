@@ -2,7 +2,6 @@
 
 package shared
 
-// ListUsersResponse - List of users
 type ListUsersResponse struct {
 	Data []User `json:"data,omitempty"`
 }

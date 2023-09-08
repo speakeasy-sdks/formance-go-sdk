@@ -1,7 +1,5 @@
 # ListScopesResponse
 
-List of scopes
-
 
 ## Fields
 

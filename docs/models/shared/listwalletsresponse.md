@@ -1,7 +1,5 @@
 # ListWalletsResponse
 
-OK
-
 
 ## Fields
 

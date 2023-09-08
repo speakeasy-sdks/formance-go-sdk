@@ -2,7 +2,6 @@
 
 package shared
 
-// ConfigResponse - Config created successfully.
 type ConfigResponse struct {
 	Data WebhooksConfig `json:"data"`
 }

@@ -1,7 +1,5 @@
 # AccountResponse
 
-OK
-
 
 ## Fields
 

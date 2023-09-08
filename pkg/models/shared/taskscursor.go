@@ -215,7 +215,6 @@ func (o *TasksCursorCursor) GetPrevious() *string {
 	return o.Previous
 }
 
-// TasksCursor - OK
 type TasksCursor struct {
 	Cursor TasksCursorCursor `json:"cursor"`
 }

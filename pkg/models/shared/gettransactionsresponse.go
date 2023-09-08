@@ -45,7 +45,6 @@ func (o *GetTransactionsResponseCursor) GetPrevious() *string {
 	return o.Previous
 }
 
-// GetTransactionsResponse - OK
 type GetTransactionsResponse struct {
 	Cursor GetTransactionsResponseCursor `json:"cursor"`
 }

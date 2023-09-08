@@ -1,7 +1,5 @@
 # UpdateScopeResponse
 
-Updated scope
-
 
 ## Fields
 

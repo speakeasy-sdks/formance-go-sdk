@@ -2,7 +2,6 @@
 
 package shared
 
-// ListScopesResponse - List of scopes
 type ListScopesResponse struct {
 	Data []Scope `json:"data,omitempty"`
 }

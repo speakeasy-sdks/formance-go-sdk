@@ -1,7 +1,5 @@
 # Response
 
-Success
-
 
 ## Fields
 

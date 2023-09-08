@@ -1,7 +1,5 @@
 # LedgerInfoResponse
 
-OK
-
 
 ## Fields
 

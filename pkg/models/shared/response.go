@@ -79,7 +79,6 @@ func (o *ResponseCursor) GetTotal() *ResponseCursorTotal {
 type ResponseData struct {
 }
 
-// Response - Success
 type Response struct {
 	Cursor *ResponseCursor `json:"cursor,omitempty"`
 	// The payload

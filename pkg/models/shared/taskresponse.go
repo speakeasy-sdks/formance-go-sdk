@@ -172,7 +172,6 @@ func (u TaskResponseData) MarshalJSON() ([]byte, error) {
 	return nil, nil
 }
 
-// TaskResponse - OK
 type TaskResponse struct {
 	Data TaskResponseData `json:"data"`
 }

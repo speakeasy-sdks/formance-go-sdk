@@ -2,7 +2,6 @@
 
 package shared
 
-// TransactionsResponse - OK
 type TransactionsResponse struct {
 	Data []Transaction `json:"data"`
 }

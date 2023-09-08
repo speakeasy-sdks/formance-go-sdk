@@ -1,10 +1,5 @@
 # PostTransaction
 
-The request body must contain at least one of the following objects:
-  - `postings`: suitable for simple transactions
-  - `script`: enabling more complex transactions with Numscript
-
-
 
 ## Fields
 

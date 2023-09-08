@@ -1,7 +1,5 @@
 # ConnectorsResponse
 
-OK
-
 
 ## Fields
 

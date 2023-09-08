@@ -1,7 +1,5 @@
 # AttemptResponse
 
-OK
-
 
 ## Fields
 

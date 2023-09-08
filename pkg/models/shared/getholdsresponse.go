@@ -45,7 +45,6 @@ func (o *GetHoldsResponseCursor) GetPrevious() *string {
 	return o.Previous
 }
 
-// GetHoldsResponse - Holds
 type GetHoldsResponse struct {
 	Cursor GetHoldsResponseCursor `json:"cursor"`
 }

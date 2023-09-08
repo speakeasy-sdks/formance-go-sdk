@@ -45,7 +45,6 @@ func (o *ListRunsResponseCursor) GetPrevious() *string {
 	return o.Previous
 }
 
-// ListRunsResponse - List of workflow occurrences
 type ListRunsResponse struct {
 	Cursor ListRunsResponseCursor `json:"cursor"`
 }

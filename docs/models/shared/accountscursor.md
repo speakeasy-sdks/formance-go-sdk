@@ -1,7 +1,5 @@
 # AccountsCursor
 
-OK
-
 
 ## Fields
 

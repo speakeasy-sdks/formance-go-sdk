@@ -2,7 +2,6 @@
 
 package shared
 
-// ReadUserResponse - Retrieved user
 type ReadUserResponse struct {
 	Data *User `json:"data,omitempty"`
 }

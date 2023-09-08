@@ -1,7 +1,5 @@
 # CreateSecretResponse
 
-Created secret
-
 
 ## Fields
 

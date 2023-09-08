@@ -1,7 +1,5 @@
 # ReadScopeResponse
 
-Retrieved scope
-
 
 ## Fields
 

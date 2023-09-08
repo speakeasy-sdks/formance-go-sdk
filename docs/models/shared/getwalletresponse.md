@@ -1,7 +1,5 @@
 # GetWalletResponse
 
-Wallet
-
 
 ## Fields
 

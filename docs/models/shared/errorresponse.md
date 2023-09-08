@@ -1,7 +1,5 @@
 # ErrorResponse
 
-Error
-
 
 ## Fields
 

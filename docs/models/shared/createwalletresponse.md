@@ -1,7 +1,5 @@
 # CreateWalletResponse
 
-Wallet created
-
 
 ## Fields
 

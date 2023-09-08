@@ -1,7 +1,5 @@
 # GetBalanceResponse
 
-Balance summary
-
 
 ## Fields
 

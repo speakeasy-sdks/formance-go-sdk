@@ -1,7 +1,5 @@
 # TransactionsResponse
 
-OK
-
 
 ## Fields
 

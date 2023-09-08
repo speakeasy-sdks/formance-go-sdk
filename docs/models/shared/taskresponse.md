@@ -1,7 +1,5 @@
 # TaskResponse
 
-OK
-
 
 ## Fields
 

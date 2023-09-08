@@ -2,7 +2,6 @@
 
 package shared
 
-// CreateWorkflowResponse - Created workflow
 type CreateWorkflowResponse struct {
 	Data Workflow `json:"data"`
 }

@@ -1,7 +1,5 @@
 # CreateClientResponse
 
-Client created
-
 
 ## Fields
 
