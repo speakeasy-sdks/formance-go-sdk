@@ -67,11 +67,14 @@ func (o *ListWalletsRequest) GetPageSize() *int64 {
 }
 
 type ListWalletsResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
 	// OK
 	ListWalletsResponse *shared.ListWalletsResponse
-	StatusCode          int
-	RawResponse         *http.Response
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response
 }
 
 func (o *ListWalletsResponse) GetContentType() string {

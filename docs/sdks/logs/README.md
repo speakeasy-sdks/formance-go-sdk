@@ -1,4 +1,5 @@
 # Logs
+(*Logs*)
 
 ## Overview
 
@@ -37,14 +38,14 @@ func main() {
     res, err := s.Logs.ListLogs(ctx, operations.ListLogsRequest{
         After: formancegosdk.String("1234"),
         Cursor: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
-        EndTime: types.MustTimeFromString("2022-03-15T07:22:15.330Z"),
-        EndTimeDeprecated: types.MustTimeFromString("2021-08-13T16:19:19.906Z"),
+        EndTime: types.MustTimeFromString("2022-09-04T05:10:40.788Z"),
+        EndTimeDeprecated: types.MustTimeFromString("2022-12-21T16:19:06.983Z"),
         Ledger: "ledger001",
-        PageSize: formancegosdk.Int64(520478),
-        PageSizeDeprecated: formancegosdk.Int64(780529),
+        PageSize: formancegosdk.Int64(279551),
+        PageSizeDeprecated: formancegosdk.Int64(61287),
         PaginationToken: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
-        StartTime: types.MustTimeFromString("2022-10-06T15:49:54.663Z"),
-        StartTimeDeprecated: types.MustTimeFromString("2021-09-20T20:35:01.256Z"),
+        StartTime: types.MustTimeFromString("2021-01-03T01:50:13.003Z"),
+        StartTimeDeprecated: types.MustTimeFromString("2022-01-22T19:40:11.309Z"),
     })
     if err != nil {
         log.Fatal(err)

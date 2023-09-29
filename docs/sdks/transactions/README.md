@@ -1,4 +1,5 @@
 # Transactions
+(*Transactions*)
 
 ## Overview
 
@@ -45,7 +46,7 @@ func main() {
             Transactions: []shared.TransactionData{
                 shared.TransactionData{
                     Metadata: map[string]interface{}{
-                        "laborum": "dolores",
+                        "ipsam": "West",
                     },
                     Postings: []shared.Posting{
                         shared.Posting{
@@ -56,7 +57,7 @@ func main() {
                         },
                     },
                     Reference: formancegosdk.String("ref:001"),
-                    Timestamp: types.MustTimeFromString("2022-08-23T06:35:12.519Z"),
+                    Timestamp: types.MustTimeFromString("2023-08-23T17:07:25.890Z"),
                 },
             },
         },
@@ -112,7 +113,7 @@ func main() {
     ctx := context.Background()
     res, err := s.Transactions.AddMetadataOnTransaction(ctx, operations.AddMetadataOnTransactionRequest{
         RequestBody: map[string]interface{}{
-            "explicabo": "nobis",
+            "esse": "Fresh",
         },
         Ledger: "ledger001",
         Txid: 1234,
@@ -169,14 +170,14 @@ func main() {
     res, err := s.Transactions.CountTransactions(ctx, operations.CountTransactionsRequest{
         Account: formancegosdk.String("users:001"),
         Destination: formancegosdk.String("users:001"),
-        EndTime: types.MustTimeFromString("2022-05-24T03:24:11.703Z"),
-        EndTimeDeprecated: types.MustTimeFromString("2022-09-04T08:35:09.957Z"),
+        EndTime: types.MustTimeFromString("2021-07-20T09:59:27.603Z"),
+        EndTimeDeprecated: types.MustTimeFromString("2023-09-27T00:52:47.091Z"),
         Ledger: "ledger001",
         Metadata: &operations.CountTransactionsMetadata{},
         Reference: formancegosdk.String("ref:001"),
         Source: formancegosdk.String("users:001"),
-        StartTime: types.MustTimeFromString("2022-12-03T22:47:10.600Z"),
-        StartTimeDeprecated: types.MustTimeFromString("2022-05-14T11:45:33.094Z"),
+        StartTime: types.MustTimeFromString("2023-01-18T09:32:22.586Z"),
+        StartTimeDeprecated: types.MustTimeFromString("2021-04-16T00:36:33.819Z"),
     })
     if err != nil {
         log.Fatal(err)
@@ -230,7 +231,7 @@ func main() {
     res, err := s.Transactions.CreateTransaction(ctx, operations.CreateTransactionRequest{
         PostTransaction: shared.PostTransaction{
             Metadata: map[string]interface{}{
-                "doloribus": "sapiente",
+                "reiciendis": "Ball",
             },
             Postings: []shared.Posting{
                 shared.Posting{
@@ -252,7 +253,7 @@ func main() {
             ",
                 Vars: &shared.PostTransactionScriptVars{},
             },
-            Timestamp: types.MustTimeFromString("2022-05-07T17:33:24.154Z"),
+            Timestamp: types.MustTimeFromString("2023-10-22T10:08:19.757Z"),
         },
         Ledger: "ledger001",
         Preview: formancegosdk.Bool(true),
@@ -363,17 +364,17 @@ func main() {
         After: formancegosdk.String("1234"),
         Cursor: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         Destination: formancegosdk.String("users:001"),
-        EndTime: types.MustTimeFromString("2022-05-14T04:53:02.888Z"),
-        EndTimeDeprecated: types.MustTimeFromString("2022-01-02T17:10:32.894Z"),
+        EndTime: types.MustTimeFromString("2022-09-08T16:09:19.098Z"),
+        EndTimeDeprecated: types.MustTimeFromString("2021-01-02T10:19:36.126Z"),
         Ledger: "ledger001",
         Metadata: &operations.ListTransactionsMetadata{},
-        PageSize: formancegosdk.Int64(653108),
-        PageSizeDeprecated: formancegosdk.Int64(581850),
+        PageSize: formancegosdk.Int64(641200),
+        PageSizeDeprecated: formancegosdk.Int64(459510),
         PaginationToken: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         Reference: formancegosdk.String("ref:001"),
         Source: formancegosdk.String("users:001"),
-        StartTime: types.MustTimeFromString("2022-08-02T18:07:51.623Z"),
-        StartTimeDeprecated: types.MustTimeFromString("2022-07-11T17:38:58.953Z"),
+        StartTime: types.MustTimeFromString("2021-03-19T18:05:01.432Z"),
+        StartTimeDeprecated: types.MustTimeFromString("2022-09-12T07:36:38.262Z"),
     })
     if err != nil {
         log.Fatal(err)

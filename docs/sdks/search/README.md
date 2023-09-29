@@ -1,4 +1,5 @@
 # Search
+(*Search*)
 
 ## Overview
 
@@ -40,10 +41,10 @@ func main() {
         Ledgers: []string{
             "quickstart",
         },
-        PageSize: formancegosdk.Int64(666767),
+        PageSize: formancegosdk.Int64(307631),
         Policy: formancegosdk.String("OR"),
         Sort: formancegosdk.String("txid:asc"),
-        Target: formancegosdk.String("mollitia"),
+        Target: formancegosdk.String("Movies"),
         Terms: []string{
             "destination=central_bank1",
         },

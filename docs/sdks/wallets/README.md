@@ -1,4 +1,5 @@
 # Wallets
+(*Wallets*)
 
 ## Overview
 
@@ -52,7 +53,7 @@ func main() {
             Amount: formancegosdk.Int64(100),
             Final: formancegosdk.Bool(true),
         },
-        HoldID: "error",
+        HoldID: "Missouri holistic",
     })
     if err != nil {
         log.Fatal(err)
@@ -104,9 +105,9 @@ func main() {
     ctx := context.Background()
     res, err := s.Wallets.CreateBalance(ctx, operations.CreateBalanceRequest{
         CreateBalanceRequest: &shared.CreateBalanceRequest{
-            Name: "Beatrice Brown",
+            Name: "Cab Lawrence female",
         },
-        ID: "52c3f5ad-019d-4a1f-be78-f097b0074f15",
+        ID: "<ID>",
     })
     if err != nil {
         log.Fatal(err)
@@ -157,9 +158,9 @@ func main() {
     ctx := context.Background()
     res, err := s.Wallets.CreateWallet(ctx, shared.CreateWalletRequest{
         Metadata: map[string]interface{}{
-            "dolore": "iusto",
+            "deleniti": "Hybrid",
         },
-        Name: "Maryann Hamill",
+        Name: "fleck unto Calcium",
     })
     if err != nil {
         log.Fatal(err)
@@ -212,19 +213,19 @@ func main() {
     res, err := s.Wallets.CreditWallet(ctx, operations.CreditWalletRequest{
         CreditWalletRequest: &shared.CreditWalletRequest{
             Amount: shared.Monetary{
-                Amount: 918236,
-                Asset: "quae",
+                Amount: 201874,
+                Asset: "second",
             },
-            Balance: formancegosdk.String("ipsum"),
+            Balance: formancegosdk.String("Bike"),
             Metadata: map[string]interface{}{
-                "quidem": "molestias",
+                "quidem": "Clifton",
             },
-            Reference: formancegosdk.String("excepturi"),
+            Reference: formancegosdk.String("purple Shoreline keenly"),
             Sources: []shared.Subject{
                 shared.Subject{},
             },
         },
-        ID: "d488e1e9-1e45-40ad-aabd-44269802d502",
+        ID: "<ID>",
     })
     if err != nil {
         log.Fatal(err)
@@ -277,20 +278,20 @@ func main() {
     res, err := s.Wallets.DebitWallet(ctx, operations.DebitWalletRequest{
         DebitWalletRequest: &shared.DebitWalletRequest{
             Amount: shared.Monetary{
-                Amount: 677817,
-                Asset: "excepturi",
+                Amount: 245256,
+                Asset: "azure",
             },
             Balances: []string{
-                "tempora",
+                "Tasty",
             },
-            Description: formancegosdk.String("facilis"),
+            Description: formancegosdk.String("Total 6th generation conglomeration"),
             Destination: &shared.Subject{},
             Metadata: map[string]interface{}{
-                "tempore": "labore",
+                "non": "Bedfordshire",
             },
             Pending: formancegosdk.Bool(false),
         },
-        ID: "f63c969e-9a3e-4fa7-bdfb-14cd66ae395e",
+        ID: "<ID>",
     })
     if err != nil {
         log.Fatal(err)
@@ -341,8 +342,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Wallets.GetBalance(ctx, operations.GetBalanceRequest{
-        BalanceName: "delectus",
-        ID: "b9ba88f3-a669-4970-b4ba-4469b6e21419",
+        BalanceName: "Kids Franc hmph",
+        ID: "<ID>",
     })
     if err != nil {
         log.Fatal(err)
@@ -393,7 +394,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Wallets.GetHold(ctx, operations.GetHoldRequest{
-        HoldID: "ullam",
+        HoldID: "taper",
     })
     if err != nil {
         log.Fatal(err)
@@ -446,8 +447,8 @@ func main() {
     res, err := s.Wallets.GetHolds(ctx, operations.GetHoldsRequest{
         Cursor: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         Metadata: &operations.GetHoldsMetadata{},
-        PageSize: formancegosdk.Int64(590873),
-        WalletID: formancegosdk.String("quos"),
+        PageSize: formancegosdk.Int64(692494),
+        WalletID: formancegosdk.String("Folding"),
     })
     if err != nil {
         log.Fatal(err)
@@ -497,8 +498,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Wallets.GetTransactions(ctx, operations.GetTransactionsRequest{
         Cursor: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
-        PageSize: formancegosdk.Int64(574325),
-        WalletID: formancegosdk.String("accusantium"),
+        PageSize: formancegosdk.Int64(680555),
+        WalletID: formancegosdk.String("Account"),
     })
     if err != nil {
         log.Fatal(err)
@@ -549,7 +550,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Wallets.GetWallet(ctx, operations.GetWalletRequest{
-        ID: "afa563e2-516f-4e4c-8b71-1e5b7fd2ed02",
+        ID: "<ID>",
     })
     if err != nil {
         log.Fatal(err)
@@ -600,7 +601,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Wallets.ListBalances(ctx, operations.ListBalancesRequest{
-        ID: "8921cddc-6926-401f-b576-b0d5f0d30c5f",
+        ID: "<ID>",
     })
     if err != nil {
         log.Fatal(err)
@@ -653,8 +654,8 @@ func main() {
     res, err := s.Wallets.ListWallets(ctx, operations.ListWalletsRequest{
         Cursor: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         Metadata: &operations.ListWalletsMetadata{},
-        Name: formancegosdk.String("Robin D'Amore"),
-        PageSize: formancegosdk.Int64(489549),
+        Name: formancegosdk.String("green Mobility"),
+        PageSize: formancegosdk.Int64(938918),
     })
     if err != nil {
         log.Fatal(err)
@@ -707,10 +708,10 @@ func main() {
     res, err := s.Wallets.UpdateWallet(ctx, operations.UpdateWalletRequest{
         RequestBody: &operations.UpdateWalletRequestBody{
             Metadata: map[string]interface{}{
-                "eaque": "quis",
+                "quas": "Books",
             },
         },
-        ID: "3202c73d-5fe9-4b90-8289-09b3fe49a8d9",
+        ID: "<ID>",
     })
     if err != nil {
         log.Fatal(err)
@@ -761,7 +762,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Wallets.VoidHold(ctx, operations.VoidHoldRequest{
-        HoldID: "nobis",
+        HoldID: "redundant yesterday Hat",
     })
     if err != nil {
         log.Fatal(err)

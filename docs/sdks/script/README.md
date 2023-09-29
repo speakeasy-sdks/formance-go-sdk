@@ -1,4 +1,5 @@
 # Script
+(*Script*)
 
 ## Overview
 
@@ -39,7 +40,7 @@ func main() {
     res, err := s.Script.RunScript(ctx, operations.RunScriptRequest{
         Script: shared.Script{
             Metadata: map[string]interface{}{
-                "ipsa": "reiciendis",
+                "eaque": "Borders",
             },
             Plain: "vars {
         account $user

@@ -1,4 +1,5 @@
 # Scopes
+(*Scopes*)
 
 ## Overview
 
@@ -40,8 +41,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Scopes.AddTransientScope(ctx, operations.AddTransientScopeRequest{
-        ScopeID: "dolor",
-        TransientScopeID: "natus",
+        ScopeID: "executive Soul",
+        TransientScopeID: "Keyboard neural tan",
     })
     if err != nil {
         log.Fatal(err)
@@ -91,9 +92,9 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Scopes.CreateScope(ctx, shared.CreateScopeRequest{
-        Label: "laboriosam",
+        Label: "neural Sunrise",
         Metadata: map[string]interface{}{
-            "hic": "saepe",
+            "vero": "deposit",
         },
     })
     if err != nil {
@@ -145,7 +146,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Scopes.DeleteScope(ctx, operations.DeleteScopeRequest{
-        ScopeID: "fuga",
+        ScopeID: "impedit Bronze",
     })
     if err != nil {
         log.Fatal(err)
@@ -196,8 +197,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Scopes.DeleteTransientScope(ctx, operations.DeleteTransientScopeRequest{
-        ScopeID: "in",
-        TransientScopeID: "corporis",
+        ScopeID: "billion Chips",
+        TransientScopeID: "Account untidy haptic",
     })
     if err != nil {
         log.Fatal(err)
@@ -295,7 +296,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Scopes.ReadScope(ctx, operations.ReadScopeRequest{
-        ScopeID: "iste",
+        ScopeID: "Internal Credit Hermaphrodite",
     })
     if err != nil {
         log.Fatal(err)
@@ -347,12 +348,12 @@ func main() {
     ctx := context.Background()
     res, err := s.Scopes.UpdateScope(ctx, operations.UpdateScopeRequest{
         UpdateScopeRequest: &shared.UpdateScopeRequest{
-            Label: "iure",
+            Label: "East South Luxurious",
             Metadata: map[string]interface{}{
-                "saepe": "quidem",
+                "temporibus": "meh",
             },
         },
-        ScopeID: "architecto",
+        ScopeID: "handcuff Xenon Timmy",
     })
     if err != nil {
         log.Fatal(err)

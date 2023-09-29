@@ -37,6 +37,7 @@ func (o *RunScriptRequest) GetPreview() *bool {
 }
 
 type RunScriptResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
 	// On success, it will return a 200 status code, and the resulting transaction under the `transaction` field.
 	//
@@ -46,8 +47,10 @@ type RunScriptResponse struct {
 	//   - `errorMessage` and `error_message` (deprecated): contains a human-readable indication of what went wrong, for example that an account had insufficient funds, or that there was an error in the provided Numscript.
 	//
 	ScriptResponse *shared.ScriptResponse
-	StatusCode     int
-	RawResponse    *http.Response
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response
 }
 
 func (o *RunScriptResponse) GetContentType() string {

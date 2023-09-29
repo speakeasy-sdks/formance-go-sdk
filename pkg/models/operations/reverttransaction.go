@@ -29,11 +29,14 @@ func (o *RevertTransactionRequest) GetTxid() int64 {
 }
 
 type RevertTransactionResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
 	// Error
 	ErrorResponse *shared.ErrorResponse
-	StatusCode    int
-	RawResponse   *http.Response
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response
 	// OK
 	TransactionResponse *shared.TransactionResponse
 }

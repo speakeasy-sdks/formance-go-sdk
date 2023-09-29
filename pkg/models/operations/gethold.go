@@ -20,11 +20,14 @@ func (o *GetHoldRequest) GetHoldID() string {
 }
 
 type GetHoldResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
 	// Holds
 	GetHoldResponse *shared.GetHoldResponse
-	StatusCode      int
-	RawResponse     *http.Response
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response
 	// Error
 	WalletsErrorResponse *shared.WalletsErrorResponse
 }

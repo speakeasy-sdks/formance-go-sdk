@@ -1,4 +1,5 @@
 # Users
+(*Users*)
 
 ## Overview
 
@@ -82,7 +83,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.ReadUser(ctx, operations.ReadUserRequest{
-        UserID: "velit",
+        UserID: "Goodwin Folding always",
     })
     if err != nil {
         log.Fatal(err)

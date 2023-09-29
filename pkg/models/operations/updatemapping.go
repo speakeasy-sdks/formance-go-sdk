@@ -28,13 +28,16 @@ func (o *UpdateMappingRequest) GetLedger() string {
 }
 
 type UpdateMappingResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
 	// Error
 	ErrorResponse *shared.ErrorResponse
 	// OK
 	MappingResponse *shared.MappingResponse
-	StatusCode      int
-	RawResponse     *http.Response
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response
 }
 
 func (o *UpdateMappingResponse) GetContentType() string {

@@ -1,4 +1,5 @@
 # Orchestration
+(*Orchestration*)
 
 ## Overview
 
@@ -41,7 +42,7 @@ func main() {
     res, err := s.Orchestration.CreateWorkflow(ctx, shared.CreateWorkflowRequest{
         Stages: []map[string]interface{}{
             map[string]interface{}{
-                "occaecati": "fugit",
+                "eveniet": "amidst",
             },
         },
     })
@@ -94,7 +95,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Orchestration.GetFlow(ctx, operations.GetFlowRequest{
-        FlowID: "deleniti",
+        FlowID: "male extend",
     })
     if err != nil {
         log.Fatal(err)
@@ -145,8 +146,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Orchestration.GetWorkflowOccurrence(ctx, operations.GetWorkflowOccurrenceRequest{
-        FlowID: "hic",
-        RunID: "optio",
+        FlowID: "granular B2B",
+        RunID: "sticky African Islands",
     })
     if err != nil {
         log.Fatal(err)
@@ -244,7 +245,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Orchestration.ListRuns(ctx, operations.ListRunsRequest{
-        FlowID: "totam",
+        FlowID: "Cambridgeshire Southeast",
     })
     if err != nil {
         log.Fatal(err)
@@ -343,9 +344,9 @@ func main() {
     ctx := context.Background()
     res, err := s.Orchestration.RunWorkflow(ctx, operations.RunWorkflowRequest{
         RequestBody: map[string]string{
-            "beatae": "commodi",
+            "delectus": "Accountability",
         },
-        FlowID: "molestiae",
+        FlowID: "newton aggregate Metal",
         Wait: formancegosdk.Bool(false),
     })
     if err != nil {
