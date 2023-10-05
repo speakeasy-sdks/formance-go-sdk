@@ -3,27 +3,44 @@
 package shared
 
 import (
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/utils"
+	"encoding/json"
+	"fmt"
 )
 
-type WalletsErrorResponse struct {
-	errorCode    string `const:"VALIDATION" json:"errorCode"`
-	ErrorMessage string `json:"errorMessage"`
+type WalletsErrorResponseErrorCode string
+
+const (
+	WalletsErrorResponseErrorCodeValidation WalletsErrorResponseErrorCode = "VALIDATION"
+)
+
+func (e WalletsErrorResponseErrorCode) ToPointer() *WalletsErrorResponseErrorCode {
+	return &e
 }
 
-func (w WalletsErrorResponse) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(w, "", false)
-}
-
-func (w *WalletsErrorResponse) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &w, "", false, false); err != nil {
+func (e *WalletsErrorResponseErrorCode) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
-	return nil
+	switch v {
+	case "VALIDATION":
+		*e = WalletsErrorResponseErrorCode(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for WalletsErrorResponseErrorCode: %v", v)
+	}
 }
 
-func (o *WalletsErrorResponse) GetErrorCode() string {
-	return "VALIDATION"
+type WalletsErrorResponse struct {
+	ErrorCode    WalletsErrorResponseErrorCode `json:"errorCode"`
+	ErrorMessage string                        `json:"errorMessage"`
+}
+
+func (o *WalletsErrorResponse) GetErrorCode() WalletsErrorResponseErrorCode {
+	if o == nil {
+		return WalletsErrorResponseErrorCode("")
+	}
+	return o.ErrorCode
 }
 
 func (o *WalletsErrorResponse) GetErrorMessage() string {

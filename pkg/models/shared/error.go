@@ -3,27 +3,44 @@
 package shared
 
 import (
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/utils"
+	"encoding/json"
+	"fmt"
 )
 
-type Error struct {
-	errorCode    string `const:"VALIDATION" json:"errorCode"`
-	ErrorMessage string `json:"errorMessage"`
+type ErrorErrorCode string
+
+const (
+	ErrorErrorCodeValidation ErrorErrorCode = "VALIDATION"
+)
+
+func (e ErrorErrorCode) ToPointer() *ErrorErrorCode {
+	return &e
 }
 
-func (e Error) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(e, "", false)
-}
-
-func (e *Error) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &e, "", false, false); err != nil {
+func (e *ErrorErrorCode) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
-	return nil
+	switch v {
+	case "VALIDATION":
+		*e = ErrorErrorCode(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for ErrorErrorCode: %v", v)
+	}
 }
 
-func (o *Error) GetErrorCode() string {
-	return "VALIDATION"
+type Error struct {
+	ErrorCode    ErrorErrorCode `json:"errorCode"`
+	ErrorMessage string         `json:"errorMessage"`
+}
+
+func (o *Error) GetErrorCode() ErrorErrorCode {
+	if o == nil {
+		return ErrorErrorCode("")
+	}
+	return o.ErrorCode
 }
 
 func (o *Error) GetErrorMessage() string {

@@ -446,6 +446,7 @@ docs/models/shared/mappingresponse.md
 docs/models/shared/mapping.md
 docs/models/shared/contractexpr.md
 docs/models/shared/contract.md
+docs/models/shared/errorerrorcode.md
 docs/models/shared/error.md
 docs/models/shared/createworkflowresponse.md
 docs/models/shared/workflow.md
@@ -554,6 +555,7 @@ docs/models/shared/transactionscursorresponse.md
 docs/models/shared/listusersresponse.md
 docs/models/shared/user.md
 docs/models/shared/readuserresponse.md
+docs/models/shared/walletserrorresponseerrorcode.md
 docs/models/shared/walletserrorresponse.md
 docs/models/shared/confirmholdrequest.md
 docs/models/shared/createbalanceresponse.md
