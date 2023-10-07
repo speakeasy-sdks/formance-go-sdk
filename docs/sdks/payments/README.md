@@ -202,8 +202,14 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Payments.InstallConnector(ctx, operations.InstallConnectorRequest{
-        ConnectorConfig: shared.ConnectorConfig{},
-        Connector: shared.ConnectorDummyPay,
+        ConnectorConfig: shared.CreateConnectorConfigDummyPayConfig(
+                shared.DummyPayConfig{
+                    Directory: "/tmp/dummypay",
+                    FileGenerationPeriod: formancegosdk.String("60s"),
+                    FilePollingPeriod: formancegosdk.String("60s"),
+                },
+        ),
+        Connector: shared.ConnectorBankingCircle,
     })
     if err != nil {
         log.Fatal(err)
@@ -350,7 +356,6 @@ func main() {
     res, err := s.Payments.ListConnectorTasks(ctx, operations.ListConnectorTasksRequest{
         Connector: shared.ConnectorDummyPay,
         Cursor: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
-        PageSize: formancegosdk.Int64(501686),
     })
     if err != nil {
         log.Fatal(err)
@@ -402,9 +407,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Payments.ListPayments(ctx, operations.ListPaymentsRequest{
         Cursor: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
-        PageSize: formancegosdk.Int64(13778),
         Sort: []string{
-            "harness",
+            "East",
         },
     })
     if err != nil {
@@ -457,9 +461,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Payments.PaymentslistAccounts(ctx, operations.PaymentslistAccountsRequest{
         Cursor: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
-        PageSize: formancegosdk.Int64(227071),
         Sort: []string{
-            "Virginia",
+            "Rustic",
         },
     })
     if err != nil {

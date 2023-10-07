@@ -39,10 +39,10 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Orchestration.CreateWorkflow(ctx, shared.CreateWorkflowRequest{
+    res, err := s.Orchestration.CreateWorkflow(ctx, &shared.CreateWorkflowRequest{
         Stages: []map[string]interface{}{
             map[string]interface{}{
-                "eveniet": "amidst",
+                "why": "Maryland",
             },
         },
     })
@@ -344,10 +344,9 @@ func main() {
     ctx := context.Background()
     res, err := s.Orchestration.RunWorkflow(ctx, operations.RunWorkflowRequest{
         RequestBody: map[string]string{
-            "delectus": "Accountability",
+            "off": "quick",
         },
-        FlowID: "newton aggregate Metal",
-        Wait: formancegosdk.Bool(false),
+        FlowID: "Ball female loyally",
     })
     if err != nil {
         log.Fatal(err)

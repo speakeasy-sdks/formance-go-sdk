@@ -93,20 +93,17 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Clients.CreateClient(ctx, shared.CreateClientRequest{
-        Description: formancegosdk.String("Managed optimizing help-desk"),
+    res, err := s.Clients.CreateClient(ctx, &shared.CreateClientRequest{
         Metadata: map[string]interface{}{
-            "vero": "Division",
+            "Dobra": "invoice",
         },
-        Name: "Station East Functionality",
+        Name: "Dong Station",
         PostLogoutRedirectUris: []string{
-            "24",
+            "East",
         },
-        Public: formancegosdk.Bool(false),
         RedirectUris: []string{
-            "fuchsia",
+            "Functionality",
         },
-        Trusted: formancegosdk.Bool(false),
     })
     if err != nil {
         log.Fatal(err)
@@ -159,11 +156,11 @@ func main() {
     res, err := s.Clients.CreateSecret(ctx, operations.CreateSecretRequest{
         CreateSecretRequest: &shared.CreateSecretRequest{
             Metadata: map[string]interface{}{
-                "aliquid": "Southwest",
+                "architecture": "hmph",
             },
-            Name: "olive executive Taka",
+            Name: "National",
         },
-        ClientID: "South",
+        ClientID: "Taka Alabama",
     })
     if err != nil {
         log.Fatal(err)
@@ -468,21 +465,18 @@ func main() {
     ctx := context.Background()
     res, err := s.Clients.UpdateClient(ctx, operations.UpdateClientRequest{
         UpdateClientRequest: &shared.UpdateClientRequest{
-            Description: formancegosdk.String("Secured static model"),
             Metadata: map[string]interface{}{
-                "temporibus": "Northwest",
+                "fuchsia": "Configuration",
             },
-            Name: "BMW XML",
+            Name: "Creative",
             PostLogoutRedirectUris: []string{
-                "magenta",
+                "shofar",
             },
-            Public: formancegosdk.Bool(false),
             RedirectUris: []string{
-                "collaborative",
+                "Specialist",
             },
-            Trusted: formancegosdk.Bool(false),
         },
-        ClientID: "male gold",
+        ClientID: "payment finally Chevrolet",
     })
     if err != nil {
         log.Fatal(err)

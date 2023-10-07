@@ -156,11 +156,11 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Wallets.CreateWallet(ctx, shared.CreateWalletRequest{
+    res, err := s.Wallets.CreateWallet(ctx, &shared.CreateWalletRequest{
         Metadata: map[string]interface{}{
-            "deleniti": "Hybrid",
+            "array": "Islands",
         },
-        Name: "fleck unto Calcium",
+        Name: "Versatile what orchid",
     })
     if err != nil {
         log.Fatal(err)
@@ -216,13 +216,16 @@ func main() {
                 Amount: 201874,
                 Asset: "second",
             },
-            Balance: formancegosdk.String("Bike"),
             Metadata: map[string]interface{}{
-                "quidem": "Clifton",
+                "Bedfordshire": "Samarium",
             },
-            Reference: formancegosdk.String("purple Shoreline keenly"),
             Sources: []shared.Subject{
-                shared.Subject{},
+                shared.CreateSubjectLedgerAccountSubject(
+                    shared.LedgerAccountSubject{
+                        Identifier: "Supervisor Clothing purple",
+                        Type: "Tesla",
+                    },
+                ),
             },
         },
         ID: "<ID>",
@@ -284,12 +287,15 @@ func main() {
             Balances: []string{
                 "Tasty",
             },
-            Description: formancegosdk.String("Total 6th generation conglomeration"),
-            Destination: &shared.Subject{},
+            Destination: shared.CreateSubjectWalletSubject(
+                    shared.WalletSubject{
+                        Identifier: "Bike",
+                        Type: "impactful",
+                    },
+            ),
             Metadata: map[string]interface{}{
-                "non": "Bedfordshire",
+                "Hop": "SCSI",
             },
-            Pending: formancegosdk.Bool(false),
         },
         ID: "<ID>",
     })
@@ -447,8 +453,6 @@ func main() {
     res, err := s.Wallets.GetHolds(ctx, operations.GetHoldsRequest{
         Cursor: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         Metadata: &operations.GetHoldsMetadata{},
-        PageSize: formancegosdk.Int64(692494),
-        WalletID: formancegosdk.String("Folding"),
     })
     if err != nil {
         log.Fatal(err)
@@ -498,8 +502,6 @@ func main() {
     ctx := context.Background()
     res, err := s.Wallets.GetTransactions(ctx, operations.GetTransactionsRequest{
         Cursor: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
-        PageSize: formancegosdk.Int64(680555),
-        WalletID: formancegosdk.String("Account"),
     })
     if err != nil {
         log.Fatal(err)
@@ -654,8 +656,6 @@ func main() {
     res, err := s.Wallets.ListWallets(ctx, operations.ListWalletsRequest{
         Cursor: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         Metadata: &operations.ListWalletsMetadata{},
-        Name: formancegosdk.String("green Mobility"),
-        PageSize: formancegosdk.Int64(938918),
     })
     if err != nil {
         log.Fatal(err)
@@ -708,7 +708,7 @@ func main() {
     res, err := s.Wallets.UpdateWallet(ctx, operations.UpdateWalletRequest{
         RequestBody: &operations.UpdateWalletRequestBody{
             Metadata: map[string]interface{}{
-                "quas": "Books",
+                "override": "South",
             },
         },
         ID: "<ID>",

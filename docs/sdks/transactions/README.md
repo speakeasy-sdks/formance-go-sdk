@@ -30,7 +30,6 @@ import(
 	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/types"
 )
 
 func main() {
@@ -46,7 +45,8 @@ func main() {
             Transactions: []shared.TransactionData{
                 shared.TransactionData{
                     Metadata: map[string]interface{}{
-                        "ipsam": "West",
+                        "admin": "24/7",
+                        "a": "underneath",
                     },
                     Postings: []shared.Posting{
                         shared.Posting{
@@ -57,7 +57,6 @@ func main() {
                         },
                     },
                     Reference: formancegosdk.String("ref:001"),
-                    Timestamp: types.MustTimeFromString("2023-08-23T17:07:25.890Z"),
                 },
             },
         },
@@ -113,7 +112,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Transactions.AddMetadataOnTransaction(ctx, operations.AddMetadataOnTransactionRequest{
         RequestBody: map[string]interface{}{
-            "esse": "Fresh",
+            "a": "withdrawal",
+            "admin": "Incredible",
         },
         Ledger: "ledger001",
         Txid: 1234,
@@ -156,7 +156,6 @@ import(
 	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/types"
 )
 
 func main() {
@@ -170,14 +169,10 @@ func main() {
     res, err := s.Transactions.CountTransactions(ctx, operations.CountTransactionsRequest{
         Account: formancegosdk.String("users:001"),
         Destination: formancegosdk.String("users:001"),
-        EndTime: types.MustTimeFromString("2021-07-20T09:59:27.603Z"),
-        EndTimeDeprecated: types.MustTimeFromString("2023-09-27T00:52:47.091Z"),
         Ledger: "ledger001",
         Metadata: &operations.CountTransactionsMetadata{},
         Reference: formancegosdk.String("ref:001"),
         Source: formancegosdk.String("users:001"),
-        StartTime: types.MustTimeFromString("2023-01-18T09:32:22.586Z"),
-        StartTimeDeprecated: types.MustTimeFromString("2021-04-16T00:36:33.819Z"),
     })
     if err != nil {
         log.Fatal(err)
@@ -217,7 +212,6 @@ import(
 	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/types"
 )
 
 func main() {
@@ -231,7 +225,8 @@ func main() {
     res, err := s.Transactions.CreateTransaction(ctx, operations.CreateTransactionRequest{
         PostTransaction: shared.PostTransaction{
             Metadata: map[string]interface{}{
-                "reiciendis": "Ball",
+                "a": "before",
+                "admin": "zowie",
             },
             Postings: []shared.Posting{
                 shared.Posting{
@@ -253,7 +248,6 @@ func main() {
             ",
                 Vars: &shared.PostTransactionScriptVars{},
             },
-            Timestamp: types.MustTimeFromString("2023-10-22T10:08:19.757Z"),
         },
         Ledger: "ledger001",
         Preview: formancegosdk.Bool(true),
@@ -348,7 +342,6 @@ import(
 	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/types"
 )
 
 func main() {
@@ -364,17 +357,11 @@ func main() {
         After: formancegosdk.String("1234"),
         Cursor: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         Destination: formancegosdk.String("users:001"),
-        EndTime: types.MustTimeFromString("2022-09-08T16:09:19.098Z"),
-        EndTimeDeprecated: types.MustTimeFromString("2021-01-02T10:19:36.126Z"),
         Ledger: "ledger001",
         Metadata: &operations.ListTransactionsMetadata{},
-        PageSize: formancegosdk.Int64(641200),
-        PageSizeDeprecated: formancegosdk.Int64(459510),
         PaginationToken: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         Reference: formancegosdk.String("ref:001"),
         Source: formancegosdk.String("users:001"),
-        StartTime: types.MustTimeFromString("2021-03-19T18:05:01.432Z"),
-        StartTimeDeprecated: types.MustTimeFromString("2022-09-12T07:36:38.262Z"),
     })
     if err != nil {
         log.Fatal(err)

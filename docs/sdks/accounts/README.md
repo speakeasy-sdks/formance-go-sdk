@@ -39,7 +39,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Accounts.AddMetadataToAccount(ctx, operations.AddMetadataToAccountRequest{
         RequestBody: map[string]interface{}{
-            "adipisci": "silver",
+            "admin": "Oriental",
+            "a": "outside",
         },
         Address: "users:001",
         Ledger: "ledger001",
@@ -206,8 +207,6 @@ func main() {
         Cursor: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         Ledger: "ledger001",
         Metadata: &operations.ListAccountsMetadata{},
-        PageSize: formancegosdk.Int64(875058),
-        PageSizeDeprecated: formancegosdk.Int64(336035),
         PaginationToken: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
     })
     if err != nil {

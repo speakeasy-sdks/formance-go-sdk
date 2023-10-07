@@ -40,7 +40,8 @@ func main() {
     res, err := s.Script.RunScript(ctx, operations.RunScriptRequest{
         Script: shared.Script{
             Metadata: map[string]interface{}{
-                "eaque": "Borders",
+                "admin": "Azerbaijan",
+                "a": "Mercury",
             },
             Plain: "vars {
         account $user

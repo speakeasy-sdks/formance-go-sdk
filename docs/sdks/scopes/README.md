@@ -91,10 +91,10 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Scopes.CreateScope(ctx, shared.CreateScopeRequest{
+    res, err := s.Scopes.CreateScope(ctx, &shared.CreateScopeRequest{
         Label: "neural Sunrise",
         Metadata: map[string]interface{}{
-            "vero": "deposit",
+            "internal": "Northwest",
         },
     })
     if err != nil {
@@ -350,7 +350,7 @@ func main() {
         UpdateScopeRequest: &shared.UpdateScopeRequest{
             Label: "East South Luxurious",
             Metadata: map[string]interface{}{
-                "temporibus": "meh",
+                "Martin": "meh",
             },
         },
         ScopeID: "handcuff Xenon Timmy",
