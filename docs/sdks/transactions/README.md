@@ -34,9 +34,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(shared.Security{
-            Authorization: "",
-        }),
+        formancegosdk.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -104,16 +102,14 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(shared.Security{
-            Authorization: "",
-        }),
+        formancegosdk.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.Transactions.AddMetadataOnTransaction(ctx, operations.AddMetadataOnTransactionRequest{
         RequestBody: map[string]interface{}{
-            "a": "withdrawal",
-            "admin": "Incredible",
+            "admin": "withdrawal",
+            "a": "Incredible",
         },
         Ledger: "ledger001",
         Txid: 1234,
@@ -160,9 +156,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(shared.Security{
-            Authorization: "",
-        }),
+        formancegosdk.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -216,9 +210,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(shared.Security{
-            Authorization: "",
-        }),
+        formancegosdk.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -294,9 +286,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(shared.Security{
-            Authorization: "",
-        }),
+        formancegosdk.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -346,9 +336,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(shared.Security{
-            Authorization: "",
-        }),
+        formancegosdk.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -405,9 +393,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(shared.Security{
-            Authorization: "",
-        }),
+        formancegosdk.WithSecurity(""),
     )
 
     ctx := context.Background()

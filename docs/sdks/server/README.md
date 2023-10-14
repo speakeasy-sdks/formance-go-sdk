@@ -27,9 +27,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(shared.Security{
-            Authorization: "",
-        }),
+        formancegosdk.WithSecurity(""),
     )
 
     ctx := context.Background()
