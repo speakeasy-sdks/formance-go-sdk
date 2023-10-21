@@ -37,8 +37,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Accounts.AddMetadataToAccount(ctx, operations.AddMetadataToAccountRequest{
         RequestBody: map[string]interface{}{
-            "admin": "Oriental",
-            "a": "outside",
+            "a": "string",
+            "admin": "string",
         },
         Address: "users:001",
         Ledger: "ledger001",

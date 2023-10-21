@@ -51,7 +51,7 @@ func main() {
             Amount: formancegosdk.Int64(100),
             Final: formancegosdk.Bool(true),
         },
-        HoldID: "Missouri holistic",
+        HoldID: "string",
     })
     if err != nil {
         log.Fatal(err)
@@ -101,7 +101,7 @@ func main() {
     ctx := context.Background()
     res, err := s.Wallets.CreateBalance(ctx, operations.CreateBalanceRequest{
         CreateBalanceRequest: &shared.CreateBalanceRequest{
-            Name: "Cab Lawrence female",
+            Name: "string",
         },
         ID: "<ID>",
     })
@@ -152,9 +152,9 @@ func main() {
     ctx := context.Background()
     res, err := s.Wallets.CreateWallet(ctx, &shared.CreateWalletRequest{
         Metadata: map[string]interface{}{
-            "array": "Islands",
+            "key": "string",
         },
-        Name: "Versatile what orchid",
+        Name: "string",
     })
     if err != nil {
         log.Fatal(err)
@@ -206,16 +206,16 @@ func main() {
         CreditWalletRequest: &shared.CreditWalletRequest{
             Amount: shared.Monetary{
                 Amount: 201874,
-                Asset: "second",
+                Asset: "string",
             },
             Metadata: map[string]interface{}{
-                "Bedfordshire": "Samarium",
+                "key": "string",
             },
             Sources: []shared.Subject{
                 shared.CreateSubjectLedgerAccountSubject(
                     shared.LedgerAccountSubject{
-                        Identifier: "Supervisor Clothing purple",
-                        Type: "Tesla",
+                        Identifier: "string",
+                        Type: "string",
                     },
                 ),
             },
@@ -272,19 +272,19 @@ func main() {
         DebitWalletRequest: &shared.DebitWalletRequest{
             Amount: shared.Monetary{
                 Amount: 245256,
-                Asset: "azure",
+                Asset: "string",
             },
             Balances: []string{
-                "Tasty",
+                "string",
             },
-            Destination: shared.CreateSubjectWalletSubject(
-                    shared.WalletSubject{
-                        Identifier: "Bike",
-                        Type: "impactful",
+            Destination: shared.CreateSubjectLedgerAccountSubject(
+                    shared.LedgerAccountSubject{
+                        Identifier: "string",
+                        Type: "string",
                     },
             ),
             Metadata: map[string]interface{}{
-                "Hop": "SCSI",
+                "key": "string",
             },
         },
         ID: "<ID>",
@@ -336,7 +336,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Wallets.GetBalance(ctx, operations.GetBalanceRequest{
-        BalanceName: "Kids Franc hmph",
+        BalanceName: "string",
         ID: "<ID>",
     })
     if err != nil {
@@ -386,7 +386,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Wallets.GetHold(ctx, operations.GetHoldRequest{
-        HoldID: "taper",
+        HoldID: "string",
     })
     if err != nil {
         log.Fatal(err)
@@ -682,7 +682,7 @@ func main() {
     res, err := s.Wallets.UpdateWallet(ctx, operations.UpdateWalletRequest{
         RequestBody: &operations.UpdateWalletRequestBody{
             Metadata: map[string]interface{}{
-                "override": "South",
+                "key": "string",
             },
         },
         ID: "<ID>",
@@ -734,7 +734,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Wallets.VoidHold(ctx, operations.VoidHoldRequest{
-        HoldID: "redundant yesterday Hat",
+        HoldID: "string",
     })
     if err != nil {
         log.Fatal(err)

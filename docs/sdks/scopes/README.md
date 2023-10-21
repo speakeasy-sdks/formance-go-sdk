@@ -39,8 +39,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Scopes.AddTransientScope(ctx, operations.AddTransientScopeRequest{
-        ScopeID: "executive Soul",
-        TransientScopeID: "Keyboard neural tan",
+        ScopeID: "string",
+        TransientScopeID: "string",
     })
     if err != nil {
         log.Fatal(err)
@@ -88,9 +88,9 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Scopes.CreateScope(ctx, &shared.CreateScopeRequest{
-        Label: "neural Sunrise",
+        Label: "string",
         Metadata: map[string]interface{}{
-            "internal": "Northwest",
+            "key": "string",
         },
     })
     if err != nil {
@@ -140,7 +140,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Scopes.DeleteScope(ctx, operations.DeleteScopeRequest{
-        ScopeID: "impedit Bronze",
+        ScopeID: "string",
     })
     if err != nil {
         log.Fatal(err)
@@ -189,8 +189,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Scopes.DeleteTransientScope(ctx, operations.DeleteTransientScopeRequest{
-        ScopeID: "billion Chips",
-        TransientScopeID: "Account untidy haptic",
+        ScopeID: "string",
+        TransientScopeID: "string",
     })
     if err != nil {
         log.Fatal(err)
@@ -284,7 +284,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Scopes.ReadScope(ctx, operations.ReadScopeRequest{
-        ScopeID: "Internal Credit Hermaphrodite",
+        ScopeID: "string",
     })
     if err != nil {
         log.Fatal(err)
@@ -334,12 +334,12 @@ func main() {
     ctx := context.Background()
     res, err := s.Scopes.UpdateScope(ctx, operations.UpdateScopeRequest{
         UpdateScopeRequest: &shared.UpdateScopeRequest{
-            Label: "East South Luxurious",
+            Label: "string",
             Metadata: map[string]interface{}{
-                "Martin": "meh",
+                "key": "string",
             },
         },
-        ScopeID: "handcuff Xenon Timmy",
+        ScopeID: "string",
     })
     if err != nil {
         log.Fatal(err)

@@ -41,8 +41,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Clients.AddScopeToClient(ctx, operations.AddScopeToClientRequest{
-        ClientID: "East laudantium HTTP",
-        ScopeID: "boo Senior",
+        ClientID: "string",
+        ScopeID: "string",
     })
     if err != nil {
         log.Fatal(err)
@@ -91,14 +91,14 @@ func main() {
     ctx := context.Background()
     res, err := s.Clients.CreateClient(ctx, &shared.CreateClientRequest{
         Metadata: map[string]interface{}{
-            "Dobra": "invoice",
+            "key": "string",
         },
-        Name: "Dong Station",
+        Name: "string",
         PostLogoutRedirectUris: []string{
-            "East",
+            "string",
         },
         RedirectUris: []string{
-            "Functionality",
+            "string",
         },
     })
     if err != nil {
@@ -150,11 +150,11 @@ func main() {
     res, err := s.Clients.CreateSecret(ctx, operations.CreateSecretRequest{
         CreateSecretRequest: &shared.CreateSecretRequest{
             Metadata: map[string]interface{}{
-                "architecture": "hmph",
+                "key": "string",
             },
-            Name: "National",
+            Name: "string",
         },
-        ClientID: "Taka Alabama",
+        ClientID: "string",
     })
     if err != nil {
         log.Fatal(err)
@@ -203,7 +203,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Clients.DeleteClient(ctx, operations.DeleteClientRequest{
-        ClientID: "salmon synergize",
+        ClientID: "string",
     })
     if err != nil {
         log.Fatal(err)
@@ -252,8 +252,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Clients.DeleteScopeFromClient(ctx, operations.DeleteScopeFromClientRequest{
-        ClientID: "Northeast synergy zowie",
-        ScopeID: "befriend coherent",
+        ClientID: "string",
+        ScopeID: "string",
     })
     if err != nil {
         log.Fatal(err)
@@ -302,8 +302,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Clients.DeleteSecret(ctx, operations.DeleteSecretRequest{
-        ClientID: "ashamed transform past",
-        SecretID: "Afghani rosemary South",
+        ClientID: "string",
+        SecretID: "string",
     })
     if err != nil {
         log.Fatal(err)
@@ -397,7 +397,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Clients.ReadClient(ctx, operations.ReadClientRequest{
-        ClientID: "COM Wagon",
+        ClientID: "string",
     })
     if err != nil {
         log.Fatal(err)
@@ -448,17 +448,17 @@ func main() {
     res, err := s.Clients.UpdateClient(ctx, operations.UpdateClientRequest{
         UpdateClientRequest: &shared.UpdateClientRequest{
             Metadata: map[string]interface{}{
-                "fuchsia": "Configuration",
+                "key": "string",
             },
-            Name: "Creative",
+            Name: "string",
             PostLogoutRedirectUris: []string{
-                "shofar",
+                "string",
             },
             RedirectUris: []string{
-                "Specialist",
+                "string",
             },
         },
-        ClientID: "payment finally Chevrolet",
+        ClientID: "string",
     })
     if err != nil {
         log.Fatal(err)

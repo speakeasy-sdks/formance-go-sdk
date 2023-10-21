@@ -2,9 +2,10 @@ configVersion: 1.0.0
 management:
   docChecksum: e2d62c3257abdb44d60905723bd6484e
   docVersion: v1.0.0-rc.5
-  speakeasyVersion: 1.99.2
-  generationVersion: 2.155.1
+  speakeasyVersion: 1.104.0
+  generationVersion: 2.169.0
 generation:
+  repoURL: https://github.com/speakeasy-sdks/formance-go-sdk.git
   sdkClassName: formance
   sdkFlattening: true
   singleTagPerOp: false
@@ -12,14 +13,17 @@ generation:
 features:
   go:
     constsAndDefaults: 0.1.1
-    core: 2.91.5
+    core: 2.94.0
     deprecations: 2.81.1
     globalSecurity: 2.82.2
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
-    unions: 2.83.1
+    unions: 2.84.0
 go:
-  version: 0.6.2
+  version: 0.7.0
   flattenGlobalSecurity: true
+  installationURL: https://github.com/speakeasy-sdks/formance-go-sdk
   maxMethodParams: 0
   packageName: github.com/speakeasy-sdks/formance-go-sdk
+  published: true
+  repoSubDirectory: .

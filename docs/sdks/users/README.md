@@ -79,7 +79,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.ReadUser(ctx, operations.ReadUserRequest{
-        UserID: "Goodwin Folding always",
+        UserID: "string",
     })
     if err != nil {
         log.Fatal(err)

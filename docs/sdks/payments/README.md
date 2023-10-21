@@ -96,7 +96,7 @@ func main() {
     ctx := context.Background()
     res, err := s.Payments.GetConnectorTask(ctx, operations.GetConnectorTaskRequest{
         Connector: shared.ConnectorBankingCircle,
-        TaskID: "Recycled male",
+        TaskID: "string",
     })
     if err != nil {
         log.Fatal(err)
@@ -145,7 +145,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Payments.GetPayment(ctx, operations.GetPaymentRequest{
-        PaymentID: "West",
+        PaymentID: "string",
     })
     if err != nil {
         log.Fatal(err)
@@ -392,7 +392,7 @@ func main() {
     res, err := s.Payments.ListPayments(ctx, operations.ListPaymentsRequest{
         Cursor: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         Sort: []string{
-            "East",
+            "string",
         },
     })
     if err != nil {
@@ -444,7 +444,7 @@ func main() {
     res, err := s.Payments.PaymentslistAccounts(ctx, operations.PaymentslistAccountsRequest{
         Cursor: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         Sort: []string{
-            "Rustic",
+            "string",
         },
     })
     if err != nil {

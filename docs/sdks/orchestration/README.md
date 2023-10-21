@@ -40,7 +40,7 @@ func main() {
     res, err := s.Orchestration.CreateWorkflow(ctx, &shared.CreateWorkflowRequest{
         Stages: []map[string]interface{}{
             map[string]interface{}{
-                "why": "Maryland",
+                "key": "string",
             },
         },
     })
@@ -91,7 +91,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Orchestration.GetFlow(ctx, operations.GetFlowRequest{
-        FlowID: "male extend",
+        FlowID: "string",
     })
     if err != nil {
         log.Fatal(err)
@@ -140,8 +140,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Orchestration.GetWorkflowOccurrence(ctx, operations.GetWorkflowOccurrenceRequest{
-        FlowID: "granular B2B",
-        RunID: "sticky African Islands",
+        FlowID: "string",
+        RunID: "string",
     })
     if err != nil {
         log.Fatal(err)
@@ -235,7 +235,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Orchestration.ListRuns(ctx, operations.ListRunsRequest{
-        FlowID: "Cambridgeshire Southeast",
+        FlowID: "string",
     })
     if err != nil {
         log.Fatal(err)
@@ -330,9 +330,9 @@ func main() {
     ctx := context.Background()
     res, err := s.Orchestration.RunWorkflow(ctx, operations.RunWorkflowRequest{
         RequestBody: map[string]string{
-            "off": "quick",
+            "key": "string",
         },
-        FlowID: "Ball female loyally",
+        FlowID: "string",
     })
     if err != nil {
         log.Fatal(err)

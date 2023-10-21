@@ -43,8 +43,8 @@ func main() {
             Transactions: []shared.TransactionData{
                 shared.TransactionData{
                     Metadata: map[string]interface{}{
-                        "admin": "24/7",
-                        "a": "underneath",
+                        "admin": "string",
+                        "a": "string",
                     },
                     Postings: []shared.Posting{
                         shared.Posting{
@@ -108,8 +108,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Transactions.AddMetadataOnTransaction(ctx, operations.AddMetadataOnTransactionRequest{
         RequestBody: map[string]interface{}{
-            "admin": "withdrawal",
-            "a": "Incredible",
+            "admin": "string",
+            "a": "string",
         },
         Ledger: "ledger001",
         Txid: 1234,
@@ -217,8 +217,8 @@ func main() {
     res, err := s.Transactions.CreateTransaction(ctx, operations.CreateTransactionRequest{
         PostTransaction: shared.PostTransaction{
             Metadata: map[string]interface{}{
-                "a": "before",
-                "admin": "zowie",
+                "admin": "string",
+                "a": "string",
             },
             Postings: []shared.Posting{
                 shared.Posting{
