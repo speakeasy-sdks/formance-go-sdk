@@ -1,31 +1,31 @@
 <!-- Start SDK Example Usage -->
+
+
 ```go
 package main
 
 import (
-    "context"
-    "log"
-    "github.com/speakeasy-sdks/formance-go-sdk"
-    "github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
-    "github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
+	"context"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"log"
 )
 
 func main() {
-    s := formance.New(
-        WithSecurity(        shared.Security{
-            Authorization: "Bearer YOUR_ACCESS_TOKEN_HERE",
-        }),
-    )
+	s := formancegosdk.New(
+		formancegosdk.WithSecurity(""),
+	)
 
-    ctx := context.Background()
-    res, err := s.GetServerInfo(ctx)
-    if err != nil {
-        log.Fatal(err)
-    }
+	ctx := context.Background()
+	res, err := s.Formance.GetServerInfo(ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
 
-    if res.ServerInfo != nil {
-        // handle response
-    }
+	if res.ServerInfo != nil {
+		// handle response
+	}
 }
+
 ```
 <!-- End SDK Example Usage -->
