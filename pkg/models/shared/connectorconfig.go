@@ -85,44 +85,44 @@ func CreateConnectorConfigBankingCircleConfig(bankingCircleConfig BankingCircleC
 
 func (u *ConnectorConfig) UnmarshalJSON(data []byte) error {
 
-	wiseConfig := new(WiseConfig)
+	wiseConfig := WiseConfig{}
 	if err := utils.UnmarshalJSON(data, &wiseConfig, "", true, true); err == nil {
-		u.WiseConfig = wiseConfig
+		u.WiseConfig = &wiseConfig
 		u.Type = ConnectorConfigTypeWiseConfig
 		return nil
 	}
 
-	stripeConfig := new(StripeConfig)
+	stripeConfig := StripeConfig{}
 	if err := utils.UnmarshalJSON(data, &stripeConfig, "", true, true); err == nil {
-		u.StripeConfig = stripeConfig
+		u.StripeConfig = &stripeConfig
 		u.Type = ConnectorConfigTypeStripeConfig
 		return nil
 	}
 
-	dummyPayConfig := new(DummyPayConfig)
+	dummyPayConfig := DummyPayConfig{}
 	if err := utils.UnmarshalJSON(data, &dummyPayConfig, "", true, true); err == nil {
-		u.DummyPayConfig = dummyPayConfig
+		u.DummyPayConfig = &dummyPayConfig
 		u.Type = ConnectorConfigTypeDummyPayConfig
 		return nil
 	}
 
-	modulrConfig := new(ModulrConfig)
+	modulrConfig := ModulrConfig{}
 	if err := utils.UnmarshalJSON(data, &modulrConfig, "", true, true); err == nil {
-		u.ModulrConfig = modulrConfig
+		u.ModulrConfig = &modulrConfig
 		u.Type = ConnectorConfigTypeModulrConfig
 		return nil
 	}
 
-	currencyCloudConfig := new(CurrencyCloudConfig)
+	currencyCloudConfig := CurrencyCloudConfig{}
 	if err := utils.UnmarshalJSON(data, &currencyCloudConfig, "", true, true); err == nil {
-		u.CurrencyCloudConfig = currencyCloudConfig
+		u.CurrencyCloudConfig = &currencyCloudConfig
 		u.Type = ConnectorConfigTypeCurrencyCloudConfig
 		return nil
 	}
 
-	bankingCircleConfig := new(BankingCircleConfig)
+	bankingCircleConfig := BankingCircleConfig{}
 	if err := utils.UnmarshalJSON(data, &bankingCircleConfig, "", true, true); err == nil {
-		u.BankingCircleConfig = bankingCircleConfig
+		u.BankingCircleConfig = &bankingCircleConfig
 		u.Type = ConnectorConfigTypeBankingCircleConfig
 		return nil
 	}

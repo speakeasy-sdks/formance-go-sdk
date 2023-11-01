@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: e2d62c3257abdb44d60905723bd6484e
   docVersion: v1.0.0-rc.5
-  speakeasyVersion: 1.104.0
-  generationVersion: 2.169.0
+  speakeasyVersion: 1.109.2
+  generationVersion: 2.173.0
 generation:
   repoURL: https://github.com/speakeasy-sdks/formance-go-sdk.git
   sdkClassName: formance
@@ -18,9 +18,9 @@ features:
     globalSecurity: 2.82.2
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
-    unions: 2.84.0
+    unions: 2.84.1
 go:
-  version: 0.7.0
+  version: 0.7.1
   flattenGlobalSecurity: true
   installationURL: https://github.com/speakeasy-sdks/formance-go-sdk
   maxMethodParams: 0

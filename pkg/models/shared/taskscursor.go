@@ -85,44 +85,44 @@ func CreateTasksCursorCursorDataTaskBankingCircle(taskBankingCircle TaskBankingC
 
 func (u *TasksCursorCursorData) UnmarshalJSON(data []byte) error {
 
-	taskStripe := new(TaskStripe)
+	taskStripe := TaskStripe{}
 	if err := utils.UnmarshalJSON(data, &taskStripe, "", true, true); err == nil {
-		u.TaskStripe = taskStripe
+		u.TaskStripe = &taskStripe
 		u.Type = TasksCursorCursorDataTypeTaskStripe
 		return nil
 	}
 
-	taskWise := new(TaskWise)
+	taskWise := TaskWise{}
 	if err := utils.UnmarshalJSON(data, &taskWise, "", true, true); err == nil {
-		u.TaskWise = taskWise
+		u.TaskWise = &taskWise
 		u.Type = TasksCursorCursorDataTypeTaskWise
 		return nil
 	}
 
-	taskCurrencyCloud := new(TaskCurrencyCloud)
+	taskCurrencyCloud := TaskCurrencyCloud{}
 	if err := utils.UnmarshalJSON(data, &taskCurrencyCloud, "", true, true); err == nil {
-		u.TaskCurrencyCloud = taskCurrencyCloud
+		u.TaskCurrencyCloud = &taskCurrencyCloud
 		u.Type = TasksCursorCursorDataTypeTaskCurrencyCloud
 		return nil
 	}
 
-	taskDummyPay := new(TaskDummyPay)
+	taskDummyPay := TaskDummyPay{}
 	if err := utils.UnmarshalJSON(data, &taskDummyPay, "", true, true); err == nil {
-		u.TaskDummyPay = taskDummyPay
+		u.TaskDummyPay = &taskDummyPay
 		u.Type = TasksCursorCursorDataTypeTaskDummyPay
 		return nil
 	}
 
-	taskModulr := new(TaskModulr)
+	taskModulr := TaskModulr{}
 	if err := utils.UnmarshalJSON(data, &taskModulr, "", true, true); err == nil {
-		u.TaskModulr = taskModulr
+		u.TaskModulr = &taskModulr
 		u.Type = TasksCursorCursorDataTypeTaskModulr
 		return nil
 	}
 
-	taskBankingCircle := new(TaskBankingCircle)
+	taskBankingCircle := TaskBankingCircle{}
 	if err := utils.UnmarshalJSON(data, &taskBankingCircle, "", true, true); err == nil {
-		u.TaskBankingCircle = taskBankingCircle
+		u.TaskBankingCircle = &taskBankingCircle
 		u.Type = TasksCursorCursorDataTypeTaskBankingCircle
 		return nil
 	}
