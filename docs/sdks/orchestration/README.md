@@ -1,0 +1,365 @@
+# Orchestration
+(*Orchestration*)
+
+## Overview
+
+Everything related to Orchestration
+
+### Available Operations
+
+* [CreateWorkflow](#createworkflow) - Create workflow
+* [GetFlow](#getflow) - Get a flow by id
+* [GetWorkflowOccurrence](#getworkflowoccurrence) - Get a workflow occurrence by id
+* [ListFlows](#listflows) - List registered flows
+* [ListRuns](#listruns) - List occurrences of a workflow
+* [OrchestrationgetServerInfo](#orchestrationgetserverinfo) - Get server info
+* [RunWorkflow](#runworkflow) - Run workflow
+
+## CreateWorkflow
+
+Create a workflow
+
+### Example Usage
+
+```go
+package main
+
+import(
+	"context"
+	"log"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+)
+
+func main() {
+    s := formancegosdk.New(
+        formancegosdk.WithSecurity(""),
+    )
+
+    ctx := context.Background()
+    res, err := s.Orchestration.CreateWorkflow(ctx, &shared.CreateWorkflowRequest{
+        Stages: []map[string]interface{}{
+            map[string]interface{}{
+                "key": "string",
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.CreateWorkflowResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
+| `request`                                                                    | [shared.CreateWorkflowRequest](../../models/shared/createworkflowrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+
+
+### Response
+
+**[*operations.CreateWorkflowResponse](../../models/operations/createworkflowresponse.md), error**
+
+
+## GetFlow
+
+Get a flow by id
+
+### Example Usage
+
+```go
+package main
+
+import(
+	"context"
+	"log"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+)
+
+func main() {
+    s := formancegosdk.New(
+        formancegosdk.WithSecurity(""),
+    )
+
+
+    var flowID string = "string"
+
+    ctx := context.Background()
+    res, err := s.Orchestration.GetFlow(ctx, flowID)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.GetWorkflowResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                             | Type                                                  | Required                                              | Description                                           |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| `ctx`                                                 | [context.Context](https://pkg.go.dev/context#Context) | :heavy_check_mark:                                    | The context to use for the request.                   |
+| `flowID`                                              | *string*                                              | :heavy_check_mark:                                    | The flow id                                           |
+
+
+### Response
+
+**[*operations.GetFlowResponse](../../models/operations/getflowresponse.md), error**
+
+
+## GetWorkflowOccurrence
+
+Get a workflow occurrence by id
+
+### Example Usage
+
+```go
+package main
+
+import(
+	"context"
+	"log"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+)
+
+func main() {
+    s := formancegosdk.New(
+        formancegosdk.WithSecurity(""),
+    )
+
+
+    var flowID string = "string"
+
+    var runID string = "string"
+
+    ctx := context.Background()
+    res, err := s.Orchestration.GetWorkflowOccurrence(ctx, flowID, runID)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.GetWorkflowOccurrenceResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                             | Type                                                  | Required                                              | Description                                           |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| `ctx`                                                 | [context.Context](https://pkg.go.dev/context#Context) | :heavy_check_mark:                                    | The context to use for the request.                   |
+| `flowID`                                              | *string*                                              | :heavy_check_mark:                                    | The flow id                                           |
+| `runID`                                               | *string*                                              | :heavy_check_mark:                                    | The occurrence id                                     |
+
+
+### Response
+
+**[*operations.GetWorkflowOccurrenceResponse](../../models/operations/getworkflowoccurrenceresponse.md), error**
+
+
+## ListFlows
+
+List registered flows
+
+### Example Usage
+
+```go
+package main
+
+import(
+	"context"
+	"log"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+)
+
+func main() {
+    s := formancegosdk.New(
+        formancegosdk.WithSecurity(""),
+    )
+
+    ctx := context.Background()
+    res, err := s.Orchestration.ListFlows(ctx)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.ListWorkflowsResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                             | Type                                                  | Required                                              | Description                                           |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| `ctx`                                                 | [context.Context](https://pkg.go.dev/context#Context) | :heavy_check_mark:                                    | The context to use for the request.                   |
+
+
+### Response
+
+**[*operations.ListFlowsResponse](../../models/operations/listflowsresponse.md), error**
+
+
+## ListRuns
+
+List occurrences of a workflow
+
+### Example Usage
+
+```go
+package main
+
+import(
+	"context"
+	"log"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+)
+
+func main() {
+    s := formancegosdk.New(
+        formancegosdk.WithSecurity(""),
+    )
+
+
+    var flowID string = "string"
+
+    ctx := context.Background()
+    res, err := s.Orchestration.ListRuns(ctx, flowID)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.ListRunsResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                             | Type                                                  | Required                                              | Description                                           |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| `ctx`                                                 | [context.Context](https://pkg.go.dev/context#Context) | :heavy_check_mark:                                    | The context to use for the request.                   |
+| `flowID`                                              | *string*                                              | :heavy_check_mark:                                    | The flow id                                           |
+
+
+### Response
+
+**[*operations.ListRunsResponse](../../models/operations/listrunsresponse.md), error**
+
+
+## OrchestrationgetServerInfo
+
+Get server info
+
+### Example Usage
+
+```go
+package main
+
+import(
+	"context"
+	"log"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+)
+
+func main() {
+    s := formancegosdk.New(
+        formancegosdk.WithSecurity(""),
+    )
+
+    ctx := context.Background()
+    res, err := s.Orchestration.OrchestrationgetServerInfo(ctx)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.ServerInfo != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                             | Type                                                  | Required                                              | Description                                           |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| `ctx`                                                 | [context.Context](https://pkg.go.dev/context#Context) | :heavy_check_mark:                                    | The context to use for the request.                   |
+
+
+### Response
+
+**[*operations.OrchestrationgetServerInfoResponse](../../models/operations/orchestrationgetserverinforesponse.md), error**
+
+
+## RunWorkflow
+
+Run workflow
+
+### Example Usage
+
+```go
+package main
+
+import(
+	"context"
+	"log"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+)
+
+func main() {
+    s := formancegosdk.New(
+        formancegosdk.WithSecurity(""),
+    )
+
+
+    var flowID string = "string"
+
+    requestBody := map[string]string{
+        "key": "string",
+    }
+
+    var wait *bool = false
+
+    ctx := context.Background()
+    res, err := s.Orchestration.RunWorkflow(ctx, flowID, requestBody, wait)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.RunWorkflowResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                             | Type                                                  | Required                                              | Description                                           |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| `ctx`                                                 | [context.Context](https://pkg.go.dev/context#Context) | :heavy_check_mark:                                    | The context to use for the request.                   |
+| `flowID`                                              | *string*                                              | :heavy_check_mark:                                    | The flow id                                           |
+| `requestBody`                                         | map[string]*string*                                   | :heavy_minus_sign:                                    | N/A                                                   |
+| `wait`                                                | **bool*                                               | :heavy_minus_sign:                                    | Wait end of the workflow before return                |
+
+
+### Response
+
+**[*operations.RunWorkflowResponse](../../models/operations/runworkflowresponse.md), error**
+
