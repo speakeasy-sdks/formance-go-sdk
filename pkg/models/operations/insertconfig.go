@@ -16,8 +16,6 @@ type InsertConfigResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-	// Bad Request
-	InsertConfig400TextPlainString *string
 }
 
 func (o *InsertConfigResponse) GetConfigResponse() *shared.ConfigResponse {
@@ -46,11 +44,4 @@ func (o *InsertConfigResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
-}
-
-func (o *InsertConfigResponse) GetInsertConfig400TextPlainString() *string {
-	if o == nil {
-		return nil
-	}
-	return o.InsertConfig400TextPlainString
 }

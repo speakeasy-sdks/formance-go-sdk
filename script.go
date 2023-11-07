@@ -14,13 +14,13 @@ import (
 	"net/http"
 )
 
-// script - Everything related to Script
-type script struct {
+// Script - Everything related to Script
+type Script struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newScript(sdkConfig sdkConfiguration) *script {
-	return &script{
+func newScript(sdkConfig sdkConfiguration) *Script {
+	return &Script{
 		sdkConfiguration: sdkConfig,
 	}
 }
@@ -29,7 +29,7 @@ func newScript(sdkConfig sdkConfiguration) *script {
 // This route is deprecated, and has been merged into `POST /{ledger}/transactions`.
 //
 // Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
-func (s *script) RunScript(ctx context.Context, script shared.Script, ledger string, preview *bool) (*operations.RunScriptResponse, error) {
+func (s *Script) RunScript(ctx context.Context, script shared.Script, ledger string, preview *bool) (*operations.RunScriptResponse, error) {
 	request := operations.RunScriptRequest{
 		Script:  script,
 		Ledger:  ledger,
@@ -100,6 +100,10 @@ func (s *script) RunScript(ctx context.Context, script shared.Script, ledger str
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil

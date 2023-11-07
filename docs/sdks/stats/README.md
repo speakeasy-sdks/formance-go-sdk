@@ -1,5 +1,5 @@
 # Stats
-(*Stats*)
+(*.Stats*)
 
 ## Overview
 

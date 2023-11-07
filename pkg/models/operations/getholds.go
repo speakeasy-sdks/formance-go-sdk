@@ -8,8 +8,8 @@ import (
 	"net/http"
 )
 
-// GetHoldsMetadata - Filter holds by metadata key value pairs. Nested objects can be used as seen in the example below.
-type GetHoldsMetadata struct {
+// GetHoldsQueryParamMetadata - Filter holds by metadata key value pairs. Nested objects can be used as seen in the example below.
+type GetHoldsQueryParamMetadata struct {
 }
 
 type GetHoldsRequest struct {
@@ -20,7 +20,7 @@ type GetHoldsRequest struct {
 	//
 	Cursor *string `queryParam:"style=form,explode=true,name=cursor"`
 	// Filter holds by metadata key value pairs. Nested objects can be used as seen in the example below.
-	Metadata *GetHoldsMetadata `queryParam:"style=deepObject,explode=true,name=metadata"`
+	Metadata *GetHoldsQueryParamMetadata `queryParam:"style=deepObject,explode=true,name=metadata"`
 	// The maximum number of results to return per page
 	PageSize *int64 `default:"15" queryParam:"style=form,explode=true,name=pageSize"`
 	// The wallet to filter on
@@ -45,7 +45,7 @@ func (o *GetHoldsRequest) GetCursor() *string {
 	return o.Cursor
 }
 
-func (o *GetHoldsRequest) GetMetadata() *GetHoldsMetadata {
+func (o *GetHoldsRequest) GetMetadata() *GetHoldsQueryParamMetadata {
 	if o == nil {
 		return nil
 	}

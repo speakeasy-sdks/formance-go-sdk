@@ -1,4 +1,4 @@
-# TaskBankingCircleDescriptor
+# Descriptor
 
 
 ## Fields

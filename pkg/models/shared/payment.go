@@ -9,37 +9,37 @@ import (
 	"time"
 )
 
-type PaymentRaw struct {
+type Raw struct {
 }
 
-type PaymentScheme string
+type Scheme string
 
 const (
-	PaymentSchemeVisa       PaymentScheme = "visa"
-	PaymentSchemeMastercard PaymentScheme = "mastercard"
-	PaymentSchemeAmex       PaymentScheme = "amex"
-	PaymentSchemeDiners     PaymentScheme = "diners"
-	PaymentSchemeDiscover   PaymentScheme = "discover"
-	PaymentSchemeJcb        PaymentScheme = "jcb"
-	PaymentSchemeUnionpay   PaymentScheme = "unionpay"
-	PaymentSchemeSepaDebit  PaymentScheme = "sepa debit"
-	PaymentSchemeSepaCredit PaymentScheme = "sepa credit"
-	PaymentSchemeSepa       PaymentScheme = "sepa"
-	PaymentSchemeApplePay   PaymentScheme = "apple pay"
-	PaymentSchemeGooglePay  PaymentScheme = "google pay"
-	PaymentSchemeA2a        PaymentScheme = "a2a"
-	PaymentSchemeAchDebit   PaymentScheme = "ach debit"
-	PaymentSchemeAch        PaymentScheme = "ach"
-	PaymentSchemeRtp        PaymentScheme = "rtp"
-	PaymentSchemeUnknown    PaymentScheme = "unknown"
-	PaymentSchemeOther      PaymentScheme = "other"
+	SchemeVisa       Scheme = "visa"
+	SchemeMastercard Scheme = "mastercard"
+	SchemeAmex       Scheme = "amex"
+	SchemeDiners     Scheme = "diners"
+	SchemeDiscover   Scheme = "discover"
+	SchemeJcb        Scheme = "jcb"
+	SchemeUnionpay   Scheme = "unionpay"
+	SchemeSepaDebit  Scheme = "sepa debit"
+	SchemeSepaCredit Scheme = "sepa credit"
+	SchemeSepa       Scheme = "sepa"
+	SchemeApplePay   Scheme = "apple pay"
+	SchemeGooglePay  Scheme = "google pay"
+	SchemeA2a        Scheme = "a2a"
+	SchemeAchDebit   Scheme = "ach debit"
+	SchemeAch        Scheme = "ach"
+	SchemeRtp        Scheme = "rtp"
+	SchemeUnknown    Scheme = "unknown"
+	SchemeOther      Scheme = "other"
 )
 
-func (e PaymentScheme) ToPointer() *PaymentScheme {
+func (e Scheme) ToPointer() *Scheme {
 	return &e
 }
 
-func (e *PaymentScheme) UnmarshalJSON(data []byte) error {
+func (e *Scheme) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -80,10 +80,10 @@ func (e *PaymentScheme) UnmarshalJSON(data []byte) error {
 	case "unknown":
 		fallthrough
 	case "other":
-		*e = PaymentScheme(v)
+		*e = Scheme(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PaymentScheme: %v", v)
+		return fmt.Errorf("invalid value for Scheme: %v", v)
 	}
 }
 
@@ -129,9 +129,9 @@ type Payment struct {
 	InitialAmount int64               `json:"initialAmount"`
 	Metadata      []PaymentMetadata   `json:"metadata"`
 	Provider      Connector           `json:"provider"`
-	Raw           PaymentRaw          `json:"raw"`
+	Raw           Raw                 `json:"raw"`
 	Reference     string              `json:"reference"`
-	Scheme        PaymentScheme       `json:"scheme"`
+	Scheme        Scheme              `json:"scheme"`
 	Status        PaymentStatus       `json:"status"`
 	Type          PaymentType         `json:"type"`
 }
@@ -203,9 +203,9 @@ func (o *Payment) GetProvider() Connector {
 	return o.Provider
 }
 
-func (o *Payment) GetRaw() PaymentRaw {
+func (o *Payment) GetRaw() Raw {
 	if o == nil {
-		return PaymentRaw{}
+		return Raw{}
 	}
 	return o.Raw
 }
@@ -217,9 +217,9 @@ func (o *Payment) GetReference() string {
 	return o.Reference
 }
 
-func (o *Payment) GetScheme() PaymentScheme {
+func (o *Payment) GetScheme() Scheme {
 	if o == nil {
-		return PaymentScheme("")
+		return Scheme("")
 	}
 	return o.Scheme
 }

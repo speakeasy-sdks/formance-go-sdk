@@ -8,8 +8,8 @@ import (
 	"net/http"
 )
 
-// ListWalletsMetadata - Filter wallets by metadata key value pairs. Nested objects can be used as seen in the example below.
-type ListWalletsMetadata struct {
+// ListWalletsQueryParamMetadata - Filter wallets by metadata key value pairs. Nested objects can be used as seen in the example below.
+type ListWalletsQueryParamMetadata struct {
 }
 
 type ListWalletsRequest struct {
@@ -20,7 +20,7 @@ type ListWalletsRequest struct {
 	//
 	Cursor *string `queryParam:"style=form,explode=true,name=cursor"`
 	// Filter wallets by metadata key value pairs. Nested objects can be used as seen in the example below.
-	Metadata *ListWalletsMetadata `queryParam:"style=deepObject,explode=true,name=metadata"`
+	Metadata *ListWalletsQueryParamMetadata `queryParam:"style=deepObject,explode=true,name=metadata"`
 	// Filter on wallet name
 	Name *string `queryParam:"style=form,explode=true,name=name"`
 	// The maximum number of results to return per page
@@ -45,7 +45,7 @@ func (o *ListWalletsRequest) GetCursor() *string {
 	return o.Cursor
 }
 
-func (o *ListWalletsRequest) GetMetadata() *ListWalletsMetadata {
+func (o *ListWalletsRequest) GetMetadata() *ListWalletsQueryParamMetadata {
 	if o == nil {
 		return nil
 	}

@@ -44,7 +44,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Formance.GetServerInfo(ctx)
+    res, err := s.GetServerInfo(ctx)
     if err != nil {
         log.Fatal(err)
     }
@@ -89,7 +89,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Formance.PaymentsgetServerInfo(ctx)
+    res, err := s.PaymentsgetServerInfo(ctx)
     if err != nil {
         log.Fatal(err)
     }
@@ -134,7 +134,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Formance.SearchgetServerInfo(ctx)
+    res, err := s.SearchgetServerInfo(ctx)
     if err != nil {
         log.Fatal(err)
     }

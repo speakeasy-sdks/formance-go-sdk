@@ -10,23 +10,23 @@ import (
 	"net/http"
 )
 
-// ListAccountsBalanceOperator - Operator used for the filtering of balances can be greater than/equal, less than/equal, greater than, less than, equal or not.
-type ListAccountsBalanceOperator string
+// BalanceOperator - Operator used for the filtering of balances can be greater than/equal, less than/equal, greater than, less than, equal or not.
+type BalanceOperator string
 
 const (
-	ListAccountsBalanceOperatorGte ListAccountsBalanceOperator = "gte"
-	ListAccountsBalanceOperatorLte ListAccountsBalanceOperator = "lte"
-	ListAccountsBalanceOperatorGt  ListAccountsBalanceOperator = "gt"
-	ListAccountsBalanceOperatorLt  ListAccountsBalanceOperator = "lt"
-	ListAccountsBalanceOperatorE   ListAccountsBalanceOperator = "e"
-	ListAccountsBalanceOperatorNe  ListAccountsBalanceOperator = "ne"
+	BalanceOperatorGte BalanceOperator = "gte"
+	BalanceOperatorLte BalanceOperator = "lte"
+	BalanceOperatorGt  BalanceOperator = "gt"
+	BalanceOperatorLt  BalanceOperator = "lt"
+	BalanceOperatorE   BalanceOperator = "e"
+	BalanceOperatorNe  BalanceOperator = "ne"
 )
 
-func (e ListAccountsBalanceOperator) ToPointer() *ListAccountsBalanceOperator {
+func (e BalanceOperator) ToPointer() *BalanceOperator {
 	return &e
 }
 
-func (e *ListAccountsBalanceOperator) UnmarshalJSON(data []byte) error {
+func (e *BalanceOperator) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -43,15 +43,56 @@ func (e *ListAccountsBalanceOperator) UnmarshalJSON(data []byte) error {
 	case "e":
 		fallthrough
 	case "ne":
-		*e = ListAccountsBalanceOperator(v)
+		*e = BalanceOperator(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountsBalanceOperator: %v", v)
+		return fmt.Errorf("invalid value for BalanceOperator: %v", v)
 	}
 }
 
-// ListAccountsMetadata - Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below.
-type ListAccountsMetadata struct {
+// QueryParamBalanceOperator - Operator used for the filtering of balances can be greater than/equal, less than/equal, greater than, less than, equal or not.
+// Deprecated, please use `balanceOperator` instead.
+type QueryParamBalanceOperator string
+
+const (
+	QueryParamBalanceOperatorGte QueryParamBalanceOperator = "gte"
+	QueryParamBalanceOperatorLte QueryParamBalanceOperator = "lte"
+	QueryParamBalanceOperatorGt  QueryParamBalanceOperator = "gt"
+	QueryParamBalanceOperatorLt  QueryParamBalanceOperator = "lt"
+	QueryParamBalanceOperatorE   QueryParamBalanceOperator = "e"
+	QueryParamBalanceOperatorNe  QueryParamBalanceOperator = "ne"
+)
+
+func (e QueryParamBalanceOperator) ToPointer() *QueryParamBalanceOperator {
+	return &e
+}
+
+func (e *QueryParamBalanceOperator) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "gte":
+		fallthrough
+	case "lte":
+		fallthrough
+	case "gt":
+		fallthrough
+	case "lt":
+		fallthrough
+	case "e":
+		fallthrough
+	case "ne":
+		*e = QueryParamBalanceOperator(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for QueryParamBalanceOperator: %v", v)
+	}
+}
+
+// QueryParamMetadata - Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below.
+type QueryParamMetadata struct {
 }
 
 type ListAccountsRequest struct {
@@ -63,13 +104,13 @@ type ListAccountsRequest struct {
 	Balance *int64 `queryParam:"style=form,explode=true,name=balance"`
 	// Operator used for the filtering of balances can be greater than/equal, less than/equal, greater than, less than, equal or not.
 	//
-	BalanceOperator *ListAccountsBalanceOperator `queryParam:"style=form,explode=true,name=balanceOperator"`
+	BalanceOperator *BalanceOperator `queryParam:"style=form,explode=true,name=balanceOperator"`
 	// Operator used for the filtering of balances can be greater than/equal, less than/equal, greater than, less than, equal or not.
 	// Deprecated, please use `balanceOperator` instead.
 	//
 	//
 	// Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-	BalanceOperatorDeprecated *ListAccountsBalanceOperator `queryParam:"style=form,explode=true,name=balance_operator"`
+	BalanceOperatorDeprecated *QueryParamBalanceOperator `queryParam:"style=form,explode=true,name=balance_operator"`
 	// Parameter used in pagination requests. Maximum page size is set to 15.
 	// Set to the value of next for the next page of results.
 	// Set to the value of previous for the previous page of results.
@@ -79,7 +120,7 @@ type ListAccountsRequest struct {
 	// Name of the ledger.
 	Ledger string `pathParam:"style=simple,explode=false,name=ledger"`
 	// Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below.
-	Metadata *ListAccountsMetadata `queryParam:"style=deepObject,explode=true,name=metadata"`
+	Metadata *QueryParamMetadata `queryParam:"style=deepObject,explode=true,name=metadata"`
 	// The maximum number of results to return per page.
 	//
 	PageSize *int64 `default:"15" queryParam:"style=form,explode=true,name=pageSize"`
@@ -132,14 +173,14 @@ func (o *ListAccountsRequest) GetBalance() *int64 {
 	return o.Balance
 }
 
-func (o *ListAccountsRequest) GetBalanceOperator() *ListAccountsBalanceOperator {
+func (o *ListAccountsRequest) GetBalanceOperator() *BalanceOperator {
 	if o == nil {
 		return nil
 	}
 	return o.BalanceOperator
 }
 
-func (o *ListAccountsRequest) GetBalanceOperatorDeprecated() *ListAccountsBalanceOperator {
+func (o *ListAccountsRequest) GetBalanceOperatorDeprecated() *QueryParamBalanceOperator {
 	if o == nil {
 		return nil
 	}
@@ -160,7 +201,7 @@ func (o *ListAccountsRequest) GetLedger() string {
 	return o.Ledger
 }
 
-func (o *ListAccountsRequest) GetMetadata() *ListAccountsMetadata {
+func (o *ListAccountsRequest) GetMetadata() *QueryParamMetadata {
 	if o == nil {
 		return nil
 	}

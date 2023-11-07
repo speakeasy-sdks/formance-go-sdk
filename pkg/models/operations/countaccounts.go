@@ -7,8 +7,8 @@ import (
 	"net/http"
 )
 
-// CountAccountsMetadata - Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below.
-type CountAccountsMetadata struct {
+// Metadata - Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below.
+type Metadata struct {
 }
 
 type CountAccountsRequest struct {
@@ -17,7 +17,7 @@ type CountAccountsRequest struct {
 	// Filter accounts by address pattern (regular expression placed between ^ and $).
 	Address *string `queryParam:"style=form,explode=true,name=address"`
 	// Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below.
-	Metadata *CountAccountsMetadata `queryParam:"style=deepObject,explode=true,name=metadata"`
+	Metadata *Metadata `queryParam:"style=deepObject,explode=true,name=metadata"`
 }
 
 func (o *CountAccountsRequest) GetLedger() string {
@@ -34,7 +34,7 @@ func (o *CountAccountsRequest) GetAddress() *string {
 	return o.Address
 }
 
-func (o *CountAccountsRequest) GetMetadata() *CountAccountsMetadata {
+func (o *CountAccountsRequest) GetMetadata() *Metadata {
 	if o == nil {
 		return nil
 	}

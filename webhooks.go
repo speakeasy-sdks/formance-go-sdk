@@ -15,20 +15,20 @@ import (
 	"strings"
 )
 
-// webhooks - Everything related to Webhooks
-type webhooks struct {
+// Webhooks - Everything related to Webhooks
+type Webhooks struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newWebhooks(sdkConfig sdkConfiguration) *webhooks {
-	return &webhooks{
+func newWebhooks(sdkConfig sdkConfiguration) *Webhooks {
+	return &Webhooks{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
 // ActivateConfig - Activate one config
 // Activate a webhooks config by ID, to start receiving webhooks to its endpoint.
-func (s *webhooks) ActivateConfig(ctx context.Context, id string) (*operations.ActivateConfigResponse, error) {
+func (s *Webhooks) ActivateConfig(ctx context.Context, id string) (*operations.ActivateConfigResponse, error) {
 	request := operations.ActivateConfigRequest{
 		ID: id,
 	}
@@ -84,6 +84,10 @@ func (s *webhooks) ActivateConfig(ctx context.Context, id string) (*operations.A
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 304:
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
@@ -94,7 +98,7 @@ func (s *webhooks) ActivateConfig(ctx context.Context, id string) (*operations.A
 //
 // If not passed or empty, a secret is automatically generated.
 // The format is a random string of bytes of size 24, base64 encoded. (larger size after encoding)
-func (s *webhooks) ChangeConfigSecret(ctx context.Context, id string, configChangeSecret *shared.ConfigChangeSecret) (*operations.ChangeConfigSecretResponse, error) {
+func (s *Webhooks) ChangeConfigSecret(ctx context.Context, id string, configChangeSecret *shared.ConfigChangeSecret) (*operations.ChangeConfigSecretResponse, error) {
 	request := operations.ChangeConfigSecretRequest{
 		ID:                 id,
 		ConfigChangeSecret: configChangeSecret,
@@ -157,6 +161,10 @@ func (s *webhooks) ChangeConfigSecret(ctx context.Context, id string, configChan
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
@@ -164,7 +172,7 @@ func (s *webhooks) ChangeConfigSecret(ctx context.Context, id string, configChan
 
 // DeactivateConfig - Deactivate one config
 // Deactivate a webhooks config by ID, to stop receiving webhooks to its endpoint.
-func (s *webhooks) DeactivateConfig(ctx context.Context, id string) (*operations.DeactivateConfigResponse, error) {
+func (s *Webhooks) DeactivateConfig(ctx context.Context, id string) (*operations.DeactivateConfigResponse, error) {
 	request := operations.DeactivateConfigRequest{
 		ID: id,
 	}
@@ -220,6 +228,10 @@ func (s *webhooks) DeactivateConfig(ctx context.Context, id string) (*operations
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 304:
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
@@ -227,7 +239,7 @@ func (s *webhooks) DeactivateConfig(ctx context.Context, id string) (*operations
 
 // DeleteConfig - Delete one config
 // Delete a webhooks config by ID.
-func (s *webhooks) DeleteConfig(ctx context.Context, id string) (*operations.DeleteConfigResponse, error) {
+func (s *Webhooks) DeleteConfig(ctx context.Context, id string) (*operations.DeleteConfigResponse, error) {
 	request := operations.DeleteConfigRequest{
 		ID: id,
 	}
@@ -271,6 +283,10 @@ func (s *webhooks) DeleteConfig(ctx context.Context, id string) (*operations.Del
 	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 	switch {
 	case httpRes.StatusCode == 200:
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
@@ -278,7 +294,7 @@ func (s *webhooks) DeleteConfig(ctx context.Context, id string) (*operations.Del
 
 // GetManyConfigs - Get many configs
 // Sorted by updated date descending
-func (s *webhooks) GetManyConfigs(ctx context.Context, endpoint *string, id *string) (*operations.GetManyConfigsResponse, error) {
+func (s *Webhooks) GetManyConfigs(ctx context.Context, endpoint *string, id *string) (*operations.GetManyConfigsResponse, error) {
 	request := operations.GetManyConfigsRequest{
 		Endpoint: endpoint,
 		ID:       id,
@@ -335,6 +351,10 @@ func (s *webhooks) GetManyConfigs(ctx context.Context, endpoint *string, id *str
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
@@ -350,17 +370,7 @@ func (s *webhooks) GetManyConfigs(ctx context.Context, endpoint *string, id *str
 // The format is a random string of bytes of size 24, base64 encoded. (larger size after encoding)
 //
 // All eventTypes are converted to lower-case when inserted.
-func (s *webhooks) InsertConfig(ctx context.Context, request shared.ConfigUser, opts ...operations.Option) (*operations.InsertConfigResponse, error) {
-	o := operations.Options{}
-	supportedOptions := []string{
-		operations.SupportedOptionAcceptHeaderOverride,
-	}
-
-	for _, opt := range opts {
-		if err := opt(&o, supportedOptions...); err != nil {
-			return nil, fmt.Errorf("error applying option: %w", err)
-		}
-	}
+func (s *Webhooks) InsertConfig(ctx context.Context, request shared.ConfigUser) (*operations.InsertConfigResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/api/webhooks/configs"
 
@@ -376,12 +386,7 @@ func (s *webhooks) InsertConfig(ctx context.Context, request shared.ConfigUser, 
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
-	if o.AcceptHeaderOverride != nil {
-		req.Header.Set("Accept", string(*o.AcceptHeaderOverride))
-	} else {
-		req.Header.Set("Accept", "application/json;q=1, text/plain;q=0")
-	}
-
+	req.Header.Set("Accept", "application/json")
 	req.Header.Set("user-agent", s.sdkConfiguration.UserAgent)
 
 	req.Header.Set("Content-Type", reqContentType)
@@ -424,13 +429,11 @@ func (s *webhooks) InsertConfig(ctx context.Context, request shared.ConfigUser, 
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 400:
-		switch {
-		case utils.MatchContentType(contentType, `text/plain`):
-			out := string(rawBody)
-			res.InsertConfig400TextPlainString = &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
+		fallthrough
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
@@ -438,7 +441,7 @@ func (s *webhooks) InsertConfig(ctx context.Context, request shared.ConfigUser, 
 
 // TestConfig - Test one config
 // Test a config by sending a webhook to its endpoint.
-func (s *webhooks) TestConfig(ctx context.Context, id string) (*operations.TestConfigResponse, error) {
+func (s *Webhooks) TestConfig(ctx context.Context, id string) (*operations.TestConfigResponse, error) {
 	request := operations.TestConfigRequest{
 		ID: id,
 	}
@@ -493,6 +496,10 @@ func (s *webhooks) TestConfig(ctx context.Context, id string) (*operations.TestC
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil

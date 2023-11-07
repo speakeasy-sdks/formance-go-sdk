@@ -2,13 +2,13 @@
 
 package shared
 
-type AccountMetadata struct {
+type Metadata struct {
 }
 
 type Account struct {
-	Address  string           `json:"address"`
-	Metadata *AccountMetadata `json:"metadata,omitempty"`
-	Type     *string          `json:"type,omitempty"`
+	Address  string    `json:"address"`
+	Metadata *Metadata `json:"metadata,omitempty"`
+	Type     *string   `json:"type,omitempty"`
 }
 
 func (o *Account) GetAddress() string {
@@ -18,7 +18,7 @@ func (o *Account) GetAddress() string {
 	return o.Address
 }
 
-func (o *Account) GetMetadata() *AccountMetadata {
+func (o *Account) GetMetadata() *Metadata {
 	if o == nil {
 		return nil
 	}

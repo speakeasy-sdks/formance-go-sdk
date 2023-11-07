@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: e2d62c3257abdb44d60905723bd6484e
   docVersion: v1.0.0-rc.5
-  speakeasyVersion: 1.112.1
-  generationVersion: 2.173.0
+  speakeasyVersion: 1.114.1
+  generationVersion: 2.181.1
 generation:
   comments: {}
   sdkClassName: formance
@@ -11,16 +11,25 @@ generation:
 features:
   go:
     constsAndDefaults: 0.1.1
-    core: 2.94.0
+    core: 3.1.0
     deprecations: 2.81.1
     flattening: 2.81.1
     globalSecurity: 2.82.2
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
-    unions: 2.84.1
+    unions: 2.85.0
 go:
-  version: 0.4.0
+  version: 0.5.0
+  clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true
+  imports:
+    option: openapi
+    paths:
+      callbacks: pkg/models/callbacks
+      errors: pkg/models/sdkerrors
+      operations: pkg/models/operations
+      shared: pkg/models/shared
+      webhooks: pkg/models/webhooks
   installationURL: https://github.com/speakeasy-sdks/formance-go-sdk
   maxMethodParams: 4
   packageName: github.com/speakeasy-sdks/formance-go-sdk

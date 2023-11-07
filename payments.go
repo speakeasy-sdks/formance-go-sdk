@@ -15,20 +15,20 @@ import (
 	"strings"
 )
 
-// payments - Everything related to Payments
-type payments struct {
+// Payments - Everything related to Payments
+type Payments struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newPayments(sdkConfig sdkConfiguration) *payments {
-	return &payments{
+func newPayments(sdkConfig sdkConfiguration) *Payments {
+	return &Payments{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
 // ConnectorsStripeTransfer - Transfer funds between Stripe accounts
 // Execute a transfer between two Stripe accounts.
-func (s *payments) ConnectorsStripeTransfer(ctx context.Context, request shared.StripeTransferRequest) (*operations.ConnectorsStripeTransferResponse, error) {
+func (s *Payments) ConnectorsStripeTransfer(ctx context.Context, request shared.StripeTransferRequest) (*operations.ConnectorsStripeTransferResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/api/payments/connectors/stripe/transfer"
 
@@ -86,6 +86,10 @@ func (s *payments) ConnectorsStripeTransfer(ctx context.Context, request shared.
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
@@ -93,7 +97,7 @@ func (s *payments) ConnectorsStripeTransfer(ctx context.Context, request shared.
 
 // GetConnectorTask - Read a specific task of the connector
 // Get a specific task associated to the connector.
-func (s *payments) GetConnectorTask(ctx context.Context, connector shared.Connector, taskID string) (*operations.GetConnectorTaskResponse, error) {
+func (s *Payments) GetConnectorTask(ctx context.Context, connector shared.Connector, taskID string) (*operations.GetConnectorTaskResponse, error) {
 	request := operations.GetConnectorTaskRequest{
 		Connector: connector,
 		TaskID:    taskID,
@@ -149,13 +153,17 @@ func (s *payments) GetConnectorTask(ctx context.Context, connector shared.Connec
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
 }
 
 // GetPayment - Get a payment
-func (s *payments) GetPayment(ctx context.Context, paymentID string) (*operations.GetPaymentResponse, error) {
+func (s *Payments) GetPayment(ctx context.Context, paymentID string) (*operations.GetPaymentResponse, error) {
 	request := operations.GetPaymentRequest{
 		PaymentID: paymentID,
 	}
@@ -210,6 +218,10 @@ func (s *payments) GetPayment(ctx context.Context, paymentID string) (*operation
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
@@ -217,7 +229,7 @@ func (s *payments) GetPayment(ctx context.Context, paymentID string) (*operation
 
 // InstallConnector - Install a connector
 // Install a connector by its name and config.
-func (s *payments) InstallConnector(ctx context.Context, connectorConfig shared.ConnectorConfig, connector shared.Connector) (*operations.InstallConnectorResponse, error) {
+func (s *Payments) InstallConnector(ctx context.Context, connectorConfig shared.ConnectorConfig, connector shared.Connector) (*operations.InstallConnectorResponse, error) {
 	request := operations.InstallConnectorRequest{
 		ConnectorConfig: connectorConfig,
 		Connector:       connector,
@@ -272,6 +284,10 @@ func (s *payments) InstallConnector(ctx context.Context, connectorConfig shared.
 	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 	switch {
 	case httpRes.StatusCode == 204:
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
@@ -279,7 +295,7 @@ func (s *payments) InstallConnector(ctx context.Context, connectorConfig shared.
 
 // ListAllConnectors - List all installed connectors
 // List all installed connectors.
-func (s *payments) ListAllConnectors(ctx context.Context) (*operations.ListAllConnectorsResponse, error) {
+func (s *Payments) ListAllConnectors(ctx context.Context) (*operations.ListAllConnectorsResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/api/payments/connectors"
 
@@ -327,6 +343,10 @@ func (s *payments) ListAllConnectors(ctx context.Context) (*operations.ListAllCo
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
@@ -334,7 +354,7 @@ func (s *payments) ListAllConnectors(ctx context.Context) (*operations.ListAllCo
 
 // ListConfigsAvailableConnectors - List the configs of each available connector
 // List the configs of each available connector.
-func (s *payments) ListConfigsAvailableConnectors(ctx context.Context) (*operations.ListConfigsAvailableConnectorsResponse, error) {
+func (s *Payments) ListConfigsAvailableConnectors(ctx context.Context) (*operations.ListConfigsAvailableConnectorsResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/api/payments/connectors/configs"
 
@@ -382,6 +402,10 @@ func (s *payments) ListConfigsAvailableConnectors(ctx context.Context) (*operati
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
@@ -389,7 +413,7 @@ func (s *payments) ListConfigsAvailableConnectors(ctx context.Context) (*operati
 
 // ListConnectorTasks - List tasks from a connector
 // List all tasks associated with this connector.
-func (s *payments) ListConnectorTasks(ctx context.Context, connector shared.Connector, cursor *string, pageSize *int64) (*operations.ListConnectorTasksResponse, error) {
+func (s *Payments) ListConnectorTasks(ctx context.Context, connector shared.Connector, cursor *string, pageSize *int64) (*operations.ListConnectorTasksResponse, error) {
 	request := operations.ListConnectorTasksRequest{
 		Connector: connector,
 		Cursor:    cursor,
@@ -450,13 +474,17 @@ func (s *payments) ListConnectorTasks(ctx context.Context, connector shared.Conn
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
 }
 
 // ListPayments - List payments
-func (s *payments) ListPayments(ctx context.Context, cursor *string, pageSize *int64, sort []string) (*operations.ListPaymentsResponse, error) {
+func (s *Payments) ListPayments(ctx context.Context, cursor *string, pageSize *int64, sort []string) (*operations.ListPaymentsResponse, error) {
 	request := operations.ListPaymentsRequest{
 		Cursor:   cursor,
 		PageSize: pageSize,
@@ -514,13 +542,17 @@ func (s *payments) ListPayments(ctx context.Context, cursor *string, pageSize *i
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
 }
 
 // PaymentslistAccounts - List accounts
-func (s *payments) PaymentslistAccounts(ctx context.Context, cursor *string, pageSize *int64, sort []string) (*operations.PaymentslistAccountsResponse, error) {
+func (s *Payments) PaymentslistAccounts(ctx context.Context, cursor *string, pageSize *int64, sort []string) (*operations.PaymentslistAccountsResponse, error) {
 	request := operations.PaymentslistAccountsRequest{
 		Cursor:   cursor,
 		PageSize: pageSize,
@@ -578,6 +610,10 @@ func (s *payments) PaymentslistAccounts(ctx context.Context, cursor *string, pag
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
@@ -585,7 +621,7 @@ func (s *payments) PaymentslistAccounts(ctx context.Context, cursor *string, pag
 
 // ReadConnectorConfig - Read the config of a connector
 // Read connector config
-func (s *payments) ReadConnectorConfig(ctx context.Context, connector shared.Connector) (*operations.ReadConnectorConfigResponse, error) {
+func (s *Payments) ReadConnectorConfig(ctx context.Context, connector shared.Connector) (*operations.ReadConnectorConfigResponse, error) {
 	request := operations.ReadConnectorConfigRequest{
 		Connector: connector,
 	}
@@ -640,6 +676,10 @@ func (s *payments) ReadConnectorConfig(ctx context.Context, connector shared.Con
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
@@ -648,7 +688,7 @@ func (s *payments) ReadConnectorConfig(ctx context.Context, connector shared.Con
 // ResetConnector - Reset a connector
 // Reset a connector by its name.
 // It will remove the connector and ALL PAYMENTS generated with it.
-func (s *payments) ResetConnector(ctx context.Context, connector shared.Connector) (*operations.ResetConnectorResponse, error) {
+func (s *Payments) ResetConnector(ctx context.Context, connector shared.Connector) (*operations.ResetConnectorResponse, error) {
 	request := operations.ResetConnectorRequest{
 		Connector: connector,
 	}
@@ -692,6 +732,10 @@ func (s *payments) ResetConnector(ctx context.Context, connector shared.Connecto
 	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 	switch {
 	case httpRes.StatusCode == 204:
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
@@ -699,7 +743,7 @@ func (s *payments) ResetConnector(ctx context.Context, connector shared.Connecto
 
 // UninstallConnector - Uninstall a connector
 // Uninstall a connector by its name.
-func (s *payments) UninstallConnector(ctx context.Context, connector shared.Connector) (*operations.UninstallConnectorResponse, error) {
+func (s *Payments) UninstallConnector(ctx context.Context, connector shared.Connector) (*operations.UninstallConnectorResponse, error) {
 	request := operations.UninstallConnectorRequest{
 		Connector: connector,
 	}
@@ -743,6 +787,10 @@ func (s *payments) UninstallConnector(ctx context.Context, connector shared.Conn
 	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 	switch {
 	case httpRes.StatusCode == 204:
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil

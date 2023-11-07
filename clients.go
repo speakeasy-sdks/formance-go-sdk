@@ -15,19 +15,19 @@ import (
 	"strings"
 )
 
-// clients - Everything related to Clients
-type clients struct {
+// Clients - Everything related to Clients
+type Clients struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newClients(sdkConfig sdkConfiguration) *clients {
-	return &clients{
+func newClients(sdkConfig sdkConfiguration) *Clients {
+	return &Clients{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
 // AddScopeToClient - Add scope to client
-func (s *clients) AddScopeToClient(ctx context.Context, clientID string, scopeID string) (*operations.AddScopeToClientResponse, error) {
+func (s *Clients) AddScopeToClient(ctx context.Context, clientID string, scopeID string) (*operations.AddScopeToClientResponse, error) {
 	request := operations.AddScopeToClientRequest{
 		ClientID: clientID,
 		ScopeID:  scopeID,
@@ -72,13 +72,17 @@ func (s *clients) AddScopeToClient(ctx context.Context, clientID string, scopeID
 	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 	switch {
 	case httpRes.StatusCode == 204:
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
 }
 
 // CreateClient - Create client
-func (s *clients) CreateClient(ctx context.Context, request *shared.CreateClientRequest) (*operations.CreateClientResponse, error) {
+func (s *Clients) CreateClient(ctx context.Context, request *shared.CreateClientRequest) (*operations.CreateClientResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/api/auth/clients"
 
@@ -133,13 +137,17 @@ func (s *clients) CreateClient(ctx context.Context, request *shared.CreateClient
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
 }
 
 // CreateSecret - Add a secret to a client
-func (s *clients) CreateSecret(ctx context.Context, clientID string, createSecretRequest *shared.CreateSecretRequest) (*operations.CreateSecretResponse, error) {
+func (s *Clients) CreateSecret(ctx context.Context, clientID string, createSecretRequest *shared.CreateSecretRequest) (*operations.CreateSecretResponse, error) {
 	request := operations.CreateSecretRequest{
 		ClientID:            clientID,
 		CreateSecretRequest: createSecretRequest,
@@ -202,13 +210,17 @@ func (s *clients) CreateSecret(ctx context.Context, clientID string, createSecre
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
 }
 
 // DeleteClient - Delete client
-func (s *clients) DeleteClient(ctx context.Context, clientID string) (*operations.DeleteClientResponse, error) {
+func (s *Clients) DeleteClient(ctx context.Context, clientID string) (*operations.DeleteClientResponse, error) {
 	request := operations.DeleteClientRequest{
 		ClientID: clientID,
 	}
@@ -252,13 +264,17 @@ func (s *clients) DeleteClient(ctx context.Context, clientID string) (*operation
 	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 	switch {
 	case httpRes.StatusCode == 204:
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
 }
 
 // DeleteScopeFromClient - Delete scope from client
-func (s *clients) DeleteScopeFromClient(ctx context.Context, clientID string, scopeID string) (*operations.DeleteScopeFromClientResponse, error) {
+func (s *Clients) DeleteScopeFromClient(ctx context.Context, clientID string, scopeID string) (*operations.DeleteScopeFromClientResponse, error) {
 	request := operations.DeleteScopeFromClientRequest{
 		ClientID: clientID,
 		ScopeID:  scopeID,
@@ -303,13 +319,17 @@ func (s *clients) DeleteScopeFromClient(ctx context.Context, clientID string, sc
 	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 	switch {
 	case httpRes.StatusCode == 204:
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
 }
 
 // DeleteSecret - Delete a secret from a client
-func (s *clients) DeleteSecret(ctx context.Context, clientID string, secretID string) (*operations.DeleteSecretResponse, error) {
+func (s *Clients) DeleteSecret(ctx context.Context, clientID string, secretID string) (*operations.DeleteSecretResponse, error) {
 	request := operations.DeleteSecretRequest{
 		ClientID: clientID,
 		SecretID: secretID,
@@ -354,13 +374,17 @@ func (s *clients) DeleteSecret(ctx context.Context, clientID string, secretID st
 	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 	switch {
 	case httpRes.StatusCode == 204:
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
 }
 
 // ListClients - List clients
-func (s *clients) ListClients(ctx context.Context) (*operations.ListClientsResponse, error) {
+func (s *Clients) ListClients(ctx context.Context) (*operations.ListClientsResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/api/auth/clients"
 
@@ -408,13 +432,17 @@ func (s *clients) ListClients(ctx context.Context) (*operations.ListClientsRespo
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
 }
 
 // ReadClient - Read client
-func (s *clients) ReadClient(ctx context.Context, clientID string) (*operations.ReadClientResponse, error) {
+func (s *Clients) ReadClient(ctx context.Context, clientID string) (*operations.ReadClientResponse, error) {
 	request := operations.ReadClientRequest{
 		ClientID: clientID,
 	}
@@ -469,13 +497,17 @@ func (s *clients) ReadClient(ctx context.Context, clientID string) (*operations.
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
 }
 
 // UpdateClient - Update client
-func (s *clients) UpdateClient(ctx context.Context, clientID string, updateClientRequest *shared.UpdateClientRequest) (*operations.UpdateClientResponse, error) {
+func (s *Clients) UpdateClient(ctx context.Context, clientID string, updateClientRequest *shared.UpdateClientRequest) (*operations.UpdateClientResponse, error) {
 	request := operations.UpdateClientRequest{
 		ClientID:            clientID,
 		UpdateClientRequest: updateClientRequest,
@@ -538,6 +570,10 @@ func (s *clients) UpdateClient(ctx context.Context, clientID string, updateClien
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil

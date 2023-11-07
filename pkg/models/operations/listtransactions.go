@@ -9,8 +9,8 @@ import (
 	"time"
 )
 
-// ListTransactionsMetadata - Filter transactions by metadata key value pairs. Nested objects can be used as seen in the example below.
-type ListTransactionsMetadata struct {
+// ListTransactionsQueryParamMetadata - Filter transactions by metadata key value pairs. Nested objects can be used as seen in the example below.
+type ListTransactionsQueryParamMetadata struct {
 }
 
 type ListTransactionsRequest struct {
@@ -40,7 +40,7 @@ type ListTransactionsRequest struct {
 	// Name of the ledger.
 	Ledger string `pathParam:"style=simple,explode=false,name=ledger"`
 	// Filter transactions by metadata key value pairs. Nested objects can be used as seen in the example below.
-	Metadata *ListTransactionsMetadata `queryParam:"style=deepObject,explode=true,name=metadata"`
+	Metadata *ListTransactionsQueryParamMetadata `queryParam:"style=deepObject,explode=true,name=metadata"`
 	// The maximum number of results to return per page.
 	//
 	PageSize *int64 `default:"15" queryParam:"style=form,explode=true,name=pageSize"`
@@ -136,7 +136,7 @@ func (o *ListTransactionsRequest) GetLedger() string {
 	return o.Ledger
 }
 
-func (o *ListTransactionsRequest) GetMetadata() *ListTransactionsMetadata {
+func (o *ListTransactionsRequest) GetMetadata() *ListTransactionsQueryParamMetadata {
 	if o == nil {
 		return nil
 	}

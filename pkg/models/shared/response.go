@@ -2,22 +2,22 @@
 
 package shared
 
-type ResponseCursorData struct {
+type ResponseSchemasData struct {
 }
 
-type ResponseCursorTotal struct {
+type Total struct {
 	Relation *string `json:"relation,omitempty"`
 	Value    *int64  `json:"value,omitempty"`
 }
 
-func (o *ResponseCursorTotal) GetRelation() *string {
+func (o *Total) GetRelation() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Relation
 }
 
-func (o *ResponseCursorTotal) GetValue() *int64 {
+func (o *Total) GetValue() *int64 {
 	if o == nil {
 		return nil
 	}
@@ -25,15 +25,15 @@ func (o *ResponseCursorTotal) GetValue() *int64 {
 }
 
 type ResponseCursor struct {
-	Data     []ResponseCursorData `json:"data,omitempty"`
-	HasMore  *bool                `json:"hasMore,omitempty"`
-	Next     *string              `json:"next,omitempty"`
-	PageSize *int64               `json:"pageSize,omitempty"`
-	Previous *string              `json:"previous,omitempty"`
-	Total    *ResponseCursorTotal `json:"total,omitempty"`
+	Data     []ResponseSchemasData `json:"data,omitempty"`
+	HasMore  *bool                 `json:"hasMore,omitempty"`
+	Next     *string               `json:"next,omitempty"`
+	PageSize *int64                `json:"pageSize,omitempty"`
+	Previous *string               `json:"previous,omitempty"`
+	Total    *Total                `json:"total,omitempty"`
 }
 
-func (o *ResponseCursor) GetData() []ResponseCursorData {
+func (o *ResponseCursor) GetData() []ResponseSchemasData {
 	if o == nil {
 		return nil
 	}
@@ -68,7 +68,7 @@ func (o *ResponseCursor) GetPrevious() *string {
 	return o.Previous
 }
 
-func (o *ResponseCursor) GetTotal() *ResponseCursorTotal {
+func (o *ResponseCursor) GetTotal() *Total {
 	if o == nil {
 		return nil
 	}

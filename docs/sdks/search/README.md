@@ -1,5 +1,5 @@
 # Search
-(*Search*)
+(*.Search*)
 
 ## Overview
 

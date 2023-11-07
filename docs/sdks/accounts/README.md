@@ -1,5 +1,5 @@
 # Accounts
-(*Accounts*)
+(*.Accounts*)
 
 ## Overview
 
@@ -97,7 +97,7 @@ func main() {
 
     var address *string = "users:.+"
 
-    metadata := &operations.CountAccountsMetadata{}
+    metadata := &operations.Metadata{}
 
     ctx := context.Background()
     res, err := s.Accounts.CountAccounts(ctx, ledger, address, metadata)
@@ -118,7 +118,7 @@ func main() {
 | `ctx`                                                                                                 | [context.Context](https://pkg.go.dev/context#Context)                                                 | :heavy_check_mark:                                                                                    | The context to use for the request.                                                                   |                                                                                                       |
 | `ledger`                                                                                              | *string*                                                                                              | :heavy_check_mark:                                                                                    | Name of the ledger.                                                                                   | ledger001                                                                                             |
 | `address`                                                                                             | **string*                                                                                             | :heavy_minus_sign:                                                                                    | Filter accounts by address pattern (regular expression placed between ^ and $).                       | users:.+                                                                                              |
-| `metadata`                                                                                            | [*operations.CountAccountsMetadata](../../models/operations/countaccountsmetadata.md)                 | :heavy_minus_sign:                                                                                    | Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below. |                                                                                                       |
+| `metadata`                                                                                            | [*operations.Metadata](../../models/operations/metadata.md)                                           | :heavy_minus_sign:                                                                                    | Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below. |                                                                                                       |
 
 
 ### Response
@@ -205,11 +205,11 @@ func main() {
         Address: formancegosdk.String("users:.+"),
         After: formancegosdk.String("users:003"),
         Balance: formancegosdk.Int64(2400),
-        BalanceOperator: operations.ListAccountsBalanceOperatorGte.ToPointer(),
-        BalanceOperatorDeprecated: operations.ListAccountsBalanceOperatorGte.ToPointer(),
+        BalanceOperator: operations.BalanceOperatorGte.ToPointer(),
+        BalanceOperatorDeprecated: operations.QueryParamBalanceOperatorGte.ToPointer(),
         Cursor: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         Ledger: "ledger001",
-        Metadata: &operations.ListAccountsMetadata{},
+        Metadata: &operations.QueryParamMetadata{},
         PaginationToken: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
     })
     if err != nil {

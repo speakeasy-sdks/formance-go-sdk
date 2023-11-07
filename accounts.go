@@ -14,19 +14,19 @@ import (
 	"net/http"
 )
 
-// accounts - Everything related to Accounts
-type accounts struct {
+// Accounts - Everything related to Accounts
+type Accounts struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newAccounts(sdkConfig sdkConfiguration) *accounts {
-	return &accounts{
+func newAccounts(sdkConfig sdkConfiguration) *Accounts {
+	return &Accounts{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
 // AddMetadataToAccount - Add metadata to an account
-func (s *accounts) AddMetadataToAccount(ctx context.Context, requestBody map[string]interface{}, address string, ledger string) (*operations.AddMetadataToAccountResponse, error) {
+func (s *Accounts) AddMetadataToAccount(ctx context.Context, requestBody map[string]interface{}, address string, ledger string) (*operations.AddMetadataToAccountResponse, error) {
 	request := operations.AddMetadataToAccountRequest{
 		RequestBody: requestBody,
 		Address:     address,
@@ -82,6 +82,10 @@ func (s *accounts) AddMetadataToAccount(ctx context.Context, requestBody map[str
 	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 	switch {
 	case httpRes.StatusCode == 204:
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -100,7 +104,7 @@ func (s *accounts) AddMetadataToAccount(ctx context.Context, requestBody map[str
 }
 
 // CountAccounts - Count the accounts from a ledger
-func (s *accounts) CountAccounts(ctx context.Context, ledger string, address *string, metadata *operations.CountAccountsMetadata) (*operations.CountAccountsResponse, error) {
+func (s *Accounts) CountAccounts(ctx context.Context, ledger string, address *string, metadata *operations.Metadata) (*operations.CountAccountsResponse, error) {
 	request := operations.CountAccountsRequest{
 		Ledger:   ledger,
 		Address:  address,
@@ -152,6 +156,10 @@ func (s *accounts) CountAccounts(ctx context.Context, ledger string, address *st
 	case httpRes.StatusCode == 200:
 		res.Headers = httpRes.Header
 
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -170,7 +178,7 @@ func (s *accounts) CountAccounts(ctx context.Context, ledger string, address *st
 }
 
 // GetAccount - Get account by its address
-func (s *accounts) GetAccount(ctx context.Context, address string, ledger string) (*operations.GetAccountResponse, error) {
+func (s *Accounts) GetAccount(ctx context.Context, address string, ledger string) (*operations.GetAccountResponse, error) {
 	request := operations.GetAccountRequest{
 		Address: address,
 		Ledger:  ledger,
@@ -226,6 +234,10 @@ func (s *accounts) GetAccount(ctx context.Context, address string, ledger string
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -245,7 +257,7 @@ func (s *accounts) GetAccount(ctx context.Context, address string, ledger string
 
 // ListAccounts - List accounts from a ledger
 // List accounts from a ledger, sorted by address in descending order.
-func (s *accounts) ListAccounts(ctx context.Context, request operations.ListAccountsRequest) (*operations.ListAccountsResponse, error) {
+func (s *Accounts) ListAccounts(ctx context.Context, request operations.ListAccountsRequest) (*operations.ListAccountsResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/accounts", request, nil)
 	if err != nil {
@@ -300,6 +312,10 @@ func (s *accounts) ListAccounts(ctx context.Context, request operations.ListAcco
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):

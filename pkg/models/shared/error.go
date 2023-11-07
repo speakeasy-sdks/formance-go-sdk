@@ -7,38 +7,38 @@ import (
 	"fmt"
 )
 
-type ErrorErrorCode string
+type ErrorCode string
 
 const (
-	ErrorErrorCodeValidation ErrorErrorCode = "VALIDATION"
+	ErrorCodeValidation ErrorCode = "VALIDATION"
 )
 
-func (e ErrorErrorCode) ToPointer() *ErrorErrorCode {
+func (e ErrorCode) ToPointer() *ErrorCode {
 	return &e
 }
 
-func (e *ErrorErrorCode) UnmarshalJSON(data []byte) error {
+func (e *ErrorCode) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "VALIDATION":
-		*e = ErrorErrorCode(v)
+		*e = ErrorCode(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ErrorErrorCode: %v", v)
+		return fmt.Errorf("invalid value for ErrorCode: %v", v)
 	}
 }
 
 type Error struct {
-	ErrorCode    ErrorErrorCode `json:"errorCode"`
-	ErrorMessage string         `json:"errorMessage"`
+	ErrorCode    ErrorCode `json:"errorCode"`
+	ErrorMessage string    `json:"errorMessage"`
 }
 
-func (o *Error) GetErrorCode() ErrorErrorCode {
+func (o *Error) GetErrorCode() ErrorCode {
 	if o == nil {
-		return ErrorErrorCode("")
+		return ErrorCode("")
 	}
 	return o.ErrorCode
 }

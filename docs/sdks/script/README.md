@@ -1,5 +1,5 @@
 # Script
-(*Script*)
+(*.Script*)
 
 ## Overview
 
@@ -48,7 +48,7 @@ func main() {
     )
     ",
         Reference: formancegosdk.String("order_1234"),
-        Vars: &shared.ScriptVars{},
+        Vars: &shared.Vars{},
     }
 
     var ledger string = "ledger001"

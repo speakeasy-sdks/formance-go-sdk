@@ -15,20 +15,20 @@ import (
 	"strings"
 )
 
-// orchestration - Everything related to Orchestration
-type orchestration struct {
+// Orchestration - Everything related to Orchestration
+type Orchestration struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newOrchestration(sdkConfig sdkConfiguration) *orchestration {
-	return &orchestration{
+func newOrchestration(sdkConfig sdkConfiguration) *Orchestration {
+	return &Orchestration{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
 // CreateWorkflow - Create workflow
 // Create a workflow
-func (s *orchestration) CreateWorkflow(ctx context.Context, request *shared.CreateWorkflowRequest) (*operations.CreateWorkflowResponse, error) {
+func (s *Orchestration) CreateWorkflow(ctx context.Context, request *shared.CreateWorkflowRequest) (*operations.CreateWorkflowResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/api/orchestration/flows"
 
@@ -83,6 +83,10 @@ func (s *orchestration) CreateWorkflow(ctx context.Context, request *shared.Crea
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -102,7 +106,7 @@ func (s *orchestration) CreateWorkflow(ctx context.Context, request *shared.Crea
 
 // GetFlow - Get a flow by id
 // Get a flow by id
-func (s *orchestration) GetFlow(ctx context.Context, flowID string) (*operations.GetFlowResponse, error) {
+func (s *Orchestration) GetFlow(ctx context.Context, flowID string) (*operations.GetFlowResponse, error) {
 	request := operations.GetFlowRequest{
 		FlowID: flowID,
 	}
@@ -157,6 +161,10 @@ func (s *orchestration) GetFlow(ctx context.Context, flowID string) (*operations
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -176,7 +184,7 @@ func (s *orchestration) GetFlow(ctx context.Context, flowID string) (*operations
 
 // GetWorkflowOccurrence - Get a workflow occurrence by id
 // Get a workflow occurrence by id
-func (s *orchestration) GetWorkflowOccurrence(ctx context.Context, flowID string, runID string) (*operations.GetWorkflowOccurrenceResponse, error) {
+func (s *Orchestration) GetWorkflowOccurrence(ctx context.Context, flowID string, runID string) (*operations.GetWorkflowOccurrenceResponse, error) {
 	request := operations.GetWorkflowOccurrenceRequest{
 		FlowID: flowID,
 		RunID:  runID,
@@ -232,6 +240,10 @@ func (s *orchestration) GetWorkflowOccurrence(ctx context.Context, flowID string
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -251,7 +263,7 @@ func (s *orchestration) GetWorkflowOccurrence(ctx context.Context, flowID string
 
 // ListFlows - List registered flows
 // List registered flows
-func (s *orchestration) ListFlows(ctx context.Context) (*operations.ListFlowsResponse, error) {
+func (s *Orchestration) ListFlows(ctx context.Context) (*operations.ListFlowsResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/api/orchestration/flows"
 
@@ -299,6 +311,10 @@ func (s *orchestration) ListFlows(ctx context.Context) (*operations.ListFlowsRes
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -318,7 +334,7 @@ func (s *orchestration) ListFlows(ctx context.Context) (*operations.ListFlowsRes
 
 // ListRuns - List occurrences of a workflow
 // List occurrences of a workflow
-func (s *orchestration) ListRuns(ctx context.Context, flowID string) (*operations.ListRunsResponse, error) {
+func (s *Orchestration) ListRuns(ctx context.Context, flowID string) (*operations.ListRunsResponse, error) {
 	request := operations.ListRunsRequest{
 		FlowID: flowID,
 	}
@@ -373,6 +389,10 @@ func (s *orchestration) ListRuns(ctx context.Context, flowID string) (*operation
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -391,7 +411,7 @@ func (s *orchestration) ListRuns(ctx context.Context, flowID string) (*operation
 }
 
 // OrchestrationgetServerInfo - Get server info
-func (s *orchestration) OrchestrationgetServerInfo(ctx context.Context) (*operations.OrchestrationgetServerInfoResponse, error) {
+func (s *Orchestration) OrchestrationgetServerInfo(ctx context.Context) (*operations.OrchestrationgetServerInfoResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/api/orchestration/_info"
 
@@ -439,6 +459,10 @@ func (s *orchestration) OrchestrationgetServerInfo(ctx context.Context) (*operat
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -458,7 +482,7 @@ func (s *orchestration) OrchestrationgetServerInfo(ctx context.Context) (*operat
 
 // RunWorkflow - Run workflow
 // Run workflow
-func (s *orchestration) RunWorkflow(ctx context.Context, flowID string, requestBody map[string]string, wait *bool) (*operations.RunWorkflowResponse, error) {
+func (s *Orchestration) RunWorkflow(ctx context.Context, flowID string, requestBody map[string]string, wait *bool) (*operations.RunWorkflowResponse, error) {
 	request := operations.RunWorkflowRequest{
 		FlowID:      flowID,
 		RequestBody: requestBody,
@@ -526,6 +550,10 @@ func (s *orchestration) RunWorkflow(ctx context.Context, flowID string, requestB
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):

@@ -1,6 +1,4 @@
-# CountAccountsMetadata
-
-Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below.
+# Vars
 
 
 ## Fields

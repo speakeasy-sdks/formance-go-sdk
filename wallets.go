@@ -15,19 +15,19 @@ import (
 	"strings"
 )
 
-// wallets - Everything related to Wallets
-type wallets struct {
+// Wallets - Everything related to Wallets
+type Wallets struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newWallets(sdkConfig sdkConfiguration) *wallets {
-	return &wallets{
+func newWallets(sdkConfig sdkConfiguration) *Wallets {
+	return &Wallets{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
 // ConfirmHold - Confirm a hold
-func (s *wallets) ConfirmHold(ctx context.Context, holdID string, confirmHoldRequest *shared.ConfirmHoldRequest) (*operations.ConfirmHoldResponse, error) {
+func (s *Wallets) ConfirmHold(ctx context.Context, holdID string, confirmHoldRequest *shared.ConfirmHoldRequest) (*operations.ConfirmHoldResponse, error) {
 	request := operations.ConfirmHoldRequest{
 		HoldID:             holdID,
 		ConfirmHoldRequest: confirmHoldRequest,
@@ -79,6 +79,10 @@ func (s *wallets) ConfirmHold(ctx context.Context, holdID string, confirmHoldReq
 	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 	switch {
 	case httpRes.StatusCode == 204:
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -97,7 +101,7 @@ func (s *wallets) ConfirmHold(ctx context.Context, holdID string, confirmHoldReq
 }
 
 // CreateBalance - Create a balance
-func (s *wallets) CreateBalance(ctx context.Context, id string, createBalanceRequest *shared.CreateBalanceRequest) (*operations.CreateBalanceResponse, error) {
+func (s *Wallets) CreateBalance(ctx context.Context, id string, createBalanceRequest *shared.CreateBalanceRequest) (*operations.CreateBalanceResponse, error) {
 	request := operations.CreateBalanceRequest{
 		ID:                   id,
 		CreateBalanceRequest: createBalanceRequest,
@@ -160,6 +164,10 @@ func (s *wallets) CreateBalance(ctx context.Context, id string, createBalanceReq
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -178,7 +186,7 @@ func (s *wallets) CreateBalance(ctx context.Context, id string, createBalanceReq
 }
 
 // CreateWallet - Create a new wallet
-func (s *wallets) CreateWallet(ctx context.Context, request *shared.CreateWalletRequest) (*operations.CreateWalletResponse, error) {
+func (s *Wallets) CreateWallet(ctx context.Context, request *shared.CreateWalletRequest) (*operations.CreateWalletResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/api/wallets/wallets"
 
@@ -233,6 +241,10 @@ func (s *wallets) CreateWallet(ctx context.Context, request *shared.CreateWallet
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -251,7 +263,7 @@ func (s *wallets) CreateWallet(ctx context.Context, request *shared.CreateWallet
 }
 
 // CreditWallet - Credit a wallet
-func (s *wallets) CreditWallet(ctx context.Context, id string, creditWalletRequest *shared.CreditWalletRequest) (*operations.CreditWalletResponse, error) {
+func (s *Wallets) CreditWallet(ctx context.Context, id string, creditWalletRequest *shared.CreditWalletRequest) (*operations.CreditWalletResponse, error) {
 	request := operations.CreditWalletRequest{
 		ID:                  id,
 		CreditWalletRequest: creditWalletRequest,
@@ -303,6 +315,10 @@ func (s *wallets) CreditWallet(ctx context.Context, id string, creditWalletReque
 	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 	switch {
 	case httpRes.StatusCode == 204:
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -321,7 +337,7 @@ func (s *wallets) CreditWallet(ctx context.Context, id string, creditWalletReque
 }
 
 // DebitWallet - Debit a wallet
-func (s *wallets) DebitWallet(ctx context.Context, id string, debitWalletRequest *shared.DebitWalletRequest) (*operations.DebitWalletResponse, error) {
+func (s *Wallets) DebitWallet(ctx context.Context, id string, debitWalletRequest *shared.DebitWalletRequest) (*operations.DebitWalletResponse, error) {
 	request := operations.DebitWalletRequest{
 		ID:                 id,
 		DebitWalletRequest: debitWalletRequest,
@@ -385,6 +401,10 @@ func (s *wallets) DebitWallet(ctx context.Context, id string, debitWalletRequest
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 204:
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -403,7 +423,7 @@ func (s *wallets) DebitWallet(ctx context.Context, id string, debitWalletRequest
 }
 
 // GetBalance - Get detailed balance
-func (s *wallets) GetBalance(ctx context.Context, balanceName string, id string) (*operations.GetBalanceResponse, error) {
+func (s *Wallets) GetBalance(ctx context.Context, balanceName string, id string) (*operations.GetBalanceResponse, error) {
 	request := operations.GetBalanceRequest{
 		BalanceName: balanceName,
 		ID:          id,
@@ -459,6 +479,10 @@ func (s *wallets) GetBalance(ctx context.Context, balanceName string, id string)
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -477,7 +501,7 @@ func (s *wallets) GetBalance(ctx context.Context, balanceName string, id string)
 }
 
 // GetHold - Get a hold
-func (s *wallets) GetHold(ctx context.Context, holdID string) (*operations.GetHoldResponse, error) {
+func (s *Wallets) GetHold(ctx context.Context, holdID string) (*operations.GetHoldResponse, error) {
 	request := operations.GetHoldRequest{
 		HoldID: holdID,
 	}
@@ -532,6 +556,10 @@ func (s *wallets) GetHold(ctx context.Context, holdID string) (*operations.GetHo
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -550,7 +578,7 @@ func (s *wallets) GetHold(ctx context.Context, holdID string) (*operations.GetHo
 }
 
 // GetHolds - Get all holds for a wallet
-func (s *wallets) GetHolds(ctx context.Context, cursor *string, metadata *operations.GetHoldsMetadata, pageSize *int64, walletID *string) (*operations.GetHoldsResponse, error) {
+func (s *Wallets) GetHolds(ctx context.Context, cursor *string, metadata *operations.GetHoldsQueryParamMetadata, pageSize *int64, walletID *string) (*operations.GetHoldsResponse, error) {
 	request := operations.GetHoldsRequest{
 		Cursor:   cursor,
 		Metadata: metadata,
@@ -609,6 +637,10 @@ func (s *wallets) GetHolds(ctx context.Context, cursor *string, metadata *operat
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -626,7 +658,7 @@ func (s *wallets) GetHolds(ctx context.Context, cursor *string, metadata *operat
 	return res, nil
 }
 
-func (s *wallets) GetTransactions(ctx context.Context, cursor *string, pageSize *int64, walletID *string) (*operations.GetTransactionsResponse, error) {
+func (s *Wallets) GetTransactions(ctx context.Context, cursor *string, pageSize *int64, walletID *string) (*operations.GetTransactionsResponse, error) {
 	request := operations.GetTransactionsRequest{
 		Cursor:   cursor,
 		PageSize: pageSize,
@@ -684,6 +716,10 @@ func (s *wallets) GetTransactions(ctx context.Context, cursor *string, pageSize 
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -702,7 +738,7 @@ func (s *wallets) GetTransactions(ctx context.Context, cursor *string, pageSize 
 }
 
 // GetWallet - Get a wallet
-func (s *wallets) GetWallet(ctx context.Context, id string) (*operations.GetWalletResponse, error) {
+func (s *Wallets) GetWallet(ctx context.Context, id string) (*operations.GetWalletResponse, error) {
 	request := operations.GetWalletRequest{
 		ID: id,
 	}
@@ -758,6 +794,11 @@ func (s *wallets) GetWallet(ctx context.Context, id string) (*operations.GetWall
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 404:
+		fallthrough
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -776,7 +817,7 @@ func (s *wallets) GetWallet(ctx context.Context, id string) (*operations.GetWall
 }
 
 // ListBalances - List balances of a wallet
-func (s *wallets) ListBalances(ctx context.Context, id string) (*operations.ListBalancesResponse, error) {
+func (s *Wallets) ListBalances(ctx context.Context, id string) (*operations.ListBalancesResponse, error) {
 	request := operations.ListBalancesRequest{
 		ID: id,
 	}
@@ -831,13 +872,17 @@ func (s *wallets) ListBalances(ctx context.Context, id string) (*operations.List
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
 }
 
 // ListWallets - List all wallets
-func (s *wallets) ListWallets(ctx context.Context, cursor *string, metadata *operations.ListWalletsMetadata, name *string, pageSize *int64) (*operations.ListWalletsResponse, error) {
+func (s *Wallets) ListWallets(ctx context.Context, cursor *string, metadata *operations.ListWalletsQueryParamMetadata, name *string, pageSize *int64) (*operations.ListWalletsResponse, error) {
 	request := operations.ListWalletsRequest{
 		Cursor:   cursor,
 		Metadata: metadata,
@@ -896,13 +941,17 @@ func (s *wallets) ListWallets(ctx context.Context, cursor *string, metadata *ope
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
 }
 
 // UpdateWallet - Update a wallet
-func (s *wallets) UpdateWallet(ctx context.Context, id string, requestBody *operations.UpdateWalletRequestBody) (*operations.UpdateWalletResponse, error) {
+func (s *Wallets) UpdateWallet(ctx context.Context, id string, requestBody *operations.UpdateWalletRequestBody) (*operations.UpdateWalletResponse, error) {
 	request := operations.UpdateWalletRequest{
 		ID:          id,
 		RequestBody: requestBody,
@@ -954,6 +1003,10 @@ func (s *wallets) UpdateWallet(ctx context.Context, id string, requestBody *oper
 	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 	switch {
 	case httpRes.StatusCode == 204:
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -972,7 +1025,7 @@ func (s *wallets) UpdateWallet(ctx context.Context, id string, requestBody *oper
 }
 
 // VoidHold - Cancel a hold
-func (s *wallets) VoidHold(ctx context.Context, holdID string) (*operations.VoidHoldResponse, error) {
+func (s *Wallets) VoidHold(ctx context.Context, holdID string) (*operations.VoidHoldResponse, error) {
 	request := operations.VoidHoldRequest{
 		HoldID: holdID,
 	}
@@ -1016,6 +1069,10 @@ func (s *wallets) VoidHold(ctx context.Context, holdID string) (*operations.Void
 	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 	switch {
 	case httpRes.StatusCode == 204:
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -1034,7 +1091,7 @@ func (s *wallets) VoidHold(ctx context.Context, holdID string) (*operations.Void
 }
 
 // WalletsgetServerInfo - Get server info
-func (s *wallets) WalletsgetServerInfo(ctx context.Context) (*operations.WalletsgetServerInfoResponse, error) {
+func (s *Wallets) WalletsgetServerInfo(ctx context.Context) (*operations.WalletsgetServerInfoResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/api/wallets/_info"
 
@@ -1082,6 +1139,10 @@ func (s *wallets) WalletsgetServerInfo(ctx context.Context) (*operations.Wallets
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):

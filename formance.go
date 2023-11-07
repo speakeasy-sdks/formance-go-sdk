@@ -83,40 +83,40 @@ func (c *sdkConfiguration) GetServerDetails() (string, map[string]string) {
 // and standard method from web, mobile and desktop applications.
 // <SecurityDefinitions />
 type Formance struct {
-	// Everything related to Accounts
-	Accounts *accounts
-	// Everything related to Balances
-	Balances *balances
 	// Everything related to Clients
-	Clients *clients
-	// Everything related to Ledger
-	Ledger *ledger
-	// Everything related to Logs
-	Logs *logs
-	// Everything related to Mapping
-	Mapping *mapping
-	// Everything related to Orchestration
-	Orchestration *orchestration
-	// Everything related to Payments
-	Payments *payments
+	Clients *Clients
 	// Everything related to Scopes
-	Scopes *scopes
-	// Everything related to Script
-	Script *script
-	// Everything related to Search
-	Search *search
-	// Everything related to Server
-	Server *server
-	// Everything related to Stats
-	Stats *stats
-	// Everything related to Transactions
-	Transactions *transactions
+	Scopes *Scopes
 	// Everything related to Users
-	Users *users
+	Users *Users
+	// Everything related to Server
+	Server *Server
+	// Everything related to Ledger
+	Ledger *Ledger
+	// Everything related to Accounts
+	Accounts *Accounts
+	// Everything related to Balances
+	Balances *Balances
+	// Everything related to Logs
+	Logs *Logs
+	// Everything related to Mapping
+	Mapping *Mapping
+	// Everything related to Script
+	Script *Script
+	// Everything related to Stats
+	Stats *Stats
+	// Everything related to Transactions
+	Transactions *Transactions
+	// Everything related to Orchestration
+	Orchestration *Orchestration
+	// Everything related to Payments
+	Payments *Payments
+	// Everything related to Search
+	Search *Search
 	// Everything related to Wallets
-	Wallets *wallets
+	Wallets *Wallets
 	// Everything related to Webhooks
-	Webhooks *webhooks
+	Webhooks *Webhooks
 
 	sdkConfiguration sdkConfiguration
 }
@@ -199,9 +199,9 @@ func New(opts ...SDKOption) *Formance {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "v1.0.0-rc.5",
-			SDKVersion:        "0.4.0",
-			GenVersion:        "2.173.0",
-			UserAgent:         "speakeasy-sdk/go 0.4.0 2.173.0 v1.0.0-rc.5 github.com/speakeasy-sdks/formance-go-sdk",
+			SDKVersion:        "0.5.0",
+			GenVersion:        "2.181.1",
+			UserAgent:         "speakeasy-sdk/go 0.5.0 2.181.1 v1.0.0-rc.5 github.com/speakeasy-sdks/formance-go-sdk",
 			ServerDefaults: []map[string]string{
 				{},
 				{
@@ -226,35 +226,35 @@ func New(opts ...SDKOption) *Formance {
 		}
 	}
 
+	sdk.Clients = newClients(sdk.sdkConfiguration)
+
+	sdk.Scopes = newScopes(sdk.sdkConfiguration)
+
+	sdk.Users = newUsers(sdk.sdkConfiguration)
+
+	sdk.Server = newServer(sdk.sdkConfiguration)
+
+	sdk.Ledger = newLedger(sdk.sdkConfiguration)
+
 	sdk.Accounts = newAccounts(sdk.sdkConfiguration)
 
 	sdk.Balances = newBalances(sdk.sdkConfiguration)
-
-	sdk.Clients = newClients(sdk.sdkConfiguration)
-
-	sdk.Ledger = newLedger(sdk.sdkConfiguration)
 
 	sdk.Logs = newLogs(sdk.sdkConfiguration)
 
 	sdk.Mapping = newMapping(sdk.sdkConfiguration)
 
-	sdk.Orchestration = newOrchestration(sdk.sdkConfiguration)
-
-	sdk.Payments = newPayments(sdk.sdkConfiguration)
-
-	sdk.Scopes = newScopes(sdk.sdkConfiguration)
-
 	sdk.Script = newScript(sdk.sdkConfiguration)
-
-	sdk.Search = newSearch(sdk.sdkConfiguration)
-
-	sdk.Server = newServer(sdk.sdkConfiguration)
 
 	sdk.Stats = newStats(sdk.sdkConfiguration)
 
 	sdk.Transactions = newTransactions(sdk.sdkConfiguration)
 
-	sdk.Users = newUsers(sdk.sdkConfiguration)
+	sdk.Orchestration = newOrchestration(sdk.sdkConfiguration)
+
+	sdk.Payments = newPayments(sdk.sdkConfiguration)
+
+	sdk.Search = newSearch(sdk.sdkConfiguration)
 
 	sdk.Wallets = newWallets(sdk.sdkConfiguration)
 
@@ -312,6 +312,10 @@ func (s *Formance) GetServerInfo(ctx context.Context) (*operations.GetServerInfo
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
@@ -366,6 +370,10 @@ func (s *Formance) PaymentsgetServerInfo(ctx context.Context) (*operations.Payme
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
@@ -420,6 +428,10 @@ func (s *Formance) SearchgetServerInfo(ctx context.Context) (*operations.Searchg
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil

@@ -14,19 +14,19 @@ import (
 	"net/http"
 )
 
-// mapping - Everything related to Mapping
-type mapping struct {
+// Mapping - Everything related to Mapping
+type Mapping struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newMapping(sdkConfig sdkConfiguration) *mapping {
-	return &mapping{
+func newMapping(sdkConfig sdkConfiguration) *Mapping {
+	return &Mapping{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
 // GetMapping - Get the mapping of a ledger
-func (s *mapping) GetMapping(ctx context.Context, ledger string) (*operations.GetMappingResponse, error) {
+func (s *Mapping) GetMapping(ctx context.Context, ledger string) (*operations.GetMappingResponse, error) {
 	request := operations.GetMappingRequest{
 		Ledger: ledger,
 	}
@@ -81,6 +81,10 @@ func (s *mapping) GetMapping(ctx context.Context, ledger string) (*operations.Ge
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -99,7 +103,7 @@ func (s *mapping) GetMapping(ctx context.Context, ledger string) (*operations.Ge
 }
 
 // UpdateMapping - Update the mapping of a ledger
-func (s *mapping) UpdateMapping(ctx context.Context, mapping *shared.Mapping, ledger string) (*operations.UpdateMappingResponse, error) {
+func (s *Mapping) UpdateMapping(ctx context.Context, mapping *shared.Mapping, ledger string) (*operations.UpdateMappingResponse, error) {
 	request := operations.UpdateMappingRequest{
 		Mapping: mapping,
 		Ledger:  ledger,
@@ -165,6 +169,10 @@ func (s *mapping) UpdateMapping(ctx context.Context, mapping *shared.Mapping, le
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):

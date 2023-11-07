@@ -1,5 +1,5 @@
 # Payments
-(*Payments*)
+(*.Payments*)
 
 ## Overview
 

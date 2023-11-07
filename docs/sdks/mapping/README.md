@@ -1,5 +1,5 @@
 # Mapping
-(*Mapping*)
+(*.Mapping*)
 
 ## Overview
 
@@ -85,7 +85,7 @@ func main() {
         Contracts: []shared.Contract{
             shared.Contract{
                 Account: formancegosdk.String("users:001"),
-                Expr: shared.ContractExpr{},
+                Expr: shared.Expr{},
             },
         },
     }

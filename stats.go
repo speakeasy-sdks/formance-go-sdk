@@ -14,20 +14,20 @@ import (
 	"net/http"
 )
 
-// stats - Everything related to Stats
-type stats struct {
+// Stats - Everything related to Stats
+type Stats struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newStats(sdkConfig sdkConfiguration) *stats {
-	return &stats{
+func newStats(sdkConfig sdkConfiguration) *Stats {
+	return &Stats{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
 // ReadStats - Get statistics from a ledger
 // Get statistics from a ledger. (aggregate metrics on accounts and transactions)
-func (s *stats) ReadStats(ctx context.Context, ledger string) (*operations.ReadStatsResponse, error) {
+func (s *Stats) ReadStats(ctx context.Context, ledger string) (*operations.ReadStatsResponse, error) {
 	request := operations.ReadStatsRequest{
 		Ledger: ledger,
 	}
@@ -82,6 +82,10 @@ func (s *stats) ReadStats(ctx context.Context, ledger string) (*operations.ReadS
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):

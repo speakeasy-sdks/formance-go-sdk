@@ -14,20 +14,20 @@ import (
 	"net/http"
 )
 
-// logs - Everything related to Logs
-type logs struct {
+// Logs - Everything related to Logs
+type Logs struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newLogs(sdkConfig sdkConfiguration) *logs {
-	return &logs{
+func newLogs(sdkConfig sdkConfiguration) *Logs {
+	return &Logs{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
 // ListLogs - List the logs from a ledger
 // List the logs from a ledger, sorted by ID in descending order.
-func (s *logs) ListLogs(ctx context.Context, request operations.ListLogsRequest) (*operations.ListLogsResponse, error) {
+func (s *Logs) ListLogs(ctx context.Context, request operations.ListLogsRequest) (*operations.ListLogsResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/log", request, nil)
 	if err != nil {
@@ -82,6 +82,10 @@ func (s *logs) ListLogs(ctx context.Context, request operations.ListLogsRequest)
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):

@@ -15,20 +15,20 @@ import (
 	"strings"
 )
 
-// search - Everything related to Search
-type search struct {
+// Search - Everything related to Search
+type Search struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newSearch(sdkConfig sdkConfiguration) *search {
-	return &search{
+func newSearch(sdkConfig sdkConfiguration) *Search {
+	return &Search{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
 // Search
 // ElasticSearch query engine
-func (s *search) Search(ctx context.Context, request shared.Query) (*operations.SearchResponse, error) {
+func (s *Search) Search(ctx context.Context, request shared.Query) (*operations.SearchResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/api/search/"
 
@@ -86,6 +86,10 @@ func (s *search) Search(ctx context.Context, request shared.Query) (*operations.
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 	}
 

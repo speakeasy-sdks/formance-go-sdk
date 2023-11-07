@@ -14,19 +14,19 @@ import (
 	"net/http"
 )
 
-// ledger - Everything related to Ledger
-type ledger struct {
+// Ledger - Everything related to Ledger
+type Ledger struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newLedger(sdkConfig sdkConfiguration) *ledger {
-	return &ledger{
+func newLedger(sdkConfig sdkConfiguration) *Ledger {
+	return &Ledger{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
 // GetLedgerInfo - Get information about a ledger
-func (s *ledger) GetLedgerInfo(ctx context.Context, ledger string) (*operations.GetLedgerInfoResponse, error) {
+func (s *Ledger) GetLedgerInfo(ctx context.Context, ledger string) (*operations.GetLedgerInfoResponse, error) {
 	request := operations.GetLedgerInfoRequest{
 		Ledger: ledger,
 	}
@@ -81,6 +81,10 @@ func (s *ledger) GetLedgerInfo(ctx context.Context, ledger string) (*operations.
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):

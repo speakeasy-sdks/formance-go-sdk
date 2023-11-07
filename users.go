@@ -15,20 +15,20 @@ import (
 	"strings"
 )
 
-// users - Everything related to Users
-type users struct {
+// Users - Everything related to Users
+type Users struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newUsers(sdkConfig sdkConfiguration) *users {
-	return &users{
+func newUsers(sdkConfig sdkConfiguration) *Users {
+	return &Users{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
 // ListUsers - List users
 // List users
-func (s *users) ListUsers(ctx context.Context) (*operations.ListUsersResponse, error) {
+func (s *Users) ListUsers(ctx context.Context) (*operations.ListUsersResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/api/auth/users"
 
@@ -76,6 +76,10 @@ func (s *users) ListUsers(ctx context.Context) (*operations.ListUsersResponse, e
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
@@ -83,7 +87,7 @@ func (s *users) ListUsers(ctx context.Context) (*operations.ListUsersResponse, e
 
 // ReadUser - Read user
 // Read user
-func (s *users) ReadUser(ctx context.Context, userID string) (*operations.ReadUserResponse, error) {
+func (s *Users) ReadUser(ctx context.Context, userID string) (*operations.ReadUserResponse, error) {
 	request := operations.ReadUserRequest{
 		UserID: userID,
 	}
@@ -138,6 +142,10 @@ func (s *users) ReadUser(ctx context.Context, userID string) (*operations.ReadUs
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil

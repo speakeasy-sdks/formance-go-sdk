@@ -9,8 +9,8 @@ import (
 	"time"
 )
 
-// CountTransactionsMetadata - Filter transactions by metadata key value pairs. Nested objects can be used as seen in the example below.
-type CountTransactionsMetadata struct {
+// CountTransactionsQueryParamMetadata - Filter transactions by metadata key value pairs. Nested objects can be used as seen in the example below.
+type CountTransactionsQueryParamMetadata struct {
 }
 
 type CountTransactionsRequest struct {
@@ -32,7 +32,7 @@ type CountTransactionsRequest struct {
 	// Name of the ledger.
 	Ledger string `pathParam:"style=simple,explode=false,name=ledger"`
 	// Filter transactions by metadata key value pairs. Nested objects can be used as seen in the example below.
-	Metadata *CountTransactionsMetadata `queryParam:"style=deepObject,explode=true,name=metadata"`
+	Metadata *CountTransactionsQueryParamMetadata `queryParam:"style=deepObject,explode=true,name=metadata"`
 	// Filter transactions by reference field.
 	Reference *string `queryParam:"style=form,explode=true,name=reference"`
 	// Filter transactions with postings involving given account at source (regular expression placed between ^ and $).
@@ -96,7 +96,7 @@ func (o *CountTransactionsRequest) GetLedger() string {
 	return o.Ledger
 }
 
-func (o *CountTransactionsRequest) GetMetadata() *CountTransactionsMetadata {
+func (o *CountTransactionsRequest) GetMetadata() *CountTransactionsQueryParamMetadata {
 	if o == nil {
 		return nil
 	}

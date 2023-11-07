@@ -1,5 +1,5 @@
 # Transactions
-(*Transactions*)
+(*.Transactions*)
 
 ## Overview
 
@@ -170,7 +170,7 @@ func main() {
         Account: formancegosdk.String("users:001"),
         Destination: formancegosdk.String("users:001"),
         Ledger: "ledger001",
-        Metadata: &operations.CountTransactionsMetadata{},
+        Metadata: &operations.CountTransactionsQueryParamMetadata{},
         Reference: formancegosdk.String("ref:001"),
         Source: formancegosdk.String("users:001"),
     })
@@ -221,8 +221,8 @@ func main() {
 
     postTransaction := shared.PostTransaction{
         Metadata: map[string]interface{}{
-            "admin": "string",
             "a": "string",
+            "admin": "string",
         },
         Postings: []shared.Posting{
             shared.Posting{
@@ -242,7 +242,7 @@ func main() {
         	destination = $user
         )
         ",
-            Vars: &shared.PostTransactionScriptVars{},
+            Vars: &shared.PostTransactionVars{},
         },
     }
 
@@ -358,7 +358,7 @@ func main() {
         Cursor: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         Destination: formancegosdk.String("users:001"),
         Ledger: "ledger001",
-        Metadata: &operations.ListTransactionsMetadata{},
+        Metadata: &operations.ListTransactionsQueryParamMetadata{},
         PaginationToken: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         Reference: formancegosdk.String("ref:001"),
         Source: formancegosdk.String("users:001"),

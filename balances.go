@@ -14,19 +14,19 @@ import (
 	"net/http"
 )
 
-// balances - Everything related to Balances
-type balances struct {
+// Balances - Everything related to Balances
+type Balances struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newBalances(sdkConfig sdkConfiguration) *balances {
-	return &balances{
+func newBalances(sdkConfig sdkConfiguration) *Balances {
+	return &Balances{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
 // GetBalances - Get the balances from a ledger's account
-func (s *balances) GetBalances(ctx context.Context, request operations.GetBalancesRequest) (*operations.GetBalancesResponse, error) {
+func (s *Balances) GetBalances(ctx context.Context, request operations.GetBalancesRequest) (*operations.GetBalancesResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/balances", request, nil)
 	if err != nil {
@@ -81,6 +81,10 @@ func (s *balances) GetBalances(ctx context.Context, request operations.GetBalanc
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -99,7 +103,7 @@ func (s *balances) GetBalances(ctx context.Context, request operations.GetBalanc
 }
 
 // GetBalancesAggregated - Get the aggregated balances from selected accounts
-func (s *balances) GetBalancesAggregated(ctx context.Context, ledger string, address *string) (*operations.GetBalancesAggregatedResponse, error) {
+func (s *Balances) GetBalancesAggregated(ctx context.Context, ledger string, address *string) (*operations.GetBalancesAggregatedResponse, error) {
 	request := operations.GetBalancesAggregatedRequest{
 		Ledger:  ledger,
 		Address: address,
@@ -159,6 +163,10 @@ func (s *balances) GetBalancesAggregated(ctx context.Context, ledger string, add
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):

@@ -1,5 +1,5 @@
 # Clients
-(*Clients*)
+(*.Clients*)
 
 ## Overview
 

@@ -1,4 +1,4 @@
-# ConnectorsConfigsResponseDataConnectorKey
+# Key
 
 
 ## Fields

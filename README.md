@@ -38,7 +38,7 @@ func main() {
 	)
 
 	ctx := context.Background()
-	res, err := s.Formance.GetServerInfo(ctx)
+	res, err := s.GetServerInfo(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -60,19 +60,7 @@ func main() {
 * [PaymentsgetServerInfo](docs/sdks/formance/README.md#paymentsgetserverinfo) - Get server info
 * [SearchgetServerInfo](docs/sdks/formance/README.md#searchgetserverinfo) - Get server info
 
-### [Accounts](docs/sdks/accounts/README.md)
-
-* [AddMetadataToAccount](docs/sdks/accounts/README.md#addmetadatatoaccount) - Add metadata to an account
-* [CountAccounts](docs/sdks/accounts/README.md#countaccounts) - Count the accounts from a ledger
-* [GetAccount](docs/sdks/accounts/README.md#getaccount) - Get account by its address
-* [ListAccounts](docs/sdks/accounts/README.md#listaccounts) - List accounts from a ledger
-
-### [Balances](docs/sdks/balances/README.md)
-
-* [GetBalances](docs/sdks/balances/README.md#getbalances) - Get the balances from a ledger's account
-* [GetBalancesAggregated](docs/sdks/balances/README.md#getbalancesaggregated) - Get the aggregated balances from selected accounts
-
-### [Clients](docs/sdks/clients/README.md)
+### [.Clients](docs/sdks/clients/README.md)
 
 * [AddScopeToClient](docs/sdks/clients/README.md#addscopetoclient) - Add scope to client
 * [CreateClient](docs/sdks/clients/README.md#createclient) - Create client
@@ -84,20 +72,69 @@ func main() {
 * [ReadClient](docs/sdks/clients/README.md#readclient) - Read client
 * [UpdateClient](docs/sdks/clients/README.md#updateclient) - Update client
 
-### [Ledger](docs/sdks/ledger/README.md)
+### [.Scopes](docs/sdks/scopes/README.md)
+
+* [AddTransientScope](docs/sdks/scopes/README.md#addtransientscope) - Add a transient scope to a scope
+* [CreateScope](docs/sdks/scopes/README.md#createscope) - Create scope
+* [DeleteScope](docs/sdks/scopes/README.md#deletescope) - Delete scope
+* [DeleteTransientScope](docs/sdks/scopes/README.md#deletetransientscope) - Delete a transient scope from a scope
+* [ListScopes](docs/sdks/scopes/README.md#listscopes) - List scopes
+* [ReadScope](docs/sdks/scopes/README.md#readscope) - Read scope
+* [UpdateScope](docs/sdks/scopes/README.md#updatescope) - Update scope
+
+### [.Users](docs/sdks/users/README.md)
+
+* [ListUsers](docs/sdks/users/README.md#listusers) - List users
+* [ReadUser](docs/sdks/users/README.md#readuser) - Read user
+
+### [.Server](docs/sdks/server/README.md)
+
+* [GetInfo](docs/sdks/server/README.md#getinfo) - Show server information
+
+### [.Ledger](docs/sdks/ledger/README.md)
 
 * [GetLedgerInfo](docs/sdks/ledger/README.md#getledgerinfo) - Get information about a ledger
 
-### [Logs](docs/sdks/logs/README.md)
+### [.Accounts](docs/sdks/accounts/README.md)
+
+* [AddMetadataToAccount](docs/sdks/accounts/README.md#addmetadatatoaccount) - Add metadata to an account
+* [CountAccounts](docs/sdks/accounts/README.md#countaccounts) - Count the accounts from a ledger
+* [GetAccount](docs/sdks/accounts/README.md#getaccount) - Get account by its address
+* [ListAccounts](docs/sdks/accounts/README.md#listaccounts) - List accounts from a ledger
+
+### [.Balances](docs/sdks/balances/README.md)
+
+* [GetBalances](docs/sdks/balances/README.md#getbalances) - Get the balances from a ledger's account
+* [GetBalancesAggregated](docs/sdks/balances/README.md#getbalancesaggregated) - Get the aggregated balances from selected accounts
+
+### [.Logs](docs/sdks/logs/README.md)
 
 * [ListLogs](docs/sdks/logs/README.md#listlogs) - List the logs from a ledger
 
-### [Mapping](docs/sdks/mapping/README.md)
+### [.Mapping](docs/sdks/mapping/README.md)
 
 * [GetMapping](docs/sdks/mapping/README.md#getmapping) - Get the mapping of a ledger
 * [UpdateMapping](docs/sdks/mapping/README.md#updatemapping) - Update the mapping of a ledger
 
-### [Orchestration](docs/sdks/orchestration/README.md)
+### [.Script](docs/sdks/script/README.md)
+
+* [~~RunScript~~](docs/sdks/script/README.md#runscript) - Execute a Numscript :warning: **Deprecated**
+
+### [.Stats](docs/sdks/stats/README.md)
+
+* [ReadStats](docs/sdks/stats/README.md#readstats) - Get statistics from a ledger
+
+### [.Transactions](docs/sdks/transactions/README.md)
+
+* [CreateTransactions](docs/sdks/transactions/README.md#createtransactions) - Create a new batch of transactions to a ledger
+* [AddMetadataOnTransaction](docs/sdks/transactions/README.md#addmetadataontransaction) - Set the metadata of a transaction by its ID
+* [CountTransactions](docs/sdks/transactions/README.md#counttransactions) - Count the transactions from a ledger
+* [CreateTransaction](docs/sdks/transactions/README.md#createtransaction) - Create a new transaction to a ledger
+* [GetTransaction](docs/sdks/transactions/README.md#gettransaction) - Get transaction from a ledger by its ID
+* [ListTransactions](docs/sdks/transactions/README.md#listtransactions) - List transactions from a ledger
+* [RevertTransaction](docs/sdks/transactions/README.md#reverttransaction) - Revert a ledger transaction by its ID
+
+### [.Orchestration](docs/sdks/orchestration/README.md)
 
 * [CreateWorkflow](docs/sdks/orchestration/README.md#createworkflow) - Create workflow
 * [GetFlow](docs/sdks/orchestration/README.md#getflow) - Get a flow by id
@@ -107,7 +144,7 @@ func main() {
 * [OrchestrationgetServerInfo](docs/sdks/orchestration/README.md#orchestrationgetserverinfo) - Get server info
 * [RunWorkflow](docs/sdks/orchestration/README.md#runworkflow) - Run workflow
 
-### [Payments](docs/sdks/payments/README.md)
+### [.Payments](docs/sdks/payments/README.md)
 
 * [ConnectorsStripeTransfer](docs/sdks/payments/README.md#connectorsstripetransfer) - Transfer funds between Stripe accounts
 * [GetConnectorTask](docs/sdks/payments/README.md#getconnectortask) - Read a specific task of the connector
@@ -122,48 +159,11 @@ func main() {
 * [ResetConnector](docs/sdks/payments/README.md#resetconnector) - Reset a connector
 * [UninstallConnector](docs/sdks/payments/README.md#uninstallconnector) - Uninstall a connector
 
-### [Scopes](docs/sdks/scopes/README.md)
-
-* [AddTransientScope](docs/sdks/scopes/README.md#addtransientscope) - Add a transient scope to a scope
-* [CreateScope](docs/sdks/scopes/README.md#createscope) - Create scope
-* [DeleteScope](docs/sdks/scopes/README.md#deletescope) - Delete scope
-* [DeleteTransientScope](docs/sdks/scopes/README.md#deletetransientscope) - Delete a transient scope from a scope
-* [ListScopes](docs/sdks/scopes/README.md#listscopes) - List scopes
-* [ReadScope](docs/sdks/scopes/README.md#readscope) - Read scope
-* [UpdateScope](docs/sdks/scopes/README.md#updatescope) - Update scope
-
-### [Script](docs/sdks/script/README.md)
-
-* [~~RunScript~~](docs/sdks/script/README.md#runscript) - Execute a Numscript :warning: **Deprecated**
-
-### [Search](docs/sdks/search/README.md)
+### [.Search](docs/sdks/search/README.md)
 
 * [Search](docs/sdks/search/README.md#search) - Search
 
-### [Server](docs/sdks/server/README.md)
-
-* [GetInfo](docs/sdks/server/README.md#getinfo) - Show server information
-
-### [Stats](docs/sdks/stats/README.md)
-
-* [ReadStats](docs/sdks/stats/README.md#readstats) - Get statistics from a ledger
-
-### [Transactions](docs/sdks/transactions/README.md)
-
-* [CreateTransactions](docs/sdks/transactions/README.md#createtransactions) - Create a new batch of transactions to a ledger
-* [AddMetadataOnTransaction](docs/sdks/transactions/README.md#addmetadataontransaction) - Set the metadata of a transaction by its ID
-* [CountTransactions](docs/sdks/transactions/README.md#counttransactions) - Count the transactions from a ledger
-* [CreateTransaction](docs/sdks/transactions/README.md#createtransaction) - Create a new transaction to a ledger
-* [GetTransaction](docs/sdks/transactions/README.md#gettransaction) - Get transaction from a ledger by its ID
-* [ListTransactions](docs/sdks/transactions/README.md#listtransactions) - List transactions from a ledger
-* [RevertTransaction](docs/sdks/transactions/README.md#reverttransaction) - Revert a ledger transaction by its ID
-
-### [Users](docs/sdks/users/README.md)
-
-* [ListUsers](docs/sdks/users/README.md#listusers) - List users
-* [ReadUser](docs/sdks/users/README.md#readuser) - Read user
-
-### [Wallets](docs/sdks/wallets/README.md)
+### [.Wallets](docs/sdks/wallets/README.md)
 
 * [ConfirmHold](docs/sdks/wallets/README.md#confirmhold) - Confirm a hold
 * [CreateBalance](docs/sdks/wallets/README.md#createbalance) - Create a balance
@@ -181,7 +181,7 @@ func main() {
 * [VoidHold](docs/sdks/wallets/README.md#voidhold) - Cancel a hold
 * [WalletsgetServerInfo](docs/sdks/wallets/README.md#walletsgetserverinfo) - Get server info
 
-### [Webhooks](docs/sdks/webhooks/README.md)
+### [.Webhooks](docs/sdks/webhooks/README.md)
 
 * [ActivateConfig](docs/sdks/webhooks/README.md#activateconfig) - Activate one config
 * [ChangeConfigSecret](docs/sdks/webhooks/README.md#changeconfigsecret) - Change the signing secret of a config
@@ -196,8 +196,6 @@ func main() {
 
 <!-- Start Dev Containers -->
 
-
-
 <!-- End Dev Containers -->
 
 
@@ -206,8 +204,6 @@ func main() {
 # Error Handling
 
 Handling errors in your SDK should largely match your expectations.  All operations return a response object or an error, they will never return both.  When specified by the OpenAPI spec document, the SDK will return the appropriate subclass.
-
-
 <!-- End Error Handling -->
 
 
@@ -230,7 +226,6 @@ Some of the server options above contain variables. If you want to set the value
 
 For example:
 
-
 ```go
 package main
 
@@ -243,12 +238,12 @@ import (
 
 func main() {
 	s := formancegosdk.New(
-		formancegosdk.WithSecurity(""),
 		formancegosdk.WithServerIndex(1),
+		formancegosdk.WithSecurity(""),
 	)
 
 	ctx := context.Background()
-	res, err := s.Formance.GetServerInfo(ctx)
+	res, err := s.GetServerInfo(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -265,7 +260,6 @@ func main() {
 
 The default server can also be overridden globally using the `WithServerURL` option when initializing the SDK client instance. For example:
 
-
 ```go
 package main
 
@@ -278,12 +272,12 @@ import (
 
 func main() {
 	s := formancegosdk.New(
-		formancegosdk.WithSecurity(""),
 		formancegosdk.WithServerURL("http://localhost"),
+		formancegosdk.WithSecurity(""),
 	)
 
 	ctx := context.Background()
-	res, err := s.Formance.GetServerInfo(ctx)
+	res, err := s.GetServerInfo(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -332,6 +326,51 @@ This can be a convenient way to configure timeouts, cookies, proxies, custom hea
 <!-- Start Go Types -->
 
 <!-- End Go Types -->
+
+
+
+<!-- Start Authentication -->
+
+# Authentication
+
+## Per-Client Security Schemes
+
+Your SDK supports the following security scheme globally:
+
+| Name            | Type            | Scheme          |
+| --------------- | --------------- | --------------- |
+| `Authorization` | oauth2          | OAuth2 token    |
+
+You can configure it using the `WithSecurity` option when initializing the SDK client instance. For example:
+
+```go
+package main
+
+import (
+	"context"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"log"
+)
+
+func main() {
+	s := formancegosdk.New(
+		formancegosdk.WithSecurity(""),
+	)
+
+	ctx := context.Background()
+	res, err := s.GetServerInfo(ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if res.ServerInfo != nil {
+		// handle response
+	}
+}
+
+```
+<!-- End Authentication -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

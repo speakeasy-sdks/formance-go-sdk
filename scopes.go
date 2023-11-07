@@ -15,20 +15,20 @@ import (
 	"strings"
 )
 
-// scopes - Everything related to Scopes
-type scopes struct {
+// Scopes - Everything related to Scopes
+type Scopes struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newScopes(sdkConfig sdkConfiguration) *scopes {
-	return &scopes{
+func newScopes(sdkConfig sdkConfiguration) *Scopes {
+	return &Scopes{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
 // AddTransientScope - Add a transient scope to a scope
 // Add a transient scope to a scope
-func (s *scopes) AddTransientScope(ctx context.Context, scopeID string, transientScopeID string) (*operations.AddTransientScopeResponse, error) {
+func (s *Scopes) AddTransientScope(ctx context.Context, scopeID string, transientScopeID string) (*operations.AddTransientScopeResponse, error) {
 	request := operations.AddTransientScopeRequest{
 		ScopeID:          scopeID,
 		TransientScopeID: transientScopeID,
@@ -73,6 +73,10 @@ func (s *scopes) AddTransientScope(ctx context.Context, scopeID string, transien
 	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 	switch {
 	case httpRes.StatusCode == 204:
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
@@ -80,7 +84,7 @@ func (s *scopes) AddTransientScope(ctx context.Context, scopeID string, transien
 
 // CreateScope - Create scope
 // Create scope
-func (s *scopes) CreateScope(ctx context.Context, request *shared.CreateScopeRequest) (*operations.CreateScopeResponse, error) {
+func (s *Scopes) CreateScope(ctx context.Context, request *shared.CreateScopeRequest) (*operations.CreateScopeResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/api/auth/scopes"
 
@@ -135,6 +139,10 @@ func (s *scopes) CreateScope(ctx context.Context, request *shared.CreateScopeReq
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
@@ -142,7 +150,7 @@ func (s *scopes) CreateScope(ctx context.Context, request *shared.CreateScopeReq
 
 // DeleteScope - Delete scope
 // Delete scope
-func (s *scopes) DeleteScope(ctx context.Context, scopeID string) (*operations.DeleteScopeResponse, error) {
+func (s *Scopes) DeleteScope(ctx context.Context, scopeID string) (*operations.DeleteScopeResponse, error) {
 	request := operations.DeleteScopeRequest{
 		ScopeID: scopeID,
 	}
@@ -186,6 +194,10 @@ func (s *scopes) DeleteScope(ctx context.Context, scopeID string) (*operations.D
 	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 	switch {
 	case httpRes.StatusCode == 204:
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
@@ -193,7 +205,7 @@ func (s *scopes) DeleteScope(ctx context.Context, scopeID string) (*operations.D
 
 // DeleteTransientScope - Delete a transient scope from a scope
 // Delete a transient scope from a scope
-func (s *scopes) DeleteTransientScope(ctx context.Context, scopeID string, transientScopeID string) (*operations.DeleteTransientScopeResponse, error) {
+func (s *Scopes) DeleteTransientScope(ctx context.Context, scopeID string, transientScopeID string) (*operations.DeleteTransientScopeResponse, error) {
 	request := operations.DeleteTransientScopeRequest{
 		ScopeID:          scopeID,
 		TransientScopeID: transientScopeID,
@@ -238,6 +250,10 @@ func (s *scopes) DeleteTransientScope(ctx context.Context, scopeID string, trans
 	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 	switch {
 	case httpRes.StatusCode == 204:
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
@@ -245,7 +261,7 @@ func (s *scopes) DeleteTransientScope(ctx context.Context, scopeID string, trans
 
 // ListScopes - List scopes
 // List Scopes
-func (s *scopes) ListScopes(ctx context.Context) (*operations.ListScopesResponse, error) {
+func (s *Scopes) ListScopes(ctx context.Context) (*operations.ListScopesResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/api/auth/scopes"
 
@@ -293,6 +309,10 @@ func (s *scopes) ListScopes(ctx context.Context) (*operations.ListScopesResponse
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
@@ -300,7 +320,7 @@ func (s *scopes) ListScopes(ctx context.Context) (*operations.ListScopesResponse
 
 // ReadScope - Read scope
 // Read scope
-func (s *scopes) ReadScope(ctx context.Context, scopeID string) (*operations.ReadScopeResponse, error) {
+func (s *Scopes) ReadScope(ctx context.Context, scopeID string) (*operations.ReadScopeResponse, error) {
 	request := operations.ReadScopeRequest{
 		ScopeID: scopeID,
 	}
@@ -355,6 +375,10 @@ func (s *scopes) ReadScope(ctx context.Context, scopeID string) (*operations.Rea
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
@@ -362,7 +386,7 @@ func (s *scopes) ReadScope(ctx context.Context, scopeID string) (*operations.Rea
 
 // UpdateScope - Update scope
 // Update scope
-func (s *scopes) UpdateScope(ctx context.Context, scopeID string, updateScopeRequest *shared.UpdateScopeRequest) (*operations.UpdateScopeResponse, error) {
+func (s *Scopes) UpdateScope(ctx context.Context, scopeID string, updateScopeRequest *shared.UpdateScopeRequest) (*operations.UpdateScopeResponse, error) {
 	request := operations.UpdateScopeRequest{
 		ScopeID:            scopeID,
 		UpdateScopeRequest: updateScopeRequest,
@@ -425,6 +449,10 @@ func (s *scopes) UpdateScope(ctx context.Context, scopeID string, updateScopeReq
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil

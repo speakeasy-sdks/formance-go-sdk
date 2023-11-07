@@ -1,5 +1,5 @@
 # Balances
-(*Balances*)
+(*.Balances*)
 
 ## Overview
 

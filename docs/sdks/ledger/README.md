@@ -1,5 +1,5 @@
 # Ledger
-(*Ledger*)
+(*.Ledger*)
 
 ## Overview
 

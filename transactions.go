@@ -14,19 +14,19 @@ import (
 	"net/http"
 )
 
-// transactions - Everything related to Transactions
-type transactions struct {
+// Transactions - Everything related to Transactions
+type Transactions struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newTransactions(sdkConfig sdkConfiguration) *transactions {
-	return &transactions{
+func newTransactions(sdkConfig sdkConfiguration) *Transactions {
+	return &Transactions{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
 // CreateTransactions - Create a new batch of transactions to a ledger
-func (s *transactions) CreateTransactions(ctx context.Context, transactions shared.Transactions, ledger string) (*operations.CreateTransactionsResponse, error) {
+func (s *Transactions) CreateTransactions(ctx context.Context, transactions shared.Transactions, ledger string) (*operations.CreateTransactionsResponse, error) {
 	request := operations.CreateTransactionsRequest{
 		Transactions: transactions,
 		Ledger:       ledger,
@@ -92,6 +92,10 @@ func (s *transactions) CreateTransactions(ctx context.Context, transactions shar
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -110,7 +114,7 @@ func (s *transactions) CreateTransactions(ctx context.Context, transactions shar
 }
 
 // AddMetadataOnTransaction - Set the metadata of a transaction by its ID
-func (s *transactions) AddMetadataOnTransaction(ctx context.Context, ledger string, txid int64, requestBody map[string]interface{}) (*operations.AddMetadataOnTransactionResponse, error) {
+func (s *Transactions) AddMetadataOnTransaction(ctx context.Context, ledger string, txid int64, requestBody map[string]interface{}) (*operations.AddMetadataOnTransactionResponse, error) {
 	request := operations.AddMetadataOnTransactionRequest{
 		Ledger:      ledger,
 		Txid:        txid,
@@ -163,6 +167,10 @@ func (s *transactions) AddMetadataOnTransaction(ctx context.Context, ledger stri
 	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 	switch {
 	case httpRes.StatusCode == 204:
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -181,7 +189,7 @@ func (s *transactions) AddMetadataOnTransaction(ctx context.Context, ledger stri
 }
 
 // CountTransactions - Count the transactions from a ledger
-func (s *transactions) CountTransactions(ctx context.Context, request operations.CountTransactionsRequest) (*operations.CountTransactionsResponse, error) {
+func (s *Transactions) CountTransactions(ctx context.Context, request operations.CountTransactionsRequest) (*operations.CountTransactionsResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/transactions", request, nil)
 	if err != nil {
@@ -227,6 +235,10 @@ func (s *transactions) CountTransactions(ctx context.Context, request operations
 	case httpRes.StatusCode == 200:
 		res.Headers = httpRes.Header
 
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -245,7 +257,7 @@ func (s *transactions) CountTransactions(ctx context.Context, request operations
 }
 
 // CreateTransaction - Create a new transaction to a ledger
-func (s *transactions) CreateTransaction(ctx context.Context, postTransaction shared.PostTransaction, ledger string, preview *bool) (*operations.CreateTransactionResponse, error) {
+func (s *Transactions) CreateTransaction(ctx context.Context, postTransaction shared.PostTransaction, ledger string, preview *bool) (*operations.CreateTransactionResponse, error) {
 	request := operations.CreateTransactionRequest{
 		PostTransaction: postTransaction,
 		Ledger:          ledger,
@@ -316,6 +328,10 @@ func (s *transactions) CreateTransaction(ctx context.Context, postTransaction sh
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -334,7 +350,7 @@ func (s *transactions) CreateTransaction(ctx context.Context, postTransaction sh
 }
 
 // GetTransaction - Get transaction from a ledger by its ID
-func (s *transactions) GetTransaction(ctx context.Context, ledger string, txid int64) (*operations.GetTransactionResponse, error) {
+func (s *Transactions) GetTransaction(ctx context.Context, ledger string, txid int64) (*operations.GetTransactionResponse, error) {
 	request := operations.GetTransactionRequest{
 		Ledger: ledger,
 		Txid:   txid,
@@ -390,6 +406,10 @@ func (s *transactions) GetTransaction(ctx context.Context, ledger string, txid i
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -409,7 +429,7 @@ func (s *transactions) GetTransaction(ctx context.Context, ledger string, txid i
 
 // ListTransactions - List transactions from a ledger
 // List transactions from a ledger, sorted by txid in descending order.
-func (s *transactions) ListTransactions(ctx context.Context, request operations.ListTransactionsRequest) (*operations.ListTransactionsResponse, error) {
+func (s *Transactions) ListTransactions(ctx context.Context, request operations.ListTransactionsRequest) (*operations.ListTransactionsResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/ledger/{ledger}/transactions", request, nil)
 	if err != nil {
@@ -464,6 +484,10 @@ func (s *transactions) ListTransactions(ctx context.Context, request operations.
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
@@ -482,7 +506,7 @@ func (s *transactions) ListTransactions(ctx context.Context, request operations.
 }
 
 // RevertTransaction - Revert a ledger transaction by its ID
-func (s *transactions) RevertTransaction(ctx context.Context, ledger string, txid int64) (*operations.RevertTransactionResponse, error) {
+func (s *Transactions) RevertTransaction(ctx context.Context, ledger string, txid int64) (*operations.RevertTransactionResponse, error) {
 	request := operations.RevertTransactionRequest{
 		Ledger: ledger,
 		Txid:   txid,
@@ -538,6 +562,10 @@ func (s *transactions) RevertTransaction(ctx context.Context, ledger string, txi
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	default:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
