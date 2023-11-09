@@ -1,5 +1,5 @@
 # Ledger
-(*.Ledger*)
+(*Ledger*)
 
 ## Overview
 
@@ -55,5 +55,7 @@ func main() {
 
 ### Response
 
-**[*operations.GetLedgerInfoResponse](../../models/operations/getledgerinforesponse.md), error**
-
+**[*operations.GetLedgerInfoResponse](../../pkg/models/operations/getledgerinforesponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

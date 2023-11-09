@@ -1,5 +1,5 @@
 # Mapping
-(*.Mapping*)
+(*Mapping*)
 
 ## Overview
 
@@ -56,8 +56,10 @@ func main() {
 
 ### Response
 
-**[*operations.GetMappingResponse](../../models/operations/getmappingresponse.md), error**
-
+**[*operations.GetMappingResponse](../../pkg/models/operations/getmappingresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## UpdateMapping
 
@@ -106,14 +108,16 @@ func main() {
 
 ### Parameters
 
-| Parameter                                             | Type                                                  | Required                                              | Description                                           | Example                                               |
-| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| `ctx`                                                 | [context.Context](https://pkg.go.dev/context#Context) | :heavy_check_mark:                                    | The context to use for the request.                   |                                                       |
-| `mapping`                                             | [shared.Mapping](../../models/shared/mapping.md)      | :heavy_check_mark:                                    | N/A                                                   |                                                       |
-| `ledger`                                              | *string*                                              | :heavy_check_mark:                                    | Name of the ledger.                                   | ledger001                                             |
+| Parameter                                               | Type                                                    | Required                                                | Description                                             | Example                                                 |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| `ctx`                                                   | [context.Context](https://pkg.go.dev/context#Context)   | :heavy_check_mark:                                      | The context to use for the request.                     |                                                         |
+| `mapping`                                               | [shared.Mapping](../../../pkg/models/shared/mapping.md) | :heavy_check_mark:                                      | N/A                                                     |                                                         |
+| `ledger`                                                | *string*                                                | :heavy_check_mark:                                      | Name of the ledger.                                     | ledger001                                               |
 
 
 ### Response
 
-**[*operations.UpdateMappingResponse](../../models/operations/updatemappingresponse.md), error**
-
+**[*operations.UpdateMappingResponse](../../pkg/models/operations/updatemappingresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

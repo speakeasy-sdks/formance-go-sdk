@@ -1,5 +1,5 @@
 # Balances
-(*.Balances*)
+(*Balances*)
 
 ## Overview
 
@@ -52,16 +52,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
-| `request`                                                                      | [operations.GetBalancesRequest](../../models/operations/getbalancesrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [operations.GetBalancesRequest](../../pkg/models/operations/getbalancesrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response
 
-**[*operations.GetBalancesResponse](../../models/operations/getbalancesresponse.md), error**
-
+**[*operations.GetBalancesResponse](../../pkg/models/operations/getbalancesresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## GetBalancesAggregated
 
@@ -112,5 +114,7 @@ func main() {
 
 ### Response
 
-**[*operations.GetBalancesAggregatedResponse](../../models/operations/getbalancesaggregatedresponse.md), error**
-
+**[*operations.GetBalancesAggregatedResponse](../../pkg/models/operations/getbalancesaggregatedresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

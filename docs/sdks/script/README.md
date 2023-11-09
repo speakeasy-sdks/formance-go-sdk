@@ -1,5 +1,5 @@
 # Script
-(*.Script*)
+(*Script*)
 
 ## Overview
 
@@ -72,12 +72,14 @@ func main() {
 | Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         | Example                                                                                                             |
 | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | `ctx`                                                                                                               | [context.Context](https://pkg.go.dev/context#Context)                                                               | :heavy_check_mark:                                                                                                  | The context to use for the request.                                                                                 |                                                                                                                     |
-| `script`                                                                                                            | [shared.Script](../../models/shared/script.md)                                                                      | :heavy_check_mark:                                                                                                  | N/A                                                                                                                 |                                                                                                                     |
+| `script`                                                                                                            | [shared.Script](../../../pkg/models/shared/script.md)                                                               | :heavy_check_mark:                                                                                                  | N/A                                                                                                                 |                                                                                                                     |
 | `ledger`                                                                                                            | *string*                                                                                                            | :heavy_check_mark:                                                                                                  | Name of the ledger.                                                                                                 | ledger001                                                                                                           |
 | `preview`                                                                                                           | **bool*                                                                                                             | :heavy_minus_sign:                                                                                                  | Set the preview mode. Preview mode doesn't add the logs to the database or publish a message to the message broker. | true                                                                                                                |
 
 
 ### Response
 
-**[*operations.RunScriptResponse](../../models/operations/runscriptresponse.md), error**
-
+**[*operations.RunScriptResponse](../../pkg/models/operations/runscriptresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

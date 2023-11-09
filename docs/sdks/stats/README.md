@@ -1,5 +1,5 @@
 # Stats
-(*.Stats*)
+(*Stats*)
 
 ## Overview
 
@@ -56,5 +56,7 @@ func main() {
 
 ### Response
 
-**[*operations.ReadStatsResponse](../../models/operations/readstatsresponse.md), error**
-
+**[*operations.ReadStatsResponse](../../pkg/models/operations/readstatsresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

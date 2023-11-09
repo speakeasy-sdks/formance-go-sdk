@@ -1,5 +1,5 @@
 # Clients
-(*.Clients*)
+(*Clients*)
 
 ## Overview
 
@@ -66,8 +66,10 @@ func main() {
 
 ### Response
 
-**[*operations.AddScopeToClientResponse](../../models/operations/addscopetoclientresponse.md), error**
-
+**[*operations.AddScopeToClientResponse](../../pkg/models/operations/addscopetoclientresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## CreateClient
 
@@ -115,16 +117,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `ctx`                                                                    | [context.Context](https://pkg.go.dev/context#Context)                    | :heavy_check_mark:                                                       | The context to use for the request.                                      |
-| `request`                                                                | [shared.CreateClientRequest](../../models/shared/createclientrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
+| `request`                                                                    | [shared.CreateClientRequest](../../pkg/models/shared/createclientrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
 
 
 ### Response
 
-**[*operations.CreateClientResponse](../../models/operations/createclientresponse.md), error**
-
+**[*operations.CreateClientResponse](../../pkg/models/operations/createclientresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## CreateSecret
 
@@ -171,17 +175,19 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `ctx`                                                                     | [context.Context](https://pkg.go.dev/context#Context)                     | :heavy_check_mark:                                                        | The context to use for the request.                                       |
-| `clientID`                                                                | *string*                                                                  | :heavy_check_mark:                                                        | Client ID                                                                 |
-| `createSecretRequest`                                                     | [*shared.CreateSecretRequest](../../models/shared/createsecretrequest.md) | :heavy_minus_sign:                                                        | N/A                                                                       |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
+| `clientID`                                                                       | *string*                                                                         | :heavy_check_mark:                                                               | Client ID                                                                        |
+| `createSecretRequest`                                                            | [*shared.CreateSecretRequest](../../../pkg/models/shared/createsecretrequest.md) | :heavy_minus_sign:                                                               | N/A                                                                              |
 
 
 ### Response
 
-**[*operations.CreateSecretResponse](../../models/operations/createsecretresponse.md), error**
-
+**[*operations.CreateSecretResponse](../../pkg/models/operations/createsecretresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## DeleteClient
 
@@ -229,8 +235,10 @@ func main() {
 
 ### Response
 
-**[*operations.DeleteClientResponse](../../models/operations/deleteclientresponse.md), error**
-
+**[*operations.DeleteClientResponse](../../pkg/models/operations/deleteclientresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## DeleteScopeFromClient
 
@@ -281,8 +289,10 @@ func main() {
 
 ### Response
 
-**[*operations.DeleteScopeFromClientResponse](../../models/operations/deletescopefromclientresponse.md), error**
-
+**[*operations.DeleteScopeFromClientResponse](../../pkg/models/operations/deletescopefromclientresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## DeleteSecret
 
@@ -333,8 +343,10 @@ func main() {
 
 ### Response
 
-**[*operations.DeleteSecretResponse](../../models/operations/deletesecretresponse.md), error**
-
+**[*operations.DeleteSecretResponse](../../pkg/models/operations/deletesecretresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ListClients
 
@@ -378,8 +390,10 @@ func main() {
 
 ### Response
 
-**[*operations.ListClientsResponse](../../models/operations/listclientsresponse.md), error**
-
+**[*operations.ListClientsResponse](../../pkg/models/operations/listclientsresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ReadClient
 
@@ -427,8 +441,10 @@ func main() {
 
 ### Response
 
-**[*operations.ReadClientResponse](../../models/operations/readclientresponse.md), error**
-
+**[*operations.ReadClientResponse](../../pkg/models/operations/readclientresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## UpdateClient
 
@@ -481,14 +497,16 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `ctx`                                                                     | [context.Context](https://pkg.go.dev/context#Context)                     | :heavy_check_mark:                                                        | The context to use for the request.                                       |
-| `clientID`                                                                | *string*                                                                  | :heavy_check_mark:                                                        | Client ID                                                                 |
-| `updateClientRequest`                                                     | [*shared.UpdateClientRequest](../../models/shared/updateclientrequest.md) | :heavy_minus_sign:                                                        | N/A                                                                       |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
+| `clientID`                                                                       | *string*                                                                         | :heavy_check_mark:                                                               | Client ID                                                                        |
+| `updateClientRequest`                                                            | [*shared.UpdateClientRequest](../../../pkg/models/shared/updateclientrequest.md) | :heavy_minus_sign:                                                               | N/A                                                                              |
 
 
 ### Response
 
-**[*operations.UpdateClientResponse](../../models/operations/updateclientresponse.md), error**
-
+**[*operations.UpdateClientResponse](../../pkg/models/operations/updateclientresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

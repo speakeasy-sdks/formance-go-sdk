@@ -1,5 +1,5 @@
 # Webhooks
-(*.Webhooks*)
+(*Webhooks*)
 
 ## Overview
 
@@ -61,8 +61,10 @@ func main() {
 
 ### Response
 
-**[*operations.ActivateConfigResponse](../../models/operations/activateconfigresponse.md), error**
-
+**[*operations.ActivateConfigResponse](../../pkg/models/operations/activateconfigresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ChangeConfigSecret
 
@@ -110,17 +112,19 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             | Example                                                                 |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `ctx`                                                                   | [context.Context](https://pkg.go.dev/context#Context)                   | :heavy_check_mark:                                                      | The context to use for the request.                                     |                                                                         |
-| `id`                                                                    | *string*                                                                | :heavy_check_mark:                                                      | Config ID                                                               | 4997257d-dfb6-445b-929c-cbe2ab182818                                    |
-| `configChangeSecret`                                                    | [*shared.ConfigChangeSecret](../../models/shared/configchangesecret.md) | :heavy_minus_sign:                                                      | N/A                                                                     |                                                                         |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    | Example                                                                        |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |                                                                                |
+| `id`                                                                           | *string*                                                                       | :heavy_check_mark:                                                             | Config ID                                                                      | 4997257d-dfb6-445b-929c-cbe2ab182818                                           |
+| `configChangeSecret`                                                           | [*shared.ConfigChangeSecret](../../../pkg/models/shared/configchangesecret.md) | :heavy_minus_sign:                                                             | N/A                                                                            |                                                                                |
 
 
 ### Response
 
-**[*operations.ChangeConfigSecretResponse](../../models/operations/changeconfigsecretresponse.md), error**
-
+**[*operations.ChangeConfigSecretResponse](../../pkg/models/operations/changeconfigsecretresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## DeactivateConfig
 
@@ -168,8 +172,10 @@ func main() {
 
 ### Response
 
-**[*operations.DeactivateConfigResponse](../../models/operations/deactivateconfigresponse.md), error**
-
+**[*operations.DeactivateConfigResponse](../../pkg/models/operations/deactivateconfigresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## DeleteConfig
 
@@ -217,8 +223,10 @@ func main() {
 
 ### Response
 
-**[*operations.DeleteConfigResponse](../../models/operations/deleteconfigresponse.md), error**
-
+**[*operations.DeleteConfigResponse](../../pkg/models/operations/deleteconfigresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## GetManyConfigs
 
@@ -269,8 +277,10 @@ func main() {
 
 ### Response
 
-**[*operations.GetManyConfigsResponse](../../models/operations/getmanyconfigsresponse.md), error**
-
+**[*operations.GetManyConfigsResponse](../../pkg/models/operations/getmanyconfigsresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## InsertConfig
 
@@ -323,16 +333,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                              | Type                                                   | Required                                               | Description                                            |
-| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
-| `ctx`                                                  | [context.Context](https://pkg.go.dev/context#Context)  | :heavy_check_mark:                                     | The context to use for the request.                    |
-| `request`                                              | [shared.ConfigUser](../../models/shared/configuser.md) | :heavy_check_mark:                                     | The request object to use for the request.             |
+| Parameter                                                  | Type                                                       | Required                                                   | Description                                                |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| `ctx`                                                      | [context.Context](https://pkg.go.dev/context#Context)      | :heavy_check_mark:                                         | The context to use for the request.                        |
+| `request`                                                  | [shared.ConfigUser](../../pkg/models/shared/configuser.md) | :heavy_check_mark:                                         | The request object to use for the request.                 |
 
 
 ### Response
 
-**[*operations.InsertConfigResponse](../../models/operations/insertconfigresponse.md), error**
-
+**[*operations.InsertConfigResponse](../../pkg/models/operations/insertconfigresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## TestConfig
 
@@ -380,5 +392,7 @@ func main() {
 
 ### Response
 
-**[*operations.TestConfigResponse](../../models/operations/testconfigresponse.md), error**
-
+**[*operations.TestConfigResponse](../../pkg/models/operations/testconfigresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

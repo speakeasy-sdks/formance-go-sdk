@@ -1,5 +1,5 @@
 # Accounts
-(*.Accounts*)
+(*Accounts*)
 
 ## Overview
 
@@ -67,8 +67,10 @@ func main() {
 
 ### Response
 
-**[*operations.AddMetadataToAccountResponse](../../models/operations/addmetadatatoaccountresponse.md), error**
-
+**[*operations.AddMetadataToAccountResponse](../../pkg/models/operations/addmetadatatoaccountresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## CountAccounts
 
@@ -118,13 +120,15 @@ func main() {
 | `ctx`                                                                                                 | [context.Context](https://pkg.go.dev/context#Context)                                                 | :heavy_check_mark:                                                                                    | The context to use for the request.                                                                   |                                                                                                       |
 | `ledger`                                                                                              | *string*                                                                                              | :heavy_check_mark:                                                                                    | Name of the ledger.                                                                                   | ledger001                                                                                             |
 | `address`                                                                                             | **string*                                                                                             | :heavy_minus_sign:                                                                                    | Filter accounts by address pattern (regular expression placed between ^ and $).                       | users:.+                                                                                              |
-| `metadata`                                                                                            | [*operations.Metadata](../../models/operations/metadata.md)                                           | :heavy_minus_sign:                                                                                    | Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below. |                                                                                                       |
+| `metadata`                                                                                            | [*operations.Metadata](../../../pkg/models/operations/metadata.md)                                    | :heavy_minus_sign:                                                                                    | Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below. |                                                                                                       |
 
 
 ### Response
 
-**[*operations.CountAccountsResponse](../../models/operations/countaccountsresponse.md), error**
-
+**[*operations.CountAccountsResponse](../../pkg/models/operations/countaccountsresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## GetAccount
 
@@ -175,8 +179,10 @@ func main() {
 
 ### Response
 
-**[*operations.GetAccountResponse](../../models/operations/getaccountresponse.md), error**
-
+**[*operations.GetAccountResponse](../../pkg/models/operations/getaccountresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ListAccounts
 
@@ -224,13 +230,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
-| `request`                                                                        | [operations.ListAccountsRequest](../../models/operations/listaccountsrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.ListAccountsRequest](../../pkg/models/operations/listaccountsrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
 
-**[*operations.ListAccountsResponse](../../models/operations/listaccountsresponse.md), error**
-
+**[*operations.ListAccountsResponse](../../pkg/models/operations/listaccountsresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

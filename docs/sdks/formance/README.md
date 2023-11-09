@@ -64,8 +64,10 @@ func main() {
 
 ### Response
 
-**[*operations.GetServerInfoResponse](../../models/operations/getserverinforesponse.md), error**
-
+**[*operations.GetServerInfoResponse](../../pkg/models/operations/getserverinforesponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## PaymentsgetServerInfo
 
@@ -109,8 +111,10 @@ func main() {
 
 ### Response
 
-**[*operations.PaymentsgetServerInfoResponse](../../models/operations/paymentsgetserverinforesponse.md), error**
-
+**[*operations.PaymentsgetServerInfoResponse](../../pkg/models/operations/paymentsgetserverinforesponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## SearchgetServerInfo
 
@@ -154,5 +158,7 @@ func main() {
 
 ### Response
 
-**[*operations.SearchgetServerInfoResponse](../../models/operations/searchgetserverinforesponse.md), error**
-
+**[*operations.SearchgetServerInfoResponse](../../pkg/models/operations/searchgetserverinforesponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

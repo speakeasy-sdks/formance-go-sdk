@@ -1,5 +1,5 @@
 # Server
-(*.Server*)
+(*Server*)
 
 ## Overview
 
@@ -51,5 +51,7 @@ func main() {
 
 ### Response
 
-**[*operations.GetInfoResponse](../../models/operations/getinforesponse.md), error**
-
+**[*operations.GetInfoResponse](../../pkg/models/operations/getinforesponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

@@ -1,5 +1,5 @@
 # Users
-(*.Users*)
+(*Users*)
 
 ## Overview
 
@@ -52,8 +52,10 @@ func main() {
 
 ### Response
 
-**[*operations.ListUsersResponse](../../models/operations/listusersresponse.md), error**
-
+**[*operations.ListUsersResponse](../../pkg/models/operations/listusersresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ReadUser
 
@@ -101,5 +103,7 @@ func main() {
 
 ### Response
 
-**[*operations.ReadUserResponse](../../models/operations/readuserresponse.md), error**
-
+**[*operations.ReadUserResponse](../../pkg/models/operations/readuserresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

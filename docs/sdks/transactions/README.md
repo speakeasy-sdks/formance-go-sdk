@@ -1,5 +1,5 @@
 # Transactions
-(*.Transactions*)
+(*Transactions*)
 
 ## Overview
 
@@ -73,17 +73,19 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                  | Type                                                       | Required                                                   | Description                                                | Example                                                    |
-| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
-| `ctx`                                                      | [context.Context](https://pkg.go.dev/context#Context)      | :heavy_check_mark:                                         | The context to use for the request.                        |                                                            |
-| `transactions`                                             | [shared.Transactions](../../models/shared/transactions.md) | :heavy_check_mark:                                         | N/A                                                        |                                                            |
-| `ledger`                                                   | *string*                                                   | :heavy_check_mark:                                         | Name of the ledger.                                        | ledger001                                                  |
+| Parameter                                                         | Type                                                              | Required                                                          | Description                                                       | Example                                                           |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `ctx`                                                             | [context.Context](https://pkg.go.dev/context#Context)             | :heavy_check_mark:                                                | The context to use for the request.                               |                                                                   |
+| `transactions`                                                    | [shared.Transactions](../../../pkg/models/shared/transactions.md) | :heavy_check_mark:                                                | N/A                                                               |                                                                   |
+| `ledger`                                                          | *string*                                                          | :heavy_check_mark:                                                | Name of the ledger.                                               | ledger001                                                         |
 
 
 ### Response
 
-**[*operations.CreateTransactionsResponse](../../models/operations/createtransactionsresponse.md), error**
-
+**[*operations.CreateTransactionsResponse](../../pkg/models/operations/createtransactionsresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## AddMetadataOnTransaction
 
@@ -140,8 +142,10 @@ func main() {
 
 ### Response
 
-**[*operations.AddMetadataOnTransactionResponse](../../models/operations/addmetadataontransactionresponse.md), error**
-
+**[*operations.AddMetadataOnTransactionResponse](../../pkg/models/operations/addmetadataontransactionresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## CountTransactions
 
@@ -186,16 +190,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.CountTransactionsRequest](../../models/operations/counttransactionsrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.CountTransactionsRequest](../../pkg/models/operations/counttransactionsrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
 
-**[*operations.CountTransactionsResponse](../../models/operations/counttransactionsresponse.md), error**
-
+**[*operations.CountTransactionsResponse](../../pkg/models/operations/counttransactionsresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## CreateTransaction
 
@@ -221,8 +227,8 @@ func main() {
 
     postTransaction := shared.PostTransaction{
         Metadata: map[string]interface{}{
-            "a": "string",
             "admin": "string",
+            "a": "string",
         },
         Postings: []shared.Posting{
             shared.Posting{
@@ -267,15 +273,17 @@ func main() {
 | Parameter                                                                                                                                                                              | Type                                                                                                                                                                                   | Required                                                                                                                                                                               | Description                                                                                                                                                                            | Example                                                                                                                                                                                |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ctx`                                                                                                                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                     | The context to use for the request.                                                                                                                                                    |                                                                                                                                                                                        |
-| `postTransaction`                                                                                                                                                                      | [shared.PostTransaction](../../models/shared/posttransaction.md)                                                                                                                       | :heavy_check_mark:                                                                                                                                                                     | The request body must contain at least one of the following objects:<br/>  - `postings`: suitable for simple transactions<br/>  - `script`: enabling more complex transactions with Numscript<br/> |                                                                                                                                                                                        |
+| `postTransaction`                                                                                                                                                                      | [shared.PostTransaction](../../../pkg/models/shared/posttransaction.md)                                                                                                                | :heavy_check_mark:                                                                                                                                                                     | The request body must contain at least one of the following objects:<br/>  - `postings`: suitable for simple transactions<br/>  - `script`: enabling more complex transactions with Numscript<br/> |                                                                                                                                                                                        |
 | `ledger`                                                                                                                                                                               | *string*                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                     | Name of the ledger.                                                                                                                                                                    | ledger001                                                                                                                                                                              |
 | `preview`                                                                                                                                                                              | **bool*                                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                                     | Set the preview mode. Preview mode doesn't add the logs to the database or publish a message to the message broker.                                                                    | true                                                                                                                                                                                   |
 
 
 ### Response
 
-**[*operations.CreateTransactionResponse](../../models/operations/createtransactionresponse.md), error**
-
+**[*operations.CreateTransactionResponse](../../pkg/models/operations/createtransactionresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## GetTransaction
 
@@ -326,8 +334,10 @@ func main() {
 
 ### Response
 
-**[*operations.GetTransactionResponse](../../models/operations/gettransactionresponse.md), error**
-
+**[*operations.GetTransactionResponse](../../pkg/models/operations/gettransactionresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ListTransactions
 
@@ -375,16 +385,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.ListTransactionsRequest](../../models/operations/listtransactionsrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.ListTransactionsRequest](../../pkg/models/operations/listtransactionsrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
 
-**[*operations.ListTransactionsResponse](../../models/operations/listtransactionsresponse.md), error**
-
+**[*operations.ListTransactionsResponse](../../pkg/models/operations/listtransactionsresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## RevertTransaction
 
@@ -435,5 +447,7 @@ func main() {
 
 ### Response
 
-**[*operations.RevertTransactionResponse](../../models/operations/reverttransactionresponse.md), error**
-
+**[*operations.RevertTransactionResponse](../../pkg/models/operations/reverttransactionresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

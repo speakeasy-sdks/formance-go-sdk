@@ -1,5 +1,5 @@
 # Payments
-(*.Payments*)
+(*Payments*)
 
 ## Overview
 
@@ -60,16 +60,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
-| `request`                                                                    | [shared.StripeTransferRequest](../../models/shared/stripetransferrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
+| `request`                                                                        | [shared.StripeTransferRequest](../../pkg/models/shared/stripetransferrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
 
 
 ### Response
 
-**[*operations.ConnectorsStripeTransferResponse](../../models/operations/connectorsstripetransferresponse.md), error**
-
+**[*operations.ConnectorsStripeTransferResponse](../../pkg/models/operations/connectorsstripetransferresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## GetConnectorTask
 
@@ -111,17 +113,19 @@ func main() {
 
 ### Parameters
 
-| Parameter                                             | Type                                                  | Required                                              | Description                                           |
-| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| `ctx`                                                 | [context.Context](https://pkg.go.dev/context#Context) | :heavy_check_mark:                                    | The context to use for the request.                   |
-| `connector`                                           | [shared.Connector](../../models/shared/connector.md)  | :heavy_check_mark:                                    | The name of the connector.                            |
-| `taskID`                                              | *string*                                              | :heavy_check_mark:                                    | The task ID.                                          |
+| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| `ctx`                                                       | [context.Context](https://pkg.go.dev/context#Context)       | :heavy_check_mark:                                          | The context to use for the request.                         |
+| `connector`                                                 | [shared.Connector](../../../pkg/models/shared/connector.md) | :heavy_check_mark:                                          | The name of the connector.                                  |
+| `taskID`                                                    | *string*                                                    | :heavy_check_mark:                                          | The task ID.                                                |
 
 
 ### Response
 
-**[*operations.GetConnectorTaskResponse](../../models/operations/getconnectortaskresponse.md), error**
-
+**[*operations.GetConnectorTaskResponse](../../pkg/models/operations/getconnectortaskresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## GetPayment
 
@@ -169,8 +173,10 @@ func main() {
 
 ### Response
 
-**[*operations.GetPaymentResponse](../../models/operations/getpaymentresponse.md), error**
-
+**[*operations.GetPaymentResponse](../../pkg/models/operations/getpaymentresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## InstallConnector
 
@@ -218,17 +224,19 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                        | Type                                                             | Required                                                         | Description                                                      |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `ctx`                                                            | [context.Context](https://pkg.go.dev/context#Context)            | :heavy_check_mark:                                               | The context to use for the request.                              |
-| `connectorConfig`                                                | [shared.ConnectorConfig](../../models/shared/connectorconfig.md) | :heavy_check_mark:                                               | N/A                                                              |
-| `connector`                                                      | [shared.Connector](../../models/shared/connector.md)             | :heavy_check_mark:                                               | The name of the connector.                                       |
+| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `ctx`                                                                   | [context.Context](https://pkg.go.dev/context#Context)                   | :heavy_check_mark:                                                      | The context to use for the request.                                     |
+| `connectorConfig`                                                       | [shared.ConnectorConfig](../../../pkg/models/shared/connectorconfig.md) | :heavy_check_mark:                                                      | N/A                                                                     |
+| `connector`                                                             | [shared.Connector](../../../pkg/models/shared/connector.md)             | :heavy_check_mark:                                                      | The name of the connector.                                              |
 
 
 ### Response
 
-**[*operations.InstallConnectorResponse](../../models/operations/installconnectorresponse.md), error**
-
+**[*operations.InstallConnectorResponse](../../pkg/models/operations/installconnectorresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ListAllConnectors
 
@@ -272,8 +280,10 @@ func main() {
 
 ### Response
 
-**[*operations.ListAllConnectorsResponse](../../models/operations/listallconnectorsresponse.md), error**
-
+**[*operations.ListAllConnectorsResponse](../../pkg/models/operations/listallconnectorsresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ListConfigsAvailableConnectors
 
@@ -317,8 +327,10 @@ func main() {
 
 ### Response
 
-**[*operations.ListConfigsAvailableConnectorsResponse](../../models/operations/listconfigsavailableconnectorsresponse.md), error**
-
+**[*operations.ListConfigsAvailableConnectorsResponse](../../pkg/models/operations/listconfigsavailableconnectorsresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ListConnectorTasks
 
@@ -365,15 +377,17 @@ func main() {
 | Parameter                                                                                                                                                                                                                                                | Type                                                                                                                                                                                                                                                     | Required                                                                                                                                                                                                                                                 | Description                                                                                                                                                                                                                                              | Example                                                                                                                                                                                                                                                  |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ctx`                                                                                                                                                                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                                                                                                       | The context to use for the request.                                                                                                                                                                                                                      |                                                                                                                                                                                                                                                          |
-| `connector`                                                                                                                                                                                                                                              | [shared.Connector](../../models/shared/connector.md)                                                                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                                                                                                       | The name of the connector.                                                                                                                                                                                                                               |                                                                                                                                                                                                                                                          |
+| `connector`                                                                                                                                                                                                                                              | [shared.Connector](../../../pkg/models/shared/connector.md)                                                                                                                                                                                              | :heavy_check_mark:                                                                                                                                                                                                                                       | The name of the connector.                                                                                                                                                                                                                               |                                                                                                                                                                                                                                                          |
 | `cursor`                                                                                                                                                                                                                                                 | **string*                                                                                                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                                                                                                       | Parameter used in pagination requests. Maximum page size is set to 15.<br/>Set to the value of next for the next page of results.<br/>Set to the value of previous for the previous page of results.<br/>No other parameters can be set when this parameter is set.<br/> | aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==                                                                                                                                                                                                             |
 | `pageSize`                                                                                                                                                                                                                                               | **int64*                                                                                                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                                                                                                       | The maximum number of results to return per page.<br/>                                                                                                                                                                                                   |                                                                                                                                                                                                                                                          |
 
 
 ### Response
 
-**[*operations.ListConnectorTasksResponse](../../models/operations/listconnectortasksresponse.md), error**
-
+**[*operations.ListConnectorTasksResponse](../../pkg/models/operations/listconnectortasksresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ListPayments
 
@@ -429,8 +443,10 @@ func main() {
 
 ### Response
 
-**[*operations.ListPaymentsResponse](../../models/operations/listpaymentsresponse.md), error**
-
+**[*operations.ListPaymentsResponse](../../pkg/models/operations/listpaymentsresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## PaymentslistAccounts
 
@@ -486,8 +502,10 @@ func main() {
 
 ### Response
 
-**[*operations.PaymentslistAccountsResponse](../../models/operations/paymentslistaccountsresponse.md), error**
-
+**[*operations.PaymentslistAccountsResponse](../../pkg/models/operations/paymentslistaccountsresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ReadConnectorConfig
 
@@ -527,16 +545,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                             | Type                                                  | Required                                              | Description                                           |
-| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| `ctx`                                                 | [context.Context](https://pkg.go.dev/context#Context) | :heavy_check_mark:                                    | The context to use for the request.                   |
-| `connector`                                           | [shared.Connector](../../models/shared/connector.md)  | :heavy_check_mark:                                    | The name of the connector.                            |
+| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| `ctx`                                                       | [context.Context](https://pkg.go.dev/context#Context)       | :heavy_check_mark:                                          | The context to use for the request.                         |
+| `connector`                                                 | [shared.Connector](../../../pkg/models/shared/connector.md) | :heavy_check_mark:                                          | The name of the connector.                                  |
 
 
 ### Response
 
-**[*operations.ReadConnectorConfigResponse](../../models/operations/readconnectorconfigresponse.md), error**
-
+**[*operations.ReadConnectorConfigResponse](../../pkg/models/operations/readconnectorconfigresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ResetConnector
 
@@ -578,16 +598,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                             | Type                                                  | Required                                              | Description                                           |
-| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| `ctx`                                                 | [context.Context](https://pkg.go.dev/context#Context) | :heavy_check_mark:                                    | The context to use for the request.                   |
-| `connector`                                           | [shared.Connector](../../models/shared/connector.md)  | :heavy_check_mark:                                    | The name of the connector.                            |
+| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| `ctx`                                                       | [context.Context](https://pkg.go.dev/context#Context)       | :heavy_check_mark:                                          | The context to use for the request.                         |
+| `connector`                                                 | [shared.Connector](../../../pkg/models/shared/connector.md) | :heavy_check_mark:                                          | The name of the connector.                                  |
 
 
 ### Response
 
-**[*operations.ResetConnectorResponse](../../models/operations/resetconnectorresponse.md), error**
-
+**[*operations.ResetConnectorResponse](../../pkg/models/operations/resetconnectorresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## UninstallConnector
 
@@ -627,13 +649,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                             | Type                                                  | Required                                              | Description                                           |
-| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| `ctx`                                                 | [context.Context](https://pkg.go.dev/context#Context) | :heavy_check_mark:                                    | The context to use for the request.                   |
-| `connector`                                           | [shared.Connector](../../models/shared/connector.md)  | :heavy_check_mark:                                    | The name of the connector.                            |
+| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| `ctx`                                                       | [context.Context](https://pkg.go.dev/context#Context)       | :heavy_check_mark:                                          | The context to use for the request.                         |
+| `connector`                                                 | [shared.Connector](../../../pkg/models/shared/connector.md) | :heavy_check_mark:                                          | The name of the connector.                                  |
 
 
 ### Response
 
-**[*operations.UninstallConnectorResponse](../../models/operations/uninstallconnectorresponse.md), error**
-
+**[*operations.UninstallConnectorResponse](../../pkg/models/operations/uninstallconnectorresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

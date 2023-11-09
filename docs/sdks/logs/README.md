@@ -1,5 +1,5 @@
 # Logs
-(*.Logs*)
+(*Logs*)
 
 ## Overview
 
@@ -50,13 +50,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `ctx`                                                                    | [context.Context](https://pkg.go.dev/context#Context)                    | :heavy_check_mark:                                                       | The context to use for the request.                                      |
-| `request`                                                                | [operations.ListLogsRequest](../../models/operations/listlogsrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
+| `request`                                                                    | [operations.ListLogsRequest](../../pkg/models/operations/listlogsrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
 
 
 ### Response
 
-**[*operations.ListLogsResponse](../../models/operations/listlogsresponse.md), error**
-
+**[*operations.ListLogsResponse](../../pkg/models/operations/listlogsresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

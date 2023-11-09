@@ -1,9 +1,0 @@
-# PostTransactionScript
-
-
-## Fields
-
-| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      | Example                                                                          |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `Plain`                                                                          | *string*                                                                         | :heavy_check_mark:                                                               | N/A                                                                              | vars {<br/>account $user<br/>}<br/>send [COIN 10] (<br/>	source = @world<br/>	destination = $user<br/>)<br/> |
-| `Vars`                                                                           | [*shared.PostTransactionVars](../../models/shared/posttransactionvars.md)        | :heavy_minus_sign:                                                               | N/A                                                                              |                                                                                  |

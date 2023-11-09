@@ -1,5 +1,5 @@
 # Search
-(*.Search*)
+(*Search*)
 
 ## Overview
 
@@ -101,10 +101,12 @@ func main() {
 | Parameter                                             | Type                                                  | Required                                              | Description                                           |
 | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
 | `ctx`                                                 | [context.Context](https://pkg.go.dev/context#Context) | :heavy_check_mark:                                    | The context to use for the request.                   |
-| `request`                                             | [shared.Query](../../models/shared/query.md)          | :heavy_check_mark:                                    | The request object to use for the request.            |
+| `request`                                             | [shared.Query](../../pkg/models/shared/query.md)      | :heavy_check_mark:                                    | The request object to use for the request.            |
 
 
 ### Response
 
-**[*operations.SearchResponse](../../models/operations/searchresponse.md), error**
-
+**[*operations.SearchResponse](../../pkg/models/operations/searchresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

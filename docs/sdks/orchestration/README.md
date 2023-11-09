@@ -1,5 +1,5 @@
 # Orchestration
-(*.Orchestration*)
+(*Orchestration*)
 
 ## Overview
 
@@ -56,16 +56,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
-| `request`                                                                    | [shared.CreateWorkflowRequest](../../models/shared/createworkflowrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
+| `request`                                                                        | [shared.CreateWorkflowRequest](../../pkg/models/shared/createworkflowrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
 
 
 ### Response
 
-**[*operations.CreateWorkflowResponse](../../models/operations/createworkflowresponse.md), error**
-
+**[*operations.CreateWorkflowResponse](../../pkg/models/operations/createworkflowresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## GetFlow
 
@@ -113,8 +115,10 @@ func main() {
 
 ### Response
 
-**[*operations.GetFlowResponse](../../models/operations/getflowresponse.md), error**
-
+**[*operations.GetFlowResponse](../../pkg/models/operations/getflowresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## GetWorkflowOccurrence
 
@@ -165,8 +169,10 @@ func main() {
 
 ### Response
 
-**[*operations.GetWorkflowOccurrenceResponse](../../models/operations/getworkflowoccurrenceresponse.md), error**
-
+**[*operations.GetWorkflowOccurrenceResponse](../../pkg/models/operations/getworkflowoccurrenceresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ListFlows
 
@@ -210,8 +216,10 @@ func main() {
 
 ### Response
 
-**[*operations.ListFlowsResponse](../../models/operations/listflowsresponse.md), error**
-
+**[*operations.ListFlowsResponse](../../pkg/models/operations/listflowsresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ListRuns
 
@@ -259,8 +267,10 @@ func main() {
 
 ### Response
 
-**[*operations.ListRunsResponse](../../models/operations/listrunsresponse.md), error**
-
+**[*operations.ListRunsResponse](../../pkg/models/operations/listrunsresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## OrchestrationgetServerInfo
 
@@ -304,8 +314,10 @@ func main() {
 
 ### Response
 
-**[*operations.OrchestrationgetServerInfoResponse](../../models/operations/orchestrationgetserverinforesponse.md), error**
-
+**[*operations.OrchestrationgetServerInfoResponse](../../pkg/models/operations/orchestrationgetserverinforesponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## RunWorkflow
 
@@ -361,5 +373,7 @@ func main() {
 
 ### Response
 
-**[*operations.RunWorkflowResponse](../../models/operations/runworkflowresponse.md), error**
-
+**[*operations.RunWorkflowResponse](../../pkg/models/operations/runworkflowresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

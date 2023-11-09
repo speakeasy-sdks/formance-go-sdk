@@ -1,5 +1,5 @@
 # Scopes
-(*.Scopes*)
+(*Scopes*)
 
 ## Overview
 
@@ -64,8 +64,10 @@ func main() {
 
 ### Response
 
-**[*operations.AddTransientScopeResponse](../../models/operations/addtransientscoperesponse.md), error**
-
+**[*operations.AddTransientScopeResponse](../../pkg/models/operations/addtransientscoperesponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## CreateScope
 
@@ -107,16 +109,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `ctx`                                                                  | [context.Context](https://pkg.go.dev/context#Context)                  | :heavy_check_mark:                                                     | The context to use for the request.                                    |
-| `request`                                                              | [shared.CreateScopeRequest](../../models/shared/createscoperequest.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `ctx`                                                                      | [context.Context](https://pkg.go.dev/context#Context)                      | :heavy_check_mark:                                                         | The context to use for the request.                                        |
+| `request`                                                                  | [shared.CreateScopeRequest](../../pkg/models/shared/createscoperequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
 
 
 ### Response
 
-**[*operations.CreateScopeResponse](../../models/operations/createscoperesponse.md), error**
-
+**[*operations.CreateScopeResponse](../../pkg/models/operations/createscoperesponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## DeleteScope
 
@@ -164,8 +168,10 @@ func main() {
 
 ### Response
 
-**[*operations.DeleteScopeResponse](../../models/operations/deletescoperesponse.md), error**
-
+**[*operations.DeleteScopeResponse](../../pkg/models/operations/deletescoperesponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## DeleteTransientScope
 
@@ -216,8 +222,10 @@ func main() {
 
 ### Response
 
-**[*operations.DeleteTransientScopeResponse](../../models/operations/deletetransientscoperesponse.md), error**
-
+**[*operations.DeleteTransientScopeResponse](../../pkg/models/operations/deletetransientscoperesponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ListScopes
 
@@ -261,8 +269,10 @@ func main() {
 
 ### Response
 
-**[*operations.ListScopesResponse](../../models/operations/listscopesresponse.md), error**
-
+**[*operations.ListScopesResponse](../../pkg/models/operations/listscopesresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ReadScope
 
@@ -310,8 +320,10 @@ func main() {
 
 ### Response
 
-**[*operations.ReadScopeResponse](../../models/operations/readscoperesponse.md), error**
-
+**[*operations.ReadScopeResponse](../../pkg/models/operations/readscoperesponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## UpdateScope
 
@@ -358,14 +370,16 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `ctx`                                                                   | [context.Context](https://pkg.go.dev/context#Context)                   | :heavy_check_mark:                                                      | The context to use for the request.                                     |
-| `scopeID`                                                               | *string*                                                                | :heavy_check_mark:                                                      | Scope ID                                                                |
-| `updateScopeRequest`                                                    | [*shared.UpdateScopeRequest](../../models/shared/updatescoperequest.md) | :heavy_minus_sign:                                                      | N/A                                                                     |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
+| `scopeID`                                                                      | *string*                                                                       | :heavy_check_mark:                                                             | Scope ID                                                                       |
+| `updateScopeRequest`                                                           | [*shared.UpdateScopeRequest](../../../pkg/models/shared/updatescoperequest.md) | :heavy_minus_sign:                                                             | N/A                                                                            |
 
 
 ### Response
 
-**[*operations.UpdateScopeResponse](../../models/operations/updatescoperesponse.md), error**
-
+**[*operations.UpdateScopeResponse](../../pkg/models/operations/updatescoperesponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

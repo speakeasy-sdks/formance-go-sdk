@@ -1,5 +1,5 @@
 # Wallets
-(*.Wallets*)
+(*Wallets*)
 
 ## Overview
 
@@ -66,17 +66,19 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `ctx`                                                                   | [context.Context](https://pkg.go.dev/context#Context)                   | :heavy_check_mark:                                                      | The context to use for the request.                                     |
-| `holdID`                                                                | *string*                                                                | :heavy_check_mark:                                                      | N/A                                                                     |
-| `confirmHoldRequest`                                                    | [*shared.ConfirmHoldRequest](../../models/shared/confirmholdrequest.md) | :heavy_minus_sign:                                                      | N/A                                                                     |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
+| `holdID`                                                                       | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
+| `confirmHoldRequest`                                                           | [*shared.ConfirmHoldRequest](../../../pkg/models/shared/confirmholdrequest.md) | :heavy_minus_sign:                                                             | N/A                                                                            |
 
 
 ### Response
 
-**[*operations.ConfirmHoldResponse](../../models/operations/confirmholdresponse.md), error**
-
+**[*operations.ConfirmHoldResponse](../../pkg/models/operations/confirmholdresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## CreateBalance
 
@@ -120,17 +122,19 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `ctx`                                                                       | [context.Context](https://pkg.go.dev/context#Context)                       | :heavy_check_mark:                                                          | The context to use for the request.                                         |
-| `id`                                                                        | *string*                                                                    | :heavy_check_mark:                                                          | N/A                                                                         |
-| `createBalanceRequest`                                                      | [*shared.CreateBalanceRequest](../../models/shared/createbalancerequest.md) | :heavy_minus_sign:                                                          | N/A                                                                         |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `id`                                                                               | *string*                                                                           | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `createBalanceRequest`                                                             | [*shared.CreateBalanceRequest](../../../pkg/models/shared/createbalancerequest.md) | :heavy_minus_sign:                                                                 | N/A                                                                                |
 
 
 ### Response
 
-**[*operations.CreateBalanceResponse](../../models/operations/createbalanceresponse.md), error**
-
+**[*operations.CreateBalanceResponse](../../pkg/models/operations/createbalanceresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## CreateWallet
 
@@ -172,16 +176,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `ctx`                                                                    | [context.Context](https://pkg.go.dev/context#Context)                    | :heavy_check_mark:                                                       | The context to use for the request.                                      |
-| `request`                                                                | [shared.CreateWalletRequest](../../models/shared/createwalletrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
+| `request`                                                                    | [shared.CreateWalletRequest](../../pkg/models/shared/createwalletrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
 
 
 ### Response
 
-**[*operations.CreateWalletResponse](../../models/operations/createwalletresponse.md), error**
-
+**[*operations.CreateWalletResponse](../../pkg/models/operations/createwalletresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## CreditWallet
 
@@ -239,17 +245,19 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `ctx`                                                                     | [context.Context](https://pkg.go.dev/context#Context)                     | :heavy_check_mark:                                                        | The context to use for the request.                                       |
-| `id`                                                                      | *string*                                                                  | :heavy_check_mark:                                                        | N/A                                                                       |
-| `creditWalletRequest`                                                     | [*shared.CreditWalletRequest](../../models/shared/creditwalletrequest.md) | :heavy_minus_sign:                                                        | N/A                                                                       |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
+| `id`                                                                             | *string*                                                                         | :heavy_check_mark:                                                               | N/A                                                                              |
+| `creditWalletRequest`                                                            | [*shared.CreditWalletRequest](../../../pkg/models/shared/creditwalletrequest.md) | :heavy_minus_sign:                                                               | N/A                                                                              |
 
 
 ### Response
 
-**[*operations.CreditWalletResponse](../../models/operations/creditwalletresponse.md), error**
-
+**[*operations.CreditWalletResponse](../../pkg/models/operations/creditwalletresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## DebitWallet
 
@@ -308,17 +316,19 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `ctx`                                                                   | [context.Context](https://pkg.go.dev/context#Context)                   | :heavy_check_mark:                                                      | The context to use for the request.                                     |
-| `id`                                                                    | *string*                                                                | :heavy_check_mark:                                                      | N/A                                                                     |
-| `debitWalletRequest`                                                    | [*shared.DebitWalletRequest](../../models/shared/debitwalletrequest.md) | :heavy_minus_sign:                                                      | N/A                                                                     |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
+| `id`                                                                           | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
+| `debitWalletRequest`                                                           | [*shared.DebitWalletRequest](../../../pkg/models/shared/debitwalletrequest.md) | :heavy_minus_sign:                                                             | N/A                                                                            |
 
 
 ### Response
 
-**[*operations.DebitWalletResponse](../../models/operations/debitwalletresponse.md), error**
-
+**[*operations.DebitWalletResponse](../../pkg/models/operations/debitwalletresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## GetBalance
 
@@ -369,8 +379,10 @@ func main() {
 
 ### Response
 
-**[*operations.GetBalanceResponse](../../models/operations/getbalanceresponse.md), error**
-
+**[*operations.GetBalanceResponse](../../pkg/models/operations/getbalanceresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## GetHold
 
@@ -418,8 +430,10 @@ func main() {
 
 ### Response
 
-**[*operations.GetHoldResponse](../../models/operations/getholdresponse.md), error**
-
+**[*operations.GetHoldResponse](../../pkg/models/operations/getholdresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## GetHolds
 
@@ -470,15 +484,17 @@ func main() {
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `ctx`                                                                                                                                                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                                                                             | The context to use for the request.                                                                                                                                                                                            |                                                                                                                                                                                                                                |
 | `cursor`                                                                                                                                                                                                                       | **string*                                                                                                                                                                                                                      | :heavy_minus_sign:                                                                                                                                                                                                             | Parameter used in pagination requests.<br/>Set to the value of next for the next page of results.<br/>Set to the value of previous for the previous page of results.<br/>No other parameters can be set when the pagination token is set.<br/> | aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==                                                                                                                                                                                   |
-| `metadata`                                                                                                                                                                                                                     | [*operations.GetHoldsQueryParamMetadata](../../models/operations/getholdsqueryparammetadata.md)                                                                                                                                | :heavy_minus_sign:                                                                                                                                                                                                             | Filter holds by metadata key value pairs. Nested objects can be used as seen in the example below.                                                                                                                             |                                                                                                                                                                                                                                |
+| `metadata`                                                                                                                                                                                                                     | [*operations.GetHoldsQueryParamMetadata](../../../pkg/models/operations/getholdsqueryparammetadata.md)                                                                                                                         | :heavy_minus_sign:                                                                                                                                                                                                             | Filter holds by metadata key value pairs. Nested objects can be used as seen in the example below.                                                                                                                             |                                                                                                                                                                                                                                |
 | `pageSize`                                                                                                                                                                                                                     | **int64*                                                                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                                                                             | The maximum number of results to return per page                                                                                                                                                                               |                                                                                                                                                                                                                                |
 | `walletID`                                                                                                                                                                                                                     | **string*                                                                                                                                                                                                                      | :heavy_minus_sign:                                                                                                                                                                                                             | The wallet to filter on                                                                                                                                                                                                        |                                                                                                                                                                                                                                |
 
 
 ### Response
 
-**[*operations.GetHoldsResponse](../../models/operations/getholdsresponse.md), error**
-
+**[*operations.GetHoldsResponse](../../pkg/models/operations/getholdsresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## GetTransactions
 
@@ -530,8 +546,10 @@ func main() {
 
 ### Response
 
-**[*operations.GetTransactionsResponse](../../models/operations/gettransactionsresponse.md), error**
-
+**[*operations.GetTransactionsResponse](../../pkg/models/operations/gettransactionsresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## GetWallet
 
@@ -579,8 +597,10 @@ func main() {
 
 ### Response
 
-**[*operations.GetWalletResponse](../../models/operations/getwalletresponse.md), error**
-
+**[*operations.GetWalletResponse](../../pkg/models/operations/getwalletresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ListBalances
 
@@ -628,8 +648,10 @@ func main() {
 
 ### Response
 
-**[*operations.ListBalancesResponse](../../models/operations/listbalancesresponse.md), error**
-
+**[*operations.ListBalancesResponse](../../pkg/models/operations/listbalancesresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ListWallets
 
@@ -680,15 +702,17 @@ func main() {
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `ctx`                                                                                                                                                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                                                                             | The context to use for the request.                                                                                                                                                                                            |                                                                                                                                                                                                                                |
 | `cursor`                                                                                                                                                                                                                       | **string*                                                                                                                                                                                                                      | :heavy_minus_sign:                                                                                                                                                                                                             | Parameter used in pagination requests.<br/>Set to the value of next for the next page of results.<br/>Set to the value of previous for the previous page of results.<br/>No other parameters can be set when the pagination token is set.<br/> | aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==                                                                                                                                                                                   |
-| `metadata`                                                                                                                                                                                                                     | [*operations.ListWalletsQueryParamMetadata](../../models/operations/listwalletsqueryparammetadata.md)                                                                                                                          | :heavy_minus_sign:                                                                                                                                                                                                             | Filter wallets by metadata key value pairs. Nested objects can be used as seen in the example below.                                                                                                                           |                                                                                                                                                                                                                                |
+| `metadata`                                                                                                                                                                                                                     | [*operations.ListWalletsQueryParamMetadata](../../../pkg/models/operations/listwalletsqueryparammetadata.md)                                                                                                                   | :heavy_minus_sign:                                                                                                                                                                                                             | Filter wallets by metadata key value pairs. Nested objects can be used as seen in the example below.                                                                                                                           |                                                                                                                                                                                                                                |
 | `name`                                                                                                                                                                                                                         | **string*                                                                                                                                                                                                                      | :heavy_minus_sign:                                                                                                                                                                                                             | Filter on wallet name                                                                                                                                                                                                          |                                                                                                                                                                                                                                |
 | `pageSize`                                                                                                                                                                                                                     | **int64*                                                                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                                                                             | The maximum number of results to return per page                                                                                                                                                                               |                                                                                                                                                                                                                                |
 
 
 ### Response
 
-**[*operations.ListWalletsResponse](../../models/operations/listwalletsresponse.md), error**
-
+**[*operations.ListWalletsResponse](../../pkg/models/operations/listwalletsresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## UpdateWallet
 
@@ -735,17 +759,19 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `ctx`                                                                                     | [context.Context](https://pkg.go.dev/context#Context)                                     | :heavy_check_mark:                                                                        | The context to use for the request.                                                       |
-| `id`                                                                                      | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
-| `requestBody`                                                                             | [*operations.UpdateWalletRequestBody](../../models/operations/updatewalletrequestbody.md) | :heavy_minus_sign:                                                                        | N/A                                                                                       |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
+| `id`                                                                                             | *string*                                                                                         | :heavy_check_mark:                                                                               | N/A                                                                                              |
+| `requestBody`                                                                                    | [*operations.UpdateWalletRequestBody](../../../pkg/models/operations/updatewalletrequestbody.md) | :heavy_minus_sign:                                                                               | N/A                                                                                              |
 
 
 ### Response
 
-**[*operations.UpdateWalletResponse](../../models/operations/updatewalletresponse.md), error**
-
+**[*operations.UpdateWalletResponse](../../pkg/models/operations/updatewalletresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## VoidHold
 
@@ -793,8 +819,10 @@ func main() {
 
 ### Response
 
-**[*operations.VoidHoldResponse](../../models/operations/voidholdresponse.md), error**
-
+**[*operations.VoidHoldResponse](../../pkg/models/operations/voidholdresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## WalletsgetServerInfo
 
@@ -838,5 +866,7 @@ func main() {
 
 ### Response
 
-**[*operations.WalletsgetServerInfoResponse](../../models/operations/walletsgetserverinforesponse.md), error**
-
+**[*operations.WalletsgetServerInfoResponse](../../pkg/models/operations/walletsgetserverinforesponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
