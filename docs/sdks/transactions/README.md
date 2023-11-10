@@ -41,8 +41,8 @@ func main() {
         Transactions: []shared.TransactionData{
             shared.TransactionData{
                 Metadata: map[string]interface{}{
-                    "a": "string",
                     "admin": "string",
+                    "a": "string",
                 },
                 Postings: []shared.Posting{
                     shared.Posting{
