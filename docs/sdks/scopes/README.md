@@ -25,10 +25,11 @@ Add a transient scope to a scope
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 func main() {
@@ -79,10 +80,10 @@ Create scope
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {
@@ -132,10 +133,11 @@ Delete scope
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 func main() {
@@ -183,10 +185,11 @@ Delete a transient scope from a scope
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 func main() {
@@ -237,10 +240,10 @@ List Scopes
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {
@@ -284,10 +287,10 @@ Read scope
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {
@@ -335,10 +338,10 @@ Update scope
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {

@@ -33,10 +33,11 @@ Confirm a hold
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 func main() {
@@ -90,10 +91,10 @@ Create a balance
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {
@@ -146,10 +147,10 @@ Create a new wallet
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {
@@ -199,10 +200,11 @@ Credit a wallet
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 func main() {
@@ -269,10 +271,10 @@ Debit a wallet
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {
@@ -340,10 +342,10 @@ Get detailed balance
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {
@@ -394,10 +396,10 @@ Get a hold
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {
@@ -445,11 +447,11 @@ Get all holds for a wallet
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 )
 
 func main() {
@@ -504,10 +506,10 @@ func main() {
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {
@@ -561,10 +563,10 @@ Get a wallet
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {
@@ -612,10 +614,10 @@ List balances of a wallet
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {
@@ -663,11 +665,11 @@ List all wallets
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 )
 
 func main() {
@@ -724,11 +726,12 @@ Update a wallet
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
+	"net/http"
 )
 
 func main() {
@@ -783,10 +786,11 @@ Cancel a hold
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 func main() {
@@ -834,10 +838,10 @@ Get server info
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {

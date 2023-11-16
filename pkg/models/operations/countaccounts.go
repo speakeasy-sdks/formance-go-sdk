@@ -69,7 +69,7 @@ func (o *CountAccountsResponse) GetErrorResponse() *shared.ErrorResponse {
 
 func (o *CountAccountsResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

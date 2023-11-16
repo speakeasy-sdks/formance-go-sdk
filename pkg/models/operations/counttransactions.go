@@ -159,7 +159,7 @@ func (o *CountTransactionsResponse) GetErrorResponse() *shared.ErrorResponse {
 
 func (o *CountTransactionsResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

@@ -25,10 +25,10 @@ Activate a webhooks config by ID, to start receiving webhooks to its endpoint.
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {
@@ -80,10 +80,10 @@ The format is a random string of bytes of size 24, base64 encoded. (larger size 
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {
@@ -136,10 +136,10 @@ Deactivate a webhooks config by ID, to stop receiving webhooks to its endpoint.
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {
@@ -187,10 +187,11 @@ Delete a webhooks config by ID.
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 func main() {
@@ -238,10 +239,10 @@ Sorted by updated date descending
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {
@@ -301,10 +302,10 @@ All eventTypes are converted to lower-case when inserted.
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {
@@ -356,10 +357,10 @@ Test a config by sending a webhook to its endpoint.
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {

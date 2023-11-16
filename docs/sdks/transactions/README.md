@@ -25,10 +25,10 @@ Create a new batch of transactions to a ledger
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {
@@ -97,10 +97,11 @@ Set the metadata of a transaction by its ID
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 func main() {
@@ -157,11 +158,12 @@ Count the transactions from a ledger
 package main
 
 import(
-	"context"
-	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
+	"context"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
+	"log"
+	"net/http"
 )
 
 func main() {
@@ -213,10 +215,10 @@ Create a new transaction to a ledger
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {
@@ -295,10 +297,10 @@ Get transaction from a ledger by its ID
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {
@@ -349,11 +351,11 @@ List transactions from a ledger, sorted by txid in descending order.
 package main
 
 import(
-	"context"
-	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
+	"context"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {
@@ -408,10 +410,10 @@ Revert a ledger transaction by its ID
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {

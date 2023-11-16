@@ -22,10 +22,11 @@ Add metadata to an account
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	"net/http"
 )
 
 func main() {
@@ -82,11 +83,12 @@ Count the accounts from a ledger
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
+	"net/http"
 )
 
 func main() {
@@ -140,10 +142,10 @@ Get account by its address
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {
@@ -194,11 +196,11 @@ List accounts from a ledger, sorted by address in descending order.
 package main
 
 import(
-	"context"
-	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
+	"context"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {

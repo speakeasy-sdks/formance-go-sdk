@@ -19,11 +19,11 @@ List the logs from a ledger, sorted by ID in descending order.
 package main
 
 import(
-	"context"
-	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
+	"context"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {

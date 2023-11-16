@@ -20,11 +20,11 @@ Get the balances from a ledger's account
 package main
 
 import(
-	"context"
-	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
+	"context"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {
@@ -75,10 +75,10 @@ Get the aggregated balances from selected accounts
 package main
 
 import(
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
+	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 )
 
 func main() {

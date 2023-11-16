@@ -218,7 +218,9 @@ package main
 
 import (
 	"context"
+	"errors"
 	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
+	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/sdkerrors"
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"log"
 )
@@ -383,7 +385,6 @@ package main
 import (
 	"context"
 	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
-	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/shared"
 	"log"
 )
 
