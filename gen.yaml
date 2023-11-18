@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: e2d62c3257abdb44d60905723bd6484e
   docVersion: v1.0.0-rc.5
-  speakeasyVersion: 1.120.3
-  generationVersion: 2.192.1
+  speakeasyVersion: 1.121.1
+  generationVersion: 2.194.1
 generation:
   comments: {}
   sdkClassName: formance
@@ -17,11 +17,11 @@ features:
     deprecations: 2.81.1
     flattening: 2.81.1
     globalSecurity: 2.82.2
-    globalServerURLs: 2.82.0
+    globalServerURLs: 2.82.1
     nameOverrides: 2.81.1
     unions: 2.85.0
 go:
-  version: 0.5.3
+  version: 0.5.4
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true
   imports:
