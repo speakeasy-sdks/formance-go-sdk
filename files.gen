@@ -254,7 +254,6 @@ pkg/utils/utils.go
 /pkg/models/shared/attemptresponse.go
 /pkg/models/shared/attempt.go
 /pkg/models/shared/security.go
-USAGE.md
 docs/pkg/models/operations/getserverinforesponse.md
 docs/pkg/models/operations/paymentsgetserverinforesponse.md
 docs/pkg/models/operations/searchgetserverinforesponse.md
@@ -619,4 +618,5 @@ docs/sdks/payments/README.md
 docs/sdks/search/README.md
 docs/sdks/wallets/README.md
 docs/sdks/webhooks/README.md
+USAGE.md
 .gitattributes

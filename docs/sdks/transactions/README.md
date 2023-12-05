@@ -138,7 +138,7 @@ func main() {
 | `ctx`                                                 | [context.Context](https://pkg.go.dev/context#Context) | :heavy_check_mark:                                    | The context to use for the request.                   |                                                       |
 | `ledger`                                              | *string*                                              | :heavy_check_mark:                                    | Name of the ledger.                                   | ledger001                                             |
 | `txid`                                                | *int64*                                               | :heavy_check_mark:                                    | Transaction ID.                                       | 1234                                                  |
-| `requestBody`                                         | map[string]*interface{}*                              | :heavy_minus_sign:                                    | metadata                                              | [object Object]                                       |
+| `requestBody`                                         | map[string]*interface{}*                              | :heavy_minus_sign:                                    | metadata                                              | {"admin":true,"a":{"nested":{"key":"value"}}}         |
 
 
 ### Response
