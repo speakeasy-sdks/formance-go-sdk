@@ -31,7 +31,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
 
@@ -93,7 +93,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
 
@@ -122,7 +122,7 @@ func main() {
 | `ctx`                                                                                                 | [context.Context](https://pkg.go.dev/context#Context)                                                 | :heavy_check_mark:                                                                                    | The context to use for the request.                                                                   |                                                                                                       |
 | `ledger`                                                                                              | *string*                                                                                              | :heavy_check_mark:                                                                                    | Name of the ledger.                                                                                   | ledger001                                                                                             |
 | `address`                                                                                             | **string*                                                                                             | :heavy_minus_sign:                                                                                    | Filter accounts by address pattern (regular expression placed between ^ and $).                       | users:.+                                                                                              |
-| `metadata`                                                                                            | [*operations.Metadata](../../../pkg/models/operations/metadata.md)                                    | :heavy_minus_sign:                                                                                    | Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below. |                                                                                                       |
+| `metadata`                                                                                            | [*operations.Metadata](../../pkg/models/operations/metadata.md)                                       | :heavy_minus_sign:                                                                                    | Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below. |                                                                                                       |
 
 
 ### Response
@@ -150,7 +150,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
 
@@ -205,7 +205,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()

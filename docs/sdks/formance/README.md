@@ -40,7 +40,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -87,7 +87,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -134,7 +134,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()

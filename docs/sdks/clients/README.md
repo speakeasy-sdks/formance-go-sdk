@@ -36,7 +36,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
 
@@ -90,7 +90,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -149,7 +149,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
 
@@ -176,11 +176,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
-| `clientID`                                                                       | *string*                                                                         | :heavy_check_mark:                                                               | Client ID                                                                        |
-| `createSecretRequest`                                                            | [*shared.CreateSecretRequest](../../../pkg/models/shared/createsecretrequest.md) | :heavy_minus_sign:                                                               | N/A                                                                              |
+| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `ctx`                                                                         | [context.Context](https://pkg.go.dev/context#Context)                         | :heavy_check_mark:                                                            | The context to use for the request.                                           |
+| `clientID`                                                                    | *string*                                                                      | :heavy_check_mark:                                                            | Client ID                                                                     |
+| `createSecretRequest`                                                         | [*shared.CreateSecretRequest](../../pkg/models/shared/createsecretrequest.md) | :heavy_minus_sign:                                                            | N/A                                                                           |
 
 
 ### Response
@@ -209,7 +209,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
 
@@ -261,7 +261,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
 
@@ -316,7 +316,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
 
@@ -370,7 +370,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -417,7 +417,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
 
@@ -468,7 +468,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
 
@@ -501,11 +501,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
-| `clientID`                                                                       | *string*                                                                         | :heavy_check_mark:                                                               | Client ID                                                                        |
-| `updateClientRequest`                                                            | [*shared.UpdateClientRequest](../../../pkg/models/shared/updateclientrequest.md) | :heavy_minus_sign:                                                               | N/A                                                                              |
+| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `ctx`                                                                         | [context.Context](https://pkg.go.dev/context#Context)                         | :heavy_check_mark:                                                            | The context to use for the request.                                           |
+| `clientID`                                                                    | *string*                                                                      | :heavy_check_mark:                                                            | Client ID                                                                     |
+| `updateClientRequest`                                                         | [*shared.UpdateClientRequest](../../pkg/models/shared/updateclientrequest.md) | :heavy_minus_sign:                                                            | N/A                                                                           |
 
 
 ### Response

@@ -27,63 +27,22 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
     res, err := s.Search.Search(ctx, shared.Query{
         After: []string{
-            "u",
-            "s",
-            "e",
-            "r",
-            "s",
-            ":",
-            "0",
-            "0",
-            "2",
+            "users:002",
         },
         Cursor: formancegosdk.String("YXVsdCBhbmQgYSBtYXhpbXVtIG1heF9yZXN1bHRzLol="),
         Ledgers: []string{
-            "q",
-            "u",
-            "i",
-            "c",
-            "k",
-            "s",
-            "t",
-            "a",
-            "r",
-            "t",
+            "quickstart",
         },
         Policy: formancegosdk.String("OR"),
         Sort: formancegosdk.String("txid:asc"),
         Terms: []string{
-            "d",
-            "e",
-            "s",
-            "t",
-            "i",
-            "n",
-            "a",
-            "t",
-            "i",
-            "o",
-            "n",
-            "=",
-            "c",
-            "e",
-            "n",
-            "t",
-            "r",
-            "a",
-            "l",
-            "_",
-            "b",
-            "a",
-            "n",
-            "k",
-            "1",
+            "destination=central_bank1",
         },
     })
     if err != nil {

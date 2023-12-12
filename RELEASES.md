@@ -181,3 +181,13 @@ Based on:
 - [go v0.5.5] .
 ### Releases
 - [Go v0.5.5] https://github.com/speakeasy-sdks/formance-go-sdk/releases/tag/v0.5.5 - .
+
+## 2023-12-12 00:46:23
+### Changes
+Based on:
+- OpenAPI Doc v1.0.0-rc.5 ./stack.yaml
+- Speakeasy CLI 1.126.0 (2.213.3) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [go v0.6.0] .
+### Releases
+- [Go v0.6.0] https://github.com/speakeasy-sdks/formance-go-sdk/releases/tag/v0.6.0 - .

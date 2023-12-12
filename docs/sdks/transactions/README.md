@@ -33,7 +33,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
 
@@ -73,11 +73,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                         | Type                                                              | Required                                                          | Description                                                       | Example                                                           |
-| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `ctx`                                                             | [context.Context](https://pkg.go.dev/context#Context)             | :heavy_check_mark:                                                | The context to use for the request.                               |                                                                   |
-| `transactions`                                                    | [shared.Transactions](../../../pkg/models/shared/transactions.md) | :heavy_check_mark:                                                | N/A                                                               |                                                                   |
-| `ledger`                                                          | *string*                                                          | :heavy_check_mark:                                                | Name of the ledger.                                               | ledger001                                                         |
+| Parameter                                                      | Type                                                           | Required                                                       | Description                                                    | Example                                                        |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| `ctx`                                                          | [context.Context](https://pkg.go.dev/context#Context)          | :heavy_check_mark:                                             | The context to use for the request.                            |                                                                |
+| `transactions`                                                 | [shared.Transactions](../../pkg/models/shared/transactions.md) | :heavy_check_mark:                                             | N/A                                                            |                                                                |
+| `ledger`                                                       | *string*                                                       | :heavy_check_mark:                                             | Name of the ledger.                                            | ledger001                                                      |
 
 
 ### Response
@@ -106,7 +106,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
 
@@ -168,7 +168,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -223,7 +223,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
 
@@ -275,7 +275,7 @@ func main() {
 | Parameter                                                                                                                                                                              | Type                                                                                                                                                                                   | Required                                                                                                                                                                               | Description                                                                                                                                                                            | Example                                                                                                                                                                                |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ctx`                                                                                                                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                     | The context to use for the request.                                                                                                                                                    |                                                                                                                                                                                        |
-| `postTransaction`                                                                                                                                                                      | [shared.PostTransaction](../../../pkg/models/shared/posttransaction.md)                                                                                                                | :heavy_check_mark:                                                                                                                                                                     | The request body must contain at least one of the following objects:<br/>  - `postings`: suitable for simple transactions<br/>  - `script`: enabling more complex transactions with Numscript<br/> |                                                                                                                                                                                        |
+| `postTransaction`                                                                                                                                                                      | [shared.PostTransaction](../../pkg/models/shared/posttransaction.md)                                                                                                                   | :heavy_check_mark:                                                                                                                                                                     | The request body must contain at least one of the following objects:<br/>  - `postings`: suitable for simple transactions<br/>  - `script`: enabling more complex transactions with Numscript<br/> |                                                                                                                                                                                        |
 | `ledger`                                                                                                                                                                               | *string*                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                     | Name of the ledger.                                                                                                                                                                    | ledger001                                                                                                                                                                              |
 | `preview`                                                                                                                                                                              | **bool*                                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                                     | Set the preview mode. Preview mode doesn't add the logs to the database or publish a message to the message broker.                                                                    | true                                                                                                                                                                                   |
 
@@ -305,7 +305,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
 
@@ -360,7 +360,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -418,7 +418,7 @@ import(
 
 func main() {
     s := formancegosdk.New(
-        formancegosdk.WithSecurity(""),
+        formancegosdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
 

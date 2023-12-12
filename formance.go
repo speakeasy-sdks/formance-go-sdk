@@ -179,7 +179,6 @@ func withSecurity(security interface{}) func(context.Context) (interface{}, erro
 }
 
 // WithSecurity configures the SDK to use the provided security details
-
 func WithSecurity(authorization string) SDKOption {
 	return func(sdk *Formance) {
 		security := shared.Security{Authorization: authorization}
@@ -199,9 +198,9 @@ func New(opts ...SDKOption) *Formance {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "v1.0.0-rc.5",
-			SDKVersion:        "0.5.5",
-			GenVersion:        "2.210.3",
-			UserAgent:         "speakeasy-sdk/go 0.5.5 2.210.3 v1.0.0-rc.5 github.com/speakeasy-sdks/formance-go-sdk",
+			SDKVersion:        "0.6.0",
+			GenVersion:        "2.213.3",
+			UserAgent:         "speakeasy-sdk/go 0.6.0 2.213.3 v1.0.0-rc.5 github.com/speakeasy-sdks/formance-go-sdk",
 			ServerDefaults: []map[string]string{
 				{},
 				{
