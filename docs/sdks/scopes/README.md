@@ -68,7 +68,7 @@ func main() {
 **[*operations.AddTransientScopeResponse](../../pkg/models/operations/addtransientscoperesponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## CreateScope
 
@@ -121,7 +121,7 @@ func main() {
 **[*operations.CreateScopeResponse](../../pkg/models/operations/createscoperesponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteScope
 
@@ -173,7 +173,7 @@ func main() {
 **[*operations.DeleteScopeResponse](../../pkg/models/operations/deletescoperesponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteTransientScope
 
@@ -228,7 +228,7 @@ func main() {
 **[*operations.DeleteTransientScopeResponse](../../pkg/models/operations/deletetransientscoperesponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListScopes
 
@@ -275,7 +275,7 @@ func main() {
 **[*operations.ListScopesResponse](../../pkg/models/operations/listscopesresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ReadScope
 
@@ -326,7 +326,7 @@ func main() {
 **[*operations.ReadScopeResponse](../../pkg/models/operations/readscoperesponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateScope
 
@@ -385,4 +385,4 @@ func main() {
 **[*operations.UpdateScopeResponse](../../pkg/models/operations/updatescoperesponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

@@ -70,7 +70,7 @@ func main() {
 **[*operations.AddScopeToClientResponse](../../pkg/models/operations/addscopetoclientresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## CreateClient
 
@@ -129,7 +129,7 @@ func main() {
 **[*operations.CreateClientResponse](../../pkg/models/operations/createclientresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## CreateSecret
 
@@ -188,7 +188,7 @@ func main() {
 **[*operations.CreateSecretResponse](../../pkg/models/operations/createsecretresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteClient
 
@@ -240,7 +240,7 @@ func main() {
 **[*operations.DeleteClientResponse](../../pkg/models/operations/deleteclientresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteScopeFromClient
 
@@ -295,7 +295,7 @@ func main() {
 **[*operations.DeleteScopeFromClientResponse](../../pkg/models/operations/deletescopefromclientresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteSecret
 
@@ -350,7 +350,7 @@ func main() {
 **[*operations.DeleteSecretResponse](../../pkg/models/operations/deletesecretresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListClients
 
@@ -397,7 +397,7 @@ func main() {
 **[*operations.ListClientsResponse](../../pkg/models/operations/listclientsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ReadClient
 
@@ -448,7 +448,7 @@ func main() {
 **[*operations.ReadClientResponse](../../pkg/models/operations/readclientresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateClient
 
@@ -513,4 +513,4 @@ func main() {
 **[*operations.UpdateClientResponse](../../pkg/models/operations/updateclientresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

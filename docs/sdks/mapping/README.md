@@ -59,7 +59,7 @@ func main() {
 **[*operations.GetMappingResponse](../../pkg/models/operations/getmappingresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateMapping
 
@@ -120,4 +120,4 @@ func main() {
 **[*operations.UpdateMappingResponse](../../pkg/models/operations/updatemappingresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

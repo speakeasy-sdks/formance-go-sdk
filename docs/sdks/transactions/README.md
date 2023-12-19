@@ -85,7 +85,7 @@ func main() {
 **[*operations.CreateTransactionsResponse](../../pkg/models/operations/createtransactionsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## AddMetadataOnTransaction
 
@@ -146,7 +146,7 @@ func main() {
 **[*operations.AddMetadataOnTransactionResponse](../../pkg/models/operations/addmetadataontransactionresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## CountTransactions
 
@@ -203,7 +203,7 @@ func main() {
 **[*operations.CountTransactionsResponse](../../pkg/models/operations/counttransactionsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## CreateTransaction
 
@@ -285,7 +285,7 @@ func main() {
 **[*operations.CreateTransactionResponse](../../pkg/models/operations/createtransactionresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetTransaction
 
@@ -339,7 +339,7 @@ func main() {
 **[*operations.GetTransactionResponse](../../pkg/models/operations/gettransactionresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListTransactions
 
@@ -398,7 +398,7 @@ func main() {
 **[*operations.ListTransactionsResponse](../../pkg/models/operations/listtransactionsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## RevertTransaction
 
@@ -452,4 +452,4 @@ func main() {
 **[*operations.RevertTransactionResponse](../../pkg/models/operations/reverttransactionresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

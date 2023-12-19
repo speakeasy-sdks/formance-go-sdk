@@ -67,7 +67,7 @@ func main() {
 **[*operations.CreateWorkflowResponse](../../pkg/models/operations/createworkflowresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetFlow
 
@@ -118,7 +118,7 @@ func main() {
 **[*operations.GetFlowResponse](../../pkg/models/operations/getflowresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetWorkflowOccurrence
 
@@ -172,7 +172,7 @@ func main() {
 **[*operations.GetWorkflowOccurrenceResponse](../../pkg/models/operations/getworkflowoccurrenceresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListFlows
 
@@ -219,7 +219,7 @@ func main() {
 **[*operations.ListFlowsResponse](../../pkg/models/operations/listflowsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListRuns
 
@@ -270,7 +270,7 @@ func main() {
 **[*operations.ListRunsResponse](../../pkg/models/operations/listrunsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## OrchestrationgetServerInfo
 
@@ -317,7 +317,7 @@ func main() {
 **[*operations.OrchestrationgetServerInfoResponse](../../pkg/models/operations/orchestrationgetserverinforesponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## RunWorkflow
 
@@ -376,4 +376,4 @@ func main() {
 **[*operations.RunWorkflowResponse](../../pkg/models/operations/runworkflowresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

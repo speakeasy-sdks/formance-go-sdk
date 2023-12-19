@@ -55,7 +55,7 @@ func main() {
 **[*operations.ListUsersResponse](../../pkg/models/operations/listusersresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ReadUser
 
@@ -106,4 +106,4 @@ func main() {
 **[*operations.ReadUserResponse](../../pkg/models/operations/readuserresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
