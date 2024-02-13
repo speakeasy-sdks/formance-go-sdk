@@ -160,9 +160,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Wallets.CreateWallet(ctx, &shared.CreateWalletRequest{
-        Metadata: map[string]interface{}{
-            "key": "string",
-        },
         Name: "string",
     })
     if err != nil {
@@ -219,9 +216,6 @@ func main() {
         Amount: shared.Monetary{
             Amount: 201874,
             Asset: "string",
-        },
-        Metadata: map[string]interface{}{
-            "key": "string",
         },
         Sources: []shared.Subject{
             shared.CreateSubjectLedgerAccountSubject(
@@ -287,21 +281,10 @@ func main() {
 
     debitWalletRequest := &shared.DebitWalletRequest{
         Amount: shared.Monetary{
-            Amount: 245256,
-            Asset: "string",
+            Amount: 100,
+            Asset: "USD/2",
         },
-        Balances: []string{
-            "string",
-        },
-        Destination: shared.CreateSubjectLedgerAccountSubject(
-                shared.LedgerAccountSubject{
-                    Identifier: "string",
-                    Type: "string",
-                },
-        ),
-        Metadata: map[string]interface{}{
-            "key": "string",
-        },
+        Pending: formancegosdk.Bool(true),
     }
 
     ctx := context.Background()
@@ -318,11 +301,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `ctx`                                                                       | [context.Context](https://pkg.go.dev/context#Context)                       | :heavy_check_mark:                                                          | The context to use for the request.                                         |
-| `id`                                                                        | *string*                                                                    | :heavy_check_mark:                                                          | N/A                                                                         |
-| `debitWalletRequest`                                                        | [*shared.DebitWalletRequest](../../pkg/models/shared/debitwalletrequest.md) | :heavy_minus_sign:                                                          | N/A                                                                         |
+| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `ctx`                                                                       | [context.Context](https://pkg.go.dev/context#Context)                       | :heavy_check_mark:                                                          | The context to use for the request.                                         |                                                                             |
+| `id`                                                                        | *string*                                                                    | :heavy_check_mark:                                                          | N/A                                                                         |                                                                             |
+| `debitWalletRequest`                                                        | [*shared.DebitWalletRequest](../../pkg/models/shared/debitwalletrequest.md) | :heavy_minus_sign:                                                          | N/A                                                                         | {"amount":{"asset":"USD/2","amount":100},"pending":true}                    |
 
 
 ### Response
@@ -460,13 +443,13 @@ func main() {
     )
 
 
-    var cursor *string = "aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="
+    var cursor *string = formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==")
 
     metadata := &operations.GetHoldsQueryParamMetadata{}
 
-    var pageSize *int64 = 692494
+    var pageSize *int64 = formancegosdk.Int64(692494)
 
-    var walletID *string = "string"
+    var walletID *string = formancegosdk.String("string")
 
     ctx := context.Background()
     res, err := s.Wallets.GetHolds(ctx, cursor, metadata, pageSize, walletID)
@@ -518,11 +501,11 @@ func main() {
     )
 
 
-    var cursor *string = "aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="
+    var cursor *string = formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==")
 
-    var pageSize *int64 = 680555
+    var pageSize *int64 = formancegosdk.Int64(680555)
 
-    var walletID *string = "string"
+    var walletID *string = formancegosdk.String("string")
 
     ctx := context.Background()
     res, err := s.Wallets.GetTransactions(ctx, cursor, pageSize, walletID)
@@ -678,13 +661,13 @@ func main() {
     )
 
 
-    var cursor *string = "aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="
+    var cursor *string = formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==")
 
     metadata := &operations.ListWalletsQueryParamMetadata{}
 
-    var name *string = "string"
+    var name *string = formancegosdk.String("string")
 
-    var pageSize *int64 = 412533
+    var pageSize *int64 = formancegosdk.Int64(412533)
 
     ctx := context.Background()
     res, err := s.Wallets.ListWallets(ctx, cursor, metadata, name, pageSize)
@@ -742,11 +725,7 @@ func main() {
 
     var id string = "string"
 
-    requestBody := &operations.UpdateWalletRequestBody{
-        Metadata: map[string]interface{}{
-            "key": "string",
-        },
-    }
+    requestBody := &operations.UpdateWalletRequestBody{}
 
     ctx := context.Background()
     res, err := s.Wallets.UpdateWallet(ctx, id, requestBody)

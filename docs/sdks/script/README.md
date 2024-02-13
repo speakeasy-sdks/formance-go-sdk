@@ -36,7 +36,7 @@ func main() {
 
     script := shared.Script{
         Metadata: map[string]interface{}{
-            "admin": "string",
+            "admin": true,
             "a": "string",
         },
         Plain: "vars {
@@ -53,7 +53,7 @@ func main() {
 
     var ledger string = "ledger001"
 
-    var preview *bool = true
+    var preview *bool = formancegosdk.Bool(true)
 
     ctx := context.Background()
     res, err := s.Script.RunScript(ctx, script, ledger, preview)

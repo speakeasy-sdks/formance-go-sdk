@@ -41,7 +41,7 @@ func main() {
         Transactions: []shared.TransactionData{
             shared.TransactionData{
                 Metadata: map[string]interface{}{
-                    "admin": "string",
+                    "admin": true,
                     "a": "string",
                 },
                 Postings: []shared.Posting{
@@ -115,7 +115,7 @@ func main() {
     var txid int64 = 1234
 
     requestBody := map[string]interface{}{
-        "admin": "string",
+        "admin": true,
         "a": "string",
     }
 
@@ -176,7 +176,6 @@ func main() {
         Account: formancegosdk.String("users:001"),
         Destination: formancegosdk.String("users:001"),
         Ledger: "ledger001",
-        Metadata: &operations.CountTransactionsQueryParamMetadata{},
         Reference: formancegosdk.String("ref:001"),
         Source: formancegosdk.String("users:001"),
     })
@@ -229,34 +228,15 @@ func main() {
 
     postTransaction := shared.PostTransaction{
         Metadata: map[string]interface{}{
-            "admin": "string",
+            "admin": true,
             "a": "string",
         },
-        Postings: []shared.Posting{
-            shared.Posting{
-                Amount: 100,
-                Asset: "COIN",
-                Destination: "users:002",
-                Source: "users:001",
-            },
-        },
         Reference: formancegosdk.String("ref:001"),
-        Script: &shared.PostTransactionScript{
-            Plain: "vars {
-        account $user
-        }
-        send [COIN 10] (
-        	source = @world
-        	destination = $user
-        )
-        ",
-            Vars: &shared.PostTransactionVars{},
-        },
     }
 
     var ledger string = "ledger001"
 
-    var preview *bool = true
+    var preview *bool = formancegosdk.Bool(true)
 
     ctx := context.Background()
     res, err := s.Transactions.CreateTransaction(ctx, postTransaction, ledger, preview)
@@ -370,7 +350,6 @@ func main() {
         Cursor: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         Destination: formancegosdk.String("users:001"),
         Ledger: "ledger001",
-        Metadata: &operations.ListTransactionsQueryParamMetadata{},
         PaginationToken: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         Reference: formancegosdk.String("ref:001"),
         Source: formancegosdk.String("users:001"),

@@ -357,9 +357,9 @@ func main() {
 
     var connector shared.Connector = shared.ConnectorDummyPay
 
-    var cursor *string = "aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="
+    var cursor *string = formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==")
 
-    var pageSize *int64 = 501686
+    var pageSize *int64 = formancegosdk.Int64(501686)
 
     ctx := context.Background()
     res, err := s.Payments.ListConnectorTasks(ctx, connector, cursor, pageSize)
@@ -412,9 +412,9 @@ func main() {
     )
 
 
-    var cursor *string = "aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="
+    var cursor *string = formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==")
 
-    var pageSize *int64 = 13778
+    var pageSize *int64 = formancegosdk.Int64(13778)
 
     sort := []string{
         "string",
@@ -471,9 +471,9 @@ func main() {
     )
 
 
-    var cursor *string = "aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="
+    var cursor *string = formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==")
 
-    var pageSize *int64 = 227071
+    var pageSize *int64 = formancegosdk.Int64(227071)
 
     sort := []string{
         "string",

@@ -347,7 +347,7 @@ func main() {
         "key": "string",
     }
 
-    var wait *bool = false
+    var wait *bool = formancegosdk.Bool(false)
 
     ctx := context.Background()
     res, err := s.Orchestration.RunWorkflow(ctx, flowID, requestBody, wait)

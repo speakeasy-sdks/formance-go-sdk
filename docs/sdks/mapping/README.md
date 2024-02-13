@@ -83,7 +83,7 @@ func main() {
     )
 
 
-    mapping := shared.Mapping{
+    mapping := &shared.Mapping{
         Contracts: []shared.Contract{
             shared.Contract{
                 Account: formancegosdk.String("users:001"),

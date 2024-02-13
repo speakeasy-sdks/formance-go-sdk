@@ -95,16 +95,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Clients.CreateClient(ctx, &shared.CreateClientRequest{
-        Metadata: map[string]interface{}{
-            "key": "string",
-        },
         Name: "string",
-        PostLogoutRedirectUris: []string{
-            "string",
-        },
-        RedirectUris: []string{
-            "string",
-        },
     })
     if err != nil {
         log.Fatal(err)
@@ -156,9 +147,6 @@ func main() {
     var clientID string = "string"
 
     createSecretRequest := &shared.CreateSecretRequest{
-        Metadata: map[string]interface{}{
-            "key": "string",
-        },
         Name: "string",
     }
 
@@ -475,16 +463,7 @@ func main() {
     var clientID string = "string"
 
     updateClientRequest := &shared.UpdateClientRequest{
-        Metadata: map[string]interface{}{
-            "key": "string",
-        },
         Name: "string",
-        PostLogoutRedirectUris: []string{
-            "string",
-        },
-        RedirectUris: []string{
-            "string",
-        },
     }
 
     ctx := context.Background()

@@ -89,7 +89,7 @@ func main() {
 
     var ledger string = "ledger001"
 
-    var address *string = "users:001"
+    var address *string = formancegosdk.String("users:001")
 
     ctx := context.Background()
     res, err := s.Balances.GetBalancesAggregated(ctx, ledger, address)

@@ -251,9 +251,9 @@ func main() {
     )
 
 
-    var endpoint *string = "https://example.com"
+    var endpoint *string = formancegosdk.String("https://example.com")
 
-    var id *string = "4997257d-dfb6-445b-929c-cbe2ab182818"
+    var id *string = formancegosdk.String("4997257d-dfb6-445b-929c-cbe2ab182818")
 
     ctx := context.Background()
     res, err := s.Webhooks.GetManyConfigs(ctx, endpoint, id)

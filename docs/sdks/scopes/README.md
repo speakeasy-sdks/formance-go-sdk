@@ -94,9 +94,6 @@ func main() {
     ctx := context.Background()
     res, err := s.Scopes.CreateScope(ctx, &shared.CreateScopeRequest{
         Label: "string",
-        Metadata: map[string]interface{}{
-            "key": "string",
-        },
     })
     if err != nil {
         log.Fatal(err)
@@ -354,9 +351,6 @@ func main() {
 
     updateScopeRequest := &shared.UpdateScopeRequest{
         Label: "string",
-        Metadata: map[string]interface{}{
-            "key": "string",
-        },
     }
 
     ctx := context.Background()

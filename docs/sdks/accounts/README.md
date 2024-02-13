@@ -36,7 +36,7 @@ func main() {
 
 
     requestBody := map[string]interface{}{
-        "admin": "string",
+        "admin": true,
         "a": "string",
     }
 
@@ -99,7 +99,7 @@ func main() {
 
     var ledger string = "ledger001"
 
-    var address *string = "users:.+"
+    var address *string = formancegosdk.String("users:.+")
 
     metadata := &operations.Metadata{}
 
@@ -217,7 +217,6 @@ func main() {
         BalanceOperatorDeprecated: operations.QueryParamBalanceOperatorGte.ToPointer(),
         Cursor: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
         Ledger: "ledger001",
-        Metadata: &operations.QueryParamMetadata{},
         PaginationToken: formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ=="),
     })
     if err != nil {
