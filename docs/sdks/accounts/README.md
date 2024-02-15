@@ -37,7 +37,7 @@ func main() {
 
     requestBody := map[string]interface{}{
         "admin": true,
-        "a": "string",
+        "a": "<value>",
     }
 
     var address string = "users:001"

@@ -40,9 +40,9 @@ func main() {
     )
 
 
-    var clientID string = "string"
+    var clientID string = "<value>"
 
-    var scopeID string = "string"
+    var scopeID string = "<value>"
 
     ctx := context.Background()
     res, err := s.Clients.AddScopeToClient(ctx, clientID, scopeID)
@@ -95,7 +95,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Clients.CreateClient(ctx, &shared.CreateClientRequest{
-        Name: "string",
+        Name: "<value>",
     })
     if err != nil {
         log.Fatal(err)
@@ -144,10 +144,10 @@ func main() {
     )
 
 
-    var clientID string = "string"
+    var clientID string = "<value>"
 
     createSecretRequest := &shared.CreateSecretRequest{
-        Name: "string",
+        Name: "<value>",
     }
 
     ctx := context.Background()
@@ -201,7 +201,7 @@ func main() {
     )
 
 
-    var clientID string = "string"
+    var clientID string = "<value>"
 
     ctx := context.Background()
     res, err := s.Clients.DeleteClient(ctx, clientID)
@@ -253,9 +253,9 @@ func main() {
     )
 
 
-    var clientID string = "string"
+    var clientID string = "<value>"
 
-    var scopeID string = "string"
+    var scopeID string = "<value>"
 
     ctx := context.Background()
     res, err := s.Clients.DeleteScopeFromClient(ctx, clientID, scopeID)
@@ -308,9 +308,9 @@ func main() {
     )
 
 
-    var clientID string = "string"
+    var clientID string = "<value>"
 
-    var secretID string = "string"
+    var secretID string = "<value>"
 
     ctx := context.Background()
     res, err := s.Clients.DeleteSecret(ctx, clientID, secretID)
@@ -409,7 +409,7 @@ func main() {
     )
 
 
-    var clientID string = "string"
+    var clientID string = "<value>"
 
     ctx := context.Background()
     res, err := s.Clients.ReadClient(ctx, clientID)
@@ -460,10 +460,10 @@ func main() {
     )
 
 
-    var clientID string = "string"
+    var clientID string = "<value>"
 
     updateClientRequest := &shared.UpdateClientRequest{
-        Name: "string",
+        Name: "<value>",
     }
 
     ctx := context.Background()

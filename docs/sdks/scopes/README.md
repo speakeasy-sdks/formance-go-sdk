@@ -38,9 +38,9 @@ func main() {
     )
 
 
-    var scopeID string = "string"
+    var scopeID string = "<value>"
 
-    var transientScopeID string = "string"
+    var transientScopeID string = "<value>"
 
     ctx := context.Background()
     res, err := s.Scopes.AddTransientScope(ctx, scopeID, transientScopeID)
@@ -93,7 +93,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Scopes.CreateScope(ctx, &shared.CreateScopeRequest{
-        Label: "string",
+        Label: "<value>",
     })
     if err != nil {
         log.Fatal(err)
@@ -143,7 +143,7 @@ func main() {
     )
 
 
-    var scopeID string = "string"
+    var scopeID string = "<value>"
 
     ctx := context.Background()
     res, err := s.Scopes.DeleteScope(ctx, scopeID)
@@ -195,9 +195,9 @@ func main() {
     )
 
 
-    var scopeID string = "string"
+    var scopeID string = "<value>"
 
-    var transientScopeID string = "string"
+    var transientScopeID string = "<value>"
 
     ctx := context.Background()
     res, err := s.Scopes.DeleteTransientScope(ctx, scopeID, transientScopeID)
@@ -296,7 +296,7 @@ func main() {
     )
 
 
-    var scopeID string = "string"
+    var scopeID string = "<value>"
 
     ctx := context.Background()
     res, err := s.Scopes.ReadScope(ctx, scopeID)
@@ -347,10 +347,10 @@ func main() {
     )
 
 
-    var scopeID string = "string"
+    var scopeID string = "<value>"
 
     updateScopeRequest := &shared.UpdateScopeRequest{
-        Label: "string",
+        Label: "<value>",
     }
 
     ctx := context.Background()

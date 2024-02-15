@@ -97,7 +97,7 @@ func main() {
 
     var connector shared.Connector = shared.ConnectorBankingCircle
 
-    var taskID string = "string"
+    var taskID string = "<value>"
 
     ctx := context.Background()
     res, err := s.Payments.GetConnectorTask(ctx, connector, taskID)
@@ -149,7 +149,7 @@ func main() {
     )
 
 
-    var paymentID string = "string"
+    var paymentID string = "<value>"
 
     ctx := context.Background()
     res, err := s.Payments.GetPayment(ctx, paymentID)
@@ -417,7 +417,7 @@ func main() {
     var pageSize *int64 = formancegosdk.Int64(13778)
 
     sort := []string{
-        "string",
+        "<value>",
     }
 
     ctx := context.Background()
@@ -476,7 +476,7 @@ func main() {
     var pageSize *int64 = formancegosdk.Int64(227071)
 
     sort := []string{
-        "string",
+        "<value>",
     }
 
     ctx := context.Background()

@@ -37,7 +37,7 @@ func main() {
     script := shared.Script{
         Metadata: map[string]interface{}{
             "admin": true,
-            "a": "string",
+            "a": "<value>",
         },
         Plain: "vars {
     account $user

@@ -42,7 +42,7 @@ func main() {
             shared.TransactionData{
                 Metadata: map[string]interface{}{
                     "admin": true,
-                    "a": "string",
+                    "a": "<value>",
                 },
                 Postings: []shared.Posting{
                     shared.Posting{
@@ -116,7 +116,7 @@ func main() {
 
     requestBody := map[string]interface{}{
         "admin": true,
-        "a": "string",
+        "a": "<value>",
     }
 
     ctx := context.Background()
@@ -229,7 +229,7 @@ func main() {
     postTransaction := shared.PostTransaction{
         Metadata: map[string]interface{}{
             "admin": true,
-            "a": "string",
+            "a": "<value>",
         },
         Reference: formancegosdk.String("ref:001"),
     }

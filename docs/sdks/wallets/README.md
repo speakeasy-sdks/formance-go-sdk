@@ -46,7 +46,7 @@ func main() {
     )
 
 
-    var holdID string = "string"
+    var holdID string = "<value>"
 
     confirmHoldRequest := &shared.ConfirmHoldRequest{
         Amount: formancegosdk.Int64(100),
@@ -103,10 +103,10 @@ func main() {
     )
 
 
-    var id string = "string"
+    var id string = "<value>"
 
     createBalanceRequest := &shared.CreateBalanceRequest{
-        Name: "string",
+        Name: "<value>",
     }
 
     ctx := context.Background()
@@ -160,7 +160,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Wallets.CreateWallet(ctx, &shared.CreateWalletRequest{
-        Name: "string",
+        Name: "<value>",
     })
     if err != nil {
         log.Fatal(err)
@@ -210,18 +210,18 @@ func main() {
     )
 
 
-    var id string = "string"
+    var id string = "<value>"
 
     creditWalletRequest := &shared.CreditWalletRequest{
         Amount: shared.Monetary{
             Amount: 201874,
-            Asset: "string",
+            Asset: "<value>",
         },
         Sources: []shared.Subject{
             shared.CreateSubjectLedgerAccountSubject(
                 shared.LedgerAccountSubject{
-                    Identifier: "string",
-                    Type: "string",
+                    Identifier: "<value>",
+                    Type: "<value>",
                 },
             ),
         },
@@ -277,7 +277,7 @@ func main() {
     )
 
 
-    var id string = "string"
+    var id string = "<value>"
 
     debitWalletRequest := &shared.DebitWalletRequest{
         Amount: shared.Monetary{
@@ -337,9 +337,9 @@ func main() {
     )
 
 
-    var balanceName string = "string"
+    var balanceName string = "<value>"
 
-    var id string = "string"
+    var id string = "<value>"
 
     ctx := context.Background()
     res, err := s.Wallets.GetBalance(ctx, balanceName, id)
@@ -391,7 +391,7 @@ func main() {
     )
 
 
-    var holdID string = "string"
+    var holdID string = "<value>"
 
     ctx := context.Background()
     res, err := s.Wallets.GetHold(ctx, holdID)
@@ -449,7 +449,7 @@ func main() {
 
     var pageSize *int64 = formancegosdk.Int64(692494)
 
-    var walletID *string = formancegosdk.String("string")
+    var walletID *string = formancegosdk.String("<value>")
 
     ctx := context.Background()
     res, err := s.Wallets.GetHolds(ctx, cursor, metadata, pageSize, walletID)
@@ -505,7 +505,7 @@ func main() {
 
     var pageSize *int64 = formancegosdk.Int64(680555)
 
-    var walletID *string = formancegosdk.String("string")
+    var walletID *string = formancegosdk.String("<value>")
 
     ctx := context.Background()
     res, err := s.Wallets.GetTransactions(ctx, cursor, pageSize, walletID)
@@ -558,7 +558,7 @@ func main() {
     )
 
 
-    var id string = "string"
+    var id string = "<value>"
 
     ctx := context.Background()
     res, err := s.Wallets.GetWallet(ctx, id)
@@ -609,7 +609,7 @@ func main() {
     )
 
 
-    var id string = "string"
+    var id string = "<value>"
 
     ctx := context.Background()
     res, err := s.Wallets.ListBalances(ctx, id)
@@ -665,7 +665,7 @@ func main() {
 
     metadata := &operations.ListWalletsQueryParamMetadata{}
 
-    var name *string = formancegosdk.String("string")
+    var name *string = formancegosdk.String("<value>")
 
     var pageSize *int64 = formancegosdk.Int64(412533)
 
@@ -723,7 +723,7 @@ func main() {
     )
 
 
-    var id string = "string"
+    var id string = "<value>"
 
     requestBody := &operations.UpdateWalletRequestBody{}
 
@@ -778,7 +778,7 @@ func main() {
     )
 
 
-    var holdID string = "string"
+    var holdID string = "<value>"
 
     ctx := context.Background()
     res, err := s.Wallets.VoidHold(ctx, holdID)

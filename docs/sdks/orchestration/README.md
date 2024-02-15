@@ -40,7 +40,7 @@ func main() {
     res, err := s.Orchestration.CreateWorkflow(ctx, &shared.CreateWorkflowRequest{
         Stages: []map[string]interface{}{
             map[string]interface{}{
-                "key": "string",
+                "key": "<value>",
             },
         },
     })
@@ -91,7 +91,7 @@ func main() {
     )
 
 
-    var flowID string = "string"
+    var flowID string = "<value>"
 
     ctx := context.Background()
     res, err := s.Orchestration.GetFlow(ctx, flowID)
@@ -142,9 +142,9 @@ func main() {
     )
 
 
-    var flowID string = "string"
+    var flowID string = "<value>"
 
-    var runID string = "string"
+    var runID string = "<value>"
 
     ctx := context.Background()
     res, err := s.Orchestration.GetWorkflowOccurrence(ctx, flowID, runID)
@@ -243,7 +243,7 @@ func main() {
     )
 
 
-    var flowID string = "string"
+    var flowID string = "<value>"
 
     ctx := context.Background()
     res, err := s.Orchestration.ListRuns(ctx, flowID)
@@ -341,10 +341,10 @@ func main() {
     )
 
 
-    var flowID string = "string"
+    var flowID string = "<value>"
 
     requestBody := map[string]string{
-        "key": "string",
+        "key": "<value>",
     }
 
     var wait *bool = formancegosdk.Bool(false)

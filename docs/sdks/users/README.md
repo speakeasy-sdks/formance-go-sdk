@@ -79,7 +79,7 @@ func main() {
     )
 
 
-    var userID string = "string"
+    var userID string = "<value>"
 
     ctx := context.Background()
     res, err := s.Users.ReadUser(ctx, userID)
