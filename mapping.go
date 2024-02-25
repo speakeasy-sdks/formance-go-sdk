@@ -28,7 +28,11 @@ func newMapping(sdkConfig sdkConfiguration) *Mapping {
 
 // GetMapping - Get the mapping of a ledger
 func (s *Mapping) GetMapping(ctx context.Context, ledger string) (*operations.GetMappingResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "getMapping"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "getMapping",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	request := operations.GetMappingRequest{
 		Ledger: ledger,
@@ -47,12 +51,12 @@ func (s *Mapping) GetMapping(ctx context.Context, ledger string) (*operations.Ge
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -62,15 +66,15 @@ func (s *Mapping) GetMapping(ctx context.Context, ledger string) (*operations.Ge
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -126,7 +130,11 @@ func (s *Mapping) GetMapping(ctx context.Context, ledger string) (*operations.Ge
 
 // UpdateMapping - Update the mapping of a ledger
 func (s *Mapping) UpdateMapping(ctx context.Context, mapping *shared.Mapping, ledger string) (*operations.UpdateMappingResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "updateMapping"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "updateMapping",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	request := operations.UpdateMappingRequest{
 		Mapping: mapping,
@@ -152,12 +160,12 @@ func (s *Mapping) UpdateMapping(ctx context.Context, mapping *shared.Mapping, le
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -167,15 +175,15 @@ func (s *Mapping) UpdateMapping(ctx context.Context, mapping *shared.Mapping, le
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
