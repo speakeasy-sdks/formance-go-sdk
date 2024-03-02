@@ -447,7 +447,7 @@ func main() {
 
     metadata := &operations.GetHoldsQueryParamMetadata{}
 
-    var pageSize *int64 = formancegosdk.Int64(692494)
+    var pageSize *int64 = formancegosdk.Int64(15)
 
     var walletID *string = formancegosdk.String("<value>")
 
@@ -503,7 +503,7 @@ func main() {
 
     var cursor *string = formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==")
 
-    var pageSize *int64 = formancegosdk.Int64(680555)
+    var pageSize *int64 = formancegosdk.Int64(15)
 
     var walletID *string = formancegosdk.String("<value>")
 
@@ -667,7 +667,7 @@ func main() {
 
     var name *string = formancegosdk.String("<value>")
 
-    var pageSize *int64 = formancegosdk.Int64(412533)
+    var pageSize *int64 = formancegosdk.Int64(15)
 
     ctx := context.Background()
     res, err := s.Wallets.ListWallets(ctx, cursor, metadata, name, pageSize)

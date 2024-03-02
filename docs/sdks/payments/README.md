@@ -359,7 +359,7 @@ func main() {
 
     var cursor *string = formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==")
 
-    var pageSize *int64 = formancegosdk.Int64(501686)
+    var pageSize *int64 = formancegosdk.Int64(15)
 
     ctx := context.Background()
     res, err := s.Payments.ListConnectorTasks(ctx, connector, cursor, pageSize)
@@ -414,7 +414,7 @@ func main() {
 
     var cursor *string = formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==")
 
-    var pageSize *int64 = formancegosdk.Int64(13778)
+    var pageSize *int64 = formancegosdk.Int64(15)
 
     sort := []string{
         "<value>",
@@ -473,7 +473,7 @@ func main() {
 
     var cursor *string = formancegosdk.String("aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==")
 
-    var pageSize *int64 = formancegosdk.Int64(227071)
+    var pageSize *int64 = formancegosdk.Int64(15)
 
     sort := []string{
         "<value>",
