@@ -36,7 +36,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.ListUsersResponse != nil {
         // handle response
     }
@@ -86,7 +85,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.ReadUserResponse != nil {
         // handle response
     }

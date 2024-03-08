@@ -51,7 +51,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.StripeTransferResponse != nil {
         // handle response
     }
@@ -104,7 +103,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.TaskResponse != nil {
         // handle response
     }
@@ -156,7 +154,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.PaymentResponse != nil {
         // handle response
     }
@@ -192,7 +189,6 @@ import(
 	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	"net/http"
 )
 
 func main() {
@@ -216,8 +212,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
-    if res.StatusCode == http.StatusOK {
+    if res != nil {
         // handle response
     }
 }
@@ -265,7 +260,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.ConnectorsResponse != nil {
         // handle response
     }
@@ -312,7 +306,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.ConnectorsConfigsResponse != nil {
         // handle response
     }
@@ -366,7 +359,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.TasksCursor != nil {
         // handle response
     }
@@ -425,7 +417,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.PaymentsCursor != nil {
         // handle response
     }
@@ -484,7 +475,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.AccountsCursor != nil {
         // handle response
     }
@@ -537,7 +527,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.ConnectorConfigResponse != nil {
         // handle response
     }
@@ -575,7 +564,6 @@ import(
 	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	"net/http"
 )
 
 func main() {
@@ -591,8 +579,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
-    if res.StatusCode == http.StatusOK {
+    if res != nil {
         // handle response
     }
 }
@@ -627,7 +614,6 @@ import(
 	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	"net/http"
 )
 
 func main() {
@@ -643,8 +629,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
-    if res.StatusCode == http.StatusOK {
+    if res != nil {
         // handle response
     }
 }

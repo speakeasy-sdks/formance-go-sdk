@@ -37,7 +37,6 @@ import(
 	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	"net/http"
 )
 
 func main() {
@@ -58,8 +57,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
-    if res.StatusCode == http.StatusOK {
+    if res != nil {
         // handle response
     }
 }
@@ -114,7 +112,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.CreateBalanceResponse != nil {
         // handle response
     }
@@ -165,7 +162,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.CreateWalletResponse != nil {
         // handle response
     }
@@ -201,7 +197,6 @@ import(
 	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	"net/http"
 )
 
 func main() {
@@ -232,8 +227,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
-    if res.StatusCode == http.StatusOK {
+    if res != nil {
         // handle response
     }
 }
@@ -292,7 +286,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.DebitWalletResponse != nil {
         // handle response
     }
@@ -346,7 +339,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.GetBalanceResponse != nil {
         // handle response
     }
@@ -398,7 +390,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.GetHoldResponse != nil {
         // handle response
     }
@@ -456,7 +447,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.GetHoldsResponse != nil {
         // handle response
     }
@@ -512,7 +502,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.GetTransactionsResponse != nil {
         // handle response
     }
@@ -565,7 +554,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.GetWalletResponse != nil {
         // handle response
     }
@@ -616,7 +604,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.ListBalancesResponse != nil {
         // handle response
     }
@@ -674,7 +661,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.ListWalletsResponse != nil {
         // handle response
     }
@@ -714,7 +700,6 @@ import(
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 	"context"
 	"log"
-	"net/http"
 )
 
 func main() {
@@ -732,8 +717,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
-    if res.StatusCode == http.StatusOK {
+    if res != nil {
         // handle response
     }
 }
@@ -769,7 +753,6 @@ import(
 	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	"net/http"
 )
 
 func main() {
@@ -785,8 +768,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
-    if res.StatusCode == http.StatusOK {
+    if res != nil {
         // handle response
     }
 }
@@ -833,7 +815,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.ServerInfo != nil {
         // handle response
     }

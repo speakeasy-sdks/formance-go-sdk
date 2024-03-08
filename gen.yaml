@@ -10,7 +10,7 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
 go:
-  version: 0.9.4
+  version: 0.10.0
   additionalDependencies: {}
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true
@@ -26,3 +26,4 @@ go:
   maxMethodParams: 4
   outputModelSuffix: output
   packageName: github.com/speakeasy-sdks/formance-go-sdk
+  responseFormat: envelope

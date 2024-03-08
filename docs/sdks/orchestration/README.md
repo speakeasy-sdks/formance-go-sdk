@@ -47,7 +47,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.CreateWorkflowResponse != nil {
         // handle response
     }
@@ -98,7 +97,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.GetWorkflowResponse != nil {
         // handle response
     }
@@ -151,7 +149,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.GetWorkflowOccurrenceResponse != nil {
         // handle response
     }
@@ -200,7 +197,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.ListWorkflowsResponse != nil {
         // handle response
     }
@@ -250,7 +246,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.ListRunsResponse != nil {
         // handle response
     }
@@ -298,7 +293,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.ServerInfo != nil {
         // handle response
     }
@@ -354,7 +348,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.RunWorkflowResponse != nil {
         // handle response
     }

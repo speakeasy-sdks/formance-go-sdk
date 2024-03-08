@@ -44,7 +44,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.ConfigResponse != nil {
         // handle response
     }
@@ -103,7 +102,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.ConfigResponse != nil {
         // handle response
     }
@@ -155,7 +153,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.ConfigResponse != nil {
         // handle response
     }
@@ -191,7 +188,6 @@ import(
 	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	"net/http"
 )
 
 func main() {
@@ -207,8 +203,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
-    if res.StatusCode == http.StatusOK {
+    if res != nil {
         // handle response
     }
 }
@@ -260,7 +255,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.ConfigsResponse != nil {
         // handle response
     }
@@ -325,7 +319,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.ConfigResponse != nil {
         // handle response
     }
@@ -376,7 +369,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.AttemptResponse != nil {
         // handle response
     }

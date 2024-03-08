@@ -26,7 +26,6 @@ import(
 	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	"net/http"
 )
 
 func main() {
@@ -49,8 +48,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
-    if res.StatusCode == http.StatusOK {
+    if res != nil {
         // handle response
     }
 }
@@ -88,7 +86,6 @@ import(
 	"github.com/speakeasy-sdks/formance-go-sdk/pkg/models/operations"
 	"context"
 	"log"
-	"net/http"
 )
 
 func main() {
@@ -108,8 +105,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
-    if res.StatusCode == http.StatusOK {
+    if res != nil {
         // handle response
     }
 }
@@ -163,7 +159,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.AccountResponse != nil {
         // handle response
     }
@@ -222,7 +217,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.AccountsCursorResponse != nil {
         // handle response
     }

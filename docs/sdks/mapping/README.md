@@ -39,7 +39,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.MappingResponse != nil {
         // handle response
     }
@@ -99,7 +98,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.MappingResponse != nil {
         // handle response
     }

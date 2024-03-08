@@ -29,7 +29,6 @@ import(
 	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	"net/http"
 )
 
 func main() {
@@ -47,8 +46,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
-    if res.StatusCode == http.StatusOK {
+    if res != nil {
         // handle response
     }
 }
@@ -98,7 +96,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.CreateScopeResponse != nil {
         // handle response
     }
@@ -134,7 +131,6 @@ import(
 	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	"net/http"
 )
 
 func main() {
@@ -150,8 +146,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
-    if res.StatusCode == http.StatusOK {
+    if res != nil {
         // handle response
     }
 }
@@ -186,7 +181,6 @@ import(
 	formancegosdk "github.com/speakeasy-sdks/formance-go-sdk"
 	"context"
 	"log"
-	"net/http"
 )
 
 func main() {
@@ -204,8 +198,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
-    if res.StatusCode == http.StatusOK {
+    if res != nil {
         // handle response
     }
 }
@@ -253,7 +246,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.ListScopesResponse != nil {
         // handle response
     }
@@ -303,7 +295,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.ReadScopeResponse != nil {
         // handle response
     }
@@ -358,7 +349,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.UpdateScopeResponse != nil {
         // handle response
     }
