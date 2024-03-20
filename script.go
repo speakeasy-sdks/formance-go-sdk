@@ -34,6 +34,7 @@ func (s *Script) RunScript(ctx context.Context, script shared.Script, ledger str
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "runScript",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 

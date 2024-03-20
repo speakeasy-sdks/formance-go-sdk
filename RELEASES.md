@@ -341,3 +341,13 @@ Based on:
 - [go v0.10.1] .
 ### Releases
 - [Go v0.10.1] https://github.com/speakeasy-sdks/formance-go-sdk/releases/tag/v0.10.1 - .
+
+## 2024-03-20 00:38:44
+### Changes
+Based on:
+- OpenAPI Doc v1.0.0-rc.5 ./stack.yaml
+- Speakeasy CLI 1.213.0 (2.283.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [go v0.10.2] .
+### Releases
+- [Go v0.10.2] https://github.com/speakeasy-sdks/formance-go-sdk/releases/tag/v0.10.2 - .

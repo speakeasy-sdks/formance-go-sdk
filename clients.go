@@ -32,6 +32,7 @@ func (s *Clients) AddScopeToClient(ctx context.Context, clientID string, scopeID
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "addScopeToClient",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -115,6 +116,7 @@ func (s *Clients) CreateClient(ctx context.Context, request *shared.CreateClient
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "createClient",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -210,6 +212,7 @@ func (s *Clients) CreateSecret(ctx context.Context, clientID string, createSecre
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "createSecret",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -310,6 +313,7 @@ func (s *Clients) DeleteClient(ctx context.Context, clientID string) (*operation
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "deleteClient",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -392,6 +396,7 @@ func (s *Clients) DeleteScopeFromClient(ctx context.Context, clientID string, sc
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "deleteScopeFromClient",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -475,6 +480,7 @@ func (s *Clients) DeleteSecret(ctx context.Context, clientID string, secretID st
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "deleteSecret",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -558,6 +564,7 @@ func (s *Clients) ListClients(ctx context.Context) (*operations.ListClientsRespo
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "listClients",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -647,6 +654,7 @@ func (s *Clients) ReadClient(ctx context.Context, clientID string) (*operations.
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "readClient",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -740,6 +748,7 @@ func (s *Clients) UpdateClient(ctx context.Context, clientID string, updateClien
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "updateClient",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 

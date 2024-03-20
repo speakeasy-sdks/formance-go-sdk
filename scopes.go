@@ -33,6 +33,7 @@ func (s *Scopes) AddTransientScope(ctx context.Context, scopeID string, transien
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "addTransientScope",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -117,6 +118,7 @@ func (s *Scopes) CreateScope(ctx context.Context, request *shared.CreateScopeReq
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "createScope",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -213,6 +215,7 @@ func (s *Scopes) DeleteScope(ctx context.Context, scopeID string) (*operations.D
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "deleteScope",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -296,6 +299,7 @@ func (s *Scopes) DeleteTransientScope(ctx context.Context, scopeID string, trans
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "deleteTransientScope",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -380,6 +384,7 @@ func (s *Scopes) ListScopes(ctx context.Context) (*operations.ListScopesResponse
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "listScopes",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -470,6 +475,7 @@ func (s *Scopes) ReadScope(ctx context.Context, scopeID string) (*operations.Rea
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "readScope",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -564,6 +570,7 @@ func (s *Scopes) UpdateScope(ctx context.Context, scopeID string, updateScopeReq
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "updateScope",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 

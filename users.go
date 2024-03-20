@@ -33,6 +33,7 @@ func (s *Users) ListUsers(ctx context.Context) (*operations.ListUsersResponse, e
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "listUsers",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -123,6 +124,7 @@ func (s *Users) ReadUser(ctx context.Context, userID string) (*operations.ReadUs
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "readUser",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 

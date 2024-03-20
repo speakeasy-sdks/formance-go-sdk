@@ -33,6 +33,7 @@ func (s *Webhooks) ActivateConfig(ctx context.Context, id string) (*operations.A
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "activateConfig",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -131,6 +132,7 @@ func (s *Webhooks) ChangeConfigSecret(ctx context.Context, id string, configChan
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "changeConfigSecret",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -232,6 +234,7 @@ func (s *Webhooks) DeactivateConfig(ctx context.Context, id string) (*operations
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "deactivateConfig",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -327,6 +330,7 @@ func (s *Webhooks) DeleteConfig(ctx context.Context, id string) (*operations.Del
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "deleteConfig",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -410,6 +414,7 @@ func (s *Webhooks) GetManyConfigs(ctx context.Context, endpoint *string, id *str
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "getManyConfigs",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -517,6 +522,7 @@ func (s *Webhooks) InsertConfig(ctx context.Context, request shared.ConfigUser) 
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "insertConfig",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -615,6 +621,7 @@ func (s *Webhooks) TestConfig(ctx context.Context, id string) (*operations.TestC
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "testConfig",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 

@@ -31,6 +31,7 @@ func (s *Transactions) CreateTransactions(ctx context.Context, transactions shar
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "CreateTransactions",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -141,6 +142,7 @@ func (s *Transactions) AddMetadataOnTransaction(ctx context.Context, ledger stri
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "addMetadataOnTransaction",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -241,6 +243,7 @@ func (s *Transactions) CountTransactions(ctx context.Context, request operations
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "countTransactions",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -335,6 +338,7 @@ func (s *Transactions) CreateTransaction(ctx context.Context, postTransaction sh
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "createTransaction",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -450,6 +454,7 @@ func (s *Transactions) GetTransaction(ctx context.Context, ledger string, txid i
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "getTransaction",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -555,6 +560,7 @@ func (s *Transactions) ListTransactions(ctx context.Context, request operations.
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "listTransactions",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -658,6 +664,7 @@ func (s *Transactions) RevertTransaction(ctx context.Context, ledger string, txi
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "revertTransaction",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 

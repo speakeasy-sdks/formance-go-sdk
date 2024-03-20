@@ -208,9 +208,9 @@ func New(opts ...SDKOption) *Formance {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "v1.0.0-rc.5",
-			SDKVersion:        "0.10.1",
-			GenVersion:        "2.280.6",
-			UserAgent:         "speakeasy-sdk/go 0.10.1 2.280.6 v1.0.0-rc.5 github.com/speakeasy-sdks/formance-go-sdk",
+			SDKVersion:        "0.10.2",
+			GenVersion:        "2.283.1",
+			UserAgent:         "speakeasy-sdk/go 0.10.2 2.283.1 v1.0.0-rc.5 github.com/speakeasy-sdks/formance-go-sdk",
 			ServerDefaults: []map[string]string{
 				{},
 				{
@@ -278,6 +278,7 @@ func (s *Formance) GetServerInfo(ctx context.Context) (*operations.GetServerInfo
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "getServerInfo",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -367,6 +368,7 @@ func (s *Formance) PaymentsgetServerInfo(ctx context.Context) (*operations.Payme
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "paymentsgetServerInfo",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -456,6 +458,7 @@ func (s *Formance) SearchgetServerInfo(ctx context.Context) (*operations.Searchg
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "searchgetServerInfo",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 

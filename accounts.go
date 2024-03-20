@@ -31,6 +31,7 @@ func (s *Accounts) AddMetadataToAccount(ctx context.Context, requestBody map[str
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "addMetadataToAccount",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -131,6 +132,7 @@ func (s *Accounts) CountAccounts(ctx context.Context, ledger string, address *st
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "countAccounts",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -231,6 +233,7 @@ func (s *Accounts) GetAccount(ctx context.Context, address string, ledger string
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "getAccount",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -336,6 +339,7 @@ func (s *Accounts) ListAccounts(ctx context.Context, request operations.ListAcco
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "listAccounts",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 

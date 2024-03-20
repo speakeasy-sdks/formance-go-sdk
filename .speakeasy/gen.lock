@@ -3,10 +3,10 @@ id: 884040e6-e056-469c-81c7-dc3139ef42b6
 management:
   docChecksum: e2d62c3257abdb44d60905723bd6484e
   docVersion: v1.0.0-rc.5
-  speakeasyVersion: 1.207.1
-  generationVersion: 2.280.6
-  releaseVersion: 0.10.1
-  configChecksum: 4ec5e721f033ba0704d7b877cf22289f
+  speakeasyVersion: 1.213.0
+  generationVersion: 2.283.1
+  releaseVersion: 0.10.2
+  configChecksum: 48b65badb1317e4562ae3e2d7e93efab
   repoURL: https://github.com/speakeasy-sdks/formance-go-sdk.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/formance-go-sdk
@@ -17,7 +17,7 @@ features:
     core: 3.4.4
     deprecations: 2.81.1
     flattening: 2.81.1
-    globalSecurity: 2.82.8
+    globalSecurity: 2.82.9
     globalServerURLs: 2.82.2
     nameOverrides: 2.81.1
     responseFormat: 0.1.0

@@ -32,6 +32,7 @@ func (s *Logs) ListLogs(ctx context.Context, request operations.ListLogsRequest)
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "listLogs",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 

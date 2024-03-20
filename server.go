@@ -32,6 +32,7 @@ func (s *Server) GetInfo(ctx context.Context) (*operations.GetInfoResponse, erro
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "getInfo",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 

@@ -31,6 +31,7 @@ func (s *Mapping) GetMapping(ctx context.Context, ledger string) (*operations.Ge
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "getMapping",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -134,6 +135,7 @@ func (s *Mapping) UpdateMapping(ctx context.Context, mapping *shared.Mapping, le
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "updateMapping",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 

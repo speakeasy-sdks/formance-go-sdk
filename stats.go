@@ -32,6 +32,7 @@ func (s *Stats) ReadStats(ctx context.Context, ledger string) (*operations.ReadS
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "readStats",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 

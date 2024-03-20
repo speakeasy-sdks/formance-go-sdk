@@ -31,6 +31,7 @@ func (s *Ledger) GetLedgerInfo(ctx context.Context, ledger string) (*operations.
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "getLedgerInfo",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 

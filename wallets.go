@@ -32,6 +32,7 @@ func (s *Wallets) ConfirmHold(ctx context.Context, holdID string, confirmHoldReq
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "confirmHold",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -131,6 +132,7 @@ func (s *Wallets) CreateBalance(ctx context.Context, id string, createBalanceReq
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "createBalance",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -241,6 +243,7 @@ func (s *Wallets) CreateWallet(ctx context.Context, request *shared.CreateWallet
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "createWallet",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -346,6 +349,7 @@ func (s *Wallets) CreditWallet(ctx context.Context, id string, creditWalletReque
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "creditWallet",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -445,6 +449,7 @@ func (s *Wallets) DebitWallet(ctx context.Context, id string, debitWalletRequest
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "debitWallet",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -556,6 +561,7 @@ func (s *Wallets) GetBalance(ctx context.Context, balanceName string, id string)
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "getBalance",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -660,6 +666,7 @@ func (s *Wallets) GetHold(ctx context.Context, holdID string) (*operations.GetHo
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "getHold",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -763,6 +770,7 @@ func (s *Wallets) GetHolds(ctx context.Context, cursor *string, metadata *operat
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "getHolds",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -872,6 +880,7 @@ func (s *Wallets) GetTransactions(ctx context.Context, cursor *string, pageSize 
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "getTransactions",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -981,6 +990,7 @@ func (s *Wallets) GetWallet(ctx context.Context, id string) (*operations.GetWall
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "getWallet",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -1086,6 +1096,7 @@ func (s *Wallets) ListBalances(ctx context.Context, id string) (*operations.List
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "listBalances",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -1179,6 +1190,7 @@ func (s *Wallets) ListWallets(ctx context.Context, cursor *string, metadata *ope
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "listWallets",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -1279,6 +1291,7 @@ func (s *Wallets) UpdateWallet(ctx context.Context, id string, requestBody *oper
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "updateWallet",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -1378,6 +1391,7 @@ func (s *Wallets) VoidHold(ctx context.Context, holdID string) (*operations.Void
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "voidHold",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -1470,6 +1484,7 @@ func (s *Wallets) WalletsgetServerInfo(ctx context.Context) (*operations.Wallets
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "walletsgetServerInfo",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 

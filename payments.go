@@ -33,6 +33,7 @@ func (s *Payments) ConnectorsStripeTransfer(ctx context.Context, request shared.
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "connectorsStripeTransfer",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -129,6 +130,7 @@ func (s *Payments) GetConnectorTask(ctx context.Context, connector shared.Connec
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "getConnectorTask",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -223,6 +225,7 @@ func (s *Payments) GetPayment(ctx context.Context, paymentID string) (*operation
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "getPayment",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -317,6 +320,7 @@ func (s *Payments) InstallConnector(ctx context.Context, connectorConfig shared.
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "installConnector",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -407,6 +411,7 @@ func (s *Payments) ListAllConnectors(ctx context.Context) (*operations.ListAllCo
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "listAllConnectors",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -497,6 +502,7 @@ func (s *Payments) ListConfigsAvailableConnectors(ctx context.Context) (*operati
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "listConfigsAvailableConnectors",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -587,6 +593,7 @@ func (s *Payments) ListConnectorTasks(ctx context.Context, connector shared.Conn
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "listConnectorTasks",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -686,6 +693,7 @@ func (s *Payments) ListPayments(ctx context.Context, cursor *string, pageSize *i
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "listPayments",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -785,6 +793,7 @@ func (s *Payments) PaymentslistAccounts(ctx context.Context, cursor *string, pag
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "paymentslistAccounts",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -885,6 +894,7 @@ func (s *Payments) ReadConnectorConfig(ctx context.Context, connector shared.Con
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "readConnectorConfig",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -980,6 +990,7 @@ func (s *Payments) ResetConnector(ctx context.Context, connector shared.Connecto
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "resetConnector",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -1063,6 +1074,7 @@ func (s *Payments) UninstallConnector(ctx context.Context, connector shared.Conn
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "uninstallConnector",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 

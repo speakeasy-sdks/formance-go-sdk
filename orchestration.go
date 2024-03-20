@@ -33,6 +33,7 @@ func (s *Orchestration) CreateWorkflow(ctx context.Context, request *shared.Crea
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "createWorkflow",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -139,6 +140,7 @@ func (s *Orchestration) GetFlow(ctx context.Context, flowID string) (*operations
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "getFlow",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -243,6 +245,7 @@ func (s *Orchestration) GetWorkflowOccurrence(ctx context.Context, flowID string
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "getWorkflowOccurrence",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -348,6 +351,7 @@ func (s *Orchestration) ListFlows(ctx context.Context) (*operations.ListFlowsRes
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "listFlows",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -448,6 +452,7 @@ func (s *Orchestration) ListRuns(ctx context.Context, flowID string) (*operation
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "listRuns",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -551,6 +556,7 @@ func (s *Orchestration) OrchestrationgetServerInfo(ctx context.Context) (*operat
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "orchestrationgetServerInfo",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -651,6 +657,7 @@ func (s *Orchestration) RunWorkflow(ctx context.Context, flowID string, requestB
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "runWorkflow",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 

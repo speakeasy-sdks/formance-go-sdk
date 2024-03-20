@@ -31,6 +31,7 @@ func (s *Balances) GetBalances(ctx context.Context, request operations.GetBalanc
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "getBalances",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -134,6 +135,7 @@ func (s *Balances) GetBalancesAggregated(ctx context.Context, ledger string, add
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "getBalancesAggregated",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
