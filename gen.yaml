@@ -1,12 +1,29 @@
-configVersion: 1.0.0
-management:
-  docChecksum: e2d62c3257abdb44d60905723bd6484e
-  docVersion: v1.0.0-rc.5
-  speakeasyVersion: 1.12.0
+configVersion: 2.0.0
 generation:
-  telemetryEnabled: false
   sdkClassName: formance
-  sdkFlattening: true
+  usageSnippets:
+    optionalPropertyRendering: withExample
+  fixes:
+    nameResolutionDec2023: false
+    parameterOrderingFeb2024: false
+    requestResponseComponentNamesFeb2024: false
+  auth:
+    oAuth2ClientCredentialsEnabled: false
 go:
-  version: 0.3.1
+  version: 0.10.3
+  additionalDependencies: {}
+  clientServerStatusCodesAsErrors: true
+  flattenGlobalSecurity: true
+  imports:
+    option: openapi
+    paths:
+      callbacks: pkg/models/callbacks
+      errors: pkg/models/sdkerrors
+      operations: pkg/models/operations
+      shared: pkg/models/shared
+      webhooks: pkg/models/webhooks
+  inputModelSuffix: input
+  maxMethodParams: 4
+  outputModelSuffix: output
   packageName: github.com/speakeasy-sdks/formance-go-sdk
+  responseFormat: envelope
